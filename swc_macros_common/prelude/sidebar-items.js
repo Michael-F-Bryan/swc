@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Delimiter",""],["Element",""],["TokenNode",""]],"struct":[["Delimited",""],["Span",""],["SynSpan",""],["TokenStream",""],["TokenTree",""],["Tokens","Tokens produced by a `quote!(...)` invocation."]],"trait":[["ToTokens","Types that can be interpolated inside a `quote!(...)` invocation."]]});

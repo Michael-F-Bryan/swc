@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["syn",""]],"struct":[["Ident","A word of Rust code, such as a keyword or variable name."],["Literal",""],["Quote","Buffer for quasi quotting."],["Span",""],["SynSpan",""],["Term",""],["TokenStream",""],["TokenTree",""]],"trait":[["SpanExt","Extension trait for [Span][] and [syn::Span][]."]]});

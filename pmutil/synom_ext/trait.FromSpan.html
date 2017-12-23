@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `FromSpan` trait in crate `pmutil`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, FromSpan">
+
+    <title>pmutil::synom_ext::FromSpan - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc trait">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Trait FromSpan</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.from_span">from_span</a></div><a class="sidebar-title" href="#foreign-impls">Implementations on Foreign Types</a><div class="sidebar-links"><a href="#impl-FromSpan">[T; 1]</a><a href="#impl-FromSpan">[T; 2]</a><a href="#impl-FromSpan">[T; 3]</a><a href="#impl-FromSpan">[T; 4]</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../index.html'>pmutil</a>::<wbr><a href='index.html'>synom_ext</a></p><script>window.sidebarCurrent = {name: 'FromSpan', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>pmutil</a>::<wbr><a href='index.html'>synom_ext</a>::<wbr><a class="trait" href=''>FromSpan</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#11-13' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait FromSpan {
+    fn <a href='#tymethod.from_span' class='fnname'>from_span</a>(span: <a class="struct" href="../../pmutil/prelude/struct.Span.html" title="struct pmutil::prelude::Span">Span</a>) -&gt; Self;
+}</pre><div class='docblock'><p>See <a href="../trait.SpanExt.html#method.as_token">SpanExt#as_token</a> for usage. Create tokens from <a href="../../proc_macro2/struct.Span.html">Span</a>.</p>
+</div>
+            <h2 id='required-methods' class='small-section-header'>
+              Required Methods<a href='#required-methods' class='anchor'></a>
+            </h2>
+            <div class='methods'>
+        <h3 id='tymethod.from_span' class='method'><span id='from_span.v' class='invisible'><code>fn <a href='#tymethod.from_span' class='fnname'>from_span</a>(span: <a class="struct" href="../../pmutil/prelude/struct.Span.html" title="struct pmutil::prelude::Span">Span</a>) -&gt; Self</code></span></h3></div>
+                <h2 id='foreign-impls' class='small-section-header'>
+                  Implementations on Foreign Types<a href='#foreign-impls' class='anchor'></a>
+                </h2>
+            <h3 id='impl-FromSpan' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;<a class="trait" href="../../pmutil/synom_ext/trait.FromSpan.html" title="trait pmutil::synom_ext::FromSpan">FromSpan</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a>&gt; <a class="trait" href="../../pmutil/synom_ext/trait.FromSpan.html" title="trait pmutil::synom_ext::FromSpan">FromSpan</a> for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 1]</a></code><a href='#impl-FromSpan' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#32-38' title='goto source code'>[src]</a></span></h3>
+<span class='docblock autohide'><div class='impl-items'><h4 id='method.from_span' class="method"><span id='from_span.v-1' class='invisible'><code>fn <a href='#method.from_span' class='fnname'>from_span</a>(span: <a class="struct" href="../../pmutil/prelude/struct.Span.html" title="struct pmutil::prelude::Span">Span</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#34-37' title='goto source code'>[src]</a></span></h4>
+</div></span><h3 id='impl-FromSpan-1' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;<a class="trait" href="../../pmutil/synom_ext/trait.FromSpan.html" title="trait pmutil::synom_ext::FromSpan">FromSpan</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a>&gt; <a class="trait" href="../../pmutil/synom_ext/trait.FromSpan.html" title="trait pmutil::synom_ext::FromSpan">FromSpan</a> for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 2]</a></code><a href='#impl-FromSpan-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#32-38' title='goto source code'>[src]</a></span></h3>
+<span class='docblock autohide'><div class='impl-items'><h4 id='method.from_span-1' class="method"><span id='from_span.v-2' class='invisible'><code>fn <a href='#method.from_span' class='fnname'>from_span</a>(span: <a class="struct" href="../../pmutil/prelude/struct.Span.html" title="struct pmutil::prelude::Span">Span</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#34-37' title='goto source code'>[src]</a></span></h4>
+</div></span><h3 id='impl-FromSpan-2' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;<a class="trait" href="../../pmutil/synom_ext/trait.FromSpan.html" title="trait pmutil::synom_ext::FromSpan">FromSpan</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a>&gt; <a class="trait" href="../../pmutil/synom_ext/trait.FromSpan.html" title="trait pmutil::synom_ext::FromSpan">FromSpan</a> for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 3]</a></code><a href='#impl-FromSpan-2' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#32-38' title='goto source code'>[src]</a></span></h3>
+<span class='docblock autohide'><div class='impl-items'><h4 id='method.from_span-2' class="method"><span id='from_span.v-3' class='invisible'><code>fn <a href='#method.from_span' class='fnname'>from_span</a>(span: <a class="struct" href="../../pmutil/prelude/struct.Span.html" title="struct pmutil::prelude::Span">Span</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#34-37' title='goto source code'>[src]</a></span></h4>
+</div></span><h3 id='impl-FromSpan-3' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;<a class="trait" href="../../pmutil/synom_ext/trait.FromSpan.html" title="trait pmutil::synom_ext::FromSpan">FromSpan</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a>&gt; <a class="trait" href="../../pmutil/synom_ext/trait.FromSpan.html" title="trait pmutil::synom_ext::FromSpan">FromSpan</a> for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 4]</a></code><a href='#impl-FromSpan-3' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#32-38' title='goto source code'>[src]</a></span></h3>
+<span class='docblock autohide'><div class='impl-items'><h4 id='method.from_span-3' class="method"><span id='from_span.v-4' class='invisible'><code>fn <a href='#method.from_span' class='fnname'>from_span</a>(span: <a class="struct" href="../../pmutil/prelude/struct.Span.html" title="struct pmutil::prelude::Span">Span</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#34-37' title='goto source code'>[src]</a></span></h4>
+</div></span>
+        <h2 id='implementors' class='small-section-header'>
+          Implementors<a href='#implementors' class='anchor'></a>
+        </h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#15-20' title='goto source code'>[src]</a></div><code>impl FromSpan for pmutil::prelude::<a class="struct" href="../../pmutil/prelude/struct.Span.html" title="struct pmutil::prelude::Span">Span</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#23-28' title='goto source code'>[src]</a></div><code>impl FromSpan for pmutil::prelude::<a class="struct" href="../../pmutil/prelude/struct.SynSpan.html" title="struct pmutil::prelude::SynSpan">SynSpan</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Add.html" title="struct pmutil::prelude::syn::tokens::Add">Add</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.AddEq.html" title="struct pmutil::prelude::syn::tokens::AddEq">AddEq</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.And.html" title="struct pmutil::prelude::syn::tokens::And">And</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.AndAnd.html" title="struct pmutil::prelude::syn::tokens::AndAnd">AndAnd</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.AndEq.html" title="struct pmutil::prelude::syn::tokens::AndEq">AndEq</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.As.html" title="struct pmutil::prelude::syn::tokens::As">As</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.At.html" title="struct pmutil::prelude::syn::tokens::At">At</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Auto.html" title="struct pmutil::prelude::syn::tokens::Auto">Auto</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Bang.html" title="struct pmutil::prelude::syn::tokens::Bang">Bang</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Box.html" title="struct pmutil::prelude::syn::tokens::Box">Box</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Brace.html" title="struct pmutil::prelude::syn::tokens::Brace">Brace</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Bracket.html" title="struct pmutil::prelude::syn::tokens::Bracket">Bracket</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Break.html" title="struct pmutil::prelude::syn::tokens::Break">Break</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.CapSelf.html" title="struct pmutil::prelude::syn::tokens::CapSelf">CapSelf</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Caret.html" title="struct pmutil::prelude::syn::tokens::Caret">Caret</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.CaretEq.html" title="struct pmutil::prelude::syn::tokens::CaretEq">CaretEq</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Catch.html" title="struct pmutil::prelude::syn::tokens::Catch">Catch</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Colon.html" title="struct pmutil::prelude::syn::tokens::Colon">Colon</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Colon2.html" title="struct pmutil::prelude::syn::tokens::Colon2">Colon2</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Comma.html" title="struct pmutil::prelude::syn::tokens::Comma">Comma</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Const.html" title="struct pmutil::prelude::syn::tokens::Const">Const</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Continue.html" title="struct pmutil::prelude::syn::tokens::Continue">Continue</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Crate.html" title="struct pmutil::prelude::syn::tokens::Crate">Crate</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Default.html" title="struct pmutil::prelude::syn::tokens::Default">Default</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Div.html" title="struct pmutil::prelude::syn::tokens::Div">Div</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.DivEq.html" title="struct pmutil::prelude::syn::tokens::DivEq">DivEq</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Do.html" title="struct pmutil::prelude::syn::tokens::Do">Do</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Dot.html" title="struct pmutil::prelude::syn::tokens::Dot">Dot</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Dot2.html" title="struct pmutil::prelude::syn::tokens::Dot2">Dot2</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Dot3.html" title="struct pmutil::prelude::syn::tokens::Dot3">Dot3</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Else.html" title="struct pmutil::prelude::syn::tokens::Else">Else</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Enum.html" title="struct pmutil::prelude::syn::tokens::Enum">Enum</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Eq.html" title="struct pmutil::prelude::syn::tokens::Eq">Eq</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.EqEq.html" title="struct pmutil::prelude::syn::tokens::EqEq">EqEq</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Extern.html" title="struct pmutil::prelude::syn::tokens::Extern">Extern</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Fn.html" title="struct pmutil::prelude::syn::tokens::Fn">Fn</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.For.html" title="struct pmutil::prelude::syn::tokens::For">For</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Ge.html" title="struct pmutil::prelude::syn::tokens::Ge">Ge</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Group.html" title="struct pmutil::prelude::syn::tokens::Group">Group</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Gt.html" title="struct pmutil::prelude::syn::tokens::Gt">Gt</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.If.html" title="struct pmutil::prelude::syn::tokens::If">If</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Impl.html" title="struct pmutil::prelude::syn::tokens::Impl">Impl</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.In.html" title="struct pmutil::prelude::syn::tokens::In">In</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.LArrow.html" title="struct pmutil::prelude::syn::tokens::LArrow">LArrow</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Le.html" title="struct pmutil::prelude::syn::tokens::Le">Le</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Let.html" title="struct pmutil::prelude::syn::tokens::Let">Let</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Loop.html" title="struct pmutil::prelude::syn::tokens::Loop">Loop</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Lt.html" title="struct pmutil::prelude::syn::tokens::Lt">Lt</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Match.html" title="struct pmutil::prelude::syn::tokens::Match">Match</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Mod.html" title="struct pmutil::prelude::syn::tokens::Mod">Mod</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Move.html" title="struct pmutil::prelude::syn::tokens::Move">Move</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.MulEq.html" title="struct pmutil::prelude::syn::tokens::MulEq">MulEq</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Mut.html" title="struct pmutil::prelude::syn::tokens::Mut">Mut</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Ne.html" title="struct pmutil::prelude::syn::tokens::Ne">Ne</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Or.html" title="struct pmutil::prelude::syn::tokens::Or">Or</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.OrEq.html" title="struct pmutil::prelude::syn::tokens::OrEq">OrEq</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.OrOr.html" title="struct pmutil::prelude::syn::tokens::OrOr">OrOr</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Paren.html" title="struct pmutil::prelude::syn::tokens::Paren">Paren</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Pound.html" title="struct pmutil::prelude::syn::tokens::Pound">Pound</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Pub.html" title="struct pmutil::prelude::syn::tokens::Pub">Pub</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Question.html" title="struct pmutil::prelude::syn::tokens::Question">Question</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.RArrow.html" title="struct pmutil::prelude::syn::tokens::RArrow">RArrow</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Ref.html" title="struct pmutil::prelude::syn::tokens::Ref">Ref</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Rem.html" title="struct pmutil::prelude::syn::tokens::Rem">Rem</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.RemEq.html" title="struct pmutil::prelude::syn::tokens::RemEq">RemEq</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Return.html" title="struct pmutil::prelude::syn::tokens::Return">Return</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Rocket.html" title="struct pmutil::prelude::syn::tokens::Rocket">Rocket</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Self_.html" title="struct pmutil::prelude::syn::tokens::Self_">Self_</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Semi.html" title="struct pmutil::prelude::syn::tokens::Semi">Semi</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Shl.html" title="struct pmutil::prelude::syn::tokens::Shl">Shl</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.ShlEq.html" title="struct pmutil::prelude::syn::tokens::ShlEq">ShlEq</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Shr.html" title="struct pmutil::prelude::syn::tokens::Shr">Shr</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.ShrEq.html" title="struct pmutil::prelude::syn::tokens::ShrEq">ShrEq</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Star.html" title="struct pmutil::prelude::syn::tokens::Star">Star</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Static.html" title="struct pmutil::prelude::syn::tokens::Static">Static</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Struct.html" title="struct pmutil::prelude::syn::tokens::Struct">Struct</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Sub.html" title="struct pmutil::prelude::syn::tokens::Sub">Sub</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.SubEq.html" title="struct pmutil::prelude::syn::tokens::SubEq">SubEq</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Super.html" title="struct pmutil::prelude::syn::tokens::Super">Super</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Trait.html" title="struct pmutil::prelude::syn::tokens::Trait">Trait</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Type.html" title="struct pmutil::prelude::syn::tokens::Type">Type</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Underscore.html" title="struct pmutil::prelude::syn::tokens::Underscore">Underscore</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Union.html" title="struct pmutil::prelude::syn::tokens::Union">Union</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Unsafe.html" title="struct pmutil::prelude::syn::tokens::Unsafe">Unsafe</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Use.html" title="struct pmutil::prelude::syn::tokens::Use">Use</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Where.html" title="struct pmutil::prelude::syn::tokens::Where">Where</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.While.html" title="struct pmutil::prelude::syn::tokens::While">While</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/pmutil/synom_ext.rs.html#51-56' title='goto source code'>[src]</a></div><code>impl FromSpan for <a class="struct" href="../../pmutil/prelude/syn/tokens/struct.Yield.html" title="struct pmutil::prelude::syn::tokens::Yield">Yield</a></code></li>
+</ul><script type="text/javascript" async
+                         src="../../implementors/pmutil/synom_ext/trait.FromSpan.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "pmutil";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>
