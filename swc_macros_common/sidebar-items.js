@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["call_site",""],["print","`attr` - tokens inside `#[]`. e.g. `derive(EqIgnoreSpan)`, ast_node"]],"macro":[["fail","fail! is a panic! with location reporting."],["unimplemented",""],["unreachable",""]],"mod":[["prelude",""]]});

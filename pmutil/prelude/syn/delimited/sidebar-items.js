@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Element",""]],"struct":[["Delimited",""],["IntoIter",""],["Items",""],["Iter",""],["IterMut",""]]});

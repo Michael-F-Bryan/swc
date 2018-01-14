@@ -1,1 +1,0 @@
-initSidebarItems({"macro":[["js_ident",""]],"struct":[["JsIdentStaticSet",""]],"type":[["JsIdent",""]]});

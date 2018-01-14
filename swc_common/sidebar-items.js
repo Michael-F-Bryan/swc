@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["BytePos",""],["Span",""]],"trait":[["AstNode","Currently just a marker trait."],["EqIgnoreSpan",""]]});
