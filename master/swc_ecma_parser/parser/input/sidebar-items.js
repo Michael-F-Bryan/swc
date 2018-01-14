@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Item","One token"],["ItemIter",""],["ParserInput","This struct is responsible for managing current token and peeked token."]],"trait":[["Input","Input for parser."]]});

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `CharExt` trait in crate `swc_ecma_parser`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, CharExt">
+
+    <title>swc_ecma_parser::lexer::util::CharExt - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc trait">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Trait CharExt</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.to_char">to_char</a></div><a class="sidebar-title" href="#provided-methods">Provided Methods</a><div class="sidebar-links"><a href="#method.is_ident_start">is_ident_start</a><a href="#method.is_ident_part">is_ident_part</a><a href="#method.is_line_break">is_line_break</a><a href="#method.is_ws">is_ws</a></div><a class="sidebar-title" href="#foreign-impls">Implementations on Foreign Types</a><div class="sidebar-links"><a href="#impl-CharExt">char</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../index.html'>swc_ecma_parser</a>::<wbr><a href='../index.html'>lexer</a>::<wbr><a href='index.html'>util</a></p><script>window.sidebarCurrent = {name: 'CharExt', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>swc_ecma_parser</a>::<wbr><a href='../index.html'>lexer</a>::<wbr><a href='index.html'>util</a>::<wbr><a class="trait" href=''>CharExt</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#110-168' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait CharExt: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> {
+    fn <a href='#tymethod.to_char' class='fnname'>to_char</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>&gt;;
+
+    fn <a href='#method.is_ident_start' class='fnname'>is_ident_start</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_ident_part' class='fnname'>is_ident_part</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_line_break' class='fnname'>is_line_break</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_ws' class='fnname'>is_ws</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+}</pre><div class='docblock'><p>Implemented for <code>char</code>.</p>
+</div>
+            <h2 id='required-methods' class='small-section-header'>
+              Required Methods<a href='#required-methods' class='anchor'></a>
+            </h2>
+            <div class='methods'>
+        <h3 id='tymethod.to_char' class='method'><span id='to_char.v' class='invisible'><code>fn <a href='#tymethod.to_char' class='fnname'>to_char</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>&gt;</code></span></h3></div>
+            <h2 id='provided-methods' class='small-section-header'>
+              Provided Methods<a href='#provided-methods' class='anchor'></a>
+            </h2>
+            <div class='methods'>
+        <h3 id='method.is_ident_start' class='method'><span id='is_ident_start.v' class='invisible'><code>fn <a href='#method.is_ident_start' class='fnname'>is_ident_start</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><div class='docblock'><p>Test whether a given character code starts an identifier.</p>
+
+<p><a href="https://tc39.github.io/ecma262/#prod-IdentifierStart">https://tc39.github.io/ecma262/#prod-IdentifierStart</a></p>
+</div><h3 id='method.is_ident_part' class='method'><span id='is_ident_part.v' class='invisible'><code>fn <a href='#method.is_ident_part' class='fnname'>is_ident_part</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><div class='docblock'><p>Test whether a given character is part of an identifier.</p>
+</div><h3 id='method.is_line_break' class='method'><span id='is_line_break.v' class='invisible'><code>fn <a href='#method.is_line_break' class='fnname'>is_line_break</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><div class='docblock'><p>See <a href="https://tc39.github.io/ecma262/#sec-line-terminators">https://tc39.github.io/ecma262/#sec-line-terminators</a></p>
+</div><h3 id='method.is_ws' class='method'><span id='is_ws.v' class='invisible'><code>fn <a href='#method.is_ws' class='fnname'>is_ws</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><div class='docblock'><p>See <a href="https://tc39.github.io/ecma262/#sec-white-space">https://tc39.github.io/ecma262/#sec-white-space</a></p>
+</div></div>
+                <h2 id='foreign-impls' class='small-section-header'>
+                  Implementations on Foreign Types<a href='#foreign-impls' class='anchor'></a>
+                </h2>
+            <h3 id='impl-CharExt' class='impl'><span class='in-band'><code>impl <a class="trait" href="../../../swc_ecma_parser/lexer/util/trait.CharExt.html" title="trait swc_ecma_parser::lexer::util::CharExt">CharExt</a> for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a></code><a href='#impl-CharExt' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#170-175' title='goto source code'>[src]</a></span></h3>
+<span class='docblock autohide'><div class='impl-items'><h4 id='method.to_char' class="method"><span id='to_char.v-1' class='invisible'><code>fn <a href='#method.to_char' class='fnname'>to_char</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#172-174' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_ident_start-1' class="method"><span id='is_ident_start.v-1' class='invisible'><code>fn <a href='../../../swc_ecma_parser/lexer/util/trait.CharExt.html#method.is_ident_start' class='fnname'>is_ident_start</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#116-123' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_ident_part-1' class="method"><span id='is_ident_part.v-1' class='invisible'><code>fn <a href='../../../swc_ecma_parser/lexer/util/trait.CharExt.html#method.is_ident_part' class='fnname'>is_ident_part</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#126-133' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_line_break-1' class="method"><span id='is_line_break.v-1' class='invisible'><code>fn <a href='../../../swc_ecma_parser/lexer/util/trait.CharExt.html#method.is_line_break' class='fnname'>is_line_break</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#136-145' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_ws-1' class="method"><span id='is_ws.v-1' class='invisible'><code>fn <a href='../../../swc_ecma_parser/lexer/util/trait.CharExt.html#method.is_ws' class='fnname'>is_ws</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#148-167' title='goto source code'>[src]</a></span></h4>
+</div></span>
+        <h2 id='implementors' class='small-section-header'>
+          Implementors<a href='#implementors' class='anchor'></a>
+        </h2>
+        <ul class='item-list' id='implementors-list'>
+    </ul><script type="text/javascript" async
+                         src="../../../implementors/swc_ecma_parser/lexer/util/trait.CharExt.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "swc_ecma_parser";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

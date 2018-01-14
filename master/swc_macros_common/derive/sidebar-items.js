@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["generics",""]],"struct":[["Derive","Generics of derived impl item."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["empty_normal_generics","Returns true if the generics object has no lifetimes or ty_params."]]});

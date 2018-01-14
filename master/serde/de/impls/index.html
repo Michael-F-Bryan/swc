@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `impls` mod in crate `serde`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, impls">
+
+    <title>serde::de::impls - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Module impls</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#statics">Statics</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../../index.html'>serde</a>::<wbr><a href='../index.html'>de</a></p><script>window.sidebarCurrent = {name: 'impls', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>serde</a>::<wbr><a href='../index.html'>de</a>::<wbr><a class="mod" href=''>impls</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/serde/de/impls.rs.html#9-2061' title='goto source code'>[src]</a></span></h1>
+<h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>use <a class="mod" href="../../../serde/lib/index.html" title="mod serde::lib">lib</a>::*;</code></td></tr><tr><td><code>use de::<a class="trait" href="../../../serde/trait.Deserialize.html" title="trait serde::Deserialize">Deserialize</a>;</code></td></tr><tr><td><code>use de::<a class="trait" href="../../../serde/trait.Deserializer.html" title="trait serde::Deserializer">Deserializer</a>;</code></td></tr><tr><td><code>use de::<a class="trait" href="../../../serde/de/trait.EnumAccess.html" title="trait serde::de::EnumAccess">EnumAccess</a>;</code></td></tr><tr><td><code>use de::<a class="trait" href="../../../serde/de/trait.Error.html" title="trait serde::de::Error">Error</a>;</code></td></tr><tr><td><code>use de::<a class="trait" href="../../../serde/de/trait.SeqAccess.html" title="trait serde::de::SeqAccess">SeqAccess</a>;</code></td></tr><tr><td><code>use de::<a class="enum" href="../../../serde/de/enum.Unexpected.html" title="enum serde::de::Unexpected">Unexpected</a>;</code></td></tr><tr><td><code>use de::<a class="trait" href="../../../serde/de/trait.VariantAccess.html" title="trait serde::de::VariantAccess">VariantAccess</a>;</code></td></tr><tr><td><code>use de::<a class="trait" href="../../../serde/de/trait.Visitor.html" title="trait serde::de::Visitor">Visitor</a>;</code></td></tr><tr><td><code>use de::<a class="trait" href="../../../serde/de/trait.MapAccess.html" title="trait serde::de::MapAccess">MapAccess</a>;</code></td></tr><tr><td><code>use de::from_primitive::<a class="trait" href="../../../serde/de/from_primitive/trait.FromPrimitive.html" title="trait serde::de::from_primitive::FromPrimitive">FromPrimitive</a>;</code></td></tr><tr><td><code>use private::de::<a class="struct" href="../../../serde/private/de/struct.InPlaceSeed.html" title="struct serde::private::de::InPlaceSeed">InPlaceSeed</a>;</code></td></tr><tr><td><code>use private::de::<a class="mod" href="../../../serde/private/de/size_hint/index.html" title="mod serde::private::de::size_hint">size_hint</a>;</code></td></tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ArrayInPlaceVisitor.html"
+                                  title='struct serde::de::impls::ArrayInPlaceVisitor'>ArrayInPlaceVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ArrayVisitor.html"
+                                  title='struct serde::de::impls::ArrayVisitor'>ArrayVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.BoolVisitor.html"
+                                  title='struct serde::de::impls::BoolVisitor'>BoolVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.BytesVisitor.html"
+                                  title='struct serde::de::impls::BytesVisitor'>BytesVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.CStringVisitor.html"
+                                  title='struct serde::de::impls::CStringVisitor'>CStringVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.CharVisitor.html"
+                                  title='struct serde::de::impls::CharVisitor'>CharVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.OptionVisitor.html"
+                                  title='struct serde::de::impls::OptionVisitor'>OptionVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.OsStringVisitor.html"
+                                  title='struct serde::de::impls::OsStringVisitor'>OsStringVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.PathBufVisitor.html"
+                                  title='struct serde::de::impls::PathBufVisitor'>PathBufVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.PathVisitor.html"
+                                  title='struct serde::de::impls::PathVisitor'>PathVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.PhantomDataVisitor.html"
+                                  title='struct serde::de::impls::PhantomDataVisitor'>PhantomDataVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.StrVisitor.html"
+                                  title='struct serde::de::impls::StrVisitor'>StrVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.StringInPlaceVisitor.html"
+                                  title='struct serde::de::impls::StringInPlaceVisitor'>StringInPlaceVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.StringVisitor.html"
+                                  title='struct serde::de::impls::StringVisitor'>StringVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.UnitVisitor.html"
+                                  title='struct serde::de::impls::UnitVisitor'>UnitVisitor</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.OsStringKind.html"
+                                  title='enum serde::de::impls::OsStringKind'>OsStringKind</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='statics' class='section-header'><a href="#statics">Statics</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.OSSTR_VARIANTS.html"
+                                  title='static serde::de::impls::OSSTR_VARIANTS'>OSSTR_VARIANTS</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.nop_reserve.html"
+                                  title='fn serde::de::impls::nop_reserve'>nop_reserve</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "serde";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ExprKind` enum in crate `swc_ecma_ast`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ExprKind">
+
+    <title>swc_ecma_ast::ExprKind - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc enum">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Enum ExprKind</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#variants">Variants</a><div class="sidebar-links"><a href="#variant.This">This</a><a href="#variant.Array">Array</a><a href="#variant.Object">Object</a><a href="#variant.Function">Function</a><a href="#variant.Unary">Unary</a><a href="#variant.Update">Update</a><a href="#variant.Binary">Binary</a><a href="#variant.Assign">Assign</a><a href="#variant.Member">Member</a><a href="#variant.Cond">Cond</a><a href="#variant.Call">Call</a><a href="#variant.New">New</a><a href="#variant.Seq">Seq</a><a href="#variant.Ident">Ident</a><a href="#variant.Lit">Lit</a><a href="#variant.Tpl">Tpl</a><a href="#variant.Arrow">Arrow</a><a href="#variant.Class">Class</a><a href="#variant.Yield">Yield</a><a href="#variant.MetaProp">MetaProp</a><a href="#variant.Await">Await</a><a href="#variant.Paren">Paren</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Spanned%3CExprKind%3E">Spanned&lt;ExprKind&gt;</a><a href="#impl-FoldWith%3C__Folder%3E">FoldWith&lt;__Folder&gt;</a><a href="#impl-AstNode">AstNode</a><a href="#impl-Clone">Clone</a><a href="#impl-Debug">Debug</a><a href="#impl-PartialEq">PartialEq</a></div></div><p class='location'><a href='index.html'>swc_ecma_ast</a></p><script>window.sidebarCurrent = {name: 'ExprKind', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>swc_ecma_ast</a>::<wbr><a class="enum" href=''>ExprKind</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#20-143' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum ExprKind {
+    This,
+    Array {
+        elems: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../swc_ecma_ast/enum.ExprOrSpread.html" title="enum swc_ecma_ast::ExprOrSpread">ExprOrSpread</a>&gt;&gt;,
+    },
+    Object {
+        props: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Prop.html" title="struct swc_ecma_ast::Prop">Prop</a>&gt;,
+    },
+    Function(<a class="struct" href="../swc_ecma_ast/struct.FnExpr.html" title="struct swc_ecma_ast::FnExpr">FnExpr</a>),
+    Unary {
+        op: <a class="enum" href="../swc_ecma_ast/enum.UnaryOp.html" title="enum swc_ecma_ast::UnaryOp">UnaryOp</a>,
+        prefix: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+        arg: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;,
+    },
+    Update {
+        op: <a class="enum" href="../swc_ecma_ast/enum.UpdateOp.html" title="enum swc_ecma_ast::UpdateOp">UpdateOp</a>,
+        prefix: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+        arg: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;,
+    },
+    Binary {
+        op: <a class="enum" href="../swc_ecma_ast/enum.BinaryOp.html" title="enum swc_ecma_ast::BinaryOp">BinaryOp</a>,
+        left: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;,
+        right: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;,
+    },
+    Assign {
+        op: <a class="enum" href="../swc_ecma_ast/enum.AssignOp.html" title="enum swc_ecma_ast::AssignOp">AssignOp</a>,
+        left: <a class="enum" href="../swc_ecma_ast/enum.PatOrExpr.html" title="enum swc_ecma_ast::PatOrExpr">PatOrExpr</a>,
+        right: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;,
+    },
+    Member {
+        obj: <a class="enum" href="../swc_ecma_ast/enum.ExprOrSuper.html" title="enum swc_ecma_ast::ExprOrSuper">ExprOrSuper</a>,
+        prop: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;,
+        computed: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+    },
+    Cond {
+        test: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;,
+        cons: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;,
+        alt: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;,
+    },
+    Call {
+        callee: <a class="enum" href="../swc_ecma_ast/enum.ExprOrSuper.html" title="enum swc_ecma_ast::ExprOrSuper">ExprOrSuper</a>,
+        args: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="../swc_ecma_ast/enum.ExprOrSpread.html" title="enum swc_ecma_ast::ExprOrSpread">ExprOrSpread</a>&gt;,
+    },
+    New {
+        callee: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;,
+        args: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="../swc_ecma_ast/enum.ExprOrSpread.html" title="enum swc_ecma_ast::ExprOrSpread">ExprOrSpread</a>&gt;&gt;,
+    },
+    Seq {
+        exprs: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;&gt;,
+    },
+    Ident(<a class="struct" href="../swc_ecma_ast/struct.Ident.html" title="struct swc_ecma_ast::Ident">Ident</a>),
+    Lit(<a class="enum" href="../swc_ecma_ast/enum.Lit.html" title="enum swc_ecma_ast::Lit">Lit</a>),
+    Tpl(<a class="struct" href="../swc_ecma_ast/struct.TplLit.html" title="struct swc_ecma_ast::TplLit">TplLit</a>),
+    Arrow {
+        params: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Pat.html" title="struct swc_ecma_ast::Pat">Pat</a>&gt;,
+        body: <a class="enum" href="../swc_ecma_ast/enum.BlockStmtOrExpr.html" title="enum swc_ecma_ast::BlockStmtOrExpr">BlockStmtOrExpr</a>,
+        is_generator: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+        is_async: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+    },
+    Class(<a class="struct" href="../swc_ecma_ast/struct.ClassExpr.html" title="struct swc_ecma_ast::ClassExpr">ClassExpr</a>),
+    Yield {
+        arg: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;&gt;,
+        delegate: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+    },
+    MetaProp {
+        meta: <a class="struct" href="../swc_ecma_ast/struct.Ident.html" title="struct swc_ecma_ast::Ident">Ident</a>,
+        prop: <a class="struct" href="../swc_ecma_ast/struct.Ident.html" title="struct swc_ecma_ast::Ident">Ident</a>,
+    },
+    Await {
+        arg: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;,
+    },
+    Paren(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;),
+}</pre><h2 id='variants' class='variants small-section-header'>
+                   Variants<a href='#variants' class='anchor'></a></h2>
+<span id="variant.This" class="variant small-section-header"><a href="#variant.This" class="anchor field"></a><span id='This.v' class='invisible'><code>This</code></span></span><span id="variant.Array" class="variant small-section-header"><a href="#variant.Array" class="anchor field"></a><span id='Array.v' class='invisible'><code>Array</code></span></span><span class='docblock autohide sub-variant' id='variant.Array.fields'><h3 class='fields'>Fields of <code>Array</code></h3>
+
+                           <table><tr><td id='variant.Array.field.elems'><span id='Array.v.elems.v' class='invisible'><code>elems:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../swc_ecma_ast/enum.ExprOrSpread.html" title="enum swc_ecma_ast::ExprOrSpread">ExprOrSpread</a>&gt;&gt;</code></span></td><td></td></tr></table></span><span id="variant.Object" class="variant small-section-header"><a href="#variant.Object" class="anchor field"></a><span id='Object.v' class='invisible'><code>Object</code></span></span><span class='docblock autohide sub-variant' id='variant.Object.fields'><h3 class='fields'>Fields of <code>Object</code></h3>
+
+                           <table><tr><td id='variant.Object.field.props'><span id='Object.v.props.v' class='invisible'><code>props:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Prop.html" title="struct swc_ecma_ast::Prop">Prop</a>&gt;</code></span></td><td></td></tr></table></span><span id="variant.Function" class="variant small-section-header"><a href="#variant.Function" class="anchor field"></a><span id='Function.v' class='invisible'><code>Function(<a class="struct" href="../swc_ecma_ast/struct.FnExpr.html" title="struct swc_ecma_ast::FnExpr">FnExpr</a>)</code></span></span><span id="variant.Unary" class="variant small-section-header"><a href="#variant.Unary" class="anchor field"></a><span id='Unary.v' class='invisible'><code>Unary</code></span></span><span class='docblock autohide sub-variant' id='variant.Unary.fields'><h3 class='fields'>Fields of <code>Unary</code></h3>
+
+                           <table><tr><td id='variant.Unary.field.op'><span id='Unary.v.op.v' class='invisible'><code>op:&nbsp;<a class="enum" href="../swc_ecma_ast/enum.UnaryOp.html" title="enum swc_ecma_ast::UnaryOp">UnaryOp</a></code></span></td><td></td></tr><tr><td id='variant.Unary.field.prefix'><span id='Unary.v.prefix.v' class='invisible'><code>prefix:&nbsp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></td><td></td></tr><tr><td id='variant.Unary.field.arg'><span id='Unary.v.arg.v' class='invisible'><code>arg:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;</code></span></td><td></td></tr></table></span><span id="variant.Update" class="variant small-section-header"><a href="#variant.Update" class="anchor field"></a><span id='Update.v' class='invisible'><code>Update</code></span></span><div class='docblock'><p><code>++v</code>, <code>--v</code>, <code>v++</code>, <code>v--</code></p>
+</div><span class='docblock autohide sub-variant' id='variant.Update.fields'><h3 class='fields'>Fields of <code>Update</code></h3>
+
+                           <table><tr><td id='variant.Update.field.op'><span id='Update.v.op.v' class='invisible'><code>op:&nbsp;<a class="enum" href="../swc_ecma_ast/enum.UpdateOp.html" title="enum swc_ecma_ast::UpdateOp">UpdateOp</a></code></span></td><td></td></tr><tr><td id='variant.Update.field.prefix'><span id='Update.v.prefix.v' class='invisible'><code>prefix:&nbsp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></td><td></td></tr><tr><td id='variant.Update.field.arg'><span id='Update.v.arg.v' class='invisible'><code>arg:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;</code></span></td><td></td></tr></table></span><span id="variant.Binary" class="variant small-section-header"><a href="#variant.Binary" class="anchor field"></a><span id='Binary.v' class='invisible'><code>Binary</code></span></span><span class='docblock autohide sub-variant' id='variant.Binary.fields'><h3 class='fields'>Fields of <code>Binary</code></h3>
+
+                           <table><tr><td id='variant.Binary.field.op'><span id='Binary.v.op.v' class='invisible'><code>op:&nbsp;<a class="enum" href="../swc_ecma_ast/enum.BinaryOp.html" title="enum swc_ecma_ast::BinaryOp">BinaryOp</a></code></span></td><td></td></tr><tr><td id='variant.Binary.field.left'><span id='Binary.v.left.v' class='invisible'><code>left:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;</code></span></td><td></td></tr><tr><td id='variant.Binary.field.right'><span id='Binary.v.right.v' class='invisible'><code>right:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;</code></span></td><td></td></tr></table></span><span id="variant.Assign" class="variant small-section-header"><a href="#variant.Assign" class="anchor field"></a><span id='Assign.v' class='invisible'><code>Assign</code></span></span><span class='docblock autohide sub-variant' id='variant.Assign.fields'><h3 class='fields'>Fields of <code>Assign</code></h3>
+
+                           <table><tr><td id='variant.Assign.field.op'><span id='Assign.v.op.v' class='invisible'><code>op:&nbsp;<a class="enum" href="../swc_ecma_ast/enum.AssignOp.html" title="enum swc_ecma_ast::AssignOp">AssignOp</a></code></span></td><td></td></tr><tr><td id='variant.Assign.field.left'><span id='Assign.v.left.v' class='invisible'><code>left:&nbsp;<a class="enum" href="../swc_ecma_ast/enum.PatOrExpr.html" title="enum swc_ecma_ast::PatOrExpr">PatOrExpr</a></code></span></td><td><div class='docblock'><p>Pattern | Expr</p>
+</div></td></tr><tr><td id='variant.Assign.field.right'><span id='Assign.v.right.v' class='invisible'><code>right:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;</code></span></td><td></td></tr></table></span><span id="variant.Member" class="variant small-section-header"><a href="#variant.Member" class="anchor field"></a><span id='Member.v' class='invisible'><code>Member</code></span></span><div class='docblock'><p>A member expression. If computed is true, the node corresponds to a computed
+(a[b]) member expression and property is an Expression. If computed is false, the node
+corresponds to a static (a.b) member expression and property is an Identifier.</p>
+</div><span class='docblock autohide sub-variant' id='variant.Member.fields'><h3 class='fields'>Fields of <code>Member</code></h3>
+
+                           <table><tr><td id='variant.Member.field.obj'><span id='Member.v.obj.v' class='invisible'><code>obj:&nbsp;<a class="enum" href="../swc_ecma_ast/enum.ExprOrSuper.html" title="enum swc_ecma_ast::ExprOrSuper">ExprOrSuper</a></code></span></td><td></td></tr><tr><td id='variant.Member.field.prop'><span id='Member.v.prop.v' class='invisible'><code>prop:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;</code></span></td><td></td></tr><tr><td id='variant.Member.field.computed'><span id='Member.v.computed.v' class='invisible'><code>computed:&nbsp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></td><td></td></tr></table></span><span id="variant.Cond" class="variant small-section-header"><a href="#variant.Cond" class="anchor field"></a><span id='Cond.v' class='invisible'><code>Cond</code></span></span><div class='docblock'><p>true ? &#39;a&#39; : &#39;b&#39;</p>
+</div><span class='docblock autohide sub-variant' id='variant.Cond.fields'><h3 class='fields'>Fields of <code>Cond</code></h3>
+
+                           <table><tr><td id='variant.Cond.field.test'><span id='Cond.v.test.v' class='invisible'><code>test:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;</code></span></td><td></td></tr><tr><td id='variant.Cond.field.cons'><span id='Cond.v.cons.v' class='invisible'><code>cons:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;</code></span></td><td></td></tr><tr><td id='variant.Cond.field.alt'><span id='Cond.v.alt.v' class='invisible'><code>alt:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;</code></span></td><td></td></tr></table></span><span id="variant.Call" class="variant small-section-header"><a href="#variant.Call" class="anchor field"></a><span id='Call.v' class='invisible'><code>Call</code></span></span><span class='docblock autohide sub-variant' id='variant.Call.fields'><h3 class='fields'>Fields of <code>Call</code></h3>
+
+                           <table><tr><td id='variant.Call.field.callee'><span id='Call.v.callee.v' class='invisible'><code>callee:&nbsp;<a class="enum" href="../swc_ecma_ast/enum.ExprOrSuper.html" title="enum swc_ecma_ast::ExprOrSuper">ExprOrSuper</a></code></span></td><td></td></tr><tr><td id='variant.Call.field.args'><span id='Call.v.args.v' class='invisible'><code>args:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="../swc_ecma_ast/enum.ExprOrSpread.html" title="enum swc_ecma_ast::ExprOrSpread">ExprOrSpread</a>&gt;</code></span></td><td></td></tr></table></span><span id="variant.New" class="variant small-section-header"><a href="#variant.New" class="anchor field"></a><span id='New.v' class='invisible'><code>New</code></span></span><div class='docblock'><p><code>new Cat()</code></p>
+</div><span class='docblock autohide sub-variant' id='variant.New.fields'><h3 class='fields'>Fields of <code>New</code></h3>
+
+                           <table><tr><td id='variant.New.field.callee'><span id='New.v.callee.v' class='invisible'><code>callee:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;</code></span></td><td></td></tr><tr><td id='variant.New.field.args'><span id='New.v.args.v' class='invisible'><code>args:&nbsp;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="../swc_ecma_ast/enum.ExprOrSpread.html" title="enum swc_ecma_ast::ExprOrSpread">ExprOrSpread</a>&gt;&gt;</code></span></td><td><div class='docblock'><p><code>None</code> for <code>new Cat</code>.</p>
+</div></td></tr></table></span><span id="variant.Seq" class="variant small-section-header"><a href="#variant.Seq" class="anchor field"></a><span id='Seq.v' class='invisible'><code>Seq</code></span></span><span class='docblock autohide sub-variant' id='variant.Seq.fields'><h3 class='fields'>Fields of <code>Seq</code></h3>
+
+                           <table><tr><td id='variant.Seq.field.exprs'><span id='Seq.v.exprs.v' class='invisible'><code>exprs:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;&gt;</code></span></td><td></td></tr></table></span><span id="variant.Ident" class="variant small-section-header"><a href="#variant.Ident" class="anchor field"></a><span id='Ident.v' class='invisible'><code>Ident(<a class="struct" href="../swc_ecma_ast/struct.Ident.html" title="struct swc_ecma_ast::Ident">Ident</a>)</code></span></span><span id="variant.Lit" class="variant small-section-header"><a href="#variant.Lit" class="anchor field"></a><span id='Lit.v' class='invisible'><code>Lit(<a class="enum" href="../swc_ecma_ast/enum.Lit.html" title="enum swc_ecma_ast::Lit">Lit</a>)</code></span></span><span id="variant.Tpl" class="variant small-section-header"><a href="#variant.Tpl" class="anchor field"></a><span id='Tpl.v' class='invisible'><code>Tpl(<a class="struct" href="../swc_ecma_ast/struct.TplLit.html" title="struct swc_ecma_ast::TplLit">TplLit</a>)</code></span></span><span id="variant.Arrow" class="variant small-section-header"><a href="#variant.Arrow" class="anchor field"></a><span id='Arrow.v' class='invisible'><code>Arrow</code></span></span><span class='docblock autohide sub-variant' id='variant.Arrow.fields'><h3 class='fields'>Fields of <code>Arrow</code></h3>
+
+                           <table><tr><td id='variant.Arrow.field.params'><span id='Arrow.v.params.v' class='invisible'><code>params:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Pat.html" title="struct swc_ecma_ast::Pat">Pat</a>&gt;</code></span></td><td></td></tr><tr><td id='variant.Arrow.field.body'><span id='Arrow.v.body.v' class='invisible'><code>body:&nbsp;<a class="enum" href="../swc_ecma_ast/enum.BlockStmtOrExpr.html" title="enum swc_ecma_ast::BlockStmtOrExpr">BlockStmtOrExpr</a></code></span></td><td></td></tr><tr><td id='variant.Arrow.field.is_generator'><span id='Arrow.v.is_generator.v' class='invisible'><code>is_generator:&nbsp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></td><td></td></tr><tr><td id='variant.Arrow.field.is_async'><span id='Arrow.v.is_async.v' class='invisible'><code>is_async:&nbsp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></td><td></td></tr></table></span><span id="variant.Class" class="variant small-section-header"><a href="#variant.Class" class="anchor field"></a><span id='Class.v' class='invisible'><code>Class(<a class="struct" href="../swc_ecma_ast/struct.ClassExpr.html" title="struct swc_ecma_ast::ClassExpr">ClassExpr</a>)</code></span></span><span id="variant.Yield" class="variant small-section-header"><a href="#variant.Yield" class="anchor field"></a><span id='Yield.v' class='invisible'><code>Yield</code></span></span><span class='docblock autohide sub-variant' id='variant.Yield.fields'><h3 class='fields'>Fields of <code>Yield</code></h3>
+
+                           <table><tr><td id='variant.Yield.field.arg'><span id='Yield.v.arg.v' class='invisible'><code>arg:&nbsp;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;&gt;</code></span></td><td></td></tr><tr><td id='variant.Yield.field.delegate'><span id='Yield.v.delegate.v' class='invisible'><code>delegate:&nbsp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></td><td></td></tr></table></span><span id="variant.MetaProp" class="variant small-section-header"><a href="#variant.MetaProp" class="anchor field"></a><span id='MetaProp.v' class='invisible'><code>MetaProp</code></span></span><span class='docblock autohide sub-variant' id='variant.MetaProp.fields'><h3 class='fields'>Fields of <code>MetaProp</code></h3>
+
+                           <table><tr><td id='variant.MetaProp.field.meta'><span id='MetaProp.v.meta.v' class='invisible'><code>meta:&nbsp;<a class="struct" href="../swc_ecma_ast/struct.Ident.html" title="struct swc_ecma_ast::Ident">Ident</a></code></span></td><td></td></tr><tr><td id='variant.MetaProp.field.prop'><span id='MetaProp.v.prop.v' class='invisible'><code>prop:&nbsp;<a class="struct" href="../swc_ecma_ast/struct.Ident.html" title="struct swc_ecma_ast::Ident">Ident</a></code></span></td><td></td></tr></table></span><span id="variant.Await" class="variant small-section-header"><a href="#variant.Await" class="anchor field"></a><span id='Await.v' class='invisible'><code>Await</code></span></span><span class='docblock autohide sub-variant' id='variant.Await.fields'><h3 class='fields'>Fields of <code>Await</code></h3>
+
+                           <table><tr><td id='variant.Await.field.arg'><span id='Await.v.arg.v' class='invisible'><code>arg:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;</code></span></td><td></td></tr></table></span><span id="variant.Paren" class="variant small-section-header"><a href="#variant.Paren" class="anchor field"></a><span id='Paren.v' class='invisible'><code>Paren(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a>&gt;)</code></span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Spanned%3CExprKind%3E' class='impl'><span class='in-band'><code>impl <a class="trait" href="../swc_common/span/trait.Spanned.html" title="trait swc_common::span::Spanned">Spanned</a>&lt;<a class="enum" href="../swc_ecma_ast/enum.ExprKind.html" title="enum swc_ecma_ast::ExprKind">ExprKind</a>&gt; for <a class="struct" href="../swc_ecma_ast/struct.Expr.html" title="struct swc_ecma_ast::Expr">Expr</a></code><a href='#impl-Spanned%3CExprKind%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#13-17' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from_unspanned' class="method"><span id='from_unspanned.v' class='invisible'><code>fn <a href='../swc_common/span/trait.Spanned.html#tymethod.from_unspanned' class='fnname'>from_unspanned</a>(node: <a class="enum" href="../swc_ecma_ast/enum.ExprKind.html" title="enum swc_ecma_ast::ExprKind">ExprKind</a>, span: <a class="struct" href="../swc_common/span/struct.Span.html" title="struct swc_common::span::Span">Span</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#14-16' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-FoldWith%3C__Folder%3E' class='impl'><span class='in-band'><code>impl&lt;__Folder&gt; <a class="trait" href="../swc_common/fold/trait.FoldWith.html" title="trait swc_common::fold::FoldWith">FoldWith</a>&lt;__Folder&gt; for <a class="enum" href="../swc_ecma_ast/enum.ExprKind.html" title="enum swc_ecma_ast::ExprKind">ExprKind</a></code><a href='#impl-FoldWith%3C__Folder%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#19' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fold_children' class="method"><span id='fold_children.v' class='invisible'><code>fn <a href='../swc_common/fold/trait.FoldWith.html#tymethod.fold_children' class='fnname'>fold_children</a>(self, __folder: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>__Folder) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#19' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-AstNode' class='impl'><span class='in-band'><code>impl <a class="trait" href="../swc_common/ast_node/trait.AstNode.html" title="trait swc_common::ast_node::AstNode">AstNode</a> for <a class="enum" href="../swc_ecma_ast/enum.ExprKind.html" title="enum swc_ecma_ast::ExprKind">ExprKind</a></code><a href='#impl-AstNode' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#19' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="enum" href="../swc_ecma_ast/enum.ExprKind.html" title="enum swc_ecma_ast::ExprKind">ExprKind</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#19' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="enum" href="../swc_ecma_ast/enum.ExprKind.html" title="enum swc_ecma_ast::ExprKind">ExprKind</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#19' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../swc_ecma_ast/enum.ExprKind.html" title="enum swc_ecma_ast::ExprKind">ExprKind</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#19' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#19' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-PartialEq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="enum" href="../swc_ecma_ast/enum.ExprKind.html" title="enum swc_ecma_ast::ExprKind">ExprKind</a></code><a href='#impl-PartialEq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#19' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class="method"><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class="enum" href="../swc_ecma_ast/enum.ExprKind.html" title="enum swc_ecma_ast::ExprKind">ExprKind</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#19' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class="method"><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class="enum" href="../swc_ecma_ast/enum.ExprKind.html" title="enum swc_ecma_ast::ExprKind">ExprKind</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/expr.rs.html#19' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "swc_ecma_ast";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

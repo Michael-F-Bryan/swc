@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Error",""]],"mod":[["input",""],["macros",""],["number","Lexer methods related to reading numbers."],["state",""],["util","Ported from [babylon/util/identifier.js][]"]],"struct":[["Lexer",""],["Options",""]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Option","The `Option` type. See the module level documentation for more."]],"mod":[["mem","Basic functions for dealing with memory."]],"trait":[["Clone","A common trait for the ability to explicitly duplicate an object."],["Copy","Types whose values can be duplicated simply by copying bits."]]});

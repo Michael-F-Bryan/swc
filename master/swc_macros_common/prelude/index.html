@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `prelude` mod in crate `swc_macros_common`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, prelude">
+
+    <title>swc_macros_common::prelude - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Module prelude</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'><a href='../index.html'>swc_macros_common</a></p><script>window.sidebarCurrent = {name: 'prelude', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>swc_macros_common</a>::<wbr><a class="mod" href=''>prelude</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/swc_macros_common/prelude.rs.html#1-10' title='goto source code'>[src]</a></span></h1>
+<h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use super::<a class="fn" href="../../swc_macros_common/fn.call_site.html" title="fn swc_macros_common::call_site">call_site</a>;</code></td></tr><tr><td><code>pub use super::<a class="fn" href="../../swc_macros_common/fn.is_attr_name.html" title="fn swc_macros_common::is_attr_name">is_attr_name</a>;</code></td></tr><tr><td><code>pub use super::<a class="fn" href="../../swc_macros_common/fn.print.html" title="fn swc_macros_common::print">print</a>;</code></td></tr><tr><td><code>pub use super::binder::<a class="struct" href="../../swc_macros_common/binder/struct.Binder.html" title="struct swc_macros_common::binder::Binder">Binder</a>;</code></td></tr><tr><td><code>pub use super::binder::<a class="struct" href="../../swc_macros_common/binder/struct.VariantBinder.html" title="struct swc_macros_common::binder::VariantBinder">VariantBinder</a>;</code></td></tr><tr><td><code>pub use super::derive::<a class="struct" href="../../swc_macros_common/derive/struct.Derive.html" title="struct swc_macros_common::derive::Derive">Derive</a>;</code></td></tr><tr><td><code>pub use pmutil::<a class="mod" href="../../pmutil/prelude/index.html" title="mod pmutil::prelude">prelude</a>::*;</code></td></tr><tr><td><code>pub use <a class="mod" href="../../syn/index.html" title="mod syn">syn</a>::*;</code></td></tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.Token.html"
+                                  title='macro swc_macros_common::prelude::Token'>Token</a></td>
+                           <td class='docblock-short'>
+                                <p>A type-macro that expands to the name of the Rust type representation of a
+given token.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.alt.html"
+                                  title='macro swc_macros_common::prelude::alt'>alt</a></td>
+                           <td class='docblock-short'>
+                                <p>Run a series of parsers, returning the result of the first one which
+succeeds.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.braces.html"
+                                  title='macro swc_macros_common::prelude::braces'>braces</a></td>
+                           <td class='docblock-short'>
+                                <p>Parse inside of <code>{</code> <code>}</code> curly braces.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.brackets.html"
+                                  title='macro swc_macros_common::prelude::brackets'>brackets</a></td>
+                           <td class='docblock-short'>
+                                <p>Parse inside of <code>[</code> <code>]</code> square brackets.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.call.html"
+                                  title='macro swc_macros_common::prelude::call'>call</a></td>
+                           <td class='docblock-short'>
+                                <p>Invoke the given parser function with zero or more arguments.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.cond.html"
+                                  title='macro swc_macros_common::prelude::cond'>cond</a></td>
+                           <td class='docblock-short'>
+                                <p>Execute a parser only if a condition is met, otherwise return None.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.cond_reduce.html"
+                                  title='macro swc_macros_common::prelude::cond_reduce'>cond_reduce</a></td>
+                           <td class='docblock-short'>
+                                <p>Execute a parser only if a condition is met, otherwise fail to parse.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.do_parse.html"
+                                  title='macro swc_macros_common::prelude::do_parse'>do_parse</a></td>
+                           <td class='docblock-short'>
+                                <p>Run a series of parsers, optionally naming each intermediate result,
+followed by a step to combine the intermediate results.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.epsilon.html"
+                                  title='macro swc_macros_common::prelude::epsilon'>epsilon</a></td>
+                           <td class='docblock-short'>
+                                <p>Parses nothing and always succeeds.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.grouped.html"
+                                  title='macro swc_macros_common::prelude::grouped'>grouped</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.input_end.html"
+                                  title='macro swc_macros_common::prelude::input_end'>input_end</a></td>
+                           <td class='docblock-short'>
+                                <p>Parse nothing and succeed only if the end of the enclosing block has been
+reached.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.keyword.html"
+                                  title='macro swc_macros_common::prelude::keyword'>keyword</a></td>
+                           <td class='docblock-short'>
+                                <p>Parse a single Rust keyword token.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.many0.html"
+                                  title='macro swc_macros_common::prelude::many0'>many0</a></td>
+                           <td class='docblock-short'>
+                                <p>Parse zero or more values using the given parser.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.map.html"
+                                  title='macro swc_macros_common::prelude::map'>map</a></td>
+                           <td class='docblock-short'>
+                                <p>Transform the result of a parser by applying a function or closure.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.named.html"
+                                  title='macro swc_macros_common::prelude::named'>named</a></td>
+                           <td class='docblock-short'>
+                                <p>Define a parser function with the signature expected by syn parser
+combinators.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.not.html"
+                                  title='macro swc_macros_common::prelude::not'>not</a></td>
+                           <td class='docblock-short'>
+                                <p>Invert the result of a parser by parsing successfully if the given parser
+fails to parse and vice versa.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.option.html"
+                                  title='macro swc_macros_common::prelude::option'>option</a></td>
+                           <td class='docblock-short'>
+                                <p>Turn a failed parse into <code>None</code> and a successful parse into <code>Some</code>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.parens.html"
+                                  title='macro swc_macros_common::prelude::parens'>parens</a></td>
+                           <td class='docblock-short'>
+                                <p>Parse inside of <code>(</code> <code>)</code> parentheses.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.parse_quote.html"
+                                  title='macro swc_macros_common::prelude::parse_quote'>parse_quote</a></td>
+                           <td class='docblock-short'>
+                                <p>Quasi-quotation macro that accepts input like the <a href="https://docs.rs/quote/0.4/quote/index.html"><code>quote!</code></a> macro but uses
+type inference to figure out a return type for those tokens.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.punct.html"
+                                  title='macro swc_macros_common::prelude::punct'>punct</a></td>
+                           <td class='docblock-short'>
+                                <p>Parse a single Rust punctuation token.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.reject.html"
+                                  title='macro swc_macros_common::prelude::reject'>reject</a></td>
+                           <td class='docblock-short'>
+                                <p>Unconditionally fail to parse anything.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.switch.html"
+                                  title='macro swc_macros_common::prelude::switch'>switch</a></td>
+                           <td class='docblock-short'>
+                                <p>Pattern-match the result of a parser to select which other parser to run.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.syn.html"
+                                  title='macro swc_macros_common::prelude::syn'>syn</a></td>
+                           <td class='docblock-short'>
+                                <p>Parse any type that implements the <code>Synom</code> trait.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.tap.html"
+                                  title='macro swc_macros_common::prelude::tap'>tap</a></td>
+                           <td class='docblock-short'>
+                                <p>Run a parser, binding the result to a name, and then evaluating an
+expression.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.tuple.html"
+                                  title='macro swc_macros_common::prelude::tuple'>tuple</a></td>
+                           <td class='docblock-short'>
+                                <p>Run a series of parsers and produce all of the results in a tuple.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.tuple_parser.html"
+                                  title='macro swc_macros_common::prelude::tuple_parser'>tuple_parser</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.value.html"
+                                  title='macro swc_macros_common::prelude::value'>value</a></td>
+                           <td class='docblock-short'>
+                                <p>Produce the given value without parsing anything.</p>
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Literal.html"
+                                  title='struct swc_macros_common::prelude::Literal'>Literal</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Punctuated.html"
+                                  title='struct swc_macros_common::prelude::Punctuated'>Punctuated</a></td>
+                           <td class='docblock-short'>
+                                <p>A punctuated sequence of syntax tree nodes of type <code>T</code> separated by
+punctuation of type <code>P</code>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Span.html"
+                                  title='struct swc_macros_common::prelude::Span'>Span</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.TokenStream.html"
+                                  title='struct swc_macros_common::prelude::TokenStream'>TokenStream</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.TokenTree.html"
+                                  title='struct swc_macros_common::prelude::TokenTree'>TokenTree</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Tokens.html"
+                                  title='struct swc_macros_common::prelude::Tokens'>Tokens</a></td>
+                           <td class='docblock-short'>
+                                <p>Tokens produced by a <a href="macro.quote.html"><code>quote!</code></a> invocation.</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Delimiter.html"
+                                  title='enum swc_macros_common::prelude::Delimiter'>Delimiter</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Element.html"
+                                  title='enum swc_macros_common::prelude::Element'>Element</a></td>
+                           <td class='docblock-short'>
+                                <p>A single syntax tree node of type <code>T</code> followed by its trailing punctuation
+of type <code>P</code> if any.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Pair.html"
+                                  title='enum swc_macros_common::prelude::Pair'>Pair</a></td>
+                           <td class='docblock-short'>
+                                <p>A single syntax tree node of type <code>T</code> followed by its trailing punctuation
+of type <code>P</code> if any.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.TokenNode.html"
+                                  title='enum swc_macros_common::prelude::TokenNode'>TokenNode</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.ItemImplExt.html"
+                                  title='trait swc_macros_common::prelude::ItemImplExt'>ItemImplExt</a></td>
+                           <td class='docblock-short'>
+                                <p>Extension trait for <code>ItemImpl</code> (impl block).</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.PairExt.html"
+                                  title='trait swc_macros_common::prelude::PairExt'>PairExt</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.ToTokens.html"
+                                  title='trait swc_macros_common::prelude::ToTokens'>ToTokens</a></td>
+                           <td class='docblock-short'>
+                                <p>Types that can be interpolated inside a <a href="macro.quote.html"><code>quote!</code></a> invocation.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "swc_macros_common";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Feature","Feature from `caniuse.com`. TODO: Make this enum?"],["UsedFeatures",""]],"trait":[["CanIUse",""]]});

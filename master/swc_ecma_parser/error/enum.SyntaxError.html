@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `SyntaxError` enum in crate `swc_ecma_parser`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, SyntaxError">
+
+    <title>swc_ecma_parser::error::SyntaxError - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc enum">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Enum SyntaxError</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#variants">Variants</a><div class="sidebar-links"><a href="#variant.InvalidIdentInStrict">InvalidIdentInStrict</a><a href="#variant.EvalAndArgumentsInStrict">EvalAndArgumentsInStrict</a><a href="#variant.UnaryInExp">UnaryInExp</a><a href="#variant.LineBreakInThrow">LineBreakInThrow</a><a href="#variant.Expected">Expected</a><a href="#variant.AwaitStar">AwaitStar</a><a href="#variant.ReservedWordInObjShorthandOrPat">ReservedWordInObjShorthandOrPat</a><a href="#variant.MultipleDefault">MultipleDefault</a><a href="#variant.CommaAfterRestElement">CommaAfterRestElement</a><a href="#variant.NonLastRestParam">NonLastRestParam</a><a href="#variant.SpreadInParenExpr">SpreadInParenExpr</a><a href="#variant.EmptyParenExpr">EmptyParenExpr</a><a href="#variant.ExpectedIdent">ExpectedIdent</a><a href="#variant.ExpctedSemi">ExpctedSemi</a><a href="#variant.DuplicateLabel">DuplicateLabel</a><a href="#variant.AsyncGenerator">AsyncGenerator</a><a href="#variant.NonTopLevelImportExport">NonTopLevelImportExport</a><a href="#variant.PatVarWithoutInit">PatVarWithoutInit</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='../index.html'>swc_ecma_parser</a>::<wbr><a href='index.html'>error</a></p><script>window.sidebarCurrent = {name: 'SyntaxError', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../index.html'>swc_ecma_parser</a>::<wbr><a href='index.html'>error</a>::<wbr><a class="enum" href=''>SyntaxError</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/swc_ecma_parser/error.rs.html#6-38' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum SyntaxError {
+    InvalidIdentInStrict,
+    EvalAndArgumentsInStrict,
+    UnaryInExp,
+    LineBreakInThrow,
+    Expected(&amp;'static <a class="enum" href="../../swc_ecma_parser/token/enum.Token.html" title="enum swc_ecma_parser::token::Token">Token</a>),
+    AwaitStar,
+    ReservedWordInObjShorthandOrPat,
+    MultipleDefault,
+    CommaAfterRestElement,
+    NonLastRestParam,
+    SpreadInParenExpr,
+    EmptyParenExpr,
+    ExpectedIdent,
+    ExpctedSemi,
+    DuplicateLabel(<a class="type" href="../../swc_atoms/type.JsWord.html" title="type swc_atoms::JsWord">JsWord</a>),
+    AsyncGenerator,
+    NonTopLevelImportExport,
+    PatVarWithoutInit {
+        span: <a class="struct" href="../../swc_common/span/struct.Span.html" title="struct swc_common::span::Span">Span</a>,
+    },
+}</pre><h2 id='variants' class='variants small-section-header'>
+                   Variants<a href='#variants' class='anchor'></a></h2>
+<span id="variant.InvalidIdentInStrict" class="variant small-section-header"><a href="#variant.InvalidIdentInStrict" class="anchor field"></a><span id='InvalidIdentInStrict.v' class='invisible'><code>InvalidIdentInStrict</code></span></span><div class='docblock'><p>&quot;implements&quot;, &quot;interface&quot;, &quot;let&quot;, &quot;package&quot;,\
+&quot;private&quot;, &quot;protected&quot;,  &quot;public&quot;, &quot;static&quot;, or &quot;yield&quot;</p>
+</div><span id="variant.EvalAndArgumentsInStrict" class="variant small-section-header"><a href="#variant.EvalAndArgumentsInStrict" class="anchor field"></a><span id='EvalAndArgumentsInStrict.v' class='invisible'><code>EvalAndArgumentsInStrict</code></span></span><div class='docblock'><p>&#39;eval&#39; and &#39;arguments&#39; are invalid identfier in strict mode.</p>
+</div><span id="variant.UnaryInExp" class="variant small-section-header"><a href="#variant.UnaryInExp" class="anchor field"></a><span id='UnaryInExp.v' class='invisible'><code>UnaryInExp</code></span></span><span id="variant.LineBreakInThrow" class="variant small-section-header"><a href="#variant.LineBreakInThrow" class="anchor field"></a><span id='LineBreakInThrow.v' class='invisible'><code>LineBreakInThrow</code></span></span><span id="variant.Expected" class="variant small-section-header"><a href="#variant.Expected" class="anchor field"></a><span id='Expected.v' class='invisible'><code>Expected(&amp;'static <a class="enum" href="../../swc_ecma_parser/token/enum.Token.html" title="enum swc_ecma_parser::token::Token">Token</a>)</code></span></span><span id="variant.AwaitStar" class="variant small-section-header"><a href="#variant.AwaitStar" class="anchor field"></a><span id='AwaitStar.v' class='invisible'><code>AwaitStar</code></span></span><div class='docblock'><p>&quot;await* has been removed from the async functions proposal. Use
+Promise.all() instead.&quot;</p>
+</div><span id="variant.ReservedWordInObjShorthandOrPat" class="variant small-section-header"><a href="#variant.ReservedWordInObjShorthandOrPat" class="anchor field"></a><span id='ReservedWordInObjShorthandOrPat.v' class='invisible'><code>ReservedWordInObjShorthandOrPat</code></span></span><div class='docblock'><p>&quot;cannot use a reserved word as a shorthand property&quot;</p>
+</div><span id="variant.MultipleDefault" class="variant small-section-header"><a href="#variant.MultipleDefault" class="anchor field"></a><span id='MultipleDefault.v' class='invisible'><code>MultipleDefault</code></span></span><span id="variant.CommaAfterRestElement" class="variant small-section-header"><a href="#variant.CommaAfterRestElement" class="anchor field"></a><span id='CommaAfterRestElement.v' class='invisible'><code>CommaAfterRestElement</code></span></span><span id="variant.NonLastRestParam" class="variant small-section-header"><a href="#variant.NonLastRestParam" class="anchor field"></a><span id='NonLastRestParam.v' class='invisible'><code>NonLastRestParam</code></span></span><span id="variant.SpreadInParenExpr" class="variant small-section-header"><a href="#variant.SpreadInParenExpr" class="anchor field"></a><span id='SpreadInParenExpr.v' class='invisible'><code>SpreadInParenExpr</code></span></span><span id="variant.EmptyParenExpr" class="variant small-section-header"><a href="#variant.EmptyParenExpr" class="anchor field"></a><span id='EmptyParenExpr.v' class='invisible'><code>EmptyParenExpr</code></span></span><div class='docblock'><p><code>()</code></p>
+</div><span id="variant.ExpectedIdent" class="variant small-section-header"><a href="#variant.ExpectedIdent" class="anchor field"></a><span id='ExpectedIdent.v' class='invisible'><code>ExpectedIdent</code></span></span><span id="variant.ExpctedSemi" class="variant small-section-header"><a href="#variant.ExpctedSemi" class="anchor field"></a><span id='ExpctedSemi.v' class='invisible'><code>ExpctedSemi</code></span></span><span id="variant.DuplicateLabel" class="variant small-section-header"><a href="#variant.DuplicateLabel" class="anchor field"></a><span id='DuplicateLabel.v' class='invisible'><code>DuplicateLabel(<a class="type" href="../../swc_atoms/type.JsWord.html" title="type swc_atoms::JsWord">JsWord</a>)</code></span></span><span id="variant.AsyncGenerator" class="variant small-section-header"><a href="#variant.AsyncGenerator" class="anchor field"></a><span id='AsyncGenerator.v' class='invisible'><code>AsyncGenerator</code></span></span><span id="variant.NonTopLevelImportExport" class="variant small-section-header"><a href="#variant.NonTopLevelImportExport" class="anchor field"></a><span id='NonTopLevelImportExport.v' class='invisible'><code>NonTopLevelImportExport</code></span></span><span id="variant.PatVarWithoutInit" class="variant small-section-header"><a href="#variant.PatVarWithoutInit" class="anchor field"></a><span id='PatVarWithoutInit.v' class='invisible'><code>PatVarWithoutInit</code></span></span><div class='docblock'><p>Destructuring bindings require initializers.</p>
+</div><span class='docblock autohide sub-variant' id='variant.PatVarWithoutInit.fields'><h3 class='fields'>Fields of <code>PatVarWithoutInit</code></h3>
+
+                           <table><tr><td id='variant.PatVarWithoutInit.field.span'><span id='PatVarWithoutInit.v.span.v' class='invisible'><code>span:&nbsp;<a class="struct" href="../../swc_common/span/struct.Span.html" title="struct swc_common::span::Span">Span</a></code></span></td><td></td></tr></table></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../../swc_ecma_parser/error/enum.SyntaxError.html" title="enum swc_ecma_parser::error::SyntaxError">SyntaxError</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/swc_ecma_parser/error.rs.html#5' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/swc_ecma_parser/error.rs.html#5' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "swc_ecma_parser";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `pmutil` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, pmutil">
+
+    <title>pmutil - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Crate pmutil</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'pmutil', ty: 'mod', relpath: '../'};</script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>pmutil</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/pmutil/lib.rs.html#1-61' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Utils for implementing proc-macro. Works on stable.</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>extern crate <a class="mod" href="https://doc.rust-lang.org/nightly/std/index.html" title="mod std">std</a> as std;</code></td></tr><tr><td><code>pub extern crate <a class="mod" href="../proc_macro2/index.html" title="mod proc_macro2">proc_macro2</a>;</code></td></tr><tr><td><code>pub extern crate <a class="mod" href="https://doc.rust-lang.org/nightly/proc_macro/index.html" title="mod proc_macro">proc_macro</a>;</code></td></tr><tr><td><code>pub extern crate <a class="mod" href="../quote/index.html" title="mod quote">quote</a>;</code></td></tr><tr><td><code>pub extern crate <a class="mod" href="../syn/index.html" title="mod syn">syn</a>;</code></td></tr><tr><td><code>use std::prelude::v1::*;</code></td></tr><tr><td><code>use quote::<a class="trait" href="../quote/to_tokens/trait.ToTokens.html" title="trait quote::to_tokens::ToTokens">ToTokens</a>;</code></td></tr><tr><td><code>use quote::<a class="struct" href="../quote/tokens/struct.Tokens.html" title="struct quote::tokens::Tokens">Tokens</a>;</code></td></tr><tr><td><code>use syn::<a class="struct" href="../pmutil/prelude/struct.Ident.html" title="struct pmutil::prelude::Ident">Ident</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="comment/index.html"
+                                  title='mod pmutil::comment'>comment</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="prelude/index.html"
+                                  title='mod pmutil::prelude'>prelude</a></td>
+                           <td class='docblock-short'>
+                                <p>Prelude for convenience.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="respan/index.html"
+                                  title='mod pmutil::respan'>respan</a></td>
+                           <td class='docblock-short'>
+                                <p>Span support for quasi-quotting.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="span_ext/index.html"
+                                  title='mod pmutil::span_ext'>span_ext</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="spanned_quote/index.html"
+                                  title='mod pmutil::spanned_quote'>spanned_quote</a></td>
+                           <td class='docblock-short'>
+                                <p>Span-aware quasi quotting built on top of <code>quote</code> crate.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="synom_ext/index.html"
+                                  title='mod pmutil::synom_ext'>synom_ext</a></td>
+                           <td class='docblock-short'>
+                                <p>Utils for tokens from synom::tokens.</p>
+                           </td>
+                       </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.__sq_quote_closure.html"
+                                  title='macro pmutil::__sq_quote_closure'>__sq_quote_closure</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.__sq_quote_tokens_to.html"
+                                  title='macro pmutil::__sq_quote_tokens_to'>__sq_quote_tokens_to</a></td>
+                           <td class='docblock-short'>
+                                <p>This macro assumes that <code>Vars</code> is already handled.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.declare_vars_for_quote.html"
+                                  title='macro pmutil::declare_vars_for_quote'>declare_vars_for_quote</a></td>
+                           <td class='docblock-short'>
+                                <p>This macro handles <code>Vars</code>, and creates a new hidden macro used inside quasi-quotting.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.handle_vars_for_quote.html"
+                                  title='macro pmutil::handle_vars_for_quote'>handle_vars_for_quote</a></td>
+                           <td class='docblock-short'>
+                                <p>Usage: __sq_handle_vars! { a, b: expression(), c, };</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.quoter_location.html"
+                                  title='macro pmutil::quoter_location'>quoter_location</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.smart_quote.html"
+                                  title='macro pmutil::smart_quote'>smart_quote</a></td>
+                           <td class='docblock-short'>
+                                <p>ide-friendly quasi quotting.</p>
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Quote.html"
+                                  title='struct pmutil::Quote'>Quote</a></td>
+                           <td class='docblock-short'>
+                                <p>Buffer for quasi quotting.</p>
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.IdentExt.html"
+                                  title='trait pmutil::IdentExt'>IdentExt</a></td>
+                           <td class='docblock-short'>
+                                <p>Extension trait for <a href="../syn/struct.Ident.html">syn::Ident</a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.SpanExt.html"
+                                  title='trait pmutil::SpanExt'>SpanExt</a></td>
+                           <td class='docblock-short'>
+                                <p>Extension trait for <a href="../proc_macro2/struct.Span.html">Span</a> and <a href="../syn/struct.Span.html">syn::Span</a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.ToTokensExt.html"
+                                  title='trait pmutil::ToTokensExt'>ToTokensExt</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "pmutil";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["SyncFailure","Wrapper for `std` errors to make them `Sync`."]]});

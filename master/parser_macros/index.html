@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `parser_macros` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, parser_macros">
+
+    <title>parser_macros - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Crate parser_macros</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'parser_macros', ty: 'mod', relpath: '../'};</script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>parser_macros</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/parser_macros/lib.rs.html#1-32' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Simulates unhygienic macro to make parser&#39;s code cleaner.
+It lives here because it&#39;s not a generic purpose macro (at all).</p>
+
+<p>This can&#39;t be implemented with macro_rule! because
+ rust does not support token munching (destructing <code>$b:block</code> into <code>{ $($t:tt)* }</code>).</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>extern crate <a class="mod" href="https://doc.rust-lang.org/nightly/std/index.html" title="mod std">std</a> as std;</code></td></tr><tr><td><code>extern crate <a class="mod" href="../proc_macro2/index.html" title="mod proc_macro2">proc_macro2</a>;</code></td></tr><tr><td><code>extern crate <a class="mod" href="https://doc.rust-lang.org/nightly/proc_macro/index.html" title="mod proc_macro">proc_macro</a>;</code></td></tr><tr><td><code>extern crate <a class="mod" href="../quote/index.html" title="mod quote">quote</a>;</code></td></tr><tr><td><code>extern crate <a class="mod" href="../swc_macros_common/index.html" title="mod swc_macros_common">swc_macros_common</a>;</code></td></tr><tr><td><code>extern crate <a class="mod" href="../syn/index.html" title="mod syn">syn</a>;</code></td></tr><tr><td><code>use std::prelude::v1::*;</code></td></tr><tr><td><code>use proc_macro::<a class="struct" href="https://doc.rust-lang.org/nightly/proc_macro/struct.TokenStream.html" title="struct proc_macro::TokenStream">TokenStream</a>;</code></td></tr><tr><td><code>use swc_macros_common::<a class="mod" href="../swc_macros_common/prelude/index.html" title="mod swc_macros_common::prelude">prelude</a>::*;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="expand/index.html"
+                                  title='mod parser_macros::expand'>expand</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.parser.html"
+                                  title='fn parser_macros::parser'>parser</a></td>
+                           <td class='docblock-short'>
+                                <p>This attribute macro injects first argument of function (typically <code>self</code>)
+to all <strong>known</strong> macros invocation in a function.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "parser_macros";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

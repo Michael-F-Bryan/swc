@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["err_msg","Constructs a `Fail` type from a string."]],"struct":[["ErrorMessage","A `Fail` type that just contains an error message. You can construct this from the `err_msg` function."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["SpanExt","Extension trait for [Span][] and [syn::Span][]."]]});

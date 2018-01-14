@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["BytePos",""],["Span",""]],"trait":[["Spanned",""]]});
