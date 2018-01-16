@@ -99,8 +99,6 @@
 <span id="53">53</span>
 <span id="54">54</span>
 <span id="55">55</span>
-<span id="56">56</span>
-<span id="57">57</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">Expr</span>, <span class="ident">Ident</span>, <span class="ident">PropName</span>};
 <span class="kw">use</span> <span class="ident">swc_common</span>::{<span class="ident">Span</span>, <span class="ident">Spanned</span>};
@@ -126,9 +124,7 @@
 
     <span class="ident">Rest</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;</span>),
 
-    <span class="ident">Object</span> {
-        <span class="ident">props</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ObjectPatProp</span><span class="op">&gt;</span>,
-    },
+    <span class="ident">Object</span>(<span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ObjectPatProp</span><span class="op">&gt;</span>),
 
     <span class="ident">Assign</span> {
         <span class="ident">left</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;</span>,

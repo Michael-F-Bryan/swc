@@ -681,7 +681,6 @@
 <span id="635">635</span>
 <span id="636">636</span>
 <span id="637">637</span>
-<span id="638">638</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">iter</span>;
@@ -704,7 +703,7 @@
             <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">exprs</span>.<span class="ident">last</span>().<span class="ident">unwrap</span>().<span class="ident">span</span>.<span class="ident">end</span>;
             <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="kw">box</span> <span class="ident">Expr</span> {
                 <span class="ident">span</span>: <span class="ident">Span</span> { <span class="ident">start</span>, <span class="ident">end</span> },
-                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Seq</span> { <span class="ident">exprs</span> },
+                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Seq</span>(<span class="ident">SeqExpr</span> { <span class="ident">exprs</span> }),
             });
         }
 
@@ -737,10 +736,9 @@
         <span class="kw">match</span> <span class="ident">cond</span>.<span class="ident">node</span> {
             <span class="comment">// if cond is conditional expression but not left-hand-side expression,</span>
             <span class="comment">// just return it.</span>
-            <span class="ident">ExprKind</span>::<span class="ident">Cond</span> { .. }
-            <span class="op">|</span> <span class="ident">ExprKind</span>::<span class="ident">Binary</span> { .. }
-            <span class="op">|</span> <span class="ident">ExprKind</span>::<span class="ident">Unary</span> { .. }
-            <span class="op">|</span> <span class="ident">ExprKind</span>::<span class="ident">Update</span> { .. } <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">cond</span>),
+            <span class="ident">ExprKind</span>::<span class="ident">Cond</span>(..) <span class="op">|</span> <span class="ident">ExprKind</span>::<span class="ident">Bin</span>(..) <span class="op">|</span> <span class="ident">ExprKind</span>::<span class="ident">Unary</span>(..) <span class="op">|</span> <span class="ident">ExprKind</span>::<span class="ident">Update</span>(..) <span class="op">=&gt;</span> {
+                <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">cond</span>)
+            }
             _ <span class="op">=&gt;</span> {}
         }
 
@@ -750,12 +748,12 @@
                 <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_assignment_expr</span>()<span class="question-mark">?</span>;
                 <span class="prelude-val">Ok</span>(<span class="kw">box</span> <span class="ident">Expr</span> {
                     <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                    <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Assign</span> {
+                    <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Assign</span>(<span class="ident">AssignExpr</span> {
                         <span class="ident">op</span>,
                         <span class="comment">// TODO:</span>
                         <span class="ident">left</span>: <span class="ident">PatOrExpr</span>::<span class="ident">Expr</span>(<span class="ident">cond</span>),
                         <span class="ident">right</span>,
-                    },
+                    }),
                 })
             }
             _ <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">cond</span>),
@@ -773,7 +771,7 @@
                 <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;:&#39;</span>);
                 <span class="kw">let</span> <span class="ident">alt</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_assignment_expr</span>()<span class="question-mark">?</span>;
 
-                <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Cond</span> { <span class="ident">test</span>, <span class="ident">cons</span>, <span class="ident">alt</span> })
+                <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Cond</span>(<span class="ident">CondExpr</span> { <span class="ident">test</span>, <span class="ident">cons</span>, <span class="ident">alt</span> }))
             } <span class="kw">else</span> {
                 <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">test</span>);
             }
@@ -854,23 +852,23 @@
                     <span class="kw">let</span> <span class="ident">params</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">arg</span>];
                     <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&quot;=&gt;&quot;</span>);
                     <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_fn_body</span>(<span class="bool-val">true</span>, <span class="bool-val">false</span>)<span class="question-mark">?</span>;
-                    <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Arrow</span> {
+                    <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Arrow</span>(<span class="ident">ArrowExpr</span> {
                         <span class="ident">body</span>,
                         <span class="ident">params</span>,
                         <span class="ident">is_async</span>: <span class="bool-val">true</span>,
                         <span class="ident">is_generator</span>: <span class="bool-val">false</span>,
-                    })
+                    }))
                 } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">can_be_arrow</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="macro">is</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>) <span class="op">&amp;&amp;</span> <span class="macro">eat</span><span class="macro">!</span>(<span class="string">&quot;=&gt;&quot;</span>) {
                     <span class="comment">// async is parameter</span>
 
                     <span class="kw">let</span> <span class="ident">params</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">id</span>.<span class="ident">into</span>()];
                     <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_fn_body</span>(<span class="bool-val">false</span>, <span class="bool-val">false</span>)<span class="question-mark">?</span>;
-                    <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Arrow</span> {
+                    <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Arrow</span>(<span class="ident">ArrowExpr</span> {
                         <span class="ident">body</span>,
                         <span class="ident">params</span>,
                         <span class="ident">is_async</span>: <span class="bool-val">false</span>,
                         <span class="ident">is_generator</span>: <span class="bool-val">false</span>,
-                    })
+                    }))
                 } <span class="kw">else</span> {
                     <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">id</span>.<span class="ident">into</span>());
                 }
@@ -899,7 +897,7 @@
 
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;]&#39;</span>);
 
-            <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Array</span> { <span class="ident">elems</span> })
+            <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Array</span>(<span class="ident">ArrayLit</span> { <span class="ident">elems</span> }))
         })
     }
 
@@ -917,7 +915,7 @@
                 <span class="kw">if</span> <span class="macro">eat</span><span class="macro">!</span>(<span class="string">&quot;target&quot;</span>) {
                     <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="kw">box</span> <span class="ident">Expr</span> {
                         <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                        <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">MetaProp</span> {
+                        <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">MetaProp</span>(<span class="ident">MetaPropExpr</span> {
                             <span class="ident">meta</span>: <span class="ident">Ident</span> {
                                 <span class="ident">span</span>: <span class="ident">span_of_new</span>,
                                 <span class="ident">sym</span>: <span class="macro">js_word</span><span class="macro">!</span>(<span class="string">&quot;new&quot;</span>),
@@ -926,7 +924,7 @@
                                 <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start_of_target</span>),
                                 <span class="ident">sym</span>: <span class="macro">js_word</span><span class="macro">!</span>(<span class="string">&quot;target&quot;</span>),
                             },
-                        },
+                        }),
                     });
                 }
 
@@ -943,7 +941,7 @@
                 <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_subscripts</span>(
                     <span class="ident">ExprOrSuper</span>::<span class="ident">Expr</span>(<span class="kw">box</span> <span class="ident">Expr</span> {
                         <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                        <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">New</span> { <span class="ident">callee</span>, <span class="ident">args</span> },
+                        <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">New</span>(<span class="ident">NewExpr</span> { <span class="ident">callee</span>, <span class="ident">args</span> }),
                     }),
                     <span class="bool-val">true</span>,
                 );
@@ -953,7 +951,7 @@
 
             <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="kw">box</span> <span class="ident">Expr</span> {
                 <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">New</span> { <span class="ident">callee</span>, <span class="ident">args</span>: <span class="prelude-val">None</span> },
+                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">New</span>(<span class="ident">NewExpr</span> { <span class="ident">callee</span>, <span class="ident">args</span>: <span class="prelude-val">None</span> }),
             });
         }
 
@@ -1032,12 +1030,12 @@
             <span class="kw">let</span> <span class="ident">body</span>: <span class="ident">BlockStmtOrExpr</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_fn_body</span>(<span class="bool-val">false</span>, <span class="bool-val">false</span>)<span class="question-mark">?</span>;
             <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="kw">box</span> <span class="ident">Expr</span> {
                 <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Arrow</span> {
+                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Arrow</span>(<span class="ident">ArrowExpr</span> {
                     <span class="ident">is_async</span>: <span class="bool-val">false</span>,
                     <span class="ident">is_generator</span>: <span class="bool-val">false</span>,
                     <span class="ident">params</span>,
                     <span class="ident">body</span>,
-                },
+                }),
             });
         }
 
@@ -1073,7 +1071,7 @@
                     <span class="ident">start</span>: <span class="ident">exprs</span>.<span class="ident">first</span>().<span class="ident">unwrap</span>().<span class="ident">span</span>.<span class="ident">start</span>,
                     <span class="ident">end</span>: <span class="ident">exprs</span>.<span class="ident">last</span>().<span class="ident">unwrap</span>().<span class="ident">span</span>.<span class="ident">end</span>,
                 },
-                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Seq</span> { <span class="ident">exprs</span> },
+                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Seq</span>(<span class="ident">SeqExpr</span> { <span class="ident">exprs</span> }),
             };
             <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="kw">box</span> <span class="ident">Expr</span> {
                 <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
@@ -1144,11 +1142,11 @@
             <span class="kw">return</span> <span class="prelude-val">Ok</span>((
                 <span class="kw">box</span> <span class="ident">Expr</span> {
                     <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                    <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Member</span> {
+                    <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Member</span>(<span class="ident">MemberExpr</span> {
                         <span class="ident">obj</span>,
                         <span class="ident">prop</span>,
                         <span class="ident">computed</span>: <span class="bool-val">false</span>,
-                    },
+                    }),
                 },
                 <span class="bool-val">true</span>,
             ));
@@ -1161,11 +1159,11 @@
             <span class="kw">return</span> <span class="prelude-val">Ok</span>((
                 <span class="kw">box</span> <span class="ident">Expr</span> {
                     <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                    <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Member</span> {
+                    <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Member</span>(<span class="ident">MemberExpr</span> {
                         <span class="ident">obj</span>,
                         <span class="ident">prop</span>,
                         <span class="ident">computed</span>: <span class="bool-val">true</span>,
-                    },
+                    }),
                 },
                 <span class="bool-val">true</span>,
             ));
@@ -1176,7 +1174,7 @@
             <span class="kw">return</span> <span class="prelude-val">Ok</span>((
                 <span class="kw">box</span> <span class="ident">Expr</span> {
                     <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                    <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Call</span> { <span class="ident">callee</span>: <span class="ident">obj</span>, <span class="ident">args</span> },
+                    <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Call</span>(<span class="ident">CallExpr</span> { <span class="ident">callee</span>: <span class="ident">obj</span>, <span class="ident">args</span> }),
                 },
                 <span class="bool-val">true</span>,
             ));
@@ -1223,7 +1221,7 @@
 
         <span class="kw">match</span> <span class="ident">callee</span>.<span class="ident">node</span> {
             <span class="comment">// If this is parsed using &#39;NewExpression&#39; rule, just return it.</span>
-            <span class="ident">ExprKind</span>::<span class="ident">New</span> { <span class="ident">args</span>: <span class="prelude-val">None</span>, .. } <span class="op">=&gt;</span> {
+            <span class="ident">ExprKind</span>::<span class="ident">New</span>(<span class="ident">NewExpr</span> { <span class="ident">args</span>: <span class="prelude-val">None</span>, .. }) <span class="op">=&gt;</span> {
                 <span class="macro">assert_ne</span><span class="macro">!</span>(
                     <span class="macro">cur</span><span class="macro">!</span>(),
                     <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">LParen</span>),
@@ -1242,10 +1240,10 @@
             <span class="kw">let</span> <span class="ident">args</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_args</span>()<span class="question-mark">?</span>;
             <span class="kw">let</span> <span class="ident">call_expr</span> <span class="op">=</span> <span class="kw">box</span> <span class="ident">Expr</span> {
                 <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Call</span> {
+                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Call</span>(<span class="ident">CallExpr</span> {
                     <span class="ident">callee</span>: <span class="ident">ExprOrSuper</span>::<span class="ident">Expr</span>(<span class="ident">callee</span>),
                     <span class="ident">args</span>,
-                },
+                }),
             };
 
             <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_subscripts</span>(<span class="ident">ExprOrSuper</span>::<span class="ident">Expr</span>(<span class="ident">call_expr</span>), <span class="bool-val">false</span>);
@@ -1279,18 +1277,18 @@
             <span class="comment">// evaluated before the resulting generator object is in a resumable state.</span>
 
             <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>) <span class="op">||</span> (<span class="op">!</span><span class="macro">is</span><span class="macro">!</span>(<span class="string">&#39;*&#39;</span>) <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="macro">cur</span><span class="macro">!</span>().<span class="ident">map</span>(<span class="ident">Token</span>::<span class="ident">starts_expr</span>).<span class="ident">unwrap_or</span>(<span class="bool-val">true</span>)) {
-                <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Yield</span> {
+                <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Yield</span>(<span class="ident">YieldExpr</span> {
                     <span class="ident">arg</span>: <span class="prelude-val">None</span>,
                     <span class="ident">delegate</span>: <span class="bool-val">false</span>,
-                })
+                }))
             } <span class="kw">else</span> {
                 <span class="kw">let</span> <span class="ident">has_star</span> <span class="op">=</span> <span class="macro">eat</span><span class="macro">!</span>(<span class="string">&#39;*&#39;</span>);
                 <span class="kw">let</span> <span class="ident">arg</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_assignment_expr</span>()<span class="question-mark">?</span>;
 
-                <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Yield</span> {
+                <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Yield</span>(<span class="ident">YieldExpr</span> {
                     <span class="ident">arg</span>: <span class="prelude-val">Some</span>(<span class="ident">arg</span>),
                     <span class="ident">delegate</span>: <span class="ident">has_star</span>,
-                })
+                }))
             }
         })
     }

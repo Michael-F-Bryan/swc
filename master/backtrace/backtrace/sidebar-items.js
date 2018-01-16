@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["trace","Inspects the current call-stack, passing all active frames into the closure provided to calculate a stack trace."]],"mod":[["libunwind",""]],"struct":[["Frame","A trait representing one frame of a backtrace, yielded to the `trace` function of this crate."]]});

@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Crate synstructure</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'synstructure', ty: 'mod', relpath: '../'};</script></div>
+        <p class='location'>Crate synstructure</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'synstructure', ty: 'mod', relpath: '../'};</script></div>
     </nav>
 
     <nav class="sub">
@@ -175,18 +175,7 @@ every field, then you have come to the right place!</p>
 
 <p>For more example usage, consider investigating the <code>abomonation_derive</code> crate,
 which makes use of this crate, and is fairly simple.</p>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
-<table><tr><td><code>extern crate <a class="mod" href="https://doc.rust-lang.org/nightly/std/index.html" title="mod std">std</a> as std;</code></td></tr><tr><td><code>extern crate <a class="mod" href="https://doc.rust-lang.org/nightly/proc_macro/index.html" title="mod proc_macro">proc_macro</a>;</code></td></tr><tr><td><code>extern crate <a class="mod" href="../quote/index.html" title="mod quote">quote</a>;</code></td></tr><tr><td><code>extern crate <a class="mod" href="../syn/index.html" title="mod syn">syn</a>;</code></td></tr><tr><td><code>use std::prelude::v1::*;</code></td></tr><tr><td><code>use std::collections::<a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>;</code></td></tr><tr><td><code>use syn::<a class="struct" href="../syn/attr/struct.Attribute.html" title="struct syn::attr::Attribute">Attribute</a>;</code></td></tr><tr><td><code>use syn::<a class="enum" href="../syn/derive/enum.Body.html" title="enum syn::derive::Body">Body</a>;</code></td></tr><tr><td><code>use syn::<a class="enum" href="../syn/constant/enum.ConstExpr.html" title="enum syn::constant::ConstExpr">ConstExpr</a>;</code></td></tr><tr><td><code>use syn::<a class="struct" href="../syn/derive/struct.DeriveInput.html" title="struct syn::derive::DeriveInput">DeriveInput</a>;</code></td></tr><tr><td><code>use syn::<a class="struct" href="../syn/data/struct.Field.html" title="struct syn::data::Field">Field</a>;</code></td></tr><tr><td><code>use syn::<a class="struct" href="../syn/generics/struct.Generics.html" title="struct syn::generics::Generics">Generics</a>;</code></td></tr><tr><td><code>use syn::<a class="struct" href="../syn/ident/struct.Ident.html" title="struct syn::ident::Ident">Ident</a>;</code></td></tr><tr><td><code>use syn::<a class="enum" href="../syn/ty/enum.Ty.html" title="enum syn::ty::Ty">Ty</a>;</code></td></tr><tr><td><code>use syn::<a class="enum" href="../syn/generics/enum.TyParamBound.html" title="enum syn::generics::TyParamBound">TyParamBound</a>;</code></td></tr><tr><td><code>use syn::<a class="enum" href="../syn/data/enum.VariantData.html" title="enum syn::data::VariantData">VariantData</a>;</code></td></tr><tr><td><code>use syn::<a class="struct" href="../syn/generics/struct.WhereBoundPredicate.html" title="struct syn::generics::WhereBoundPredicate">WhereBoundPredicate</a>;</code></td></tr><tr><td><code>use syn::<a class="enum" href="../syn/generics/enum.WherePredicate.html" title="enum syn::generics::WherePredicate">WherePredicate</a>;</code></td></tr><tr><td><code>use syn::<a class="mod" href="../syn/visit/index.html" title="mod syn::visit">visit</a>;</code></td></tr><tr><td><code>use syn::visit::<a class="trait" href="../syn/visit/trait.Visitor.html" title="trait syn::visit::Visitor">Visitor</a>;</code></td></tr><tr><td><code>use quote::<a class="trait" href="../quote/to_tokens/trait.ToTokens.html" title="trait quote::to_tokens::ToTokens">ToTokens</a>;</code></td></tr><tr><td><code>use quote::<a class="struct" href="../quote/tokens/struct.Tokens.html" title="struct quote::tokens::Tokens">Tokens</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="macros/index.html"
-                                  title='mod synstructure::macros'>macros</a></td>
-                           <td class='docblock-short'>
-                                <p>This module provides two utility macros for testing custom derives. They can
-be used together to eliminate some of the boilerplate required in order to
-declare and test custom derive implementations.</p>
-                           </td>
-                       </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+</div><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="macro" href="macro.decl_derive.html"
@@ -249,30 +238,6 @@ for destructuring <code>Variant</code>s with <code>match</code> expressions.</p>
                                   title='enum synstructure::BindStyle'>BindStyle</a></td>
                            <td class='docblock-short'>
                                 <p>The type of binding to use when generating a pattern.</p>
-                           </td>
-                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.fetch_generics.html"
-                                  title='fn synstructure::fetch_generics'>fetch_generics</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.generics_fuse.html"
-                                  title='fn synstructure::generics_fuse'>generics_fuse</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.get_ty_params.html"
-                                  title='fn synstructure::get_ty_params'>get_ty_params</a></td>
-                           <td class='docblock-short'>
-                                <p>Helper function used by the VariantInfo constructor. Walks all of the types
-in <code>field</code> and returns a list of the type parameters from <code>ty_params</code> which
-are referenced in the field.</p>
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

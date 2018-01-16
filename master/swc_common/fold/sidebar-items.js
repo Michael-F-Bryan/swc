@@ -1,1 +1,0 @@
-initSidebarItems({"trait":[["FoldWith","This trait can be derived with `#[derive(AstNode)]`."],["Folder","This trait requires `specialization` feature."]]});

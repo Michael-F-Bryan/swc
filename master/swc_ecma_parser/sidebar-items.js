@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["error",""],["lexer","ECMAScript lexer."],["macros",""],["parser",""],["token","Ported from [babel/bablyon][]"]]});
+initSidebarItems({"mod":[["error",""],["lexer","ECMAScript lexer."],["parser",""],["token","Ported from [babel/bablyon][]"]]});

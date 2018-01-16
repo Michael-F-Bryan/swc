@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["BinOp","A binary operator: `+`, `+=`, `&`."],["UnOp","A unary operator: `*`, `!`, `-`."]],"mod":[["parsing",""],["printing",""]]});

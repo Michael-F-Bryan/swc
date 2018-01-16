@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct SymbolName</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.bytes">bytes</a><a href="#structfield.demangled">demangled</a><a href="#structfield.cpp_demangled">cpp_demangled</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.as_str">as_str</a><a href="#method.as_bytes">as_bytes</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Display">Display</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>backtrace</a></p><script>window.sidebarCurrent = {name: 'SymbolName', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct SymbolName</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.as_str">as_str</a><a href="#method.as_bytes">as_bytes</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Display">Display</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>backtrace</a></p><script>window.sidebarCurrent = {name: 'SymbolName', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -50,26 +50,9 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/backtrace/symbolize/mod.rs.html#150-154' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct SymbolName&lt;'a&gt; {
-    bytes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;'a [</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>,
-    demangled: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../rustc_demangle/struct.Demangle.html" title="struct rustc_demangle::Demangle">Demangle</a>&lt;'a&gt;&gt;,
-    cpp_demangled: <a class="struct" href="../backtrace/symbolize/struct.OptionCppSymbol.html" title="struct backtrace::symbolize::OptionCppSymbol">OptionCppSymbol</a>&lt;'a&gt;,
-}</pre><div class='docblock'><p>A wrapper around a symbol name to provide ergonomic accessors to the
+<pre class='rust struct'>pub struct SymbolName&lt;'a&gt; { /* fields omitted */ }</pre><div class='docblock'><p>A wrapper around a symbol name to provide ergonomic accessors to the
 demangled name, the raw bytes, the raw string, etc.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.bytes" class="structfield small-section-header">
-                           <a href="#structfield.bytes" class="anchor field"></a>
-                           <span id="bytes.v" class='invisible'>
-                           <code>bytes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;'a [</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code>
-                           </span></span><span id="structfield.demangled" class="structfield small-section-header">
-                           <a href="#structfield.demangled" class="anchor field"></a>
-                           <span id="demangled.v" class='invisible'>
-                           <code>demangled: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../rustc_demangle/struct.Demangle.html" title="struct rustc_demangle::Demangle">Demangle</a>&lt;'a&gt;&gt;</code>
-                           </span></span><span id="structfield.cpp_demangled" class="structfield small-section-header">
-                           <a href="#structfield.cpp_demangled" class="anchor field"></a>
-                           <span id="cpp_demangled.v" class='invisible'>
-                           <code>cpp_demangled: <a class="struct" href="../backtrace/symbolize/struct.OptionCppSymbol.html" title="struct backtrace::symbolize::OptionCppSymbol">OptionCppSymbol</a>&lt;'a&gt;</code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>

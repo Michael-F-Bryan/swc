@@ -49,7 +49,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/swc_common/span.rs.html#48-50' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/swc_common/span.rs.html#53-56' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait Spanned&lt;T&gt;: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> {
     fn <a href='#tymethod.from_unspanned' class='fnname'>from_unspanned</a>(node: T, span: <a class="struct" href="../swc_common/struct.Span.html" title="struct swc_common::Span">Span</a>) -&gt; Self;
 }</pre>
@@ -57,12 +57,13 @@
               Required Methods<a href='#required-methods' class='anchor'></a>
             </h2>
             <div class='methods'>
-        <h3 id='tymethod.from_unspanned' class='method'><span id='from_unspanned.v' class='invisible'><code>fn <a href='#tymethod.from_unspanned' class='fnname'>from_unspanned</a>(node: T, span: <a class="struct" href="../swc_common/struct.Span.html" title="struct swc_common::Span">Span</a>) -&gt; Self</code></span></h3></div>
+        <h3 id='tymethod.from_unspanned' class='method'><span id='from_unspanned.v' class='invisible'><code>fn <a href='#tymethod.from_unspanned' class='fnname'>from_unspanned</a>(node: T, span: <a class="struct" href="../swc_common/struct.Span.html" title="struct swc_common::Span">Span</a>) -&gt; Self</code></span></h3><div class='docblock'><p>Creates <code>Self</code> from <code>node</code> and `span.</p>
+</div></div>
                 <h2 id='foreign-impls' class='small-section-header'>
                   Implementations on Foreign Types<a href='#foreign-impls' class='anchor'></a>
                 </h2>
-            <h3 id='impl-Spanned%3CT%3E' class='impl'><span class='in-band'><code>impl&lt;S, T&gt; <a class="trait" href="../swc_common/span/trait.Spanned.html" title="trait swc_common::span::Spanned">Spanned</a>&lt;T&gt; for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;S&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="../swc_common/span/trait.Spanned.html" title="trait swc_common::span::Spanned">Spanned</a>&lt;T&gt;,&nbsp;</span></code><a href='#impl-Spanned%3CT%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_common/span.rs.html#52-59' title='goto source code'>[src]</a></span></h3>
-<span class='docblock autohide'><div class='impl-items'><h4 id='method.from_unspanned' class="method"><span id='from_unspanned.v-1' class='invisible'><code>fn <a href='#method.from_unspanned' class='fnname'>from_unspanned</a>(node: T, span: <a class="struct" href="../swc_common/struct.Span.html" title="struct swc_common::Span">Span</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_common/span.rs.html#56-58' title='goto source code'>[src]</a></span></h4>
+            <h3 id='impl-Spanned%3CT%3E' class='impl'><span class='in-band'><code>impl&lt;S, T&gt; <a class="trait" href="../swc_common/trait.Spanned.html" title="trait swc_common::Spanned">Spanned</a>&lt;T&gt; for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;S&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="../swc_common/trait.Spanned.html" title="trait swc_common::Spanned">Spanned</a>&lt;T&gt;,&nbsp;</span></code><a href='#impl-Spanned%3CT%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_common/span.rs.html#58-65' title='goto source code'>[src]</a></span></h3>
+<span class='docblock autohide'><div class='impl-items'><h4 id='method.from_unspanned' class="method"><span id='from_unspanned.v-1' class='invisible'><code>fn <a href='#method.from_unspanned' class='fnname'>from_unspanned</a>(node: T, span: <a class="struct" href="../swc_common/struct.Span.html" title="struct swc_common::Span">Span</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_common/span.rs.html#62-64' title='goto source code'>[src]</a></span></h4>
 </div></span>
         <h2 id='implementors' class='small-section-header'>
           Implementors<a href='#implementors' class='anchor'></a>

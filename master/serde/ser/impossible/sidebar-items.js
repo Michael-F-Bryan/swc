@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Void",""]],"struct":[["Impossible","Helper type for implementing a `Serializer` that does not support serializing one of the compound types."]]});

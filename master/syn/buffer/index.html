@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Module buffer</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li></ul></div><p class='location'><a href='../index.html'>syn</a></p><script>window.sidebarCurrent = {name: 'buffer', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+        <p class='location'>Module buffer</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li></ul></div><p class='location'><a href='../index.html'>syn</a></p><script>window.sidebarCurrent = {name: 'buffer', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -146,8 +146,7 @@ using Syn&#39;s parser combinator macros.</p>
 
     <span class="prelude-val">Ok</span>(<span class="ident">out</span>.<span class="ident">into</span>())
 }</pre>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
-<table><tr><td><code>use <a class="mod" href="https://doc.rust-lang.org/nightly/proc_macro/index.html" title="mod proc_macro">proc_macro</a> as pm;</code></td></tr><tr><td><code>use proc_macro2::<a class="enum" href="../../proc_macro2/enum.Delimiter.html" title="enum proc_macro2::Delimiter">Delimiter</a>;</code></td></tr><tr><td><code>use proc_macro2::<a class="struct" href="../../proc_macro2/struct.Literal.html" title="struct proc_macro2::Literal">Literal</a>;</code></td></tr><tr><td><code>use proc_macro2::<a class="enum" href="../../proc_macro2/enum.Spacing.html" title="enum proc_macro2::Spacing">Spacing</a>;</code></td></tr><tr><td><code>use proc_macro2::<a class="struct" href="../../proc_macro2/struct.Span.html" title="struct proc_macro2::Span">Span</a>;</code></td></tr><tr><td><code>use proc_macro2::<a class="struct" href="../../proc_macro2/struct.Term.html" title="struct proc_macro2::Term">Term</a>;</code></td></tr><tr><td><code>use proc_macro2::<a class="enum" href="../../proc_macro2/enum.TokenNode.html" title="enum proc_macro2::TokenNode">TokenNode</a>;</code></td></tr><tr><td><code>use proc_macro2::<a class="struct" href="../../proc_macro2/struct.TokenStream.html" title="struct proc_macro2::TokenStream">TokenStream</a>;</code></td></tr><tr><td><code>use proc_macro2::<a class="struct" href="../../proc_macro2/struct.TokenTree.html" title="struct proc_macro2::TokenTree">TokenTree</a>;</code></td></tr><tr><td><code>use std::<a class="mod" href="https://doc.rust-lang.org/nightly/core/ptr/index.html" title="mod core::ptr">ptr</a>;</code></td></tr><tr><td><code>use std::marker::<a class="struct" href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomData.html" title="struct core::marker::PhantomData">PhantomData</a>;</code></td></tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="struct" href="struct.Cursor.html"
@@ -163,15 +162,6 @@ using Syn&#39;s parser combinator macros.</p>
                                 <p>A buffer that can be efficiently traversed multiple times, unlike
 <code>TokenStream</code> which requires a deep copy in order to traverse more than
 once.</p>
-                           </td>
-                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="enum" href="enum.Entry.html"
-                                  title='enum syn::buffer::Entry'>Entry</a></td>
-                           <td class='docblock-short'>
-                                <p>Internal type which is used instead of <code>TokenTree</code> to represent a token tree
-within a <code>TokenBuffer</code>.</p>
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

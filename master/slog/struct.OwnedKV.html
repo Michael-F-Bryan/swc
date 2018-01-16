@@ -50,7 +50,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/slog/lib.rs.html#2803-2811' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct OwnedKV&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt;(pub T)<br> <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../slog/trait.SendSyncRefUnwindSafeKV.html" title="trait slog::SendSyncRefUnwindSafeKV">SendSyncRefUnwindSafeKV</a></span>;</pre><div class='docblock'><p>Owned KV</p>
+<pre class='rust struct'>pub struct OwnedKV&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt;(_)<br> <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../slog/trait.SendSyncRefUnwindSafeKV.html" title="trait slog::SendSyncRefUnwindSafeKV">SendSyncRefUnwindSafeKV</a></span>;</pre><div class='docblock'><p>Owned KV</p>
 
 <p>&quot;Owned&quot; means that the contained data (key-value pairs) can belong
 to a <code>Logger</code> and thus must be thread-safe (<code>&#39;static</code>, <code>Send</code>, <code>Sync</code>)</p>

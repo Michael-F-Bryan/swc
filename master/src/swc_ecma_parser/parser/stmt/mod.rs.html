@@ -690,13 +690,6 @@
 <span id="644">644</span>
 <span id="645">645</span>
 <span id="646">646</span>
-<span id="647">647</span>
-<span id="648">648</span>
-<span id="649">649</span>
-<span id="650">650</span>
-<span id="651">651</span>
-<span id="652">652</span>
-<span id="653">653</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">swc_macros</span>::<span class="ident">ast_node</span>;
@@ -770,9 +763,9 @@
                         };
 
                         <span class="prelude-val">Ok</span>(<span class="kw">if</span> <span class="ident">is_break</span> {
-                            <span class="ident">StmtKind</span>::<span class="ident">Break</span> { <span class="ident">label</span> }
+                            <span class="ident">StmtKind</span>::<span class="ident">Break</span>(<span class="ident">BreakStmt</span> { <span class="ident">label</span> })
                         } <span class="kw">else</span> {
-                            <span class="ident">StmtKind</span>::<span class="ident">Continue</span> { <span class="ident">label</span> }
+                            <span class="ident">StmtKind</span>::<span class="ident">Continue</span>(<span class="ident">ContinueStmt</span> { <span class="ident">label</span> })
                         })
                     })
                 }
@@ -889,7 +882,7 @@
             <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;)&#39;</span>);
 
-            <span class="kw">let</span> <span class="ident">consequent</span> <span class="op">=</span> {
+            <span class="kw">let</span> <span class="ident">cons</span> <span class="op">=</span> {
                 <span class="comment">// Annex B</span>
                 <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">ctx</span>.<span class="ident">strict</span> <span class="op">&amp;&amp;</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;function&quot;</span>) {
                     <span class="comment">// TODO: report error?</span>
@@ -903,11 +896,7 @@
                 <span class="prelude-val">None</span>
             };
 
-            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">If</span> {
-                <span class="ident">test</span>,
-                <span class="ident">consequent</span>,
-                <span class="ident">alt</span>,
-            })
+            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">If</span>(<span class="ident">IfStmt</span> { <span class="ident">test</span>, <span class="ident">cons</span>, <span class="ident">alt</span> }))
         })
     }
 
@@ -921,7 +910,7 @@
                 <span class="self">self</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>().<span class="ident">map</span>(<span class="prelude-val">Some</span>)<span class="question-mark">?</span>
             };
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>);
-            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Return</span> { <span class="ident">arg</span> })
+            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Return</span>(<span class="ident">ReturnStmt</span> { <span class="ident">arg</span> }))
         })
     }
 
@@ -954,14 +943,11 @@
                     };
                     <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;:&#39;</span>);
 
-                    <span class="ident">cur</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">SwitchCase</span> {
-                        <span class="ident">test</span>,
-                        <span class="ident">consequent</span>: <span class="macro">vec</span><span class="macro">!</span>[],
-                    });
+                    <span class="ident">cur</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">SwitchCase</span> { <span class="ident">test</span>, <span class="ident">cons</span>: <span class="macro">vec</span><span class="macro">!</span>[] });
                 } <span class="kw">else</span> {
                     <span class="kw">match</span> <span class="ident">cur</span> {
                         <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">cur</span>) <span class="op">=&gt;</span> {
-                            <span class="ident">cur</span>.<span class="ident">consequent</span>.<span class="ident">push</span>(<span class="self">self</span>.<span class="ident">parse_stmt_list_item</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>);
+                            <span class="ident">cur</span>.<span class="ident">cons</span>.<span class="ident">push</span>(<span class="self">self</span>.<span class="ident">parse_stmt_list_item</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>);
                         }
                         <span class="prelude-val">None</span> <span class="op">=&gt;</span> <span class="macro">unexpected</span><span class="macro">!</span>(),
                     }
@@ -970,10 +956,10 @@
             <span class="macro">assert_and_bump</span><span class="macro">!</span>(<span class="string">&#39;}&#39;</span>);
             <span class="ident">cases</span>.<span class="ident">extend</span>(<span class="ident">cur</span>);
 
-            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Switch</span> {
+            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Switch</span>(<span class="ident">SwitchStmt</span> {
                 <span class="ident">discriminant</span>,
                 <span class="ident">cases</span>,
-            })
+            }))
         })
     }
 
@@ -988,7 +974,7 @@
             <span class="kw">let</span> <span class="ident">arg</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>);
 
-            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Throw</span> { <span class="ident">arg</span> })
+            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Throw</span>(<span class="ident">ThrowStmt</span> { <span class="ident">arg</span> }))
         })
     }
 
@@ -1016,11 +1002,11 @@
                 <span class="prelude-val">None</span>
             };
 
-            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Try</span> {
+            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Try</span>(<span class="ident">TryStmt</span> {
                 <span class="ident">block</span>,
                 <span class="ident">handler</span>,
                 <span class="ident">finalizer</span>,
-            })
+            }))
         })
     }
 
@@ -1096,7 +1082,7 @@
             <span class="comment">// We *may* eat semicolon.</span>
             <span class="kw">let</span> _ <span class="op">=</span> <span class="macro">eat</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>);
 
-            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">DoWhile</span> { <span class="ident">test</span>, <span class="ident">body</span> })
+            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">DoWhile</span>(<span class="ident">DoWhileStmt</span> { <span class="ident">test</span>, <span class="ident">body</span> }))
         })
     }
 
@@ -1110,7 +1096,7 @@
 
             <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="kw">box</span> <span class="self">self</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
 
-            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">While</span> { <span class="ident">test</span>, <span class="ident">body</span> })
+            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">While</span>(<span class="ident">WhileStmt</span> { <span class="ident">test</span>, <span class="ident">body</span> }))
         })
     }
 
@@ -1123,7 +1109,7 @@
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;)&#39;</span>);
 
             <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="kw">box</span> <span class="self">self</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
-            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">With</span> { <span class="ident">obj</span>, <span class="ident">body</span> })
+            <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">With</span>(<span class="ident">WithStmt</span> { <span class="ident">obj</span>, <span class="ident">body</span> }))
         })
     }
 
@@ -1153,7 +1139,7 @@
 
         <span class="prelude-val">Ok</span>(<span class="ident">Stmt</span> {
             <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-            <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">Labeled</span> { <span class="ident">label</span>, <span class="ident">body</span> },
+            <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">Labeled</span>(<span class="ident">LabeledStmt</span> { <span class="ident">label</span>, <span class="ident">body</span> }),
         })
     }
 
@@ -1166,14 +1152,14 @@
             <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="kw">box</span> <span class="self">self</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
 
             <span class="prelude-val">Ok</span>(<span class="kw">match</span> <span class="ident">head</span> {
-                <span class="ident">ForHead</span>::<span class="ident">For</span> { <span class="ident">init</span>, <span class="ident">test</span>, <span class="ident">update</span> } <span class="op">=&gt;</span> <span class="ident">StmtKind</span>::<span class="ident">For</span> {
+                <span class="ident">ForHead</span>::<span class="ident">For</span> { <span class="ident">init</span>, <span class="ident">test</span>, <span class="ident">update</span> } <span class="op">=&gt;</span> <span class="ident">StmtKind</span>::<span class="ident">For</span>(<span class="ident">ForStmt</span> {
                     <span class="ident">init</span>,
                     <span class="ident">test</span>,
                     <span class="ident">update</span>,
                     <span class="ident">body</span>,
-                },
-                <span class="ident">ForHead</span>::<span class="ident">ForIn</span> { <span class="ident">left</span>, <span class="ident">right</span> } <span class="op">=&gt;</span> <span class="ident">StmtKind</span>::<span class="ident">ForIn</span> { <span class="ident">left</span>, <span class="ident">right</span>, <span class="ident">body</span> },
-                <span class="ident">ForHead</span>::<span class="ident">ForOf</span> { <span class="ident">left</span>, <span class="ident">right</span> } <span class="op">=&gt;</span> <span class="ident">StmtKind</span>::<span class="ident">ForOf</span> { <span class="ident">left</span>, <span class="ident">right</span>, <span class="ident">body</span> },
+                }),
+                <span class="ident">ForHead</span>::<span class="ident">ForIn</span> { <span class="ident">left</span>, <span class="ident">right</span> } <span class="op">=&gt;</span> <span class="ident">StmtKind</span>::<span class="ident">ForIn</span>(<span class="ident">ForInStmt</span> { <span class="ident">left</span>, <span class="ident">right</span>, <span class="ident">body</span> }),
+                <span class="ident">ForHead</span>::<span class="ident">ForOf</span> { <span class="ident">left</span>, <span class="ident">right</span> } <span class="op">=&gt;</span> <span class="ident">StmtKind</span>::<span class="ident">ForOf</span>(<span class="ident">ForOfStmt</span> { <span class="ident">left</span>, <span class="ident">right</span>, <span class="ident">body</span> }),
             })
         })
     }
@@ -1308,7 +1294,7 @@
             <span class="ident">stmt</span>(<span class="string">&quot;throw this&quot;</span>),
             <span class="ident">Stmt</span> {
                 <span class="ident">span</span>: <span class="ident">Default</span>::<span class="ident">default</span>(),
-                <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">Throw</span> { <span class="ident">arg</span>: <span class="ident">expr</span>(<span class="string">&quot;this&quot;</span>) },
+                <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">Throw</span>(<span class="ident">ThrowStmt</span> { <span class="ident">arg</span>: <span class="ident">expr</span>(<span class="string">&quot;this&quot;</span>) }),
             }
         )
     }
@@ -1342,11 +1328,11 @@
             <span class="ident">stmt</span>(<span class="string">&quot;if (a) b; else c&quot;</span>),
             <span class="ident">Stmt</span> {
                 <span class="ident">span</span>,
-                <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">If</span> {
+                <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">If</span>(<span class="ident">IfStmt</span> {
                     <span class="ident">test</span>: <span class="ident">expr</span>(<span class="string">&quot;a&quot;</span>),
-                    <span class="ident">consequent</span>: <span class="kw">box</span> <span class="ident">stmt</span>(<span class="string">&quot;b;&quot;</span>),
+                    <span class="ident">cons</span>: <span class="kw">box</span> <span class="ident">stmt</span>(<span class="string">&quot;b;&quot;</span>),
                     <span class="ident">alt</span>: <span class="prelude-val">Some</span>(<span class="kw">box</span> <span class="ident">stmt</span>(<span class="string">&quot;c&quot;</span>)),
-                },
+                }),
             }
         );
     }

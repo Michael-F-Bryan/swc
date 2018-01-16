@@ -58,34 +58,20 @@
 <span id="12">12</span>
 <span id="13">13</span>
 <span id="14">14</span>
-<span id="15">15</span>
-<span id="16">16</span>
-<span id="17">17</span>
-<span id="18">18</span>
-<span id="19">19</span>
-<span id="20">20</span>
-<span id="21">21</span>
 </pre><pre class="rust ">
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">box_syntax</span>)]</span>
-<span class="attribute">#![<span class="ident">feature</span>(<span class="ident">conservative_impl_trait</span>)]</span>
-<span class="attribute">#![<span class="ident">feature</span>(<span class="ident">const_fn</span>)]</span>
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">try_trait</span>)]</span>
-<span class="attribute">#![<span class="ident">feature</span>(<span class="ident">optin_builtin_traits</span>)]</span>
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">never_type</span>)]</span>
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">specialization</span>)]</span>
-<span class="attribute">#![<span class="ident">feature</span>(<span class="ident">generator_trait</span>)]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">either</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">fnv</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">string_cache</span>;
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">ast_node</span>::<span class="ident">AstNode</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">gen_iter</span>::<span class="ident">gen_iter</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">fold</span>::{<span class="ident">FoldWith</span>, <span class="ident">Folder</span>};
 <span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">span</span>::{<span class="ident">BytePos</span>, <span class="ident">Span</span>, <span class="ident">Spanned</span>};
-
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">compat</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">fold</span>;
 <span class="kw">mod</span> <span class="ident">ast_node</span>;
-<span class="kw">mod</span> <span class="ident">gen_iter</span>;
+<span class="kw">mod</span> <span class="ident">fold</span>;
 <span class="kw">mod</span> <span class="ident">span</span>;
 </pre>
 </section>

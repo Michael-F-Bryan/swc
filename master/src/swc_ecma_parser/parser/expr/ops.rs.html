@@ -274,10 +274,6 @@
 <span id="228">228</span>
 <span id="229">229</span>
 <span id="230">230</span>
-<span id="231">231</span>
-<span id="232">232</span>
-<span id="233">233</span>
-<span id="234">234</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Parser for unary operations and binary operations.</span>
 
@@ -362,7 +358,7 @@
 
         <span class="kw">let</span> <span class="ident">node</span> <span class="op">=</span> <span class="kw">box</span> <span class="ident">Expr</span> {
             <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">left</span>.<span class="ident">span</span>.<span class="ident">start</span>),
-            <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Binary</span> { <span class="ident">op</span>, <span class="ident">left</span>, <span class="ident">right</span> },
+            <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Bin</span>(<span class="ident">BinExpr</span> { <span class="ident">op</span>, <span class="ident">left</span>, <span class="ident">right</span> }),
         };
 
         <span class="kw">let</span> <span class="ident">expr</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_bin_op_recursively</span>(<span class="ident">node</span>, <span class="ident">min_prec</span>)<span class="question-mark">?</span>;
@@ -386,11 +382,11 @@
             <span class="kw">let</span> <span class="ident">arg</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_unary_expr</span>()<span class="question-mark">?</span>;
             <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="kw">box</span> <span class="ident">Expr</span> {
                 <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Update</span> {
+                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Update</span>(<span class="ident">UpdateExpr</span> {
                     <span class="ident">prefix</span>: <span class="bool-val">true</span>,
                     <span class="ident">op</span>,
                     <span class="ident">arg</span>,
-                },
+                }),
             });
         }
 
@@ -409,11 +405,7 @@
             <span class="kw">let</span> <span class="ident">arg</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_unary_expr</span>()<span class="question-mark">?</span>;
             <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="kw">box</span> <span class="ident">Expr</span> {
                 <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Unary</span> {
-                    <span class="ident">prefix</span>: <span class="bool-val">true</span>,
-                    <span class="ident">op</span>,
-                    <span class="ident">arg</span>,
-                },
+                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Unary</span>(<span class="ident">UnaryExpr</span> { <span class="ident">op</span>, <span class="ident">arg</span> }),
             });
         }
 
@@ -440,11 +432,11 @@
 
             <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="kw">box</span> <span class="ident">Expr</span> {
                 <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Update</span> {
+                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Update</span>(<span class="ident">UpdateExpr</span> {
                     <span class="ident">prefix</span>: <span class="bool-val">false</span>,
                     <span class="ident">op</span>,
                     <span class="ident">arg</span>: <span class="ident">expr</span>,
-                },
+                }),
             });
         }
         <span class="prelude-val">Ok</span>(<span class="ident">expr</span>)
@@ -460,7 +452,7 @@
             }
 
             <span class="kw">let</span> <span class="ident">arg</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_unary_expr</span>()<span class="question-mark">?</span>;
-            <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Await</span> { <span class="ident">arg</span> })
+            <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Await</span>(<span class="ident">AwaitExpr</span> { <span class="ident">arg</span> }))
         })
     }
 }
@@ -488,11 +480,11 @@
             <span class="ident">bin</span>(<span class="string">&quot;5 + 4 * 7&quot;</span>),
             <span class="kw">box</span> <span class="ident">Expr</span> {
                 <span class="ident">span</span>: <span class="ident">Default</span>::<span class="ident">default</span>(),
-                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Binary</span> {
+                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Bin</span>(<span class="ident">BinExpr</span> {
                     <span class="ident">op</span>: <span class="macro">op</span><span class="macro">!</span>(<span class="ident">bin</span>, <span class="string">&quot;+&quot;</span>),
                     <span class="ident">left</span>: <span class="ident">bin</span>(<span class="string">&quot;5&quot;</span>),
                     <span class="ident">right</span>: <span class="ident">bin</span>(<span class="string">&quot;4 * 7&quot;</span>),
-                },
+                }),
             }
         );
     }
@@ -503,11 +495,11 @@
             <span class="ident">bin</span>(<span class="string">&quot;5 + 4 + 7&quot;</span>),
             <span class="kw">box</span> <span class="ident">Expr</span> {
                 <span class="ident">span</span>: <span class="ident">Default</span>::<span class="ident">default</span>(),
-                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Binary</span> {
+                <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Bin</span>(<span class="ident">BinExpr</span> {
                     <span class="ident">op</span>: <span class="macro">op</span><span class="macro">!</span>(<span class="ident">bin</span>, <span class="string">&quot;+&quot;</span>),
                     <span class="ident">left</span>: <span class="ident">bin</span>(<span class="string">&quot;5 + 4&quot;</span>),
                     <span class="ident">right</span>: <span class="ident">bin</span>(<span class="string">&quot;7&quot;</span>),
-                },
+                }),
             }
         );
     }

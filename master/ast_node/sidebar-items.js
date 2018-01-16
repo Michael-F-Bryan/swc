@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["ast_node","Alias for `#[derive(Clone, Debug, PartialEq, AstNode)]`"],["derive",""]],"mod":[["fold",""]]});
+initSidebarItems({"fn":[["ast_node","Alias for `#[derive(Clone, Debug, PartialEq, AstNode)]`"],["derive",""]]});

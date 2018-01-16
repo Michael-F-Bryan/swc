@@ -751,7 +751,7 @@
     <span class="kw">fn</span> <span class="ident">finish_fn</span>(<span class="ident">ident</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Ident</span><span class="op">&gt;</span>, <span class="ident">function</span>: <span class="ident">Function</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="kw">box</span> <span class="ident">Expr</span> {
             <span class="ident">span</span>: <span class="ident">function</span>.<span class="ident">span</span>,
-            <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Function</span>(<span class="ident">FnExpr</span> { <span class="ident">ident</span>, <span class="ident">function</span> }),
+            <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Fn</span>(<span class="ident">FnExpr</span> { <span class="ident">ident</span>, <span class="ident">function</span> }),
         }
     }
     <span class="kw">fn</span> <span class="ident">finish_class</span>(<span class="ident">ident</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Ident</span><span class="op">&gt;</span>, <span class="ident">class</span>: <span class="ident">Class</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
@@ -777,7 +777,7 @@
     <span class="kw">type</span> <span class="ident">Ident</span> <span class="op">=</span> <span class="ident">Ident</span>;
 
     <span class="kw">fn</span> <span class="ident">finish_fn</span>(<span class="ident">ident</span>: <span class="ident">Ident</span>, <span class="ident">function</span>: <span class="ident">Function</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
-        <span class="ident">Decl</span>::<span class="ident">Fn</span> { <span class="ident">ident</span>, <span class="ident">function</span> }
+        <span class="ident">Decl</span>::<span class="ident">Fn</span>(<span class="ident">FnDecl</span> { <span class="ident">ident</span>, <span class="ident">function</span> })
     }
     <span class="kw">fn</span> <span class="ident">finish_class</span>(<span class="ident">ident</span>: <span class="ident">Ident</span>, <span class="ident">class</span>: <span class="ident">Class</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="ident">Decl</span>::<span class="ident">Class</span>(<span class="ident">ClassDecl</span> { <span class="ident">ident</span>, <span class="ident">class</span> })

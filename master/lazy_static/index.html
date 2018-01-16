@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Crate lazy_static</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'lazy_static', ty: 'mod', relpath: '../'};</script></div>
+        <p class='location'>Crate lazy_static</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#macros">Macros</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'lazy_static', ty: 'mod', relpath: '../'};</script></div>
     </nav>
 
     <nav class="sub">
@@ -122,27 +122,11 @@ have generally the same properties as regular &quot;static&quot; variables:</p>
 
 <h1 id='implementation-details' class='section-header'><a href='#implementation-details'>Implementation details</a></h1>
 <p>The <code>Deref</code> implementation uses a hidden static variable that is guarded by a atomic check on each access. On stable Rust, the macro may need to allocate each static on the heap.</p>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
-<table><tr><td><code>extern crate <a class="mod" href="https://doc.rust-lang.org/nightly/core/index.html" title="mod core">core</a> as core;</code></td></tr><tr><td><code>use core::prelude::v1::*;</code></td></tr><tr><td><code>pub use core::ops::<a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html" title="trait core::ops::deref::Deref">Deref</a> as __Deref;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="lazy/index.html"
-                                  title='mod lazy_static::lazy'>lazy</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+</div><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="macro" href="macro.__lazy_static_create.html"
                                   title='macro lazy_static::__lazy_static_create'>__lazy_static_create</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="macro" href="macro.__lazy_static_internal.html"
-                                  title='macro lazy_static::__lazy_static_internal'>__lazy_static_internal</a></td>
                            <td class='docblock-short'>
                                 
                            </td>

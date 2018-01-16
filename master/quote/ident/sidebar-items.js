@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["Ident","An identifier that should be interpolated without quotes."]]});

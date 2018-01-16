@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["Compat","A compatibility wrapper around an error type from this crate."]]});

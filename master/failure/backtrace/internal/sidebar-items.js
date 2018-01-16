@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["FAILURE_BACKTRACE",""],["GENERAL_BACKTRACE",""]],"fn":[["is_backtrace_enabled",""]],"struct":[["Backtrace","Representation of an owned and self-contained backtrace."],["InternalBacktrace",""],["MaybeResolved",""]]});

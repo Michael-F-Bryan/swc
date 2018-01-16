@@ -52,7 +52,7 @@
                </span><a class='srclink' href='../src/pmutil/lib.rs.html#1-61' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Utils for implementing proc-macro. Works on stable.</p>
 </div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
-<table><tr><td><code>extern crate <a class="mod" href="https://doc.rust-lang.org/nightly/std/index.html" title="mod std">std</a> as std;</code></td></tr><tr><td><code>pub extern crate <a class="mod" href="../proc_macro2/index.html" title="mod proc_macro2">proc_macro2</a>;</code></td></tr><tr><td><code>pub extern crate <a class="mod" href="https://doc.rust-lang.org/nightly/proc_macro/index.html" title="mod proc_macro">proc_macro</a>;</code></td></tr><tr><td><code>pub extern crate <a class="mod" href="../quote/index.html" title="mod quote">quote</a>;</code></td></tr><tr><td><code>pub extern crate <a class="mod" href="../syn/index.html" title="mod syn">syn</a>;</code></td></tr><tr><td><code>use std::prelude::v1::*;</code></td></tr><tr><td><code>use quote::<a class="trait" href="../quote/to_tokens/trait.ToTokens.html" title="trait quote::to_tokens::ToTokens">ToTokens</a>;</code></td></tr><tr><td><code>use quote::<a class="struct" href="../quote/tokens/struct.Tokens.html" title="struct quote::tokens::Tokens">Tokens</a>;</code></td></tr><tr><td><code>use syn::<a class="struct" href="../pmutil/prelude/struct.Ident.html" title="struct pmutil::prelude::Ident">Ident</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table><tr><td><code>pub extern crate <a class="mod" href="../proc_macro2/index.html" title="mod proc_macro2">proc_macro2</a>;</code></td></tr><tr><td><code>pub extern crate <a class="mod" href="https://doc.rust-lang.org/nightly/proc_macro/index.html" title="mod proc_macro">proc_macro</a>;</code></td></tr><tr><td><code>pub extern crate <a class="mod" href="../quote/index.html" title="mod quote">quote</a>;</code></td></tr><tr><td><code>pub extern crate <a class="mod" href="../syn/index.html" title="mod syn">syn</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="mod" href="comment/index.html"
@@ -76,13 +76,6 @@
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class="mod" href="span_ext/index.html"
-                                  title='mod pmutil::span_ext'>span_ext</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
                            <td><a class="mod" href="spanned_quote/index.html"
                                   title='mod pmutil::spanned_quote'>spanned_quote</a></td>
                            <td class='docblock-short'>
@@ -97,41 +90,6 @@
                            </td>
                        </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
 <table>
-                       <tr class=' module-item'>
-                           <td><a class="macro" href="macro.__sq_quote_closure.html"
-                                  title='macro pmutil::__sq_quote_closure'>__sq_quote_closure</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="macro" href="macro.__sq_quote_tokens_to.html"
-                                  title='macro pmutil::__sq_quote_tokens_to'>__sq_quote_tokens_to</a></td>
-                           <td class='docblock-short'>
-                                <p>This macro assumes that <code>Vars</code> is already handled.</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="macro" href="macro.declare_vars_for_quote.html"
-                                  title='macro pmutil::declare_vars_for_quote'>declare_vars_for_quote</a></td>
-                           <td class='docblock-short'>
-                                <p>This macro handles <code>Vars</code>, and creates a new hidden macro used inside quasi-quotting.</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="macro" href="macro.handle_vars_for_quote.html"
-                                  title='macro pmutil::handle_vars_for_quote'>handle_vars_for_quote</a></td>
-                           <td class='docblock-short'>
-                                <p>Usage: __sq_handle_vars! { a, b: expression(), c, };</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="macro" href="macro.quoter_location.html"
-                                  title='macro pmutil::quoter_location'>quoter_location</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
                        <tr class=' module-item'>
                            <td><a class="macro" href="macro.smart_quote.html"
                                   title='macro pmutil::smart_quote'>smart_quote</a></td>

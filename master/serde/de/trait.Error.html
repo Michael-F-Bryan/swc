@@ -50,8 +50,8 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/serde/de/mod.rs.html#152-270' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait Error: <a class="trait" href="../../serde/lib/marker/trait.Sized.html" title="trait serde::lib::marker::Sized">Sized</a> + <a class="trait" href="../../serde/lib/error/trait.Error.html" title="trait serde::lib::error::Error">Error</a> {
-    fn <a href='#tymethod.custom' class='fnname'>custom</a>&lt;T&gt;(msg: T) -&gt; Self<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../serde/export/fmt/trait.Display.html" title="trait serde::export::fmt::Display">Display</a></span>;
+<pre class='rust trait'>pub trait Error: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html" title="trait std::error::Error">Error</a> {
+    fn <a href='#tymethod.custom' class='fnname'>custom</a>&lt;T&gt;(msg: T) -&gt; Self<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a></span>;
 
     fn <a href='#method.invalid_type' class='fnname'>invalid_type</a>(unexp: <a class="enum" href="../../serde/de/enum.Unexpected.html" title="enum serde::de::Unexpected">Unexpected</a>, exp: &amp;<a class="trait" href="../../serde/de/trait.Expected.html" title="trait serde::de::Expected">Expected</a>) -&gt; Self { ... }
 <div class='item-spacer'></div>    fn <a href='#method.invalid_value' class='fnname'>invalid_value</a>(unexp: <a class="enum" href="../../serde/de/enum.Unexpected.html" title="enum serde::de::Unexpected">Unexpected</a>, exp: &amp;<a class="trait" href="../../serde/de/trait.Expected.html" title="trait serde::de::Expected">Expected</a>) -&gt; Self { ... }
@@ -78,7 +78,7 @@ and inherit the default behavior for the other methods.</p>
               Required Methods<a href='#required-methods' class='anchor'></a>
             </h2>
             <div class='methods'>
-        <h3 id='tymethod.custom' class='method'><span id='custom.v' class='invisible'><code>fn <a href='#tymethod.custom' class='fnname'>custom</a>&lt;T&gt;(msg: T) -&gt; Self <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../serde/export/fmt/trait.Display.html" title="trait serde::export::fmt::Display">Display</a>,&nbsp;</span></code></span></h3><div class='docblock'><p>Raised when there is general error when deserializing a type.</p>
+        <h3 id='tymethod.custom' class='method'><span id='custom.v' class='invisible'><code>fn <a href='#tymethod.custom' class='fnname'>custom</a>&lt;T&gt;(msg: T) -&gt; Self <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a>,&nbsp;</span></code></span></h3><div class='docblock'><p>Raised when there is general error when deserializing a type.</p>
 
 <p>The message should not be capitalized and should not end with a period.</p>
 

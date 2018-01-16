@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["fetch",""]],"struct":[["Dylib",""],["Symbol",""]]});

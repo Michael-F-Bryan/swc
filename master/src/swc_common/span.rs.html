@@ -110,10 +110,19 @@
 <span id="64">64</span>
 <span id="65">65</span>
 <span id="66">66</span>
+<span id="67">67</span>
+<span id="68">68</span>
+<span id="69">69</span>
+<span id="70">70</span>
+<span id="71">71</span>
+<span id="72">72</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">fold</span>::<span class="ident">FoldWith</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fmt</span>::{<span class="self">self</span>, <span class="ident">Debug</span>, <span class="ident">Display</span>, <span class="ident">Formatter</span>};
 
+<span class="doccomment">/// A new-type struct for position of specific byte.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// See [Span](./struct.Span.html).</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Default</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BytePos</span>(<span class="kw">pub</span> <span class="ident">u32</span>);
 <span class="kw">impl</span> <span class="ident">Display</span> <span class="kw">for</span> <span class="ident">BytePos</span> {
@@ -127,6 +136,7 @@
     }
 }
 
+<span class="doccomment">/// Byte range of a token or node.</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">Hash</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Span</span> {
     <span class="doccomment">/// Inclusive</span>
@@ -145,6 +155,7 @@
 }
 
 <span class="kw">impl</span> <span class="ident">Span</span> {
+    <span class="doccomment">/// Dummy span. This is same as `Span::defult()`.</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DUMMY</span>: <span class="ident">Span</span> <span class="op">=</span> <span class="ident">Span</span> {
         <span class="ident">start</span>: <span class="ident">BytePos</span>(<span class="number">0</span>),
         <span class="ident">end</span>: <span class="ident">BytePos</span>(<span class="number">0</span>),
@@ -159,6 +170,7 @@
 }
 
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Spanned</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>: <span class="ident">Sized</span> {
+    <span class="doccomment">/// Creates `Self` from `node` and `span.</span>
     <span class="kw">fn</span> <span class="ident">from_unspanned</span>(<span class="ident">node</span>: <span class="ident">T</span>, <span class="ident">span</span>: <span class="ident">Span</span>) <span class="op">-&gt;</span> <span class="self">Self</span>;
 }
 
@@ -172,7 +184,7 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="ident">FoldWith</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Span</span> {
-    <span class="doccomment">/// no-op</span>
+    <span class="doccomment">/// No op as span does not have any child.</span>
     <span class="kw">fn</span> <span class="ident">fold_children</span>(<span class="self">self</span>, _: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">F</span>) <span class="op">-&gt;</span> <span class="ident">Span</span> {
         <span class="self">self</span>
     }

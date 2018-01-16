@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct TokenBuffer</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.data">data</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.inner_new">inner_new</a><a href="#method.new">new</a><a href="#method.new2">new2</a><a href="#method.begin">begin</a></div></div><p class='location'><a href='../index.html'>syn</a>::<wbr><a href='index.html'>buffer</a></p><script>window.sidebarCurrent = {name: 'TokenBuffer', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct TokenBuffer</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.new2">new2</a><a href="#method.begin">begin</a></div></div><p class='location'><a href='../index.html'>syn</a>::<wbr><a href='index.html'>buffer</a></p><script>window.sidebarCurrent = {name: 'TokenBuffer', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -50,27 +50,19 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/syn/buffer.rs.html#161-166' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct TokenBuffer {
-    data: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a><a class="enum" href="../../syn/buffer/enum.Entry.html" title="enum syn::buffer::Entry">Entry</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>&gt;,
-}</pre><div class='docblock'><p>A buffer that can be efficiently traversed multiple times, unlike
+<pre class='rust struct'>pub struct TokenBuffer { /* fields omitted */ }</pre><div class='docblock'><p>A buffer that can be efficiently traversed multiple times, unlike
 <code>TokenStream</code> which requires a deep copy in order to traverse more than
 once.</p>
 
 <p>See the <a href="index.html">module documentation</a> for an example of <code>TokenBuffer</code> in action.</p>
 
 <p><em>This type is available if Syn is built with the <code>&quot;parsing&quot;</code> feature.</em></p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.data" class="structfield small-section-header">
-                           <a href="#structfield.data" class="anchor field"></a>
-                           <span id="data.v" class='invisible'>
-                           <code>data: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a><a class="enum" href="../../syn/buffer/enum.Entry.html" title="enum syn::buffer::Entry">Entry</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>&gt;</code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
                 <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../syn/buffer/struct.TokenBuffer.html" title="struct syn::buffer::TokenBuffer">TokenBuffer</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#168-236' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.inner_new' class="method"><span id='inner_new.v' class='invisible'><code>fn <a href='#method.inner_new' class='fnname'>inner_new</a>(stream: <a class="struct" href="../../proc_macro2/struct.TokenStream.html" title="struct proc_macro2::TokenStream">TokenStream</a>, up: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="enum" href="../../syn/buffer/enum.Entry.html" title="enum syn::buffer::Entry">Entry</a>) -&gt; <a class="struct" href="../../syn/buffer/struct.TokenBuffer.html" title="struct syn::buffer::TokenBuffer">TokenBuffer</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#171-217' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>(stream: <a class="struct" href="https://doc.rust-lang.org/nightly/proc_macro/struct.TokenStream.html" title="struct proc_macro::TokenStream">TokenStream</a>) -&gt; <a class="struct" href="../../syn/buffer/struct.TokenBuffer.html" title="struct syn::buffer::TokenBuffer">TokenBuffer</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#221-223' title='goto source code'>[src]</a></span></h4>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>(stream: <a class="struct" href="https://doc.rust-lang.org/nightly/proc_macro/struct.TokenStream.html" title="struct proc_macro::TokenStream">TokenStream</a>) -&gt; <a class="struct" href="../../syn/buffer/struct.TokenBuffer.html" title="struct syn::buffer::TokenBuffer">TokenBuffer</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#221-223' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Creates a <code>TokenBuffer</code> containing all the tokens from the input
 <code>TokenStream</code>.</p>
 </div><h4 id='method.new2' class="method"><span id='new2.v' class='invisible'><code>pub fn <a href='#method.new2' class='fnname'>new2</a>(stream: <a class="struct" href="../../proc_macro2/struct.TokenStream.html" title="struct proc_macro2::TokenStream">TokenStream</a>) -&gt; <a class="struct" href="../../syn/buffer/struct.TokenBuffer.html" title="struct syn::buffer::TokenBuffer">TokenBuffer</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#227-229' title='goto source code'>[src]</a></span></h4>

@@ -359,7 +359,7 @@
     <span class="kw">fn</span> <span class="ident">make_object</span>(<span class="ident">span</span>: <span class="ident">Span</span>, <span class="ident">props</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Prop</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span> {
         <span class="kw">box</span> <span class="ident">Expr</span> {
             <span class="ident">span</span>,
-            <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Object</span> { <span class="ident">props</span> },
+            <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Object</span>(<span class="ident">ObjectLit</span> { <span class="ident">props</span> }),
         }
     }
 
@@ -492,7 +492,7 @@
     <span class="kw">fn</span> <span class="ident">make_object</span>(<span class="ident">span</span>: <span class="ident">Span</span>, <span class="ident">props</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Prop</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">Pat</span> {
         <span class="ident">Pat</span> {
             <span class="ident">span</span>,
-            <span class="ident">node</span>: <span class="ident">PatKind</span>::<span class="ident">Object</span> { <span class="ident">props</span> },
+            <span class="ident">node</span>: <span class="ident">PatKind</span>::<span class="ident">Object</span>(<span class="ident">props</span>),
         }
     }
 

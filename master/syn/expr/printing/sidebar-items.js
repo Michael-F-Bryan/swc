@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["attrs_to_tokens",""],["maybe_wrap_else",""],["wrap_bare_struct",""]]});

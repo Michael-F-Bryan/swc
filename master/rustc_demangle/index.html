@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Crate rustc_demangle</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#structs">Structs</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'rustc_demangle', ty: 'mod', relpath: '../'};</script></div>
+        <p class='location'>Crate rustc_demangle</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'rustc_demangle', ty: 'mod', relpath: '../'};</script></div>
     </nav>
 
     <nav class="sub">
@@ -72,8 +72,7 @@ trailing hash value.</p>
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">demangle</span>(<span class="string">&quot;_ZN3foo17h05af221e174051e9E&quot;</span>)), <span class="string">&quot;foo::h05af221e174051e9&quot;</span>);
 <span class="comment">// Without hash</span>
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{:#}&quot;</span>, <span class="ident">demangle</span>(<span class="string">&quot;_ZN3foo17h05af221e174051e9E&quot;</span>)), <span class="string">&quot;foo&quot;</span>);</pre>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
-<table><tr><td><code>extern crate <a class="mod" href="https://doc.rust-lang.org/nightly/core/index.html" title="mod core">core</a> as core;</code></td></tr><tr><td><code>use core::prelude::v1::*;</code></td></tr><tr><td><code>use core::<a class="mod" href="https://doc.rust-lang.org/nightly/core/fmt/index.html" title="mod core::fmt">fmt</a>;</code></td></tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="struct" href="struct.Demangle.html"
@@ -95,13 +94,6 @@ trailing hash value.</p>
                                   title='fn rustc_demangle::demangle'>demangle</a></td>
                            <td class='docblock-short'>
                                 <p>De-mangles a Rust symbol into a more readable version</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.is_rust_hash.html"
-                                  title='fn rustc_demangle::is_rust_hash'>is_rust_hash</a></td>
-                           <td class='docblock-short'>
-                                
                            </td>
                        </tr>
                        <tr class=' module-item'>

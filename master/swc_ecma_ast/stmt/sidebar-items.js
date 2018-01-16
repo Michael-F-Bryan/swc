@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["StmtKind",""],["VarDeclOrExpr",""],["VarDeclOrPat",""]],"struct":[["BlockStmt","Use when only block statements are allowed."],["CatchClause",""],["Stmt",""],["SwitchCase",""]]});

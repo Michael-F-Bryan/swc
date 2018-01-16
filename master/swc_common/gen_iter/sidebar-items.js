@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["gen_iter","Creates a new iterator from `gen`."]],"struct":[["GenIter",""]]});

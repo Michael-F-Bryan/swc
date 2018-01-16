@@ -49,7 +49,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/swc_ecma_ast/macros.rs.html#4-54' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/swc_ecma_ast/macros.rs.html#7-57' title='goto source code'>[src]</a></span></h1>
 <pre class="rust macro">
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">op</span> {
     (<span class="ident">unary</span>, <span class="string">&quot;-&quot;</span>) <span class="op">=&gt;</span> { ... };
@@ -99,8 +99,11 @@
     (<span class="string">&quot;&amp;=&quot;</span>) <span class="op">=&gt;</span> { ... };
     (<span class="string">&quot;**=&quot;</span>) <span class="op">=&gt;</span> { ... };
 }</pre>
-<div class='docblock'><p>Unary +,- is <code>op!(unary, &quot;+&quot;)</code>, <code>op!(unary, &quot;-&quot;)</code>.
-Binary +,- is <code>op!(bin, &quot;+&quot;)</code>, <code>op!(bin, &quot;-&quot;)</code>.</p>
+<div class='docblock'><p>Creates a corresponding operator.</p>
+
+<p>Unary +,- is <code>op!(unary, &quot;+&quot;)</code>, <code>op!(unary, &quot;-&quot;)</code>.</p>
+
+<p>Binary +,- is <code>op!(bin, &quot;+&quot;)</code>, <code>op!(bin, &quot;-&quot;)</code>.</p>
 </div></section>
     <section id='search' class="content hidden"></section>
 

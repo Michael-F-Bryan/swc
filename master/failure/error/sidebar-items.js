@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["Error","The `Error` type, which can contain any failure."],["Inner",""]]});

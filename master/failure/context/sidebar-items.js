@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Either",""]],"struct":[["Context","An error with context around it."]]});
