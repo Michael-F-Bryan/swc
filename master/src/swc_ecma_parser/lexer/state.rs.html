@@ -369,11 +369,6 @@
 <span id="323">323</span>
 <span id="324">324</span>
 <span id="325">325</span>
-<span id="326">326</span>
-<span id="327">327</span>
-<span id="328">328</span>
-<span id="329">329</span>
-<span id="330">330</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">Input</span>, <span class="ident">Lexer</span>};
 <span class="kw">use</span> <span class="ident">parser_macros</span>::<span class="ident">parser</span>;
@@ -690,20 +685,15 @@
 <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">fucntion</span>(<span class="ident">is_expr</span> <span class="op">=</span> <span class="string">&quot;bool&quot;</span>, <span class="ident">preserve_space</span> <span class="op">=</span> <span class="string">&quot;bool&quot;</span>))]</span>
 <span class="kw">enum</span> <span class="ident">Type</span> {
     <span class="ident">BraceStmt</span>,
-    <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">is_expr</span>)]</span>
-    <span class="ident">BraceExpr</span>,
-    <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">is_expr</span>)]</span>
-    <span class="ident">TplQuasi</span>,
+    <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">is_expr</span>)]</span> <span class="ident">BraceExpr</span>,
+    <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">is_expr</span>)]</span> <span class="ident">TplQuasi</span>,
     <span class="ident">ParenStmt</span> {
         <span class="doccomment">/// Is this `for` loop?</span>
         <span class="ident">is_for_loop</span>: <span class="ident">bool</span>,
     },
-    <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">is_expr</span>)]</span>
-    <span class="ident">ParenExpr</span>,
-    <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">is_expr</span>, <span class="ident">preserve_space</span>)]</span>
-    <span class="ident">Tpl</span>,
-    <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">is_expr</span>)]</span>
-    <span class="ident">FnExpr</span>,
+    <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">is_expr</span>)]</span> <span class="ident">ParenExpr</span>,
+    <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">is_expr</span>, <span class="ident">preserve_space</span>)]</span> <span class="ident">Tpl</span>,
+    <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">is_expr</span>)]</span> <span class="ident">FnExpr</span>,
 }
 </pre>
 </section>

@@ -49,7 +49,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/swc_macros_common/syn_ext.rs.html#7-41' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../src/swc_macros_common/syn_ext.rs.html#7-40' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait ItemImplExt {
     fn <a href='#tymethod.with_generics' class='fnname'>with_generics</a>(self, generics: <a class="struct" href="../../syn/generics/struct.Generics.html" title="struct syn::generics::Generics">Generics</a>) -&gt; Self;
 }</pre><div class='docblock'><p>Extension trait for <code>ItemImpl</code> (impl block).</p>
@@ -65,17 +65,17 @@
 
 <span class="kw">let</span> <span class="ident">item</span>: <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Quote</span>::<span class="ident">new_call_site</span>()
     .<span class="ident">quote_with</span>(<span class="macro">smart_quote</span><span class="macro">!</span>(
-        <span class="ident">Vars</span> {
-            <span class="ident">Type</span>: <span class="ident">type_name</span>,
-            <span class="ident">impl_generics</span>,
-            <span class="ident">ty_generics</span>,
-            <span class="ident">where_clause</span>,
-        },
-        {
-            <span class="kw">impl</span> <span class="ident">impl_generics</span> ::<span class="ident">swc_common</span>::<span class="ident">AstNode</span> <span class="kw">for</span> <span class="ident">Type</span> <span class="ident">ty_generics</span>
-                    <span class="ident">where_clause</span> {}
-        }
-    ))
+<span class="ident">Vars</span> {
+<span class="ident">Type</span>: <span class="ident">type_name</span>,
+<span class="ident">impl_generics</span>,
+<span class="ident">ty_generics</span>,
+<span class="ident">where_clause</span>,
+},
+{
+<span class="kw">impl</span> <span class="ident">impl_generics</span> ::<span class="ident">swc_common</span>::<span class="ident">AstNode</span> <span class="kw">for</span> <span class="ident">Type</span> <span class="ident">ty_generics</span>
+<span class="ident">where_clause</span> {}
+}
+))
     .<span class="ident">parse</span>();</pre>
 
 <p>You can use this like</p>
@@ -90,8 +90,8 @@
                 <h2 id='foreign-impls' class='small-section-header'>
                   Implementations on Foreign Types<a href='#foreign-impls' class='anchor'></a>
                 </h2>
-            <h3 id='impl-ItemImplExt' class='impl'><span class='in-band'><code>impl <a class="trait" href="../../swc_macros_common/prelude/trait.ItemImplExt.html" title="trait swc_macros_common::prelude::ItemImplExt">ItemImplExt</a> for <a class="struct" href="../../syn/item/struct.ItemImpl.html" title="struct syn::item::ItemImpl">ItemImpl</a></code><a href='#impl-ItemImplExt' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/swc_macros_common/syn_ext.rs.html#43-107' title='goto source code'>[src]</a></span></h3>
-<span class='docblock autohide'><div class='impl-items'><h4 id='method.with_generics' class="method"><span id='with_generics.v-1' class='invisible'><code>fn <a href='#method.with_generics' class='fnname'>with_generics</a>(self, generics: <a class="struct" href="../../syn/generics/struct.Generics.html" title="struct syn::generics::Generics">Generics</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/swc_macros_common/syn_ext.rs.html#44-106' title='goto source code'>[src]</a></span></h4>
+            <h3 id='impl-ItemImplExt' class='impl'><span class='in-band'><code>impl <a class="trait" href="../../swc_macros_common/prelude/trait.ItemImplExt.html" title="trait swc_macros_common::prelude::ItemImplExt">ItemImplExt</a> for <a class="struct" href="../../syn/item/struct.ItemImpl.html" title="struct syn::item::ItemImpl">ItemImpl</a></code><a href='#impl-ItemImplExt' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/swc_macros_common/syn_ext.rs.html#42-106' title='goto source code'>[src]</a></span></h3>
+<span class='docblock autohide'><div class='impl-items'><h4 id='method.with_generics' class="method"><span id='with_generics.v-1' class='invisible'><code>fn <a href='#method.with_generics' class='fnname'>with_generics</a>(self, generics: <a class="struct" href="../../syn/generics/struct.Generics.html" title="struct syn::generics::Generics">Generics</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/swc_macros_common/syn_ext.rs.html#43-105' title='goto source code'>[src]</a></span></h4>
 </div></span>
         <h2 id='implementors' class='small-section-header'>
           Implementors<a href='#implementors' class='anchor'></a>

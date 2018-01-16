@@ -334,6 +334,9 @@
 <span id="288">288</span>
 <span id="289">289</span>
 <span id="290">290</span>
+<span id="291">291</span>
+<span id="292">292</span>
+<span id="293">293</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! # Example</span>
 <span class="doccomment">//!</span>
@@ -342,23 +345,26 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! struct S {</span>
-<span class="doccomment">//!   a: u8,</span>
-<span class="doccomment">//!   b: u16,</span>
+<span class="doccomment">//!     a: u8,</span>
+<span class="doccomment">//!     b: u16,</span>
 <span class="doccomment">//! }</span>
-<span class="doccomment">//! let s = S { a: 0, b: 0, };</span>
+<span class="doccomment">//! let s = S { a: 0, b: 0 };</span>
 <span class="doccomment">//! match s {</span>
-<span class="doccomment">//!   S { a: _binded_a, b: _binded_b } =&gt; {}</span>
+<span class="doccomment">//!     S {</span>
+<span class="doccomment">//!         a: _binded_a,</span>
+<span class="doccomment">//!         b: _binded_b,</span>
+<span class="doccomment">//!     } =&gt; {}</span>
 <span class="doccomment">//! }</span>
 <span class="doccomment">//! enum E {</span>
-<span class="doccomment">//!   V1 { a: u8 },</span>
-<span class="doccomment">//!   V2(u16),</span>
-<span class="doccomment">//!   V3,</span>
+<span class="doccomment">//!     V1 { a: u8 },</span>
+<span class="doccomment">//!     V2(u16),</span>
+<span class="doccomment">//!     V3,</span>
 <span class="doccomment">//! }</span>
-<span class="doccomment">//! let e = E::V1{ a: 0 };</span>
+<span class="doccomment">//! let e = E::V1 { a: 0 };</span>
 <span class="doccomment">//! match e {</span>
-<span class="doccomment">//!   E::V1 { a: _binded_a } =&gt; {}</span>
-<span class="doccomment">//!   E::V2(_binded_0) =&gt; {}</span>
-<span class="doccomment">//!   E::V3 =&gt; {}</span>
+<span class="doccomment">//!     E::V1 { a: _binded_a } =&gt; {}</span>
+<span class="doccomment">//!     E::V2(_binded_0) =&gt; {}</span>
+<span class="doccomment">//!     E::V3 =&gt; {}</span>
 <span class="doccomment">//! }</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>

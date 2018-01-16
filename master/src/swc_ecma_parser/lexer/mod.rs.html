@@ -768,6 +768,32 @@
 <span id="722">722</span>
 <span id="723">723</span>
 <span id="724">724</span>
+<span id="725">725</span>
+<span id="726">726</span>
+<span id="727">727</span>
+<span id="728">728</span>
+<span id="729">729</span>
+<span id="730">730</span>
+<span id="731">731</span>
+<span id="732">732</span>
+<span id="733">733</span>
+<span id="734">734</span>
+<span id="735">735</span>
+<span id="736">736</span>
+<span id="737">737</span>
+<span id="738">738</span>
+<span id="739">739</span>
+<span id="740">740</span>
+<span id="741">741</span>
+<span id="742">742</span>
+<span id="743">743</span>
+<span id="744">744</span>
+<span id="745">745</span>
+<span id="746">746</span>
+<span id="747">747</span>
+<span id="748">748</span>
+<span id="749">749</span>
+<span id="750">750</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! ECMAScript lexer.</span>
 <span class="doccomment">//!</span>
@@ -797,35 +823,61 @@
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Fail</span>, <span class="ident">Debug</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">Hash</span>)]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">Error</span><span class="op">&lt;</span><span class="ident">InputError</span><span class="op">&gt;</span> {
-    <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;input error: {}&quot;</span>, <span class="ident">err</span>)]</span>
-    <span class="ident">Input</span> { <span class="ident">err</span>: <span class="ident">InputError</span> },
+    <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;input error: {}&quot;</span>, <span class="ident">err</span>)]</span> <span class="ident">Input</span> {
+        <span class="ident">err</span>: <span class="ident">InputError</span>,
+    },
     <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;unterminated string constant: {}&quot;</span>, <span class="ident">start</span>)]</span>
-    <span class="ident">UnterminatedStrLit</span> { <span class="ident">start</span>: <span class="ident">BytePos</span> },
+    <span class="ident">UnterminatedStrLit</span> {
+        <span class="ident">start</span>: <span class="ident">BytePos</span>,
+    },
     <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;expected unicode escape sequence: {}&quot;</span>, <span class="ident">pos</span>)]</span>
-    <span class="ident">ExpectedUnicodeEscape</span> { <span class="ident">pos</span>: <span class="ident">BytePos</span> },
+    <span class="ident">ExpectedUnicodeEscape</span> {
+        <span class="ident">pos</span>: <span class="ident">BytePos</span>,
+    },
     <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;unexpected escape sequence in reserved word: {:?}&quot;</span>, <span class="ident">word</span>)]</span>
-    <span class="ident">EscapeInReservedWord</span> { <span class="ident">word</span>: <span class="ident">Word</span> },
+    <span class="ident">EscapeInReservedWord</span> {
+        <span class="ident">word</span>: <span class="ident">Word</span>,
+    },
     <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;unterminated regexp (regexp started at {})&quot;</span>, <span class="ident">start</span>)]</span>
-    <span class="ident">UnterminatedRegxp</span> { <span class="ident">start</span>: <span class="ident">BytePos</span> },
+    <span class="ident">UnterminatedRegxp</span> {
+        <span class="ident">start</span>: <span class="ident">BytePos</span>,
+    },
     <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;identifier directly after number at {}&quot;</span>, <span class="ident">pos</span>)]</span>
-    <span class="ident">IdentAfterNum</span> { <span class="ident">pos</span>: <span class="ident">BytePos</span> },
+    <span class="ident">IdentAfterNum</span> {
+        <span class="ident">pos</span>: <span class="ident">BytePos</span>,
+    },
     <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;Decimals with leading zeros (at {}) are not allowed in strict mode&quot;</span>, <span class="ident">start</span>)]</span>
-    <span class="ident">DecimalStartsWithZero</span> { <span class="ident">start</span>: <span class="ident">BytePos</span> },
+    <span class="ident">DecimalStartsWithZero</span> {
+        <span class="ident">start</span>: <span class="ident">BytePos</span>,
+    },
     <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;Octals with leading zeros (at {}) are not allowed in strict mode&quot;</span>, <span class="ident">start</span>)]</span>
-    <span class="ident">ImplicitOctalOnStrict</span> { <span class="ident">start</span>: <span class="ident">BytePos</span> },
+    <span class="ident">ImplicitOctalOnStrict</span> {
+        <span class="ident">start</span>: <span class="ident">BytePos</span>,
+    },
     <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;Unexpected character &#39;{}&#39; at {}&quot;</span>, <span class="ident">c</span>, <span class="ident">pos</span>)]</span>
-    <span class="ident">UnexpectedChar</span> { <span class="ident">pos</span>: <span class="ident">BytePos</span>, <span class="ident">c</span>: <span class="ident">char</span> },
+    <span class="ident">UnexpectedChar</span> {
+        <span class="ident">pos</span>: <span class="ident">BytePos</span>,
+        <span class="ident">c</span>: <span class="ident">char</span>,
+    },
     <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;Invalid string escape at {}&quot;</span>, <span class="ident">start</span>)]</span>
-    <span class="ident">InvalidStrEscape</span> { <span class="ident">start</span>: <span class="ident">BytePos</span> },
+    <span class="ident">InvalidStrEscape</span> {
+        <span class="ident">start</span>: <span class="ident">BytePos</span>,
+    },
 
     <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;Invalid unciode escape at {:?}&quot;</span>, <span class="ident">pos</span>)]</span>
-    <span class="ident">InvalidUnicodeEscape</span> { <span class="ident">pos</span>: <span class="ident">Span</span> },
+    <span class="ident">InvalidUnicodeEscape</span> {
+        <span class="ident">pos</span>: <span class="ident">Span</span>,
+    },
 
     <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;Invalid unciode code point at {:?}&quot;</span>, <span class="ident">pos</span>)]</span>
-    <span class="ident">InvalidCodePoint</span> { <span class="ident">pos</span>: <span class="ident">Span</span> },
+    <span class="ident">InvalidCodePoint</span> {
+        <span class="ident">pos</span>: <span class="ident">Span</span>,
+    },
 
     <span class="attribute">#[<span class="ident">fail</span>(<span class="ident">display</span> <span class="op">=</span> <span class="string">&quot;Invalid identifier character at {:?}&quot;</span>, <span class="ident">pos</span>)]</span>
-    <span class="ident">InvalidIdentChar</span> { <span class="ident">pos</span>: <span class="ident">Span</span> },
+    <span class="ident">InvalidIdentChar</span> {
+        <span class="ident">pos</span>: <span class="ident">Span</span>,
+    },
 }
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">Hash</span>, <span class="ident">Default</span>)]</span>

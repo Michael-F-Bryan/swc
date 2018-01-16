@@ -164,7 +164,6 @@
 <span id="118">118</span>
 <span id="119">119</span>
 <span id="120">120</span>
-<span id="121">121</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">call_site</span>;
 <span class="kw">use</span> <span class="ident">pmutil</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
@@ -180,17 +179,17 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// let item: Item = Quote::new_call_site()</span>
     <span class="doccomment">///     .quote_with(smart_quote!(</span>
-    <span class="doccomment">///         Vars {</span>
-    <span class="doccomment">///             Type: type_name,</span>
-    <span class="doccomment">///             impl_generics,</span>
-    <span class="doccomment">///             ty_generics,</span>
-    <span class="doccomment">///             where_clause,</span>
-    <span class="doccomment">///         },</span>
-    <span class="doccomment">///         {</span>
-    <span class="doccomment">///             impl impl_generics ::swc_common::AstNode for Type ty_generics</span>
-    <span class="doccomment">///                     where_clause {}</span>
-    <span class="doccomment">///         }</span>
-    <span class="doccomment">///     ))</span>
+    <span class="doccomment">/// Vars {</span>
+    <span class="doccomment">/// Type: type_name,</span>
+    <span class="doccomment">/// impl_generics,</span>
+    <span class="doccomment">/// ty_generics,</span>
+    <span class="doccomment">/// where_clause,</span>
+    <span class="doccomment">/// },</span>
+    <span class="doccomment">/// {</span>
+    <span class="doccomment">/// impl impl_generics ::swc_common::AstNode for Type ty_generics</span>
+    <span class="doccomment">/// where_clause {}</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">/// ))</span>
     <span class="doccomment">///     .parse();</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
@@ -204,7 +203,6 @@
     <span class="doccomment">///     .parse::&lt;ItemImpl&gt;()</span>
     <span class="doccomment">///     .with_generics(input.generics);</span>
     <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
     <span class="kw">fn</span> <span class="ident">with_generics</span>(<span class="self">self</span>, <span class="ident">generics</span>: <span class="ident">Generics</span>) <span class="op">-&gt;</span> <span class="self">Self</span>;
 }
 

@@ -309,6 +309,9 @@
 <span id="263">263</span>
 <span id="264">264</span>
 <span id="265">265</span>
+<span id="266">266</span>
+<span id="267">267</span>
+<span id="268">268</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
 
@@ -569,7 +572,10 @@
         } <span class="kw">else</span> <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;export&quot;</span>) {
             <span class="self">self</span>.<span class="ident">parse_export</span>()<span class="question-mark">?</span>
         } <span class="kw">else</span> {
-            <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;handle_import_export should not be called if current token isn&#39;t import nor export&quot;</span>)
+            <span class="macro">unreachable</span><span class="macro">!</span>(
+                <span class="string">&quot;handle_import_export should not be called if current token isn&#39;t import nor \
+                 export&quot;</span>
+            )
         };
 
         <span class="prelude-val">Ok</span>(<span class="ident">ModuleItem</span>::<span class="ident">ModuleDecl</span>(<span class="ident">decl</span>))
