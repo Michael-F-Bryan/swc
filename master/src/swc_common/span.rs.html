@@ -141,7 +141,7 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Span</span> {
     <span class="doccomment">/// Inclusive</span>
     <span class="kw">pub</span> <span class="ident">start</span>: <span class="ident">BytePos</span>,
-    <span class="doccomment">/// Inclusive</span>
+    <span class="doccomment">/// Exclusive</span>
     <span class="kw">pub</span> <span class="ident">end</span>: <span class="ident">BytePos</span>,
 }
 <span class="kw">impl</span> <span class="ident">Debug</span> <span class="kw">for</span> <span class="ident">Span</span> {
@@ -149,7 +149,7 @@
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">start</span> <span class="op">==</span> <span class="ident">BytePos</span>(<span class="number">0</span>) <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">end</span> <span class="op">==</span> <span class="ident">BytePos</span>(<span class="number">0</span>) {
             <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;_&quot;</span>)
         } <span class="kw">else</span> {
-            <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;{}..{}&quot;</span>, <span class="self">self</span>.<span class="ident">start</span>, <span class="self">self</span>.<span class="ident">end</span>.<span class="number">0</span> <span class="op">+</span> <span class="number">1</span>)
+            <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;{}..{}&quot;</span>, <span class="self">self</span>.<span class="ident">start</span>, <span class="self">self</span>.<span class="ident">end</span>)
         }
     }
 }

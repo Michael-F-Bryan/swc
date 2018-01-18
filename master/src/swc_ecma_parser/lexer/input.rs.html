@@ -166,7 +166,6 @@
 <span id="120">120</span>
 <span id="121">121</span>
 <span id="122">122</span>
-<span id="123">123</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Debug</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">str</span>;
@@ -189,13 +188,12 @@
     }
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bump</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
-        <span class="kw">let</span> <span class="ident">pos</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">cur</span>
-            .<span class="ident">take</span>()
-            .<span class="ident">unwrap_or_else</span>(<span class="op">||</span> <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;bump called on eof&quot;</span>))
-            .<span class="number">0</span>;
+        <span class="kw">let</span> <span class="ident">pos</span> <span class="op">=</span> <span class="kw">match</span> <span class="self">self</span>.<span class="ident">cur</span>.<span class="ident">take</span>() {
+            <span class="prelude-val">Some</span>((<span class="ident">p</span>, <span class="ident">prev_c</span>)) <span class="op">=&gt;</span> <span class="ident">BytePos</span>(<span class="ident">p</span>.<span class="number">0</span> <span class="op">+</span> <span class="ident">prev_c</span>.<span class="ident">len_utf8</span>() <span class="kw">as</span> <span class="ident">u32</span>),
+            <span class="prelude-val">None</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;bump is called without knowing current character&quot;</span>),
+        };
 
         <span class="self">self</span>.<span class="ident">cur</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">input</span>.<span class="ident">next</span>();
-
         <span class="self">self</span>.<span class="ident">last_pos</span> <span class="op">=</span> <span class="ident">pos</span>;
     }
 

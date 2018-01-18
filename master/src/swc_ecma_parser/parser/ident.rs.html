@@ -149,7 +149,6 @@
 <span id="103">103</span>
 <span id="104">104</span>
 <span id="105">105</span>
-<span id="106">106</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! 12.1 Identifiers</span>
 
@@ -236,7 +235,6 @@
                 <span class="ident">Keyword</span>(<span class="ident">Yield</span>) <span class="kw">if</span> <span class="ident">incl_yield</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="macro">js_word</span><span class="macro">!</span>(<span class="string">&quot;yield&quot;</span>)),
                 <span class="ident">Keyword</span>(<span class="ident">Await</span>) <span class="kw">if</span> <span class="ident">incl_await</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="macro">js_word</span><span class="macro">!</span>(<span class="string">&quot;await&quot;</span>)),
                 <span class="ident">Keyword</span>(..) <span class="op">|</span> <span class="ident">Null</span> <span class="op">|</span> <span class="ident">True</span> <span class="op">|</span> <span class="ident">False</span> <span class="op">=&gt;</span> {
-                    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Word: {:?}&quot;</span>, <span class="ident">w</span>);
                     <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">ExpectedIdent</span>)
                 }
             }
