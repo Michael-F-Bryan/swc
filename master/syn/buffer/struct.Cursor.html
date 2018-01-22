@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct Cursor</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.empty">empty</a><a href="#method.eof">eof</a><a href="#method.group">group</a><a href="#method.term">term</a><a href="#method.op">op</a><a href="#method.literal">literal</a><a href="#method.token_stream">token_stream</a><a href="#method.token_tree">token_tree</a><a href="#method.span">span</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a><a href="#impl-Eq">Eq</a><a href="#impl-PartialEq">PartialEq</a></div></div><p class='location'><a href='../index.html'>syn</a>::<wbr><a href='index.html'>buffer</a></p><script>window.sidebarCurrent = {name: 'Cursor', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct Cursor</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.ptr">ptr</a><a href="#structfield.scope">scope</a><a href="#structfield.marker">marker</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.empty">empty</a><a href="#method.create">create</a><a href="#method.entry">entry</a><a href="#method.bump">bump</a><a href="#method.ignore_none">ignore_none</a><a href="#method.eof">eof</a><a href="#method.group">group</a><a href="#method.term">term</a><a href="#method.op">op</a><a href="#method.literal">literal</a><a href="#method.token_stream">token_stream</a><a href="#method.token_tree">token_tree</a><a href="#method.span">span</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a><a href="#impl-Eq">Eq</a><a href="#impl-PartialEq">PartialEq</a></div></div><p class='location'><a href='../index.html'>syn</a>::<wbr><a href='index.html'>buffer</a></p><script>window.sidebarCurrent = {name: 'Cursor', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -50,21 +50,38 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/syn/buffer.rs.html#256-265' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct Cursor&lt;'a&gt; { /* fields omitted */ }</pre><div class='docblock'><p>A cheaply copyable cursor into a <code>TokenBuffer</code>.</p>
-
+<pre class='rust struct'>pub struct Cursor&lt;'a&gt; {
+    ptr: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="enum" href="../../syn/buffer/enum.Entry.html" title="enum syn::buffer::Entry">Entry</a>,
+    scope: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="enum" href="../../syn/buffer/enum.Entry.html" title="enum syn::buffer::Entry">Entry</a>,
+    marker: <a class="struct" href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomData.html" title="struct core::marker::PhantomData">PhantomData</a>&lt;&amp;'a <a class="enum" href="../../syn/buffer/enum.Entry.html" title="enum syn::buffer::Entry">Entry</a>&gt;,
+}</pre><div class='docblock'><p>A cheaply copyable cursor into a <code>TokenBuffer</code>.</p>
 <p>This cursor holds a shared reference into the immutable data which is used
 internally to represent a <code>TokenStream</code>, and can be efficiently manipulated
 and copied around.</p>
-
 <p>An empty <code>Cursor</code> can be created directly, or one may create a <code>TokenBuffer</code>
 object and get a cursor to its first token with <code>begin()</code>.</p>
-
 <p>Two cursors are equal if they have the same location in the same input
 stream, and have the same scope.</p>
-
 <p>See the <a href="index.html">module documentation</a> for an example of a <code>Cursor</code> in action.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;parsing&quot;</code> feature.</em></p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.ptr" class="structfield small-section-header">
+                           <a href="#structfield.ptr" class="anchor field"></a>
+                           <span id="ptr.v" class='invisible'>
+                           <code>ptr: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="enum" href="../../syn/buffer/enum.Entry.html" title="enum syn::buffer::Entry">Entry</a></code>
+                           </span></span><div class='docblock'><p>The current entry which the <code>Cursor</code> is pointing at.</p>
+</div><span id="structfield.scope" class="structfield small-section-header">
+                           <a href="#structfield.scope" class="anchor field"></a>
+                           <span id="scope.v" class='invisible'>
+                           <code>scope: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="enum" href="../../syn/buffer/enum.Entry.html" title="enum syn::buffer::Entry">Entry</a></code>
+                           </span></span><div class='docblock'><p>This is the only <code>Entry::End(..)</code> object which this cursor is allowed to
+point at. All other <code>End</code> objects are skipped over in <code>Cursor::create</code>.</p>
+</div><span id="structfield.marker" class="structfield small-section-header">
+                           <a href="#structfield.marker" class="anchor field"></a>
+                           <span id="marker.v" class='invisible'>
+                           <code>marker: <a class="struct" href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomData.html" title="struct core::marker::PhantomData">PhantomData</a>&lt;&amp;'a <a class="enum" href="../../syn/buffer/enum.Entry.html" title="enum syn::buffer::Entry">Entry</a>&gt;</code>
+                           </span></span><div class='docblock'><p>This uses the &amp;'a reference which guarantees that these pointers are
+still valid.</p>
 </div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
@@ -72,6 +89,21 @@ stream, and have the same scope.</p>
                 <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class="struct" href="../../syn/buffer/struct.Cursor.html" title="struct syn::buffer::Cursor">Cursor</a>&lt;'a&gt;</code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#267-454' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.empty' class="method"><span id='empty.v' class='invisible'><code>pub fn <a href='#method.empty' class='fnname'>empty</a>() -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#269-286' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Creates a cursor referencing a static empty TokenStream.</p>
+</div><h4 id='method.create' class="method"><span id='create.v' class='invisible'><code>unsafe fn <a href='#method.create' class='fnname'>create</a>(ptr: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="enum" href="../../syn/buffer/enum.Entry.html" title="enum syn::buffer::Entry">Entry</a>, scope: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="enum" href="../../syn/buffer/enum.Entry.html" title="enum syn::buffer::Entry">Entry</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#291-308' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>This create method intelligently exits non-explicitly-entered
+<code>None</code>-delimited scopes when the cursor reaches the end of them,
+allowing for them to be treated transparently.</p>
+</div><h4 id='method.entry' class="method"><span id='entry.v' class='invisible'><code>fn <a href='#method.entry' class='fnname'>entry</a>(self) -&gt; &amp;'a <a class="enum" href="../../syn/buffer/enum.Entry.html" title="enum syn::buffer::Entry">Entry</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#311-313' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Get the current entry.</p>
+</div><h4 id='method.bump' class="method"><span id='bump.v' class='invisible'><code>unsafe fn <a href='#method.bump' class='fnname'>bump</a>(self) -&gt; <a class="struct" href="../../syn/buffer/struct.Cursor.html" title="struct syn::buffer::Cursor">Cursor</a>&lt;'a&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#318-320' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Bump the cursor to point at the next token after the current one. This
+is undefined behavior if the cursor is currently looking at an
+<code>Entry::End</code>.</p>
+</div><h4 id='method.ignore_none' class="method"><span id='ignore_none.v' class='invisible'><code>fn <a href='#method.ignore_none' class='fnname'>ignore_none</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#327-336' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>If the cursor is looking at a <code>None</code>-delimited group, move it to look at
+the first token inside instead. If the group is empty, this will move
+the cursor past the <code>None</code>-delimited group.</p>
+<p>WARNING: This mutates its argument.</p>
 </div><h4 id='method.eof' class="method"><span id='eof.v' class='invisible'><code>pub fn <a href='#method.eof' class='fnname'>eof</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#341-344' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Checks whether the cursor is currently pointing at the end of its valid
 scope.</p>
@@ -93,9 +125,7 @@ pointing at the next <code>TokenTree</code>.</p>
 </div><h4 id='method.token_tree' class="method"><span id='token_tree.v' class='invisible'><code>pub fn <a href='#method.token_tree' class='fnname'>token_tree</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="struct" href="../../proc_macro2/struct.TokenTree.html" title="struct proc_macro2::TokenTree">TokenTree</a>, <a class="struct" href="../../syn/buffer/struct.Cursor.html" title="struct syn::buffer::Cursor">Cursor</a>&lt;'a&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#414-441' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>If the cursor is pointing at a <code>TokenTree</code>, returns it along with a
 cursor pointing at the next <code>TokenTree</code>.</p>
-
 <p>Returns <code>None</code> if the cursor has reached the end of its stream.</p>
-
 <p>This method does not treat <code>None</code>-delimited groups as transparent, and
 will return a <code>Group(None, ..)</code> if the cursor is looking at one.</p>
 </div><h4 id='method.span' class="method"><span id='span.v' class='invisible'><code>pub fn <a href='#method.span' class='fnname'>span</a>(self) -&gt; <a class="struct" href="../../proc_macro2/struct.Span.html" title="struct proc_macro2::Span">Span</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#445-453' title='goto source code'>[src]</a></span></h4>
@@ -112,7 +142,8 @@ cursor points to eof.</p>
 </div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
 </div></div><h3 id='impl-Eq' class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html" title="trait core::cmp::Eq">Eq</a> for <a class="struct" href="../../syn/buffer/struct.Cursor.html" title="struct syn::buffer::Cursor">Cursor</a>&lt;'a&gt;</code><a href='#impl-Eq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#255' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'></div><h3 id='impl-PartialEq' class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="struct" href="../../syn/buffer/struct.Cursor.html" title="struct syn::buffer::Cursor">Cursor</a>&lt;'a&gt;</code><a href='#impl-PartialEq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#255' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.assert_receiver_is_total_eq' class="method"><span id='assert_receiver_is_total_eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html#method.assert_receiver_is_total_eq' class='fnname'>assert_receiver_is_total_eq</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#255' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-PartialEq' class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="struct" href="../../syn/buffer/struct.Cursor.html" title="struct syn::buffer::Cursor">Cursor</a>&lt;'a&gt;</code><a href='#impl-PartialEq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#255' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.eq' class="method"><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../syn/buffer/struct.Cursor.html" title="struct syn::buffer::Cursor">Cursor</a>&lt;'a&gt;) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#255' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
 </div><h4 id='method.ne' class="method"><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../syn/buffer/struct.Cursor.html" title="struct syn::buffer::Cursor">Cursor</a>&lt;'a&gt;) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/buffer.rs.html#255' title='goto source code'>[src]</a></span></h4>
@@ -130,20 +161,22 @@ cursor points to eof.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

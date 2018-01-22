@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ExecReadOnly` struct in crate `regex`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ExecReadOnly">
+
+    <title>regex::exec::ExecReadOnly - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    <link rel="shortcut icon" href="https://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        <a href='../../regex/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
+        <p class='location'>Struct ExecReadOnly</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.res">res</a><a href="#structfield.nfa">nfa</a><a href="#structfield.dfa">dfa</a><a href="#structfield.dfa_reverse">dfa_reverse</a><a href="#structfield.suffixes">suffixes</a><a href="#structfield.match_type">match_type</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.choose_match_type">choose_match_type</a><a href="#method.should_suffix_scan">should_suffix_scan</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='../index.html'>regex</a>::<wbr><a href='index.html'>exec</a></p><script>window.sidebarCurrent = {name: 'ExecReadOnly', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>regex</a>::<wbr><a href='index.html'>exec</a>::<wbr><a class="struct" href=''>ExecReadOnly</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/regex/exec.rs.html#63-90' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>struct ExecReadOnly {
+    res: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;,
+    nfa: <a class="struct" href="../../regex/prog/struct.Program.html" title="struct regex::prog::Program">Program</a>,
+    dfa: <a class="struct" href="../../regex/prog/struct.Program.html" title="struct regex::prog::Program">Program</a>,
+    dfa_reverse: <a class="struct" href="../../regex/prog/struct.Program.html" title="struct regex::prog::Program">Program</a>,
+    suffixes: <a class="struct" href="../../regex/literals/struct.LiteralSearcher.html" title="struct regex::literals::LiteralSearcher">LiteralSearcher</a>,
+    match_type: <a class="enum" href="../../regex/exec/enum.MatchType.html" title="enum regex::exec::MatchType">MatchType</a>,
+}</pre><div class='docblock'><p>ExecReadOnly comprises all read only state for a regex. Namely, all such
+state is determined at compile time and never changes during search.</p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.res" class="structfield small-section-header">
+                           <a href="#structfield.res" class="anchor field"></a>
+                           <span id="res.v" class='invisible'>
+                           <code>res: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;</code>
+                           </span></span><div class='docblock'><p>The original regular expressions given by the caller to compile.</p>
+</div><span id="structfield.nfa" class="structfield small-section-header">
+                           <a href="#structfield.nfa" class="anchor field"></a>
+                           <span id="nfa.v" class='invisible'>
+                           <code>nfa: <a class="struct" href="../../regex/prog/struct.Program.html" title="struct regex::prog::Program">Program</a></code>
+                           </span></span><div class='docblock'><p>A compiled program that is used in the NFA simulation and backtracking.
+It can be byte-based or Unicode codepoint based.</p>
+<p>N.B. It is not possibly to make this byte-based from the public API.
+It is only used for testing byte based programs in the NFA simulations.</p>
+</div><span id="structfield.dfa" class="structfield small-section-header">
+                           <a href="#structfield.dfa" class="anchor field"></a>
+                           <span id="dfa.v" class='invisible'>
+                           <code>dfa: <a class="struct" href="../../regex/prog/struct.Program.html" title="struct regex::prog::Program">Program</a></code>
+                           </span></span><div class='docblock'><p>A compiled byte based program for DFA execution. This is only used
+if a DFA can be executed. (Currently, only word boundary assertions are
+not supported.) Note that this program contains an embedded <code>.*?</code>
+preceding the first capture group, unless the regex is anchored at the
+beginning.</p>
+</div><span id="structfield.dfa_reverse" class="structfield small-section-header">
+                           <a href="#structfield.dfa_reverse" class="anchor field"></a>
+                           <span id="dfa_reverse.v" class='invisible'>
+                           <code>dfa_reverse: <a class="struct" href="../../regex/prog/struct.Program.html" title="struct regex::prog::Program">Program</a></code>
+                           </span></span><div class='docblock'><p>The same as above, except the program is reversed (and there is no
+preceding <code>.*?</code>). This is used by the DFA to find the starting location
+of matches.</p>
+</div><span id="structfield.suffixes" class="structfield small-section-header">
+                           <a href="#structfield.suffixes" class="anchor field"></a>
+                           <span id="suffixes.v" class='invisible'>
+                           <code>suffixes: <a class="struct" href="../../regex/literals/struct.LiteralSearcher.html" title="struct regex::literals::LiteralSearcher">LiteralSearcher</a></code>
+                           </span></span><div class='docblock'><p>A set of suffix literals extracted from the regex.</p>
+<p>Prefix literals are stored on the <code>Program</code>, since they are used inside
+the matching engines.</p>
+</div><span id="structfield.match_type" class="structfield small-section-header">
+                           <a href="#structfield.match_type" class="anchor field"></a>
+                           <span id="match_type.v" class='invisible'>
+                           <code>match_type: <a class="enum" href="../../regex/exec/enum.MatchType.html" title="enum regex::exec::MatchType">MatchType</a></code>
+                           </span></span><div class='docblock'><p>match_type encodes as much upfront knowledge about how we're going to
+execute a search as possible.</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../regex/exec/struct.ExecReadOnly.html" title="struct regex::exec::ExecReadOnly">ExecReadOnly</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#1110-1192' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.choose_match_type' class="method"><span id='choose_match_type.v' class='invisible'><code>fn <a href='#method.choose_match_type' class='fnname'>choose_match_type</a>(&amp;self, hint: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../../regex/exec/enum.MatchType.html" title="enum regex::exec::MatchType">MatchType</a>&gt;) -&gt; <a class="enum" href="../../regex/exec/enum.MatchType.html" title="enum regex::exec::MatchType">MatchType</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#1111-1169' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.should_suffix_scan' class="method"><span id='should_suffix_scan.v' class='invisible'><code>fn <a href='#method.should_suffix_scan' class='fnname'>should_suffix_scan</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#1185-1191' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns true if the program is amenable to suffix scanning.</p>
+<p>When this is true, as a heuristic, we assume it is OK to quickly scan
+for suffix literals and then do a <em>reverse</em> DFA match from any matches
+produced by the literal scan. (And then followed by a forward DFA
+search, since the previously found suffix literal maybe not actually be
+the end of a match.)</p>
+<p>This is a bit of a specialized optimization, but can result in pretty
+big performance wins if 1) there are no prefix literals and 2) the
+suffix literals are pretty rare in the text. (1) is obviously easy to
+account for but (2) is harder. As a proxy, we assume that longer
+strings are generally rarer, so we only enable this optimization when
+we have a meaty suffix.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../regex/exec/struct.ExecReadOnly.html" title="struct regex::exec::ExecReadOnly">ExecReadOnly</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#62' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#62' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "regex";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

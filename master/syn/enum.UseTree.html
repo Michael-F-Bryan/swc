@@ -55,21 +55,16 @@
     Glob(<a class="struct" href="../syn/struct.UseGlob.html" title="struct syn::UseGlob">UseGlob</a>),
     List(<a class="struct" href="../syn/struct.UseList.html" title="struct syn::UseList">UseList</a>),
 }</pre><div class='docblock'><p>A suffix of an import tree in a <code>use</code> item: <code>Type as Renamed</code> or <code>*</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
-
-<h1 id='syntax-tree-enum' class='section-header'><a href='#syntax-tree-enum'>Syntax tree enum</a></h1>
+<h1 id="syntax-tree-enum" class="section-header"><a href="#syntax-tree-enum">Syntax tree enum</a></h1>
 <p>This type is a <a href="enum.Expr.html#syntax-tree-enums">syntax tree enum</a>.</p>
 </div><h2 id='variants' class='variants small-section-header'>
                    Variants<a href='#variants' class='anchor'></a></h2>
 <span id="variant.Path" class="variant small-section-header"><a href="#variant.Path" class="anchor field"></a><span id='Path.v' class='invisible'><code>Path(<a class="struct" href="../syn/struct.UsePath.html" title="struct syn::UsePath">UsePath</a>)</code></span></span><div class='docblock'><p>An identifier imported by a <code>use</code> item: <code>Type</code> or <code>Type as Renamed</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.Glob" class="variant small-section-header"><a href="#variant.Glob" class="anchor field"></a><span id='Glob.v' class='invisible'><code>Glob(<a class="struct" href="../syn/struct.UseGlob.html" title="struct syn::UseGlob">UseGlob</a>)</code></span></span><div class='docblock'><p>A glob import in a <code>use</code> item: <code>*</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.List" class="variant small-section-header"><a href="#variant.List" class="anchor field"></a><span id='List.v' class='invisible'><code>List(<a class="struct" href="../syn/struct.UseList.html" title="struct syn::UseList">UseList</a>)</code></span></span><div class='docblock'><p>A braced list of imports in a <code>use</code> item: <code>{A, B, C}</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div>
             <h2 id='implementations' class='small-section-header'>
@@ -82,7 +77,8 @@
 <div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
 </div></div><h3 id='impl-Eq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html" title="trait core::cmp::Eq">Eq</a> for <a class="enum" href="../syn/enum.UseTree.html" title="enum syn::UseTree">UseTree</a></code><a href='#impl-Eq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'></div><h3 id='impl-PartialEq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="enum" href="../syn/enum.UseTree.html" title="enum syn::UseTree">UseTree</a></code><a href='#impl-PartialEq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.assert_receiver_is_total_eq' class="method"><span id='assert_receiver_is_total_eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html#method.assert_receiver_is_total_eq' class='fnname'>assert_receiver_is_total_eq</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-PartialEq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="enum" href="../syn/enum.UseTree.html" title="enum syn::UseTree">UseTree</a></code><a href='#impl-PartialEq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.eq' class="method"><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class="enum" href="../syn/enum.UseTree.html" title="enum syn::UseTree">UseTree</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
 </div><h4 id='method.ne' class="method"><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class="enum" href="../syn/enum.UseTree.html" title="enum syn::UseTree">UseTree</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h4>
@@ -124,20 +120,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

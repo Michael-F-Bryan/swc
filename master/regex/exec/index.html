@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `exec` mod in crate `regex`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, exec">
+
+    <title>regex::exec - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    <link rel="shortcut icon" href="https://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        <a href='../../regex/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
+        <p class='location'>Module exec</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../index.html'>regex</a></p><script>window.sidebarCurrent = {name: 'exec', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>regex</a>::<wbr><a class="mod" href=''>exec</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/regex/exec.rs.html#11-1260' title='goto source code'>[src]</a></span></h1>
+<h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Exec.html"
+                                  title='struct regex::exec::Exec'>Exec</a></td>
+                           <td class='docblock-short'>
+                                <p>Exec manages the execution of a regular expression.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ExecBuilder.html"
+                                  title='struct regex::exec::ExecBuilder'>ExecBuilder</a></td>
+                           <td class='docblock-short'>
+                                <p>Facilitates the construction of an executor by exposing various knobs
+to control how a regex is executed and what kinds of resources it's
+permitted to use.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ExecNoSync.html"
+                                  title='struct regex::exec::ExecNoSync'>ExecNoSync</a></td>
+                           <td class='docblock-short'>
+                                <p>ExecNoSync is like Exec, except it embeds a reference to a cache. This
+means it is no longer Sync, but we can now avoid the overhead of
+synchronization to fetch the cache.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ExecNoSyncStr.html"
+                                  title='struct regex::exec::ExecNoSyncStr'>ExecNoSyncStr</a></td>
+                           <td class='docblock-short'>
+                                <p>ExecNoSyncStr is like ExecNoSync, but matches on &amp;str instead of &amp;[u8].</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ExecReadOnly.html"
+                                  title='struct regex::exec::ExecReadOnly'>ExecReadOnly</a></td>
+                           <td class='docblock-short'>
+                                <p>ExecReadOnly comprises all read only state for a regex. Namely, all such
+state is determined at compile time and never changes during search.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Parsed.html"
+                                  title='struct regex::exec::Parsed'>Parsed</a></td>
+                           <td class='docblock-short'>
+                                <p>Parsed represents a set of parsed regular expressions and their detected
+literals.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ProgramCacheInner.html"
+                                  title='struct regex::exec::ProgramCacheInner'>ProgramCacheInner</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.MatchLiteralType.html"
+                                  title='enum regex::exec::MatchLiteralType'>MatchLiteralType</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.MatchNfaType.html"
+                                  title='enum regex::exec::MatchNfaType'>MatchNfaType</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.MatchType.html"
+                                  title='enum regex::exec::MatchType'>MatchType</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="type" href="type.ProgramCache.html"
+                                  title='type regex::exec::ProgramCache'>ProgramCache</a></td>
+                           <td class='docblock-short'>
+                                <p>ProgramCache maintains reusable allocations for each matching engine
+available to a particular program.</p>
+
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "regex";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

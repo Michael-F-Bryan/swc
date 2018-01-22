@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../libc/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Struct sigevent</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.sigev_value">sigev_value</a><a href="#structfield.sigev_signo">sigev_signo</a><a href="#structfield.sigev_notify">sigev_notify</a><a href="#structfield.sigev_notify_thread_id">sigev_notify_thread_id</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='index.html'>libc</a></p><script>window.sidebarCurrent = {name: 'sigevent', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct sigevent</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.sigev_value">sigev_value</a><a href="#structfield.sigev_signo">sigev_signo</a><a href="#structfield.sigev_notify">sigev_notify</a><a href="#structfield.sigev_notify_thread_id">sigev_notify_thread_id</a><a href="#structfield.__unused1">__unused1</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='index.html'>libc</a></p><script>window.sidebarCurrent = {name: 'sigevent', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -56,7 +56,7 @@
     pub sigev_signo: <a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a>,
     pub sigev_notify: <a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a>,
     pub sigev_notify_thread_id: <a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a>,
-    // some fields omitted
+    __unused1: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 11]</a>,
 }</pre><h2 id='fields' class='fields small-section-header'>
                        Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.sigev_value" class="structfield small-section-header">
                            <a href="#structfield.sigev_value" class="anchor field"></a>
@@ -74,16 +74,20 @@
                            <a href="#structfield.sigev_notify_thread_id" class="anchor field"></a>
                            <span id="sigev_notify_thread_id.v" class='invisible'>
                            <code>sigev_notify_thread_id: <a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a></code>
+                           </span></span><span id="structfield.__unused1" class="structfield small-section-header">
+                           <a href="#structfield.__unused1" class="anchor field"></a>
+                           <span id="__unused1.v" class='invisible'>
+                           <code>__unused1: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 11]</a></code>
                            </span></span>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>
-        <h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../libc/struct.sigevent.html" title="struct libc::sigevent">sigevent</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/libc/macros.rs.html#44' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../libc/struct.sigevent.html" title="struct libc::sigevent">sigevent</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/libc/macros.rs.html#45-47' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../libc/struct.sigevent.html" title="struct libc::sigevent">sigevent</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/libc/macros.rs.html#46' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
-</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+        <h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="../libc/dox/imp/trait.Copy.html" title="trait libc::dox::imp::Copy">Copy</a> for <a class="struct" href="../libc/struct.sigevent.html" title="struct libc::sigevent">sigevent</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/libc/macros.rs.html#44' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="../libc/dox/imp/trait.Clone.html" title="trait libc::dox::imp::Clone">Clone</a> for <a class="struct" href="../libc/struct.sigevent.html" title="struct libc::sigevent">sigevent</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/libc/macros.rs.html#45-47' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='../libc/dox/imp/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../libc/struct.sigevent.html" title="struct libc::sigevent">sigevent</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/libc/macros.rs.html#46' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="../libc/dox/imp/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='../libc/dox/imp/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="../libc/dox/imp/trait.Clone.html#method.clone_from">Read more</a></p>
 </div></div></section>
     <section id='search' class="content hidden"></section>
 
@@ -97,20 +101,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

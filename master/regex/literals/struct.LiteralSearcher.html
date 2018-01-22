@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `LiteralSearcher` struct in crate `regex`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, LiteralSearcher">
+
+    <title>regex::literals::LiteralSearcher - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    <link rel="shortcut icon" href="https://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        <a href='../../regex/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
+        <p class='location'>Struct LiteralSearcher</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.complete">complete</a><a href="#structfield.lcp">lcp</a><a href="#structfield.lcs">lcs</a><a href="#structfield.matcher">matcher</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.empty">empty</a><a href="#method.prefixes">prefixes</a><a href="#method.suffixes">suffixes</a><a href="#method.new">new</a><a href="#method.complete">complete</a><a href="#method.find">find</a><a href="#method.find_start">find_start</a><a href="#method.find_end">find_end</a><a href="#method.iter">iter</a><a href="#method.lcp">lcp</a><a href="#method.lcs">lcs</a><a href="#method.is_empty">is_empty</a><a href="#method.len">len</a><a href="#method.approximate_size">approximate_size</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Clone">Clone</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='../index.html'>regex</a>::<wbr><a href='index.html'>literals</a></p><script>window.sidebarCurrent = {name: 'LiteralSearcher', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>regex</a>::<wbr><a href='index.html'>literals</a>::<wbr><a class="struct" href=''>LiteralSearcher</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/regex/literals.rs.html#39-44' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct LiteralSearcher {
+    complete: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+    lcp: <a class="struct" href="../../regex/literals/struct.SingleSearch.html" title="struct regex::literals::SingleSearch">SingleSearch</a>,
+    lcs: <a class="struct" href="../../regex/literals/struct.SingleSearch.html" title="struct regex::literals::SingleSearch">SingleSearch</a>,
+    matcher: <a class="enum" href="../../regex/literals/enum.Matcher.html" title="enum regex::literals::Matcher">Matcher</a>,
+}</pre><div class='docblock'><p>A prefix extracted from a compiled regular expression.</p>
+<p>A regex prefix is a set of literal strings that <em>must</em> be matched at the
+beginning of a regex in order for the entire regex to match.</p>
+<p>There are a variety of ways to efficiently scan the search text for a
+prefix. Currently, there are three implemented:</p>
+<ol>
+<li>The prefix is a single byte. Just use memchr.</li>
+<li>If the prefix is a set of two or more single byte prefixes, then
+a single sparse map is created. Checking if there is a match is a lookup
+in this map for each byte in the search text.</li>
+<li>In all other cases, build an Aho-Corasick automaton.</li>
+</ol>
+<p>It's possible that there's room here for other substring algorithms,
+such as Boyer-Moore for single-set prefixes greater than 1, or Rabin-Karp
+for small sets of same-length prefixes.</p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.complete" class="structfield small-section-header">
+                           <a href="#structfield.complete" class="anchor field"></a>
+                           <span id="complete.v" class='invisible'>
+                           <code>complete: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
+                           </span></span><span id="structfield.lcp" class="structfield small-section-header">
+                           <a href="#structfield.lcp" class="anchor field"></a>
+                           <span id="lcp.v" class='invisible'>
+                           <code>lcp: <a class="struct" href="../../regex/literals/struct.SingleSearch.html" title="struct regex::literals::SingleSearch">SingleSearch</a></code>
+                           </span></span><span id="structfield.lcs" class="structfield small-section-header">
+                           <a href="#structfield.lcs" class="anchor field"></a>
+                           <span id="lcs.v" class='invisible'>
+                           <code>lcs: <a class="struct" href="../../regex/literals/struct.SingleSearch.html" title="struct regex::literals::SingleSearch">SingleSearch</a></code>
+                           </span></span><span id="structfield.matcher" class="structfield small-section-header">
+                           <a href="#structfield.matcher" class="anchor field"></a>
+                           <span id="matcher.v" class='invisible'>
+                           <code>matcher: <a class="enum" href="../../regex/literals/enum.Matcher.html" title="enum regex::literals::Matcher">Matcher</a></code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../regex/literals/struct.LiteralSearcher.html" title="struct regex::literals::LiteralSearcher">LiteralSearcher</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#60-188' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.empty' class="method"><span id='empty.v' class='invisible'><code>pub fn <a href='#method.empty' class='fnname'>empty</a>() -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#62-64' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a matcher that never matches and never advances the input.</p>
+</div><h4 id='method.prefixes' class="method"><span id='prefixes.v' class='invisible'><code>pub fn <a href='#method.prefixes' class='fnname'>prefixes</a>(lits: <a class="struct" href="../../regex_syntax/literals/struct.Literals.html" title="struct regex_syntax::literals::Literals">Literals</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#67-70' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a matcher for literal prefixes from the given set.</p>
+</div><h4 id='method.suffixes' class="method"><span id='suffixes.v' class='invisible'><code>pub fn <a href='#method.suffixes' class='fnname'>suffixes</a>(lits: <a class="struct" href="../../regex_syntax/literals/struct.Literals.html" title="struct regex_syntax::literals::Literals">Literals</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#73-76' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a matcher for literal suffixes from the given set.</p>
+</div><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>(lits: <a class="struct" href="../../regex_syntax/literals/struct.Literals.html" title="struct regex_syntax::literals::Literals">Literals</a>, matcher: <a class="enum" href="../../regex/literals/enum.Matcher.html" title="enum regex::literals::Matcher">Matcher</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#78-86' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.complete' class="method"><span id='complete.v-1' class='invisible'><code>pub fn <a href='#method.complete' class='fnname'>complete</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#94-96' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns true if all matches comprise the entire regular expression.</p>
+<p>This does not necessarily mean that a literal match implies a match
+of the regular expression. For example, the regular expresison <code>^a</code>
+is comprised of a single complete literal <code>a</code>, but the regular
+expression demands that it only match at the beginning of a string.</p>
+</div><h4 id='method.find' class="method"><span id='find.v' class='invisible'><code>pub fn <a href='#method.find' class='fnname'>find</a>(&amp;self, haystack: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#100-109' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Find the position of a literal in <code>haystack</code> if it exists.</p>
+</div><h4 id='method.find_start' class="method"><span id='find_start.v' class='invisible'><code>pub fn <a href='#method.find_start' class='fnname'>find_start</a>(&amp;self, haystack: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#112-122' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Like find, except matches must start at index <code>0</code>.</p>
+</div><h4 id='method.find_end' class="method"><span id='find_end.v' class='invisible'><code>pub fn <a href='#method.find_end' class='fnname'>find_end</a>(&amp;self, haystack: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#125-135' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Like find, except matches must end at index <code>haystack.len()</code>.</p>
+</div><h4 id='method.iter' class="method"><div class="important-traits"><div class='tooltip'>ⓘ<span class='tooltiptext'>Important traits for <a class="enum" href="../../regex/literals/enum.LiteralIter.html" title="enum regex::literals::LiteralIter">LiteralIter</a>&lt;'a&gt;</span></div><div class="content hidden"><h3 class="important">Important traits for <a class="enum" href="../../regex/literals/enum.LiteralIter.html" title="enum regex::literals::LiteralIter">LiteralIter</a>&lt;'a&gt;</h3><code class="content"><span class="where fmt-newline">impl&lt;'a&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html" title="trait core::iter::iterator::Iterator">Iterator</a> for <a class="enum" href="../../regex/literals/enum.LiteralIter.html" title="enum regex::literals::LiteralIter">LiteralIter</a>&lt;'a&gt;</span><span class="where fmt-newline">    type <a href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html#associatedtype.Item' class="type">Item</a> = <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;'a [</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>;</span></code></div></div><span id='iter.v' class='invisible'><code>pub fn <a href='#method.iter' class='fnname'>iter</a>(&amp;self) -&gt; <a class="enum" href="../../regex/literals/enum.LiteralIter.html" title="enum regex::literals::LiteralIter">LiteralIter</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#138-148' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns an iterator over all literals to be matched.</p>
+</div><h4 id='method.lcp' class="method"><span id='lcp.v-1' class='invisible'><code>pub fn <a href='#method.lcp' class='fnname'>lcp</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../regex/literals/struct.SingleSearch.html" title="struct regex::literals::SingleSearch">SingleSearch</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#151-153' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a matcher for the longest common prefix of this matcher.</p>
+</div><h4 id='method.lcs' class="method"><span id='lcs.v-1' class='invisible'><code>pub fn <a href='#method.lcs' class='fnname'>lcs</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../regex/literals/struct.SingleSearch.html" title="struct regex::literals::SingleSearch">SingleSearch</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#156-158' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a matcher for the longest common suffix of this matcher.</p>
+</div><h4 id='method.is_empty' class="method"><span id='is_empty.v' class='invisible'><code>pub fn <a href='#method.is_empty' class='fnname'>is_empty</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#161-163' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns true iff this prefix is empty.</p>
+</div><h4 id='method.len' class="method"><span id='len.v' class='invisible'><code>pub fn <a href='#method.len' class='fnname'>len</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#166-175' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the number of prefixes in this machine.</p>
+</div><h4 id='method.approximate_size' class="method"><span id='approximate_size.v' class='invisible'><code>pub fn <a href='#method.approximate_size' class='fnname'>approximate_size</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#178-187' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the approximate heap usage of literals in bytes.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../regex/literals/struct.LiteralSearcher.html" title="struct regex::literals::LiteralSearcher">LiteralSearcher</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#38' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../regex/literals/struct.LiteralSearcher.html" title="struct regex::literals::LiteralSearcher">LiteralSearcher</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#38' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../regex/literals/struct.LiteralSearcher.html" title="struct regex::literals::LiteralSearcher">LiteralSearcher</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#38' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/literals.rs.html#38' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "regex";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

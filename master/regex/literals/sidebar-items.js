@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["LiteralIter",""],["Matcher",""]],"fn":[["char_len_lossy",""]],"struct":[["LiteralSearcher","A prefix extracted from a compiled regular expression."],["SingleByteSet",""],["SingleSearch","Provides an implementation of fast subtring search."]]});

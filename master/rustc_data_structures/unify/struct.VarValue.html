@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `VarValue` struct in crate `rustc_data_structures`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, VarValue">
+
+    <title>rustc_data_structures::unify::VarValue - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    <link rel="shortcut icon" href="https://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        <a href='../../rustc_data_structures/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
+        <p class='location'>Struct VarValue</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.parent">parent</a><a href="#structfield.value">value</a><a href="#structfield.rank">rank</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new_var">new_var</a><a href="#method.new">new</a><a href="#method.redirect">redirect</a><a href="#method.root">root</a><a href="#method.key">key</a><a href="#method.parent">parent</a><a href="#method.if_not_self">if_not_self</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-PartialEq">PartialEq</a><a href="#impl-Clone">Clone</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='../index.html'>rustc_data_structures</a>::<wbr><a href='index.html'>unify</a></p><script>window.sidebarCurrent = {name: 'VarValue', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>rustc_data_structures</a>::<wbr><a href='index.html'>unify</a>::<wbr><a class="struct" href=''>VarValue</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#59-63' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct VarValue&lt;K:&nbsp;<a class="trait" href="../../rustc_data_structures/unify/trait.UnifyKey.html" title="trait rustc_data_structures::unify::UnifyKey">UnifyKey</a>&gt; {
+    parent: K,
+    value: K::<a class="type" href="../../rustc_data_structures/unify/trait.UnifyKey.html#associatedtype.Value" title="type rustc_data_structures::unify::UnifyKey::Value">Value</a>,
+    rank: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>,
+}</pre><div class='docblock'><p>Value of a unification key. We implement Tarjan's union-find
+algorithm: when two keys are unified, one of them is converted
+into a &quot;redirect&quot; pointing at the other. These redirects form a
+DAG: the roots of the DAG (nodes that are not redirected) are each
+associated with a value of type <code>V</code> and a rank. The rank is used
+to keep the DAG relatively balanced, which helps keep the running
+time of the algorithm under control. For more information, see
+<a href="http://en.wikipedia.org/wiki/Disjoint-set_data_structure">http://en.wikipedia.org/wiki/Disjoint-set_data_structure</a>.</p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.parent" class="structfield small-section-header">
+                           <a href="#structfield.parent" class="anchor field"></a>
+                           <span id="parent.v" class='invisible'>
+                           <code>parent: K</code>
+                           </span></span><span id="structfield.value" class="structfield small-section-header">
+                           <a href="#structfield.value" class="anchor field"></a>
+                           <span id="value.v" class='invisible'>
+                           <code>value: K::<a class="type" href="../../rustc_data_structures/unify/trait.UnifyKey.html#associatedtype.Value" title="type rustc_data_structures::unify::UnifyKey::Value">Value</a></code>
+                           </span></span><span id="structfield.rank" class="structfield small-section-header">
+                           <a href="#structfield.rank" class="anchor field"></a>
+                           <span id="rank.v" class='invisible'>
+                           <code>rank: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a></code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;K:&nbsp;<a class="trait" href="../../rustc_data_structures/unify/trait.UnifyKey.html" title="trait rustc_data_structures::unify::UnifyKey">UnifyKey</a>&gt; <a class="struct" href="../../rustc_data_structures/unify/struct.VarValue.html" title="struct rustc_data_structures::unify::VarValue">VarValue</a>&lt;K&gt;</code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#82-120' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new_var' class="method"><span id='new_var.v' class='invisible'><code>fn <a href='#method.new_var' class='fnname'>new_var</a>(key: K, value: K::<a class="type" href="../../rustc_data_structures/unify/trait.UnifyKey.html#associatedtype.Value" title="type rustc_data_structures::unify::UnifyKey::Value">Value</a>) -&gt; <a class="struct" href="../../rustc_data_structures/unify/struct.VarValue.html" title="struct rustc_data_structures::unify::VarValue">VarValue</a>&lt;K&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#83-85' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>(parent: K, value: K::<a class="type" href="../../rustc_data_structures/unify/trait.UnifyKey.html#associatedtype.Value" title="type rustc_data_structures::unify::UnifyKey::Value">Value</a>, rank: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <a class="struct" href="../../rustc_data_structures/unify/struct.VarValue.html" title="struct rustc_data_structures::unify::VarValue">VarValue</a>&lt;K&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#87-93' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.redirect' class="method"><span id='redirect.v' class='invisible'><code>fn <a href='#method.redirect' class='fnname'>redirect</a>(self, to: K) -&gt; <a class="struct" href="../../rustc_data_structures/unify/struct.VarValue.html" title="struct rustc_data_structures::unify::VarValue">VarValue</a>&lt;K&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#95-97' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.root' class="method"><span id='root.v' class='invisible'><code>fn <a href='#method.root' class='fnname'>root</a>(self, rank: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>, value: K::<a class="type" href="../../rustc_data_structures/unify/trait.UnifyKey.html#associatedtype.Value" title="type rustc_data_structures::unify::UnifyKey::Value">Value</a>) -&gt; <a class="struct" href="../../rustc_data_structures/unify/struct.VarValue.html" title="struct rustc_data_structures::unify::VarValue">VarValue</a>&lt;K&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#99-105' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.key' class="method"><span id='key.v' class='invisible'><code>fn <a href='#method.key' class='fnname'>key</a>(&amp;self) -&gt; K</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#109-111' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the key of this node. Only valid if this is a root
+node, which you yourself must ensure.</p>
+</div><h4 id='method.parent' class="method"><span id='parent.v-1' class='invisible'><code>fn <a href='#method.parent' class='fnname'>parent</a>(&amp;self, self_key: K) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;K&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#113-115' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.if_not_self' class="method"><span id='if_not_self.v' class='invisible'><code>fn <a href='#method.if_not_self' class='fnname'>if_not_self</a>(&amp;self, key: K, self_key: K) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;K&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#117-119' title='goto source code'>[src]</a></span></h4>
+</div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-PartialEq' class='impl'><span class='in-band'><code>impl&lt;K:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> + <a class="trait" href="../../rustc_data_structures/unify/trait.UnifyKey.html" title="trait rustc_data_structures::unify::UnifyKey">UnifyKey</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="struct" href="../../rustc_data_structures/unify/struct.VarValue.html" title="struct rustc_data_structures::unify::VarValue">VarValue</a>&lt;K&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;K::<a class="type" href="../../rustc_data_structures/unify/trait.UnifyKey.html#associatedtype.Value" title="type rustc_data_structures::unify::UnifyKey::Value">Value</a>: <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a>,&nbsp;</span></code><a href='#impl-PartialEq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#58' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class="method"><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../rustc_data_structures/unify/struct.VarValue.html" title="struct rustc_data_structures::unify::VarValue">VarValue</a>&lt;K&gt;) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#58' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class="method"><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../rustc_data_structures/unify/struct.VarValue.html" title="struct rustc_data_structures::unify::VarValue">VarValue</a>&lt;K&gt;) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#58' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl&lt;K:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> + <a class="trait" href="../../rustc_data_structures/unify/trait.UnifyKey.html" title="trait rustc_data_structures::unify::UnifyKey">UnifyKey</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../rustc_data_structures/unify/struct.VarValue.html" title="struct rustc_data_structures::unify::VarValue">VarValue</a>&lt;K&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;K::<a class="type" href="../../rustc_data_structures/unify/trait.UnifyKey.html#associatedtype.Value" title="type rustc_data_structures::unify::UnifyKey::Value">Value</a>: <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a>,&nbsp;</span></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#58' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../rustc_data_structures/unify/struct.VarValue.html" title="struct rustc_data_structures::unify::VarValue">VarValue</a>&lt;K&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#58' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl&lt;K:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> + <a class="trait" href="../../rustc_data_structures/unify/trait.UnifyKey.html" title="trait rustc_data_structures::unify::UnifyKey">UnifyKey</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../rustc_data_structures/unify/struct.VarValue.html" title="struct rustc_data_structures::unify::VarValue">VarValue</a>&lt;K&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;K::<a class="type" href="../../rustc_data_structures/unify/trait.UnifyKey.html#associatedtype.Value" title="type rustc_data_structures::unify::UnifyKey::Value">Value</a>: <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a>,&nbsp;</span></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#58' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/unify/mod.rs.html#58' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "rustc_data_structures";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

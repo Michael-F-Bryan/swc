@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Module atom</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../index.html'>string_cache</a></p><script>window.sidebarCurrent = {name: 'atom', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+        <p class='location'>Module atom</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#statics">Statics</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../index.html'>string_cache</a></p><script>window.sidebarCurrent = {name: 'atom', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -72,11 +72,102 @@
                            <td class='docblock-short'>
                                 
                            </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.STRING_CACHE.html"
+                                  title='struct string_cache::atom::STRING_CACHE'>STRING_CACHE</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.StringCache.html"
+                                  title='struct string_cache::atom::StringCache'>StringCache</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.StringCacheEntry.html"
+                                  title='struct string_cache::atom::StringCacheEntry'>StringCacheEntry</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.UnpackedAtom.html"
+                                  title='enum string_cache::atom::UnpackedAtom'>UnpackedAtom</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.BUCKET_MASK.html"
+                                  title='constant string_cache::atom::BUCKET_MASK'>BUCKET_MASK</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NB_BUCKETS.html"
+                                  title='constant string_cache::atom::NB_BUCKETS'>NB_BUCKETS</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='statics' class='section-header'><a href="#statics">Statics</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.STRING_CACHE.html"
+                                  title='static string_cache::atom::STRING_CACHE'>STRING_CACHE</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="trait" href="trait.StaticAtomSet.html"
                                   title='trait string_cache::atom::StaticAtomSet'>StaticAtomSet</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.from_packed_dynamic.html"
+                                  title='fn string_cache::atom::from_packed_dynamic'>from_packed_dynamic</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p>Used for a fast path in Clone and Drop.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.inline_atom_slice.html"
+                                  title='fn string_cache::atom::inline_atom_slice'>inline_atom_slice</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.inline_atom_slice_mut.html"
+                                  title='fn string_cache::atom::inline_atom_slice_mut'>inline_atom_slice_mut</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.inline_orig_bytes.html"
+                                  title='fn string_cache::atom::inline_orig_bytes'>inline_orig_bytes</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p>For as_slice on inline atoms, we need a pointer into the original
+string contents.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.u64_hash_as_u32.html"
+                                  title='fn string_cache::atom::u64_hash_as_u32'>u64_hash_as_u32</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
@@ -87,6 +178,7 @@
                                   title='type string_cache::atom::DefaultAtom'>DefaultAtom</a></td>
                            <td class='docblock-short'>
                                 <p>Use this if you don’t care about static atoms.</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -101,20 +193,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

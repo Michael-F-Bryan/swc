@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Participant` struct in crate `crossbeam`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Participant">
+
+    <title>crossbeam::mem::epoch::participant::Participant - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Struct Participant</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.epoch">epoch</a><a href="#structfield.in_critical">in_critical</a><a href="#structfield.garbage">garbage</a><a href="#structfield.active">active</a><a href="#structfield.next">next</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.enter">enter</a><a href="#method.exit">exit</a><a href="#method.reclaim">reclaim</a><a href="#method.try_collect">try_collect</a><a href="#method.migrate_garbage">migrate_garbage</a><a href="#method.garbage_size">garbage_size</a><a href="#method.should_gc">should_gc</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Sync">Sync</a></div></div><p class='location'><a href='../../../index.html'>crossbeam</a>::<wbr><a href='../../index.html'>mem</a>::<wbr><a href='../index.html'>epoch</a>::<wbr><a href='index.html'>participant</a></p><script>window.sidebarCurrent = {name: 'Participant', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../../index.html'>crossbeam</a>::<wbr><a href='../../index.html'>mem</a>::<wbr><a href='../index.html'>epoch</a>::<wbr><a href='index.html'>participant</a>::<wbr><a class="struct" href=''>Participant</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#14-31' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Participant {
+    epoch: <a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicUsize.html" title="struct core::sync::atomic::AtomicUsize">AtomicUsize</a>,
+    in_critical: <a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicUsize.html" title="struct core::sync::atomic::AtomicUsize">AtomicUsize</a>,
+    garbage: <a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.UnsafeCell.html" title="struct core::cell::UnsafeCell">UnsafeCell</a>&lt;<a class="struct" href="../../../../crossbeam/mem/epoch/garbage/struct.Local.html" title="struct crossbeam::mem::epoch::garbage::Local">Local</a>&gt;,
+    pub active: <a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicBool.html" title="struct core::sync::atomic::AtomicBool">AtomicBool</a>,
+    pub next: <a class="struct" href="../../../../crossbeam/mem/epoch/struct.Atomic.html" title="struct crossbeam::mem::epoch::Atomic">Atomic</a>&lt;<a class="struct" href="../../../../crossbeam/mem/epoch/participants/struct.ParticipantNode.html" title="struct crossbeam::mem::epoch::participants::ParticipantNode">ParticipantNode</a>&gt;,
+}</pre><div class='docblock'><p>Thread-local data for epoch participation.</p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.epoch" class="structfield small-section-header">
+                           <a href="#structfield.epoch" class="anchor field"></a>
+                           <span id="epoch.v" class='invisible'>
+                           <code>epoch: <a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicUsize.html" title="struct core::sync::atomic::AtomicUsize">AtomicUsize</a></code>
+                           </span></span><div class='docblock'><p>The local epoch.</p>
+</div><span id="structfield.in_critical" class="structfield small-section-header">
+                           <a href="#structfield.in_critical" class="anchor field"></a>
+                           <span id="in_critical.v" class='invisible'>
+                           <code>in_critical: <a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicUsize.html" title="struct core::sync::atomic::AtomicUsize">AtomicUsize</a></code>
+                           </span></span><div class='docblock'><p>Number of pending uses of <code>epoch::pin()</code>; keeping a count allows for
+reentrant use of epoch management.</p>
+</div><span id="structfield.garbage" class="structfield small-section-header">
+                           <a href="#structfield.garbage" class="anchor field"></a>
+                           <span id="garbage.v" class='invisible'>
+                           <code>garbage: <a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.UnsafeCell.html" title="struct core::cell::UnsafeCell">UnsafeCell</a>&lt;<a class="struct" href="../../../../crossbeam/mem/epoch/garbage/struct.Local.html" title="struct crossbeam::mem::epoch::garbage::Local">Local</a>&gt;</code>
+                           </span></span><div class='docblock'><p>Thread-local garbage tracking</p>
+</div><span id="structfield.active" class="structfield small-section-header">
+                           <a href="#structfield.active" class="anchor field"></a>
+                           <span id="active.v" class='invisible'>
+                           <code>active: <a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicBool.html" title="struct core::sync::atomic::AtomicBool">AtomicBool</a></code>
+                           </span></span><div class='docblock'><p>Is the thread still active? Becomes <code>false</code> when the thread exits. This
+is ultimately used to free <code>Participant</code> records.</p>
+</div><span id="structfield.next" class="structfield small-section-header">
+                           <a href="#structfield.next" class="anchor field"></a>
+                           <span id="next.v" class='invisible'>
+                           <code>next: <a class="struct" href="../../../../crossbeam/mem/epoch/struct.Atomic.html" title="struct crossbeam::mem::epoch::Atomic">Atomic</a>&lt;<a class="struct" href="../../../../crossbeam/mem/epoch/participants/struct.ParticipantNode.html" title="struct crossbeam::mem::epoch::participants::ParticipantNode">ParticipantNode</a>&gt;</code>
+                           </span></span><div class='docblock'><p>The participant list is coded intrusively; here's the <code>next</code> pointer.</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../../../crossbeam/mem/epoch/participant/struct.Participant.html" title="struct crossbeam::mem::epoch::participant::Participant">Participant</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#43-133' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class="struct" href="../../../../crossbeam/mem/epoch/participant/struct.Participant.html" title="struct crossbeam::mem::epoch::participant::Participant">Participant</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#44-52' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.enter' class="method"><span id='enter.v' class='invisible'><code>pub fn <a href='#method.enter' class='fnname'>enter</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#60-74' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Enter a critical section.</p>
+<p>This method is reentrant, allowing for nested critical sections.</p>
+<p>Returns <code>true</code> is this is the first entry on the stack (as opposed to a
+re-entrant call).</p>
+</div><h4 id='method.exit' class="method"><span id='exit.v' class='invisible'><code>pub fn <a href='#method.exit' class='fnname'>exit</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#77-82' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Exit the current (nested) critical section.</p>
+</div><h4 id='method.reclaim' class="method"><span id='reclaim.v' class='invisible'><code>pub unsafe fn <a href='#method.reclaim' class='fnname'>reclaim</a>&lt;T&gt;(&amp;self, data: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut T</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#85-87' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Begin the reclamation process for a piece of data.</p>
+</div><h4 id='method.try_collect' class="method"><span id='try_collect.v' class='invisible'><code>pub fn <a href='#method.try_collect' class='fnname'>try_collect</a>(&amp;self, guard: &amp;<a class="struct" href="../../../../crossbeam/mem/epoch/struct.Guard.html" title="struct crossbeam::mem::epoch::Guard">Guard</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#92-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Attempt to collect garbage by moving the global epoch forward.</p>
+<p>Returns <code>true</code> on success.</p>
+</div><h4 id='method.migrate_garbage' class="method"><span id='migrate_garbage.v' class='invisible'><code>pub fn <a href='#method.migrate_garbage' class='fnname'>migrate_garbage</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#117-123' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Move the current thread-local garbage into the global garbage bags.</p>
+</div><h4 id='method.garbage_size' class="method"><span id='garbage_size.v' class='invisible'><code>pub fn <a href='#method.garbage_size' class='fnname'>garbage_size</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#126-128' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>How much garbage is this participant currently storing?</p>
+</div><h4 id='method.should_gc' class="method"><span id='should_gc.v' class='invisible'><code>pub fn <a href='#method.should_gc' class='fnname'>should_gc</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#130-132' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Is this participant past its local GC threshhold?</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../../../crossbeam/mem/epoch/participant/struct.Participant.html" title="struct crossbeam::mem::epoch::participant::Participant">Participant</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#33-37' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#34-36' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-Sync' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="../../../../crossbeam/mem/epoch/participant/struct.Participant.html" title="struct crossbeam::mem::epoch::participant::Participant">Participant</a></code><a href='#impl-Sync' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/crossbeam/mem/epoch/participant.rs.html#39' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../";
+        window.currentCrate = "crossbeam";
+    </script>
+    <script src="../../../../main.js"></script>
+    <script defer src="../../../../search-index.js"></script>
+</body>
+</html>

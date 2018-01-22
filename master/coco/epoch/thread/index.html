@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `thread` mod in crate `coco`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, thread">
+
+    <title>coco::epoch::thread - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Module thread</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#constants">Constants</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../../index.html'>coco</a>::<wbr><a href='../index.html'>epoch</a></p><script>window.sidebarCurrent = {name: 'thread', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>coco</a>::<wbr><a href='../index.html'>epoch</a>::<wbr><a class="mod" href=''>thread</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/coco/epoch/thread.rs.html#1-462' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Thread synchronization and pinning.</p>
+<h1 id="registration" class="section-header"><a href="#registration">Registration</a></h1>
+<p>In order to track all threads in one place, we need some form of thread registration. Every
+thread has a thread-local so-called &quot;harness&quot; that registers it the first time it is pinned,
+and unregisters when it exits.</p>
+<p>Registered threads are tracked in a global lock-free singly-linked list of thread entries. The
+head of this list is accessed by calling the <code>participants</code> function.</p>
+<h1 id="thread-entries" class="section-header"><a href="#thread-entries">Thread entries</a></h1>
+<p>Thread entries are implemented as the <code>Thread</code> data type. Every entry contains an integer that
+tells whether the thread is pinned and if so, what was the global epoch at the time it was
+pinned. Entries also hold a pin counter that aids in periodic global epoch advancement.</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Harness.html"
+                                  title='struct coco::epoch::thread::Harness'>Harness</a></td>
+                           <td class='docblock-short'>
+                                <p>Holds thread-local data and unregisters the thread when dropped.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Pin.html"
+                                  title='struct coco::epoch::thread::Pin'>Pin</a></td>
+                           <td class='docblock-short'>
+                                <p>A witness that the current thread is pinned.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Thread.html"
+                                  title='struct coco::epoch::thread::Thread'>Thread</a></td>
+                           <td class='docblock-short'>
+                                <p>An entry in the linked list of participating threads.</p>
+
+                           </td>
+                       </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.HARNESS.html"
+                                  title='constant coco::epoch::thread::HARNESS'>HARNESS</a></td>
+                           <td class='docblock-short'>
+                                <p>The thread registration harness.</p>
+
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.defer_free.html"
+                                  title='fn coco::epoch::thread::defer_free'>defer_free</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p>Stashes away an object that will later be freed.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.flush.html"
+                                  title='fn coco::epoch::thread::flush'>flush</a></td>
+                           <td class='docblock-short'>
+                                <p>Flushes the buffered thread-local garbage.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.is_pinned.html"
+                                  title='fn coco::epoch::thread::is_pinned'>is_pinned</a></td>
+                           <td class='docblock-short'>
+                                <p>Returns <code>true</code> if the current thread is pinned.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.participants.html"
+                                  title='fn coco::epoch::thread::participants'>participants</a></td>
+                           <td class='docblock-short'>
+                                <p>Returns a reference to the head pointer of the list of participating threads.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.pin.html"
+                                  title='fn coco::epoch::thread::pin'>pin</a></td>
+                           <td class='docblock-short'>
+                                <p>Pins the current thread.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.try_advance.html"
+                                  title='fn coco::epoch::thread::try_advance'>try_advance</a></td>
+                           <td class='docblock-short'>
+                                <p>Attempts to advance the global epoch.</p>
+
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "coco";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

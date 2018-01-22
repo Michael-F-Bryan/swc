@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["parse_attrs","Parse kind attr as MetaItem."],["parse_str_as_tokens","Parse content of string literal."]]});

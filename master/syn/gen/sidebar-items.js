@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["fold","Syntax tree traversal to transform the nodes of an owned syntax tree."],["helper",""],["visit","Syntax tree traversal to walk a shared borrow of a syntax tree."]]});

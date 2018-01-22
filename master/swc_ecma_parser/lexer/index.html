@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Module lexer</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li></ul></div><p class='location'><a href='../index.html'>swc_ecma_parser</a></p><script>window.sidebarCurrent = {name: 'lexer', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+        <p class='location'>Module lexer</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../index.html'>swc_ecma_parser</a></p><script>window.sidebarCurrent = {name: 'lexer', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -49,9 +49,8 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/swc_ecma_parser/lexer/mod.rs.html#1-750' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../src/swc_ecma_parser/lexer/mod.rs.html#1-679' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>ECMAScript lexer.</p>
-
 <p>In future, this might use string directly.</p>
 </div><h2 id='reexports' class='section-header'><a href="#reexports">Re-exports</a></h2>
 <table><tr><td><code>pub use self::input::<a class="trait" href="../../swc_ecma_parser/lexer/input/trait.Input.html" title="trait swc_ecma_parser::lexer::input::Input">Input</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
@@ -64,10 +63,33 @@
                            </td>
                        </tr>
                        <tr class=' module-item'>
+                           <td><a class="mod" href="macros/index.html"
+                                  title='mod swc_ecma_parser::lexer::macros'>macros</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="number/index.html"
+                                  title='mod swc_ecma_parser::lexer::number'>number</a></td>
+                           <td class='docblock-short'>
+                                <p>Lexer methods related to reading numbers.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="state/index.html"
+                                  title='mod swc_ecma_parser::lexer::state'>state</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
                            <td><a class="mod" href="util/index.html"
                                   title='mod swc_ecma_parser::lexer::util'>util</a></td>
                            <td class='docblock-short'>
-                                <p>Ported from <a href="">babylon/util/identifier.js</a></p>
+                                <p>Ported from <a href="%0Ahttps://github.com/babel/babel/blob/master/packages/babylon/src/util/identifier.js">babylon/util/identifier.js</a></p>
+
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -77,18 +99,19 @@
                            <td class='docblock-short'>
                                 
                            </td>
-                       </tr>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
                        <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Options.html"
-                                  title='struct swc_ecma_parser::lexer::Options'>Options</a></td>
+                           <td><a class="fn" href="fn.pos_span.html"
+                                  title='fn swc_ecma_parser::lexer::pos_span'>pos_span</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
-                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class="enum" href="enum.Error.html"
-                                  title='enum swc_ecma_parser::lexer::Error'>Error</a></td>
+                           <td><a class="type" href="type.LexResult.html"
+                                  title='type swc_ecma_parser::lexer::LexResult'>LexResult</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
@@ -105,20 +128,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

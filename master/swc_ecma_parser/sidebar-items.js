@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["error",""],["lexer","ECMAScript lexer."],["parser",""],["token","Ported from [babel/bablyon][]"]]});
+initSidebarItems({"mod":[["error",""],["input","Note: this module requires `#![feature(nll)]`."],["lexer","ECMAScript lexer."],["macros",""],["parser",""],["token","Ported from [babel/bablyon][]"]],"struct":[["CharIndices",""],["Config",""],["Parser","EcmaScript parser."],["Session",""]],"trait":[["Input",""]],"type":[["PResult",""]]});

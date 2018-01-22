@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["RAND_SIZE",""],["RAND_SIZE_64",""],["RAND_SIZE_64_LEN",""],["RAND_SIZE_LEN",""],["RAND_SIZE_USIZE",""]],"static":[["EMPTY",""],["EMPTY_64",""]],"struct":[["Isaac64Rng","A random number generator that uses ISAAC-64[1], the 64-bit variant of the ISAAC algorithm."],["IsaacRng","A random number generator that uses the ISAAC algorithm[1]."]]});

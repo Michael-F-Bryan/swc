@@ -355,8 +355,8 @@
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">iter</span>;
 
 <span class="attribute">#[<span class="ident">parser</span>]</span>
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span> {
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_opt_binding_ident</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Ident</span><span class="op">&gt;&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_opt_binding_ident</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Ident</span><span class="op">&gt;&gt;</span> {
         <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="ident">BindingIdent</span>) {
             <span class="self">self</span>.<span class="ident">parse_binding_ident</span>().<span class="ident">map</span>(<span class="prelude-val">Some</span>)
         } <span class="kw">else</span> {
@@ -367,19 +367,19 @@
     <span class="doccomment">/// babel: `parseBindingIdentifier`</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// spec: `BindingIdentifier`</span>
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_binding_ident</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Ident</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_binding_ident</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Ident</span><span class="op">&gt;</span> {
         <span class="comment">// &quot;yield&quot; and &quot;await&quot; is **lexically** accepted.</span>
         <span class="kw">let</span> <span class="ident">ident</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_ident</span>(<span class="bool-val">true</span>, <span class="bool-val">true</span>)<span class="question-mark">?</span>;
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">ctx</span>.<span class="ident">strict</span> {
+        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">session</span>.<span class="ident">cfg</span>.<span class="ident">strict</span> {
             <span class="kw">if</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">ident</span>.<span class="ident">sym</span> <span class="op">==</span> <span class="string">&quot;arguments&quot;</span> <span class="op">||</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">ident</span>.<span class="ident">sym</span> <span class="op">==</span> <span class="string">&quot;eval&quot;</span> {
-                <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">EvalAndArgumentsInStrict</span>)
+                <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">EvalAndArgumentsInStrict</span>);
             }
         }
 
         <span class="prelude-val">Ok</span>(<span class="ident">ident</span>)
     }
 
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_binding_pat_or_ident</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_binding_pat_or_ident</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Pat</span><span class="op">&gt;</span> {
         <span class="kw">match</span> <span class="kw-2">*</span><span class="macro">cur</span><span class="macro">!</span>()<span class="question-mark">?</span> {
             <span class="macro">tok</span><span class="macro">!</span>(<span class="string">&quot;yield&quot;</span>) <span class="op">|</span> <span class="ident">Word</span>(..) <span class="op">=&gt;</span> <span class="self">self</span>.<span class="ident">parse_binding_ident</span>().<span class="ident">map</span>(<span class="ident">Pat</span>::<span class="ident">from</span>),
             <span class="macro">tok</span><span class="macro">!</span>(<span class="string">&#39;[&#39;</span>) <span class="op">=&gt;</span> <span class="self">self</span>.<span class="ident">parse_array_binding_pat</span>(),
@@ -395,7 +395,7 @@
     }
 
     <span class="doccomment">/// babel: `parseBindingAtom`</span>
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_binding_element</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_binding_element</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Pat</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="macro">cur_pos</span><span class="macro">!</span>();
         <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_binding_pat_or_ident</span>()<span class="question-mark">?</span>;
 
@@ -413,8 +413,8 @@
         <span class="prelude-val">Ok</span>(<span class="ident">left</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_array_binding_pat</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;</span> {
-        <span class="macro">spanned</span><span class="macro">!</span>({
+    <span class="kw">fn</span> <span class="ident">parse_array_binding_pat</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Pat</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
             <span class="macro">assert_and_bump</span><span class="macro">!</span>(<span class="string">&#39;[&#39;</span>);
 
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">elems</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[];
@@ -431,7 +431,7 @@
                 <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="macro">cur_pos</span><span class="macro">!</span>();
 
                 <span class="kw">if</span> <span class="macro">eat</span><span class="macro">!</span>(<span class="string">&quot;...&quot;</span>) {
-                    <span class="kw">let</span> <span class="ident">pat</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_binding_pat_or_ident</span>()<span class="question-mark">?</span>;
+                    <span class="kw">let</span> <span class="ident">pat</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">parse_binding_pat_or_ident</span>()<span class="question-mark">?</span>;
                     <span class="kw">let</span> <span class="ident">pat</span> <span class="op">=</span> <span class="ident">Pat</span> {
                         <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
                         <span class="ident">node</span>: <span class="ident">PatKind</span>::<span class="ident">Rest</span>(<span class="kw">box</span> <span class="ident">pat</span>),
@@ -439,7 +439,7 @@
                     <span class="ident">elems</span>.<span class="ident">push</span>(<span class="prelude-val">Some</span>(<span class="ident">pat</span>));
                     <span class="kw">break</span>;
                 } <span class="kw">else</span> {
-                    <span class="ident">elems</span>.<span class="ident">push</span>(<span class="self">self</span>.<span class="ident">parse_binding_element</span>().<span class="ident">map</span>(<span class="prelude-val">Some</span>)<span class="question-mark">?</span>);
+                    <span class="ident">elems</span>.<span class="ident">push</span>(<span class="ident">p</span>.<span class="ident">parse_binding_element</span>().<span class="ident">map</span>(<span class="prelude-val">Some</span>)<span class="question-mark">?</span>);
                 }
             }
 
@@ -450,13 +450,13 @@
     }
 
     <span class="doccomment">/// spec: &#39;FormalParameter&#39;</span>
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_formal_param</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_formal_param</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Pat</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">parse_binding_element</span>()
     }
 
     <span class="doccomment">///</span>
     <span class="doccomment">/// spec: &#39;FormalParameterList&#39;</span>
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_formal_params</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;&gt;</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_formal_params</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">first</span> <span class="op">=</span> <span class="bool-val">true</span>;
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">params</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[];
 
@@ -489,17 +489,17 @@
         <span class="prelude-val">Ok</span>(<span class="ident">params</span>)
     }
 
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_unique_formal_params</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;&gt;</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_unique_formal_params</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;&gt;</span> {
         <span class="comment">// FIXME: This is wrong.</span>
         <span class="self">self</span>.<span class="ident">parse_formal_params</span>()
     }
 }
 
 <span class="attribute">#[<span class="ident">parser</span>]</span>
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span><span class="op">&gt;</span> {
     <span class="doccomment">/// This does not return &#39;rest&#39; pattern because non-last parameter cannot be</span>
     <span class="doccomment">/// rest.</span>
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">reparse_expr_as_pat</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="kw">box</span> <span class="ident">expr</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">reparse_expr_as_pat</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="kw">box</span> <span class="ident">expr</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Pat</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">span</span> <span class="op">=</span> <span class="ident">expr</span>.<span class="ident">span</span>;
 
         <span class="kw">match</span> <span class="ident">expr</span>.<span class="ident">node</span> {
@@ -561,7 +561,7 @@
                                 <span class="ident">prop</span>
                             ),
                         })
-                        .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">PResult</span><span class="op">&lt;</span>_<span class="op">&gt;&gt;</span>()<span class="question-mark">?</span>),
+                        .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, _<span class="op">&gt;&gt;</span>()<span class="question-mark">?</span>),
                 });
             }
             <span class="ident">ExprKind</span>::<span class="ident">Ident</span>(<span class="ident">ident</span>) <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">ident</span>.<span class="ident">into</span>()),
@@ -621,7 +621,7 @@
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_exprs_as_params</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="kw-2">mut</span> <span class="ident">exprs</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ExprOrSpread</span><span class="op">&gt;</span>,
-    ) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;&gt;</span> {
+    ) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;&gt;</span> {
         <span class="kw">let</span> <span class="ident">len</span> <span class="op">=</span> <span class="ident">exprs</span>.<span class="ident">len</span>();
         <span class="kw">if</span> <span class="ident">len</span> <span class="op">==</span> <span class="number">0</span> {
             <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="macro">vec</span><span class="macro">!</span>[]);
@@ -669,20 +669,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

@@ -690,6 +690,40 @@
 <span id="644">644</span>
 <span id="645">645</span>
 <span id="646">646</span>
+<span id="647">647</span>
+<span id="648">648</span>
+<span id="649">649</span>
+<span id="650">650</span>
+<span id="651">651</span>
+<span id="652">652</span>
+<span id="653">653</span>
+<span id="654">654</span>
+<span id="655">655</span>
+<span id="656">656</span>
+<span id="657">657</span>
+<span id="658">658</span>
+<span id="659">659</span>
+<span id="660">660</span>
+<span id="661">661</span>
+<span id="662">662</span>
+<span id="663">663</span>
+<span id="664">664</span>
+<span id="665">665</span>
+<span id="666">666</span>
+<span id="667">667</span>
+<span id="668">668</span>
+<span id="669">669</span>
+<span id="670">670</span>
+<span id="671">671</span>
+<span id="672">672</span>
+<span id="673">673</span>
+<span id="674">674</span>
+<span id="675">675</span>
+<span id="676">676</span>
+<span id="677">677</span>
+<span id="678">678</span>
+<span id="679">679</span>
+<span id="680">680</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">swc_macros</span>::<span class="ident">ast_node</span>;
@@ -697,24 +731,25 @@
 <span class="kw">mod</span> <span class="ident">module_item</span>;
 
 <span class="attribute">#[<span class="ident">parser</span>]</span>
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span><span class="op">&gt;</span> {
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_block_body</span><span class="op">&lt;</span><span class="ident">Type</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">top_level</span>: <span class="ident">bool</span>,
         <span class="ident">end</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Token</span><span class="op">&gt;</span>,
-    ) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Type</span><span class="op">&gt;&gt;</span>
+    ) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Type</span><span class="op">&gt;&gt;</span>
     <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">StmtLikeParser</span><span class="op">&lt;</span><span class="ident">Type</span><span class="op">&gt;</span>,
+        <span class="self">Self</span>: <span class="ident">StmtLikeParser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Type</span><span class="op">&gt;</span>,
         <span class="ident">Type</span>: <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
     {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">stmts</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[];
         <span class="kw">while</span> {
-            <span class="kw">let</span> <span class="ident">b</span> <span class="op">=</span> <span class="macro">cur</span><span class="macro">!</span>() <span class="op">!=</span> <span class="ident">end</span>;
+            <span class="kw">let</span> <span class="ident">b</span> <span class="op">=</span> <span class="macro">cur</span><span class="macro">!</span>().<span class="ident">ok</span>() <span class="op">!=</span> <span class="ident">end</span>;
             <span class="ident">b</span>
         } {
             <span class="kw">let</span> <span class="ident">stmt</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_stmt_like</span>(<span class="bool-val">true</span>, <span class="ident">top_level</span>)<span class="question-mark">?</span>;
             <span class="ident">stmts</span>.<span class="ident">push</span>(<span class="ident">stmt</span>);
         }
+
         <span class="kw">if</span> <span class="ident">end</span>.<span class="ident">is_some</span>() {
             <span class="macro">bump</span><span class="macro">!</span>();
         }
@@ -722,18 +757,18 @@
         <span class="prelude-val">Ok</span>(<span class="ident">stmts</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">parse_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">parse_stmt_internal</span>(<span class="bool-val">false</span>, <span class="ident">top_level</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_stmt_list_item</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">parse_stmt_list_item</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">parse_stmt_internal</span>(<span class="bool-val">true</span>, <span class="ident">top_level</span>)
     }
 
     <span class="doccomment">/// Parse a statement, declaration or module item.</span>
-    <span class="kw">fn</span> <span class="ident">parse_stmt_like</span><span class="op">&lt;</span><span class="ident">Type</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">include_decl</span>: <span class="ident">bool</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Type</span><span class="op">&gt;</span>
+    <span class="kw">fn</span> <span class="ident">parse_stmt_like</span><span class="op">&lt;</span><span class="ident">Type</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">include_decl</span>: <span class="ident">bool</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Type</span><span class="op">&gt;</span>
     <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">StmtLikeParser</span><span class="op">&lt;</span><span class="ident">Type</span><span class="op">&gt;</span>,
+        <span class="self">Self</span>: <span class="ident">StmtLikeParser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Type</span><span class="op">&gt;</span>,
         <span class="ident">Type</span>: <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
     {
         <span class="kw">if</span> <span class="op">&lt;</span><span class="self">Self</span> <span class="kw">as</span> <span class="ident">StmtLikeParser</span><span class="op">&lt;</span><span class="ident">Type</span><span class="op">&gt;&gt;</span>::<span class="ident">accept_import_export</span>() {
@@ -745,91 +780,118 @@
             .<span class="ident">map</span>(<span class="ident">From</span>::<span class="ident">from</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_stmt_internal</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">include_decl</span>: <span class="ident">bool</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">parse_stmt_internal</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">include_decl</span>: <span class="ident">bool</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="macro">cur_pos</span><span class="macro">!</span>();
 
+        <span class="kw">if</span> <span class="macro">is_one_of</span><span class="macro">!</span>(<span class="string">&quot;break&quot;</span>, <span class="string">&quot;continue&quot;</span>) {
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
+                <span class="kw">let</span> <span class="ident">is_break</span> <span class="op">=</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;break&quot;</span>);
+                <span class="macro">bump</span><span class="macro">!</span>();
+
+                <span class="kw">let</span> <span class="ident">label</span> <span class="op">=</span> <span class="kw">if</span> <span class="macro">eat</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>) {
+                    <span class="prelude-val">None</span>
+                } <span class="kw">else</span> {
+                    <span class="kw">let</span> <span class="ident">i</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">parse_label_ident</span>().<span class="ident">map</span>(<span class="prelude-val">Some</span>)<span class="question-mark">?</span>;
+                    <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>);
+                    <span class="ident">i</span>
+                };
+
+                <span class="prelude-val">Ok</span>(<span class="kw">if</span> <span class="ident">is_break</span> {
+                    <span class="ident">StmtKind</span>::<span class="ident">Break</span>(<span class="ident">BreakStmt</span> { <span class="ident">label</span> })
+                } <span class="kw">else</span> {
+                    <span class="ident">StmtKind</span>::<span class="ident">Continue</span>(<span class="ident">ContinueStmt</span> { <span class="ident">label</span> })
+                })
+            });
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;debugger&quot;</span>) {
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
+                <span class="macro">bump</span><span class="macro">!</span>();
+                <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>);
+                <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Debugger</span>)
+            });
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;do&quot;</span>) {
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_do_stmt</span>();
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;for&quot;</span>) {
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_for_stmt</span>();
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;function&quot;</span>) {
+            <span class="kw">if</span> <span class="op">!</span><span class="ident">include_decl</span> {
+                <span class="macro">unexpected</span><span class="macro">!</span>()
+            }
+
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_fn_decl</span>().<span class="ident">map</span>(<span class="ident">Stmt</span>::<span class="ident">from</span>);
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;class&quot;</span>) {
+            <span class="kw">if</span> <span class="op">!</span><span class="ident">include_decl</span> {
+                <span class="macro">unexpected</span><span class="macro">!</span>()
+            }
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_class_decl</span>().<span class="ident">map</span>(<span class="ident">Stmt</span>::<span class="ident">from</span>);
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;if&quot;</span>) {
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_if_stmt</span>();
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;return&quot;</span>) {
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_return_stmt</span>();
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;switch&quot;</span>) {
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_switch_stmt</span>();
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;throw&quot;</span>) {
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_throw_stmt</span>();
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;try&quot;</span>) {
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_try_stmt</span>();
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;with&quot;</span>) {
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_with_stmt</span>();
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;while&quot;</span>) {
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_while_stmt</span>();
+        }
+
+        <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;var&quot;</span>) <span class="op">||</span> (<span class="ident">include_decl</span> <span class="op">&amp;&amp;</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;const&quot;</span>)) {
+            <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_var_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
+            <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">Stmt</span> {
+                <span class="ident">span</span>: <span class="ident">v</span>.<span class="ident">span</span>,
+                <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">Decl</span>(<span class="ident">Decl</span>::<span class="ident">Var</span>(<span class="ident">v</span>)),
+            });
+        }
+
+        <span class="comment">// &#39;let&#39; can start an identifier reference.</span>
+        <span class="kw">if</span> <span class="ident">include_decl</span> <span class="op">&amp;&amp;</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;let&quot;</span>) {
+            <span class="kw">let</span> <span class="ident">is_keyword</span> <span class="op">=</span> <span class="kw">match</span> <span class="macro">peek</span><span class="macro">!</span>() {
+                <span class="prelude-val">Ok</span>(<span class="ident">t</span>) <span class="op">=&gt;</span> <span class="ident">t</span>.<span class="ident">follows_keyword_let</span>(<span class="self">self</span>.<span class="ident">session</span>.<span class="ident">cfg</span>.<span class="ident">strict</span>),
+                _ <span class="op">=&gt;</span> <span class="bool-val">false</span>,
+            };
+
+            <span class="kw">if</span> <span class="ident">is_keyword</span> {
+                <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_var_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
+                <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">Stmt</span> {
+                    <span class="ident">span</span>: <span class="ident">v</span>.<span class="ident">span</span>,
+                    <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">Decl</span>(<span class="ident">Decl</span>::<span class="ident">Var</span>(<span class="ident">v</span>)),
+                });
+            }
+        }
+
         <span class="kw">match</span> <span class="kw-2">*</span><span class="macro">cur</span><span class="macro">!</span>()<span class="question-mark">?</span> {
-            <span class="ident">Word</span>(<span class="ident">Keyword</span>(<span class="ident">w</span>)) <span class="op">=&gt;</span> <span class="kw">match</span> <span class="ident">w</span> {
-                <span class="ident">Break</span> <span class="op">|</span> <span class="ident">Continue</span> <span class="op">=&gt;</span> {
-                    <span class="kw">return</span> <span class="macro">spanned</span><span class="macro">!</span>({
-                        <span class="macro">bump</span><span class="macro">!</span>();
-                        <span class="kw">let</span> <span class="ident">is_break</span> <span class="op">=</span> <span class="ident">w</span> <span class="op">==</span> <span class="ident">Break</span>;
-                        <span class="kw">let</span> <span class="ident">label</span> <span class="op">=</span> <span class="kw">if</span> <span class="macro">eat</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>) {
-                            <span class="prelude-val">None</span>
-                        } <span class="kw">else</span> {
-                            <span class="kw">let</span> <span class="ident">i</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_label_ident</span>().<span class="ident">map</span>(<span class="prelude-val">Some</span>)<span class="question-mark">?</span>;
-                            <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>);
-                            <span class="ident">i</span>
-                        };
-
-                        <span class="prelude-val">Ok</span>(<span class="kw">if</span> <span class="ident">is_break</span> {
-                            <span class="ident">StmtKind</span>::<span class="ident">Break</span>(<span class="ident">BreakStmt</span> { <span class="ident">label</span> })
-                        } <span class="kw">else</span> {
-                            <span class="ident">StmtKind</span>::<span class="ident">Continue</span>(<span class="ident">ContinueStmt</span> { <span class="ident">label</span> })
-                        })
-                    })
-                }
-
-                <span class="ident">Debugger</span> <span class="op">=&gt;</span> {
-                    <span class="kw">return</span> <span class="macro">spanned</span><span class="macro">!</span>({
-                        <span class="macro">bump</span><span class="macro">!</span>();
-                        <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>);
-                        <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Debugger</span>)
-                    })
-                }
-
-                <span class="ident">Do</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_do_stmt</span>(),
-
-                <span class="ident">For</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_for_stmt</span>(),
-
-                <span class="ident">Function</span> <span class="op">=&gt;</span> {
-                    <span class="kw">if</span> <span class="op">!</span><span class="ident">include_decl</span> {
-                        <span class="macro">unexpected</span><span class="macro">!</span>()
-                    }
-
-                    <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_fn_decl</span>().<span class="ident">map</span>(<span class="ident">Stmt</span>::<span class="ident">from</span>);
-                }
-                <span class="ident">Class</span> <span class="kw">if</span> <span class="op">!</span><span class="ident">include_decl</span> <span class="op">=&gt;</span> <span class="macro">unexpected</span><span class="macro">!</span>(),
-                <span class="ident">Class</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_class_decl</span>().<span class="ident">map</span>(<span class="ident">Stmt</span>::<span class="ident">from</span>),
-
-                <span class="ident">If</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_if_stmt</span>(),
-                <span class="ident">Return</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_return_stmt</span>(),
-                <span class="ident">Switch</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_switch_stmt</span>(),
-                <span class="ident">Throw</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_throw_stmt</span>(),
-                <span class="ident">Try</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_try_stmt</span>(),
-
-                <span class="comment">// `let;` is identifier reference.</span>
-                <span class="ident">Let</span> <span class="kw">if</span> <span class="ident">include_decl</span> <span class="op">=&gt;</span> <span class="kw">match</span> <span class="macro">peek</span><span class="macro">!</span>() {
-                    <span class="prelude-val">Some</span>(<span class="ident">t</span>) <span class="kw">if</span> <span class="ident">t</span>.<span class="ident">follows_keyword_let</span>(<span class="self">self</span>.<span class="ident">ctx</span>.<span class="ident">strict</span>) <span class="op">=&gt;</span> {
-                        <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_var_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
-                        <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">Stmt</span> {
-                            <span class="ident">span</span>: <span class="ident">v</span>.<span class="ident">span</span>,
-                            <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">Decl</span>(<span class="ident">Decl</span>::<span class="ident">Var</span>(<span class="ident">v</span>)),
-                        });
-                    }
-                    _ <span class="op">=&gt;</span> {}
-                },
-
-                <span class="ident">Const</span> <span class="op">|</span> <span class="ident">Var</span> <span class="op">=&gt;</span> {
-                    <span class="kw">if</span> <span class="ident">w</span> <span class="op">==</span> <span class="ident">Var</span> <span class="op">||</span> <span class="ident">include_decl</span> {
-                        <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_var_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
-                        <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">Stmt</span> {
-                            <span class="ident">span</span>: <span class="ident">v</span>.<span class="ident">span</span>,
-                            <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">Decl</span>(<span class="ident">Decl</span>::<span class="ident">Var</span>(<span class="ident">v</span>)),
-                        });
-                    }
-                    <span class="comment">// Handle `let;` by forwarding it to expression statement</span>
-                }
-
-                <span class="ident">While</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_while_stmt</span>(),
-                <span class="ident">With</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_with_stmt</span>(),
-
-                _ <span class="op">=&gt;</span> {}
-            },
-            <span class="ident">LBrace</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="macro">spanned</span><span class="macro">!</span>({ <span class="self">self</span>.<span class="ident">parse_block</span>().<span class="ident">map</span>(<span class="ident">StmtKind</span>::<span class="ident">Block</span>) }),
+            <span class="ident">LBrace</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">parse_block</span>().<span class="ident">map</span>(<span class="ident">StmtKind</span>::<span class="ident">Block</span>)),
 
             <span class="ident">Semi</span> <span class="op">=&gt;</span> {
-                <span class="kw">return</span> <span class="macro">spanned</span><span class="macro">!</span>({
+                <span class="kw">return</span> <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
                     <span class="macro">bump</span><span class="macro">!</span>();
                     <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Empty</span>)
                 })
@@ -874,24 +936,24 @@
         }.<span class="ident">into</span>())
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_if_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
-        <span class="macro">spanned</span><span class="macro">!</span>({
+    <span class="kw">fn</span> <span class="ident">parse_if_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
             <span class="macro">assert_and_bump</span><span class="macro">!</span>(<span class="string">&quot;if&quot;</span>);
 
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;(&#39;</span>);
-            <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;)&#39;</span>);
 
             <span class="kw">let</span> <span class="ident">cons</span> <span class="op">=</span> {
                 <span class="comment">// Annex B</span>
-                <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">ctx</span>.<span class="ident">strict</span> <span class="op">&amp;&amp;</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;function&quot;</span>) {
+                <span class="kw">if</span> <span class="op">!</span><span class="ident">p</span>.<span class="ident">session</span>.<span class="ident">cfg</span>.<span class="ident">strict</span> <span class="op">&amp;&amp;</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;function&quot;</span>) {
                     <span class="comment">// TODO: report error?</span>
                 }
-                <span class="kw">box</span> <span class="self">self</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>
+                <span class="kw">box</span> <span class="ident">p</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>
             };
 
             <span class="kw">let</span> <span class="ident">alt</span> <span class="op">=</span> <span class="kw">if</span> <span class="macro">eat</span><span class="macro">!</span>(<span class="string">&quot;else&quot;</span>) {
-                <span class="prelude-val">Some</span>(<span class="kw">box</span> <span class="self">self</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>)
+                <span class="prelude-val">Some</span>(<span class="kw">box</span> <span class="ident">p</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>)
             } <span class="kw">else</span> {
                 <span class="prelude-val">None</span>
             };
@@ -900,26 +962,26 @@
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_return_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
-        <span class="macro">spanned</span><span class="macro">!</span>({
+    <span class="kw">fn</span> <span class="ident">parse_return_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
             <span class="macro">assert_and_bump</span><span class="macro">!</span>(<span class="string">&quot;return&quot;</span>);
 
             <span class="kw">let</span> <span class="ident">arg</span> <span class="op">=</span> <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>) {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
-                <span class="self">self</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>().<span class="ident">map</span>(<span class="prelude-val">Some</span>)<span class="question-mark">?</span>
+                <span class="ident">p</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>().<span class="ident">map</span>(<span class="prelude-val">Some</span>)<span class="question-mark">?</span>
             };
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>);
             <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Return</span>(<span class="ident">ReturnStmt</span> { <span class="ident">arg</span> }))
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_switch_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
-        <span class="macro">spanned</span><span class="macro">!</span>({
+    <span class="kw">fn</span> <span class="ident">parse_switch_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
             <span class="macro">assert_and_bump</span><span class="macro">!</span>(<span class="string">&quot;switch&quot;</span>);
 
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;(&#39;</span>);
-            <span class="kw">let</span> <span class="ident">discriminant</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">discriminant</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;)&#39;</span>);
 
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">cur</span> <span class="op">=</span> <span class="prelude-val">None</span>;
@@ -933,10 +995,10 @@
                     <span class="macro">bump</span><span class="macro">!</span>();
                     <span class="ident">cases</span>.<span class="ident">extend</span>(<span class="ident">cur</span>.<span class="ident">take</span>());
                     <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">is_case</span> {
-                        <span class="self">self</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>().<span class="ident">map</span>(<span class="prelude-val">Some</span>)<span class="question-mark">?</span>
+                        <span class="ident">p</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>().<span class="ident">map</span>(<span class="prelude-val">Some</span>)<span class="question-mark">?</span>
                     } <span class="kw">else</span> {
                         <span class="kw">if</span> <span class="ident">has_default</span> {
-                            <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">MultipleDefault</span>)
+                            <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">MultipleDefault</span>);
                         }
                         <span class="ident">has_default</span> <span class="op">=</span> <span class="bool-val">true</span>;
                         <span class="prelude-val">None</span>
@@ -947,7 +1009,7 @@
                 } <span class="kw">else</span> {
                     <span class="kw">match</span> <span class="ident">cur</span> {
                         <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">cur</span>) <span class="op">=&gt;</span> {
-                            <span class="ident">cur</span>.<span class="ident">cons</span>.<span class="ident">push</span>(<span class="self">self</span>.<span class="ident">parse_stmt_list_item</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>);
+                            <span class="ident">cur</span>.<span class="ident">cons</span>.<span class="ident">push</span>(<span class="ident">p</span>.<span class="ident">parse_stmt_list_item</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>);
                         }
                         <span class="prelude-val">None</span> <span class="op">=&gt;</span> <span class="macro">unexpected</span><span class="macro">!</span>(),
                     }
@@ -963,30 +1025,31 @@
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_throw_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
-        <span class="macro">spanned</span><span class="macro">!</span>({
+    <span class="kw">fn</span> <span class="ident">parse_throw_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
             <span class="macro">assert_and_bump</span><span class="macro">!</span>(<span class="string">&quot;throw&quot;</span>);
 
-            <span class="kw">if</span> <span class="self">self</span>.<span class="ident">input</span>.<span class="ident">had_line_break_before_cur</span>() {
-                <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">LineBreakInThrow</span>)
+            <span class="kw">if</span> <span class="ident">p</span>.<span class="ident">input</span>.<span class="ident">had_line_break_before_cur</span>() {
+                <span class="comment">// TODO: Suggest throw arg;</span>
+                <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">LineBreakInThrow</span>);
             }
 
-            <span class="kw">let</span> <span class="ident">arg</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">arg</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>);
 
             <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">Throw</span>(<span class="ident">ThrowStmt</span> { <span class="ident">arg</span> }))
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_try_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
-        <span class="macro">spanned</span><span class="macro">!</span>({
+    <span class="kw">fn</span> <span class="ident">parse_try_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
             <span class="macro">assert_and_bump</span><span class="macro">!</span>(<span class="string">&quot;try&quot;</span>);
 
-            <span class="kw">let</span> <span class="ident">block</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_block</span>()<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">block</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">parse_block</span>()<span class="question-mark">?</span>;
 
             <span class="kw">let</span> <span class="ident">handler</span> <span class="op">=</span> <span class="kw">if</span> <span class="macro">eat</span><span class="macro">!</span>(<span class="string">&quot;catch&quot;</span>) {
-                <span class="kw">let</span> <span class="ident">param</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_catch_param</span>()<span class="question-mark">?</span>;
-                <span class="self">self</span>.<span class="ident">parse_block</span>()
+                <span class="kw">let</span> <span class="ident">param</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">parse_catch_param</span>()<span class="question-mark">?</span>;
+                <span class="ident">p</span>.<span class="ident">parse_block</span>()
                     .<span class="ident">map</span>(<span class="op">|</span><span class="ident">body</span><span class="op">|</span> <span class="ident">CatchClause</span> { <span class="ident">param</span>, <span class="ident">body</span> })
                     .<span class="ident">map</span>(<span class="prelude-val">Some</span>)<span class="question-mark">?</span>
             } <span class="kw">else</span> {
@@ -994,7 +1057,7 @@
             };
 
             <span class="kw">let</span> <span class="ident">finalizer</span> <span class="op">=</span> <span class="kw">if</span> <span class="macro">eat</span><span class="macro">!</span>(<span class="string">&quot;finally&quot;</span>) {
-                <span class="self">self</span>.<span class="ident">parse_block</span>().<span class="ident">map</span>(<span class="prelude-val">Some</span>)<span class="question-mark">?</span>
+                <span class="ident">p</span>.<span class="ident">parse_block</span>().<span class="ident">map</span>(<span class="prelude-val">Some</span>)<span class="question-mark">?</span>
             } <span class="kw">else</span> {
                 <span class="kw">if</span> <span class="ident">handler</span>.<span class="ident">is_none</span>() {
                     <span class="macro">unexpected</span><span class="macro">!</span>();
@@ -1010,14 +1073,14 @@
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_catch_param</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Pat</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">parse_catch_param</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Pat</span><span class="op">&gt;</span> {
         <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;(&#39;</span>);
         <span class="kw">let</span> <span class="ident">pat</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_binding_pat_or_ident</span>()<span class="question-mark">?</span>;
         <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;)&#39;</span>);
         <span class="prelude-val">Ok</span>(<span class="ident">pat</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_var_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">for_loop</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">VarDecl</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">parse_var_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">for_loop</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">VarDecl</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="macro">cur_pos</span><span class="macro">!</span>();
         <span class="kw">let</span> <span class="ident">kind</span> <span class="op">=</span> <span class="kw">match</span> <span class="macro">bump</span><span class="macro">!</span>() {
             <span class="macro">tok</span><span class="macro">!</span>(<span class="string">&quot;const&quot;</span>) <span class="op">=&gt;</span> <span class="ident">VarDeclKind</span>::<span class="ident">Const</span>,
@@ -1044,7 +1107,7 @@
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_var_declarator</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">for_loop</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">VarDeclarator</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">parse_var_declarator</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">for_loop</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">VarDeclarator</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="macro">cur_pos</span><span class="macro">!</span>();
         <span class="kw">let</span> <span class="ident">name</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_binding_pat_or_ident</span>()<span class="question-mark">?</span>;
 
@@ -1056,7 +1119,7 @@
                 <span class="comment">// Destructuring bindings require initializers.</span>
                 <span class="kw">match</span> <span class="ident">name</span>.<span class="ident">node</span> {
                     <span class="ident">PatKind</span>::<span class="ident">Ident</span>(..) <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
-                    _ <span class="op">=&gt;</span> <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">PatVarWithoutInit</span> { <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>) }),
+                    _ <span class="op">=&gt;</span> <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">PatVarWithoutInit</span>),
                 }
             }
         } <span class="kw">else</span> {
@@ -1071,13 +1134,13 @@
         });
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_do_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
-        <span class="macro">spanned</span><span class="macro">!</span>({
+    <span class="kw">fn</span> <span class="ident">parse_do_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
             <span class="macro">assert_and_bump</span><span class="macro">!</span>(<span class="string">&quot;do&quot;</span>);
 
-            <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="kw">box</span> <span class="self">self</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="kw">box</span> <span class="ident">p</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&quot;while&quot;</span>);
-            <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
 
             <span class="comment">// We *may* eat semicolon.</span>
             <span class="kw">let</span> _ <span class="op">=</span> <span class="macro">eat</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>);
@@ -1086,49 +1149,49 @@
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_while_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
-        <span class="macro">spanned</span><span class="macro">!</span>({
+    <span class="kw">fn</span> <span class="ident">parse_while_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
             <span class="macro">assert_and_bump</span><span class="macro">!</span>(<span class="string">&quot;while&quot;</span>);
 
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;(&#39;</span>);
-            <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;)&#39;</span>);
 
-            <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="kw">box</span> <span class="self">self</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="kw">box</span> <span class="ident">p</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
 
             <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">While</span>(<span class="ident">WhileStmt</span> { <span class="ident">test</span>, <span class="ident">body</span> }))
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_with_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
-        <span class="macro">spanned</span><span class="macro">!</span>({
+    <span class="kw">fn</span> <span class="ident">parse_with_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
             <span class="macro">assert_and_bump</span><span class="macro">!</span>(<span class="string">&quot;with&quot;</span>);
 
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;(&#39;</span>);
-            <span class="kw">let</span> <span class="ident">obj</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">obj</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_expr</span>()<span class="question-mark">?</span>;
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;)&#39;</span>);
 
-            <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="kw">box</span> <span class="self">self</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="kw">box</span> <span class="ident">p</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
             <span class="prelude-val">Ok</span>(<span class="ident">StmtKind</span>::<span class="ident">With</span>(<span class="ident">WithStmt</span> { <span class="ident">obj</span>, <span class="ident">body</span> }))
         })
     }
 
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_block</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">BlockStmt</span><span class="op">&gt;</span> {
-        <span class="macro">spanned</span><span class="macro">!</span>({
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_block</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">BlockStmt</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;{&#39;</span>);
 
-            <span class="kw">let</span> <span class="ident">stmts</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_block_body</span>(<span class="bool-val">false</span>, <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">RBrace</span>))<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">stmts</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">parse_block_body</span>(<span class="bool-val">false</span>, <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">RBrace</span>))<span class="question-mark">?</span>;
 
             <span class="prelude-val">Ok</span>(<span class="ident">stmts</span>)
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_labelled_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">label</span>: <span class="ident">Ident</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">label</span>.<span class="ident">span</span>.<span class="ident">start</span>;
+    <span class="kw">fn</span> <span class="ident">parse_labelled_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">label</span>: <span class="ident">Ident</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
+        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">label</span>.<span class="ident">span</span>.<span class="ident">lo</span>();
 
         <span class="kw">for</span> <span class="ident">l</span> <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">state</span>.<span class="ident">labels</span> {
             <span class="kw">if</span> <span class="ident">label</span>.<span class="ident">sym</span> <span class="op">==</span> <span class="kw-2">*</span><span class="ident">l</span> {
-                <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">DuplicateLabel</span>(<span class="ident">label</span>.<span class="ident">sym</span>.<span class="ident">clone</span>()))
+                <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">DuplicateLabel</span>(<span class="ident">label</span>.<span class="ident">sym</span>.<span class="ident">clone</span>()));
             }
         }
         <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="kw">box</span> <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;function&quot;</span>) {
@@ -1143,13 +1206,13 @@
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_for_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
-        <span class="macro">spanned</span><span class="macro">!</span>({
+    <span class="kw">fn</span> <span class="ident">parse_for_stmt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
             <span class="macro">assert_and_bump</span><span class="macro">!</span>(<span class="string">&quot;for&quot;</span>);
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;(&#39;</span>);
-            <span class="kw">let</span> <span class="ident">head</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_for_head</span>()<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">head</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">parse_for_head</span>()<span class="question-mark">?</span>;
             <span class="macro">expect</span><span class="macro">!</span>(<span class="string">&#39;)&#39;</span>);
-            <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="kw">box</span> <span class="self">self</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="kw">box</span> <span class="ident">p</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">false</span>)<span class="question-mark">?</span>;
 
             <span class="prelude-val">Ok</span>(<span class="kw">match</span> <span class="ident">head</span> {
                 <span class="ident">ForHead</span>::<span class="ident">For</span> { <span class="ident">init</span>, <span class="ident">test</span>, <span class="ident">update</span> } <span class="op">=&gt;</span> <span class="ident">StmtKind</span>::<span class="ident">For</span>(<span class="ident">ForStmt</span> {
@@ -1164,11 +1227,11 @@
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_for_head</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">ForHead</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">parse_for_head</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">ForHead</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="macro">cur_pos</span><span class="macro">!</span>();
 
         <span class="kw">if</span> <span class="macro">is_one_of</span><span class="macro">!</span>(<span class="string">&quot;const&quot;</span>, <span class="string">&quot;var&quot;</span>)
-            <span class="op">||</span> (<span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;let&quot;</span>) <span class="op">&amp;&amp;</span> <span class="macro">peek</span><span class="macro">!</span>()<span class="question-mark">?</span>.<span class="ident">follows_keyword_let</span>(<span class="self">self</span>.<span class="ident">ctx</span>.<span class="ident">strict</span>))
+            <span class="op">||</span> (<span class="macro">is</span><span class="macro">!</span>(<span class="string">&quot;let&quot;</span>) <span class="op">&amp;&amp;</span> <span class="macro">peek</span><span class="macro">!</span>()<span class="question-mark">?</span>.<span class="ident">follows_keyword_let</span>(<span class="self">self</span>.<span class="ident">session</span>.<span class="ident">cfg</span>.<span class="ident">strict</span>))
         {
             <span class="kw">let</span> <span class="ident">decl</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_var_stmt</span>(<span class="bool-val">true</span>)<span class="question-mark">?</span>;
 
@@ -1197,7 +1260,7 @@
         <span class="self">self</span>.<span class="ident">parse_normal_for_head</span>(<span class="prelude-val">Some</span>(<span class="ident">VarDeclOrExpr</span>::<span class="ident">Expr</span>(<span class="ident">init</span>)))
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_for_each_head</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">left</span>: <span class="ident">VarDeclOrPat</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">ForHead</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">parse_for_each_head</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">left</span>: <span class="ident">VarDeclOrPat</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">ForHead</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">of</span> <span class="op">=</span> <span class="macro">bump</span><span class="macro">!</span>() <span class="op">==</span> <span class="macro">tok</span><span class="macro">!</span>(<span class="string">&quot;of&quot;</span>);
         <span class="kw">if</span> <span class="ident">of</span> {
             <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">include_in_expr</span>(<span class="bool-val">true</span>).<span class="ident">parse_assignment_expr</span>()<span class="question-mark">?</span>;
@@ -1208,7 +1271,7 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_normal_for_head</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">init</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">VarDeclOrExpr</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">ForHead</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">parse_normal_for_head</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">init</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">VarDeclOrExpr</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">ForHead</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="kw">if</span> <span class="macro">eat_exact</span><span class="macro">!</span>(<span class="string">&#39;;&#39;</span>) {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
@@ -1244,16 +1307,16 @@
     },
 }
 
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">trait</span> <span class="ident">StmtLikeParser</span><span class="op">&lt;</span><span class="ident">Type</span><span class="op">&gt;</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">trait</span> <span class="ident">StmtLikeParser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Type</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">accept_import_export</span>() <span class="op">-&gt;</span> <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">handle_import_export</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Type</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">handle_import_export</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Type</span><span class="op">&gt;</span>;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">StmtLikeParser</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">StmtLikeParser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">accept_import_export</span>() <span class="op">-&gt;</span> <span class="ident">bool</span> {
         <span class="bool-val">false</span>
     }
-    <span class="kw">fn</span> <span class="ident">handle_import_export</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">handle_import_export</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Stmt</span><span class="op">&gt;</span> {
         <span class="macro">unreachable</span><span class="macro">!</span>()
     }
 }
@@ -1261,22 +1324,27 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident">lexer</span>::<span class="ident">Lexer</span>;
-
-    <span class="kw">fn</span> <span class="ident">mk</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="ident">s</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="kw">impl</span> <span class="lifetime">&#39;a</span> <span class="op">+</span> <span class="ident">Input</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">logger</span> <span class="op">=</span> ::<span class="ident">testing</span>::<span class="ident">logger</span>().<span class="ident">new</span>(<span class="macro">o</span><span class="macro">!</span>(<span class="string">&quot;src&quot;</span> <span class="op">=&gt;</span> <span class="ident">s</span>));
-        <span class="ident">Parser</span>::<span class="ident">new_for_module</span>(<span class="ident">logger</span>.<span class="ident">clone</span>(), <span class="ident">Lexer</span>::<span class="ident">new_from_str</span>(<span class="ident">logger</span>, <span class="ident">s</span>))
-    }
+    <span class="kw">use</span> <span class="ident">swc_common</span>::<span class="ident">DUMMY_SP</span>;
 
     <span class="kw">fn</span> <span class="ident">stmt</span>(<span class="ident">s</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">Stmt</span> {
-        <span class="ident">mk</span>(<span class="ident">s</span>).<span class="ident">parse_stmt</span>(<span class="bool-val">true</span>).<span class="ident">expect</span>(<span class="string">&quot;failed to parse a statement&quot;</span>)
+        <span class="ident">test_parser</span>(<span class="ident">s</span>, <span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
+            <span class="ident">p</span>.<span class="ident">parse_stmt</span>(<span class="bool-val">true</span>).<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="ident">err</span><span class="op">|</span> {
+                <span class="ident">err</span>.<span class="ident">emit</span>();
+                <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;failed to parse a statement&quot;</span>)
+            })
+        })
     }
     <span class="kw">fn</span> <span class="ident">expr</span>(<span class="ident">s</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span> {
-        <span class="ident">mk</span>(<span class="ident">s</span>).<span class="ident">parse_expr</span>().<span class="ident">expect</span>(<span class="string">&quot;failed to parse an expression&quot;</span>)
+        <span class="ident">test_parser</span>(<span class="ident">s</span>, <span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
+            <span class="ident">p</span>.<span class="ident">parse_expr</span>().<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="ident">err</span><span class="op">|</span> {
+                <span class="ident">err</span>.<span class="ident">emit</span>();
+                <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;failed to parse an expression&quot;</span>)
+            })
+        })
     }
 
     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">non_upper_case_globals</span>)]</span>
-    <span class="kw">const</span> <span class="ident">span</span>: <span class="ident">Span</span> <span class="op">=</span> <span class="ident">Span</span>::<span class="ident">DUMMY</span>;
+    <span class="kw">const</span> <span class="ident">span</span>: <span class="ident">Span</span> <span class="op">=</span> <span class="ident">DUMMY_SP</span>;
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">expr_stmt</span>() {
@@ -1351,20 +1419,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

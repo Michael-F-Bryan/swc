@@ -274,15 +274,20 @@
 <span id="228">228</span>
 <span id="229">229</span>
 <span id="230">230</span>
+<span id="231">231</span>
+<span id="232">232</span>
+<span id="233">233</span>
+<span id="234">234</span>
+<span id="235">235</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Parser for unary operations and binary operations.</span>
 
 <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
 
 <span class="attribute">#[<span class="ident">parser</span>]</span>
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Name from spec: &#39;LogicalORExpression&#39;</span>
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_bin_expr</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">parse_bin_expr</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span> {
         <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_unary_expr</span>()<span class="question-mark">?</span>;
 
         <span class="macro">return_if_arrow</span><span class="macro">!</span>(<span class="ident">left</span>);
@@ -294,12 +299,16 @@
     <span class="doccomment">/// `minPrec` provides context that allows the function to stop and</span>
     <span class="doccomment">/// defer further parser to one of its callers when it encounters an</span>
     <span class="doccomment">/// operator that has a lower precedence than the set it is parsing.</span>
-    <span class="kw">fn</span> <span class="ident">parse_bin_op_recursively</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">left</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>, <span class="ident">min_prec</span>: <span class="ident">u8</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">parse_bin_op_recursively</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
+        <span class="ident">left</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>,
+        <span class="ident">min_prec</span>: <span class="ident">u8</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span> {
         <span class="kw">let</span> <span class="ident">op</span> <span class="op">=</span> <span class="kw">match</span> {
             <span class="comment">// Return left on eof</span>
             <span class="kw">match</span> <span class="macro">cur</span><span class="macro">!</span>() {
-                <span class="prelude-val">Some</span>(<span class="ident">cur</span>) <span class="op">=&gt;</span> <span class="ident">cur</span>,
-                <span class="prelude-val">None</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">left</span>),
+                <span class="prelude-val">Ok</span>(<span class="ident">cur</span>) <span class="op">=&gt;</span> <span class="ident">cur</span>,
+                <span class="prelude-val">Err</span>(..) <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">left</span>),
             }
         } {
             <span class="kw-2">&amp;</span><span class="ident">Word</span>(<span class="ident">Keyword</span>(<span class="ident">In</span>)) <span class="kw">if</span> <span class="self">self</span>.<span class="ident">ctx</span>.<span class="ident">include_in_expr</span> <span class="op">=&gt;</span> <span class="macro">op</span><span class="macro">!</span>(<span class="string">&quot;in&quot;</span>),
@@ -312,7 +321,7 @@
 
         <span class="kw">if</span> <span class="ident">op</span>.<span class="ident">precedence</span>() <span class="op">&lt;=</span> <span class="ident">min_prec</span> {
             <span class="macro">trace</span><span class="macro">!</span>(
-                <span class="self">self</span>.<span class="ident">logger</span>,
+                <span class="self">self</span>.<span class="ident">session</span>.<span class="ident">logger</span>,
                 <span class="string">&quot;returning {:?} without parsing {:?} because min_prec={}, prec={}&quot;</span>,
                 <span class="ident">left</span>,
                 <span class="ident">op</span>,
@@ -324,7 +333,7 @@
         }
         <span class="macro">bump</span><span class="macro">!</span>();
         <span class="macro">trace</span><span class="macro">!</span>(
-            <span class="self">self</span>.<span class="ident">logger</span>,
+            <span class="self">self</span>.<span class="ident">session</span>.<span class="ident">logger</span>,
             <span class="string">&quot;parsing binary op {:?} min_prec={}, prec={}&quot;</span>,
             <span class="ident">op</span>,
             <span class="ident">min_prec</span>,
@@ -338,7 +347,11 @@
                 <span class="comment">// returning &quot;unexpected token &#39;**&#39;&quot; on next.</span>
                 <span class="comment">// But it&#39;s not useful error message.</span>
 
-                <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">UnaryInExp</span>)
+                <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">UnaryInExp</span> {
+                    <span class="comment">// FIXME: Use display</span>
+                    <span class="ident">left</span>: <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">left</span>),
+                    <span class="ident">left_span</span>: <span class="ident">left</span>.<span class="ident">span</span>,
+                })
             }
             _ <span class="op">=&gt;</span> {}
         }
@@ -357,7 +370,7 @@
         };
 
         <span class="kw">let</span> <span class="ident">node</span> <span class="op">=</span> <span class="kw">box</span> <span class="ident">Expr</span> {
-            <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">left</span>.<span class="ident">span</span>.<span class="ident">start</span>),
+            <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">left</span>.<span class="ident">span</span>.<span class="ident">lo</span>()),
             <span class="ident">node</span>: <span class="ident">ExprKind</span>::<span class="ident">Bin</span>(<span class="ident">BinExpr</span> { <span class="ident">op</span>, <span class="ident">left</span>, <span class="ident">right</span> }),
         };
 
@@ -368,7 +381,7 @@
     <span class="doccomment">/// Parse unary expression and update expression.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// spec: &#39;UnaryExpression&#39;</span>
-    <span class="kw">fn</span> <span class="ident">parse_unary_expr</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">parse_unary_expr</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span> {
         <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="macro">cur_pos</span><span class="macro">!</span>();
 
         <span class="comment">// Parse update expression</span>
@@ -442,16 +455,16 @@
         <span class="prelude-val">Ok</span>(<span class="ident">expr</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">parse_await_expr</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span> {
-        <span class="macro">spanned</span><span class="macro">!</span>({
+    <span class="kw">fn</span> <span class="ident">parse_await_expr</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span> {
+        <span class="self">self</span>.<span class="ident">spanned</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
             <span class="macro">assert_and_bump</span><span class="macro">!</span>(<span class="string">&quot;await&quot;</span>);
-            <span class="macro">assert</span><span class="macro">!</span>(<span class="self">self</span>.<span class="ident">ctx</span>.<span class="ident">in_async</span>);
+            <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">p</span>.<span class="ident">ctx</span>.<span class="ident">in_async</span>);
 
             <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&#39;*&#39;</span>) {
-                <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">AwaitStar</span>)
+                <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">AwaitStar</span>);
             }
 
-            <span class="kw">let</span> <span class="ident">arg</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_unary_expr</span>()<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">arg</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">parse_unary_expr</span>()<span class="question-mark">?</span>;
             <span class="prelude-val">Ok</span>(<span class="ident">ExprKind</span>::<span class="ident">Await</span>(<span class="ident">AwaitExpr</span> { <span class="ident">arg</span> }))
         })
     }
@@ -460,17 +473,14 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident">lexer</span>::<span class="ident">Lexer</span>;
-
-    <span class="kw">fn</span> <span class="ident">mk</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="ident">s</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="kw">impl</span> <span class="lifetime">&#39;a</span> <span class="op">+</span> <span class="ident">Input</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">logger</span> <span class="op">=</span> ::<span class="ident">testing</span>::<span class="ident">logger</span>().<span class="ident">new</span>(<span class="macro">o</span><span class="macro">!</span>(<span class="string">&quot;src&quot;</span> <span class="op">=&gt;</span> <span class="ident">s</span>));
-        <span class="ident">Parser</span>::<span class="ident">new_for_module</span>(<span class="ident">logger</span>.<span class="ident">clone</span>(), <span class="ident">Lexer</span>::<span class="ident">new_from_str</span>(<span class="ident">logger</span>, <span class="ident">s</span>))
-    }
 
     <span class="kw">fn</span> <span class="ident">bin</span>(<span class="ident">s</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">expr</span> <span class="op">=</span> <span class="ident">mk</span>(<span class="ident">s</span>).<span class="ident">parse_bin_expr</span>();
-        <span class="ident">expr</span>.<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="ident">err</span><span class="op">|</span> {
-            <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;failed to parse &#39;{}&#39; as a binary expression: {:?}&quot;</span>, <span class="ident">s</span>, <span class="ident">err</span>)
+        <span class="ident">test_parser</span>(<span class="ident">s</span>, <span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
+            <span class="ident">p</span>.<span class="ident">parse_bin_expr</span>().<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="ident">err</span><span class="op">|</span> {
+                <span class="ident">err</span>.<span class="ident">emit</span>();
+
+                <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;failed to parse &#39;{}&#39; as a binary expression&quot;</span>, <span class="ident">s</span>)
+            })
         })
     }
 
@@ -519,20 +529,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

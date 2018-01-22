@@ -51,13 +51,13 @@
                    </a>
                </span><a class='srclink' href='../src/swc_ecma_ast/pat.rs.html#6-10' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Pat {
-    pub span: <a class="struct" href="../swc_common/span/struct.Span.html" title="struct swc_common::span::Span">Span</a>,
+    pub span: <a class="struct" href="../syntax_pos/span_encoding/struct.Span.html" title="struct syntax_pos::span_encoding::Span">Span</a>,
     pub node: <a class="enum" href="../swc_ecma_ast/enum.PatKind.html" title="enum swc_ecma_ast::PatKind">PatKind</a>,
 }</pre><h2 id='fields' class='fields small-section-header'>
                        Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.span" class="structfield small-section-header">
                            <a href="#structfield.span" class="anchor field"></a>
                            <span id="span.v" class='invisible'>
-                           <code>span: <a class="struct" href="../swc_common/span/struct.Span.html" title="struct swc_common::span::Span">Span</a></code>
+                           <code>span: <a class="struct" href="../syntax_pos/span_encoding/struct.Span.html" title="struct syntax_pos::span_encoding::Span">Span</a></code>
                            </span></span><span id="structfield.node" class="structfield small-section-header">
                            <a href="#structfield.node" class="anchor field"></a>
                            <span id="node.v" class='invisible'>
@@ -85,8 +85,8 @@
 <div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
 </div><h4 id='method.ne' class="method"><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../swc_ecma_ast/struct.Pat.html" title="struct swc_ecma_ast::Pat">Pat</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/pat.rs.html#5' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>This method tests for <code>!=</code>.</p>
-</div></div><h3 id='impl-Spanned%3CPatKind%3E' class='impl'><span class='in-band'><code>impl <a class="trait" href="../swc_common/span/trait.Spanned.html" title="trait swc_common::span::Spanned">Spanned</a>&lt;<a class="enum" href="../swc_ecma_ast/enum.PatKind.html" title="enum swc_ecma_ast::PatKind">PatKind</a>&gt; for <a class="struct" href="../swc_ecma_ast/struct.Pat.html" title="struct swc_ecma_ast::Pat">Pat</a></code><a href='#impl-Spanned%3CPatKind%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/pat.rs.html#12-16' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.from_unspanned' class="method"><span id='from_unspanned.v' class='invisible'><code>fn <a href='../swc_common/span/trait.Spanned.html#tymethod.from_unspanned' class='fnname'>from_unspanned</a>(node: <a class="enum" href="../swc_ecma_ast/enum.PatKind.html" title="enum swc_ecma_ast::PatKind">PatKind</a>, span: <a class="struct" href="../swc_common/span/struct.Span.html" title="struct swc_common::span::Span">Span</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/pat.rs.html#13-15' title='goto source code'>[src]</a></span></h4>
+</div></div><h3 id='impl-Spanned%3CPatKind%3E' class='impl'><span class='in-band'><code>impl <a class="trait" href="../swc_common/pos/span/trait.Spanned.html" title="trait swc_common::pos::span::Spanned">Spanned</a>&lt;<a class="enum" href="../swc_ecma_ast/enum.PatKind.html" title="enum swc_ecma_ast::PatKind">PatKind</a>&gt; for <a class="struct" href="../swc_ecma_ast/struct.Pat.html" title="struct swc_ecma_ast::Pat">Pat</a></code><a href='#impl-Spanned%3CPatKind%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/pat.rs.html#12-16' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from_unspanned' class="method"><span id='from_unspanned.v' class='invisible'><code>fn <a href='../swc_common/pos/span/trait.Spanned.html#tymethod.from_unspanned' class='fnname'>from_unspanned</a>(node: <a class="enum" href="../swc_ecma_ast/enum.PatKind.html" title="enum swc_ecma_ast::PatKind">PatKind</a>, span: <a class="struct" href="../syntax_pos/span_encoding/struct.Span.html" title="struct syntax_pos::span_encoding::Span">Span</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/pat.rs.html#13-15' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Creates <code>Self</code> from <code>node</code> and `span.</p>
 </div></div><h3 id='impl-From%3CIdent%3E' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="struct" href="../swc_ecma_ast/struct.Ident.html" title="struct swc_ecma_ast::Ident">Ident</a>&gt; for <a class="struct" href="../swc_ecma_ast/struct.Pat.html" title="struct swc_ecma_ast::Pat">Pat</a></code><a href='#impl-From%3CIdent%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/pat.rs.html#48-55' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.from' class="method"><span id='from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(id: <a class="struct" href="../swc_ecma_ast/struct.Ident.html" title="struct swc_ecma_ast::Ident">Ident</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/swc_ecma_ast/pat.rs.html#49-54' title='goto source code'>[src]</a></span></h4>
@@ -104,20 +104,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

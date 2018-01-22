@@ -59,6 +59,7 @@
                            <td class='docblock-short'>
                                 <p>A type-macro that expands to the name of the Rust type representation of a
 given token.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -67,6 +68,7 @@ given token.</p>
                            <td class='docblock-short'>
                                 <p>Run a series of parsers, returning the result of the first one which
 succeeds.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -74,6 +76,7 @@ succeeds.</p>
                                   title='macro swc_macros_common::prelude::braces'>braces</a></td>
                            <td class='docblock-short'>
                                 <p>Parse inside of <code>{</code> <code>}</code> curly braces.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -81,6 +84,7 @@ succeeds.</p>
                                   title='macro swc_macros_common::prelude::brackets'>brackets</a></td>
                            <td class='docblock-short'>
                                 <p>Parse inside of <code>[</code> <code>]</code> square brackets.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -88,6 +92,7 @@ succeeds.</p>
                                   title='macro swc_macros_common::prelude::call'>call</a></td>
                            <td class='docblock-short'>
                                 <p>Invoke the given parser function with zero or more arguments.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -95,6 +100,7 @@ succeeds.</p>
                                   title='macro swc_macros_common::prelude::cond'>cond</a></td>
                            <td class='docblock-short'>
                                 <p>Execute a parser only if a condition is met, otherwise return None.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -102,6 +108,7 @@ succeeds.</p>
                                   title='macro swc_macros_common::prelude::cond_reduce'>cond_reduce</a></td>
                            <td class='docblock-short'>
                                 <p>Execute a parser only if a condition is met, otherwise fail to parse.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -110,6 +117,7 @@ succeeds.</p>
                            <td class='docblock-short'>
                                 <p>Run a series of parsers, optionally naming each intermediate result,
 followed by a step to combine the intermediate results.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -117,6 +125,14 @@ followed by a step to combine the intermediate results.</p>
                                   title='macro swc_macros_common::prelude::epsilon'>epsilon</a></td>
                            <td class='docblock-short'>
                                 <p>Parses nothing and always succeeds.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.grouped.html"
+                                  title='macro swc_macros_common::prelude::grouped'>grouped</a></td>
+                           <td class='docblock-short'>
+                                
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -125,6 +141,7 @@ followed by a step to combine the intermediate results.</p>
                            <td class='docblock-short'>
                                 <p>Parse nothing and succeed only if the end of the enclosing block has been
 reached.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -132,6 +149,7 @@ reached.</p>
                                   title='macro swc_macros_common::prelude::keyword'>keyword</a></td>
                            <td class='docblock-short'>
                                 <p>Parse a single Rust keyword token.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -139,6 +157,7 @@ reached.</p>
                                   title='macro swc_macros_common::prelude::many0'>many0</a></td>
                            <td class='docblock-short'>
                                 <p>Parse zero or more values using the given parser.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -146,6 +165,7 @@ reached.</p>
                                   title='macro swc_macros_common::prelude::map'>map</a></td>
                            <td class='docblock-short'>
                                 <p>Transform the result of a parser by applying a function or closure.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -154,6 +174,7 @@ reached.</p>
                            <td class='docblock-short'>
                                 <p>Define a parser function with the signature expected by syn parser
 combinators.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -162,6 +183,7 @@ combinators.</p>
                            <td class='docblock-short'>
                                 <p>Invert the result of a parser by parsing successfully if the given parser
 fails to parse and vice versa.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -169,6 +191,7 @@ fails to parse and vice versa.</p>
                                   title='macro swc_macros_common::prelude::option'>option</a></td>
                            <td class='docblock-short'>
                                 <p>Turn a failed parse into <code>None</code> and a successful parse into <code>Some</code>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -176,6 +199,7 @@ fails to parse and vice versa.</p>
                                   title='macro swc_macros_common::prelude::parens'>parens</a></td>
                            <td class='docblock-short'>
                                 <p>Parse inside of <code>(</code> <code>)</code> parentheses.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -184,6 +208,7 @@ fails to parse and vice versa.</p>
                            <td class='docblock-short'>
                                 <p>Quasi-quotation macro that accepts input like the <a href="https://docs.rs/quote/0.4/quote/index.html"><code>quote!</code></a> macro but uses
 type inference to figure out a return type for those tokens.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -191,6 +216,7 @@ type inference to figure out a return type for those tokens.</p>
                                   title='macro swc_macros_common::prelude::punct'>punct</a></td>
                            <td class='docblock-short'>
                                 <p>Parse a single Rust punctuation token.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -198,6 +224,7 @@ type inference to figure out a return type for those tokens.</p>
                                   title='macro swc_macros_common::prelude::reject'>reject</a></td>
                            <td class='docblock-short'>
                                 <p>Unconditionally fail to parse anything.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -205,6 +232,7 @@ type inference to figure out a return type for those tokens.</p>
                                   title='macro swc_macros_common::prelude::switch'>switch</a></td>
                            <td class='docblock-short'>
                                 <p>Pattern-match the result of a parser to select which other parser to run.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -212,6 +240,16 @@ type inference to figure out a return type for those tokens.</p>
                                   title='macro swc_macros_common::prelude::syn'>syn</a></td>
                            <td class='docblock-short'>
                                 <p>Parse any type that implements the <code>Synom</code> trait.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.tap.html"
+                                  title='macro swc_macros_common::prelude::tap'>tap</a></td>
+                           <td class='docblock-short'>
+                                <p>Run a parser, binding the result to a name, and then evaluating an
+expression.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -219,6 +257,14 @@ type inference to figure out a return type for those tokens.</p>
                                   title='macro swc_macros_common::prelude::tuple'>tuple</a></td>
                            <td class='docblock-short'>
                                 <p>Run a series of parsers and produce all of the results in a tuple.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.tuple_parser.html"
+                                  title='macro swc_macros_common::prelude::tuple_parser'>tuple_parser</a></td>
+                           <td class='docblock-short'>
+                                
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -226,6 +272,7 @@ type inference to figure out a return type for those tokens.</p>
                                   title='macro swc_macros_common::prelude::value'>value</a></td>
                            <td class='docblock-short'>
                                 <p>Produce the given value without parsing anything.</p>
+
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -242,6 +289,7 @@ type inference to figure out a return type for those tokens.</p>
                            <td class='docblock-short'>
                                 <p>A punctuated sequence of syntax tree nodes of type <code>T</code> separated by
 punctuation of type <code>P</code>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -270,6 +318,7 @@ punctuation of type <code>P</code>.</p>
                                   title='struct swc_macros_common::prelude::Tokens'>Tokens</a></td>
                            <td class='docblock-short'>
                                 <p>Tokens produced by a <a href="macro.quote.html"><code>quote!</code></a> invocation.</p>
+
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -286,6 +335,7 @@ punctuation of type <code>P</code>.</p>
                            <td class='docblock-short'>
                                 <p>A single syntax tree node of type <code>T</code> followed by its trailing punctuation
 of type <code>P</code> if any.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -294,6 +344,7 @@ of type <code>P</code> if any.</p>
                            <td class='docblock-short'>
                                 <p>A single syntax tree node of type <code>T</code> followed by its trailing punctuation
 of type <code>P</code> if any.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -309,6 +360,7 @@ of type <code>P</code> if any.</p>
                                   title='trait swc_macros_common::prelude::ItemImplExt'>ItemImplExt</a></td>
                            <td class='docblock-short'>
                                 <p>Extension trait for <code>ItemImpl</code> (impl block).</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -323,6 +375,7 @@ of type <code>P</code> if any.</p>
                                   title='trait swc_macros_common::prelude::ToTokens'>ToTokens</a></td>
                            <td class='docblock-short'>
                                 <p>Types that can be interpolated inside a <a href="macro.quote.html"><code>quote!</code></a> invocation.</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -337,20 +390,22 @@ of type <code>P</code> if any.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

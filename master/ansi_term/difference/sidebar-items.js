@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Difference","When printing out one coloured string followed by another, use one of these rules to figure out which extra control codes need to be sent."]]});

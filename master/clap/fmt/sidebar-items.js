@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ColorWhen",""],["Format","Defines styles for different types of error messages. Defaults to Error=Red, Warning=Yellow, and Good=Green"]],"fn":[["is_a_tty",""],["is_term_dumb",""]],"struct":[["Colorizer",""],["ColorizerOption",""]]});

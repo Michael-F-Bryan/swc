@@ -66,73 +66,57 @@
     Verbatim(<a class="struct" href="../syn/struct.PatVerbatim.html" title="struct syn::PatVerbatim">PatVerbatim</a>),
 }</pre><div class='docblock'><p>A pattern in a local binding, function signature, match expression, or
 various other places.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
-
-<h1 id='syntax-tree-enum' class='section-header'><a href='#syntax-tree-enum'>Syntax tree enum</a></h1>
+<h1 id="syntax-tree-enum" class="section-header"><a href="#syntax-tree-enum">Syntax tree enum</a></h1>
 <p>This type is a <a href="enum.Expr.html#syntax-tree-enums">syntax tree enum</a>.</p>
 </div><h2 id='variants' class='variants small-section-header'>
                    Variants<a href='#variants' class='anchor'></a></h2>
 <span id="variant.Wild" class="variant small-section-header"><a href="#variant.Wild" class="anchor field"></a><span id='Wild.v' class='invisible'><code>Wild(<a class="struct" href="../syn/struct.PatWild.html" title="struct syn::PatWild">PatWild</a>)</code></span></span><div class='docblock'><p>A pattern that matches any value: <code>_</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.Ident" class="variant small-section-header"><a href="#variant.Ident" class="anchor field"></a><span id='Ident.v' class='invisible'><code>Ident(<a class="struct" href="../syn/struct.PatIdent.html" title="struct syn::PatIdent">PatIdent</a>)</code></span></span><div class='docblock'><p>A pattern that binds a new variable: <code>ref mut binding @ SUBPATTERN</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.Struct" class="variant small-section-header"><a href="#variant.Struct" class="anchor field"></a><span id='Struct.v' class='invisible'><code>Struct(<a class="struct" href="../syn/struct.PatStruct.html" title="struct syn::PatStruct">PatStruct</a>)</code></span></span><div class='docblock'><p>A struct or struct variant pattern: <code>Variant { x, y, .. }</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.TupleStruct" class="variant small-section-header"><a href="#variant.TupleStruct" class="anchor field"></a><span id='TupleStruct.v' class='invisible'><code>TupleStruct(<a class="struct" href="../syn/struct.PatTupleStruct.html" title="struct syn::PatTupleStruct">PatTupleStruct</a>)</code></span></span><div class='docblock'><p>A tuple struct or tuple variant pattern: <code>Variant(x, y, .., z)</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.Path" class="variant small-section-header"><a href="#variant.Path" class="anchor field"></a><span id='Path.v' class='invisible'><code>Path(<a class="struct" href="../syn/struct.PatPath.html" title="struct syn::PatPath">PatPath</a>)</code></span></span><div class='docblock'><p>A path pattern like <code>Color::Red</code>, optionally qualified with a
 self-type.</p>
-
 <p>Unquailfied path patterns can legally refer to variants, structs,
 constants or associated constants. Quailfied path patterns like
 <code>&lt;A&gt;::B::C</code> and <code>&lt;A as Trait&gt;::B::C</code> can only legally refer to
 associated constants.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.Tuple" class="variant small-section-header"><a href="#variant.Tuple" class="anchor field"></a><span id='Tuple.v' class='invisible'><code>Tuple(<a class="struct" href="../syn/struct.PatTuple.html" title="struct syn::PatTuple">PatTuple</a>)</code></span></span><div class='docblock'><p>A tuple pattern: <code>(a, b)</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.Box" class="variant small-section-header"><a href="#variant.Box" class="anchor field"></a><span id='Box.v' class='invisible'><code>Box(<a class="struct" href="../syn/struct.PatBox.html" title="struct syn::PatBox">PatBox</a>)</code></span></span><div class='docblock'><p>A box pattern: <code>box v</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.Ref" class="variant small-section-header"><a href="#variant.Ref" class="anchor field"></a><span id='Ref.v' class='invisible'><code>Ref(<a class="struct" href="../syn/struct.PatRef.html" title="struct syn::PatRef">PatRef</a>)</code></span></span><div class='docblock'><p>A reference pattern: <code>&amp;mut (first, second)</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.Lit" class="variant small-section-header"><a href="#variant.Lit" class="anchor field"></a><span id='Lit.v' class='invisible'><code>Lit(<a class="struct" href="../syn/struct.PatLit.html" title="struct syn::PatLit">PatLit</a>)</code></span></span><div class='docblock'><p>A literal pattern: <code>0</code>.</p>
-
 <p>This holds an <code>Expr</code> rather than a <code>Lit</code> because negative numbers
 are represented as an <code>Expr::Unary</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.Range" class="variant small-section-header"><a href="#variant.Range" class="anchor field"></a><span id='Range.v' class='invisible'><code>Range(<a class="struct" href="../syn/struct.PatRange.html" title="struct syn::PatRange">PatRange</a>)</code></span></span><div class='docblock'><p>A range pattern: <code>1..=2</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.Slice" class="variant small-section-header"><a href="#variant.Slice" class="anchor field"></a><span id='Slice.v' class='invisible'><code>Slice(<a class="struct" href="../syn/struct.PatSlice.html" title="struct syn::PatSlice">PatSlice</a>)</code></span></span><div class='docblock'><p>A dynamically sized slice pattern: <code>[a, b, i.., y, z]</code>.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.Macro" class="variant small-section-header"><a href="#variant.Macro" class="anchor field"></a><span id='Macro.v' class='invisible'><code>Macro(<a class="struct" href="../syn/struct.PatMacro.html" title="struct syn::PatMacro">PatMacro</a>)</code></span></span><div class='docblock'><p>A macro in expression position.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div><span id="variant.Verbatim" class="variant small-section-header"><a href="#variant.Verbatim" class="anchor field"></a><span id='Verbatim.v' class='invisible'><code>Verbatim(<a class="struct" href="../syn/struct.PatVerbatim.html" title="struct syn::PatVerbatim">PatVerbatim</a>)</code></span></span><div class='docblock'><p>Tokens in pattern position not interpreted by Syn.</p>
-
 <p><em>This type is available if Syn is built with the <code>&quot;full&quot;</code> feature.</em></p>
 </div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>
-        <h3 id='impl-Synom' class='impl'><span class='in-band'><code>impl <a class="trait" href="../syn/synom/trait.Synom.html" title="trait syn::synom::Synom">Synom</a> for <a class="enum" href="../syn/enum.Pat.html" title="enum syn::Pat">Pat</a></code><a href='#impl-Synom' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/expr.rs.html#2430-2460' title='goto source code'>[src]</a></span></h3>
+        <h3 id='impl-Synom' class='impl'><span class='in-band'><code>impl <a class="trait" href="../syn/synom/trait.Synom.html" title="trait syn::synom::Synom">Synom</a> for <a class="enum" href="../syn/enum.Pat.html" title="enum syn::Pat">Pat</a></code><a href='#impl-Synom' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/expr.rs.html#2428-2458' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.parse' class="method"><span id='parse.v' class='invisible'><code>fn <a href='../syn/synom/trait.Synom.html#tymethod.parse' class='fnname'>parse</a>(i: <a class="struct" href="../syn/buffer/struct.Cursor.html" title="struct syn::buffer::Cursor">Cursor</a>) -&gt; <a class="type" href="../syn/synom/type.PResult.html" title="type syn::synom::PResult">PResult</a>&lt;Self&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/parsers.rs.html#68-70' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.description' class="method"><span id='description.v' class='invisible'><code>fn <a href='../syn/synom/trait.Synom.html#method.description' class='fnname'>description</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/expr.rs.html#2457-2459' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.description' class="method"><span id='description.v' class='invisible'><code>fn <a href='../syn/synom/trait.Synom.html#method.description' class='fnname'>description</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/expr.rs.html#2455-2457' title='goto source code'>[src]</a></span></h4>
 </div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../syn/enum.Pat.html" title="enum syn::Pat">Pat</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
 </div></div><h3 id='impl-Eq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html" title="trait core::cmp::Eq">Eq</a> for <a class="enum" href="../syn/enum.Pat.html" title="enum syn::Pat">Pat</a></code><a href='#impl-Eq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'></div><h3 id='impl-PartialEq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="enum" href="../syn/enum.Pat.html" title="enum syn::Pat">Pat</a></code><a href='#impl-PartialEq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.assert_receiver_is_total_eq' class="method"><span id='assert_receiver_is_total_eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html#method.assert_receiver_is_total_eq' class='fnname'>assert_receiver_is_total_eq</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-PartialEq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="enum" href="../syn/enum.Pat.html" title="enum syn::Pat">Pat</a></code><a href='#impl-PartialEq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.eq' class="method"><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class="enum" href="../syn/enum.Pat.html" title="enum syn::Pat">Pat</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
 </div><h4 id='method.ne' class="method"><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class="enum" href="../syn/enum.Pat.html" title="enum syn::Pat">Pat</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/macros.rs.html#58' title='goto source code'>[src]</a></span></h4>
@@ -207,20 +191,22 @@ are represented as an <code>Expr::Unary</code>.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

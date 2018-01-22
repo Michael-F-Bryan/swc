@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `HygieneData` struct in crate `syntax_pos`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, HygieneData">
+
+    <title>syntax_pos::hygiene::HygieneData - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    <link rel="shortcut icon" href="https://doc.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        <a href='../../syntax_pos/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
+        <p class='location'>Struct HygieneData</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.marks">marks</a><a href="#structfield.syntax_contexts">syntax_contexts</a><a href="#structfield.markings">markings</a><a href="#structfield.gensym_to_ctxt">gensym_to_ctxt</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.with">with</a></div></div><p class='location'><a href='../index.html'>syntax_pos</a>::<wbr><a href='index.html'>hygiene</a></p><script>window.sidebarCurrent = {name: 'HygieneData', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>syntax_pos</a>::<wbr><a href='index.html'>hygiene</a>::<wbr><a class="struct" href=''>HygieneData</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/syntax_pos/hygiene.rs.html#122-127' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>struct HygieneData {
+    marks: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../syntax_pos/hygiene/struct.MarkData.html" title="struct syntax_pos::hygiene::MarkData">MarkData</a>&gt;,
+    syntax_contexts: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../syntax_pos/hygiene/struct.SyntaxContextData.html" title="struct syntax_pos::hygiene::SyntaxContextData">SyntaxContextData</a>&gt;,
+    markings: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="struct" href="../../syntax_pos/hygiene/struct.SyntaxContext.html" title="struct syntax_pos::hygiene::SyntaxContext">SyntaxContext</a>, <a class="struct" href="../../syntax_pos/hygiene/struct.Mark.html" title="struct syntax_pos::hygiene::Mark">Mark</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>, <a class="struct" href="../../syntax_pos/hygiene/struct.SyntaxContext.html" title="struct syntax_pos::hygiene::SyntaxContext">SyntaxContext</a>&gt;,
+    gensym_to_ctxt: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="struct" href="../../syntax_pos/symbol/struct.Symbol.html" title="struct syntax_pos::symbol::Symbol">Symbol</a>, <a class="struct" href="../../syntax_pos/hygiene/struct.SyntaxContext.html" title="struct syntax_pos::hygiene::SyntaxContext">SyntaxContext</a>&gt;,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.marks" class="structfield small-section-header">
+                           <a href="#structfield.marks" class="anchor field"></a>
+                           <span id="marks.v" class='invisible'>
+                           <code>marks: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../syntax_pos/hygiene/struct.MarkData.html" title="struct syntax_pos::hygiene::MarkData">MarkData</a>&gt;</code>
+                           </span></span><span id="structfield.syntax_contexts" class="structfield small-section-header">
+                           <a href="#structfield.syntax_contexts" class="anchor field"></a>
+                           <span id="syntax_contexts.v" class='invisible'>
+                           <code>syntax_contexts: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../syntax_pos/hygiene/struct.SyntaxContextData.html" title="struct syntax_pos::hygiene::SyntaxContextData">SyntaxContextData</a>&gt;</code>
+                           </span></span><span id="structfield.markings" class="structfield small-section-header">
+                           <a href="#structfield.markings" class="anchor field"></a>
+                           <span id="markings.v" class='invisible'>
+                           <code>markings: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="struct" href="../../syntax_pos/hygiene/struct.SyntaxContext.html" title="struct syntax_pos::hygiene::SyntaxContext">SyntaxContext</a>, <a class="struct" href="../../syntax_pos/hygiene/struct.Mark.html" title="struct syntax_pos::hygiene::Mark">Mark</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>, <a class="struct" href="../../syntax_pos/hygiene/struct.SyntaxContext.html" title="struct syntax_pos::hygiene::SyntaxContext">SyntaxContext</a>&gt;</code>
+                           </span></span><span id="structfield.gensym_to_ctxt" class="structfield small-section-header">
+                           <a href="#structfield.gensym_to_ctxt" class="anchor field"></a>
+                           <span id="gensym_to_ctxt.v" class='invisible'>
+                           <code>gensym_to_ctxt: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="struct" href="../../syntax_pos/symbol/struct.Symbol.html" title="struct syntax_pos::symbol::Symbol">Symbol</a>, <a class="struct" href="../../syntax_pos/hygiene/struct.SyntaxContext.html" title="struct syntax_pos::hygiene::SyntaxContext">SyntaxContext</a>&gt;</code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../syntax_pos/hygiene/struct.HygieneData.html" title="struct syntax_pos::hygiene::HygieneData">HygieneData</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syntax_pos/hygiene.rs.html#129-153' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syntax_pos/hygiene.rs.html#130-145' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.with' class="method"><span id='with.v' class='invisible'><code>fn <a href='#method.with' class='fnname'>with</a>&lt;T, F:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(&amp;mut <a class="struct" href="../../syntax_pos/hygiene/struct.HygieneData.html" title="struct syntax_pos::hygiene::HygieneData">HygieneData</a>) -&gt; T&gt;(f: F) -&gt; T</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syntax_pos/hygiene.rs.html#147-152' title='goto source code'>[src]</a></span></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "syntax_pos";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

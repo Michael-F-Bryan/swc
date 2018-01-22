@@ -51,14 +51,12 @@
                    </a>
                </span><a class='srclink' href='../src/slog/lib.rs.html#1565' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct LevelFilter&lt;D:&nbsp;<a class="trait" href="../slog/trait.Drain.html" title="trait slog::Drain">Drain</a>&gt;(pub D, pub <a class="enum" href="../slog/enum.Level.html" title="enum slog::Level">Level</a>);</pre><div class='docblock'><p><code>Drain</code> filtering records by <code>Record</code> logging level</p>
-
 <p>Wraps a drain and passes records to it, only
 if their level is at least given level.</p>
-
 <p>TODO: Remove this type. This drain is a special case of <code>Filter</code>, but
 because <code>Filter</code> can not use static dispatch ATM due to Rust limitations
 that will be lifted in the future, it is a standalone type.
-Reference: <a href="https://github.com/rust-lang/rust/issues/34511">https://github.com/rust-lang/rust/issues/34511</a></p>
+Reference: https://github.com/rust-lang/rust/issues/34511</p>
 </div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
@@ -110,20 +108,22 @@ Reference: <a href="https://github.com/rust-lang/rust/issues/34511">https://gith
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

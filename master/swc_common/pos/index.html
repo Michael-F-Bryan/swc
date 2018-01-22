@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `pos` mod in crate `swc_common`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, pos">
+
+    <title>swc_common::pos - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Module pos</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'><a href='../index.html'>swc_common</a></p><script>window.sidebarCurrent = {name: 'pos', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>swc_common</a>::<wbr><a class="mod" href=''>pos</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/swc_common/pos/mod.rs.html#1-15' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>This module is almost copied from <a href="TODO">rustc_errors</a>.</p>
+<p>Modified a bit because, unlike rustc, we</p>
+<ul>
+<li>work with lot of files (node_modules).</li>
+<li>need source information in every run (I think?)</li>
+</ul>
+<hr />
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="span/index.html"
+                                  title='mod swc_common::pos::span'>span</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.BytePos.html"
+                                  title='struct swc_common::pos::BytePos'>BytePos</a></td>
+                           <td class='docblock-short'>
+                                <p>A byte offset. Keep this small (currently 32-bits), as AST contains
+a lot of them.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.FileMap.html"
+                                  title='struct swc_common::pos::FileMap'>FileMap</a></td>
+                           <td class='docblock-short'>
+                                <p>A single source in the CodeMap.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.MultiSpan.html"
+                                  title='struct swc_common::pos::MultiSpan'>MultiSpan</a></td>
+                           <td class='docblock-short'>
+                                <p>A collection of spans. Spans have two orthogonal attributes:</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Span.html"
+                                  title='struct swc_common::pos::Span'>Span</a></td>
+                           <td class='docblock-short'>
+                                <p>A compressed span.
+Contains either fields of <code>SpanData</code> inline if they are small, or index into span interner.
+The primary goal of <code>Span</code> is to be as small as possible and fit into other structures
+(that's why it uses <code>packed</code> as well). Decoding speed is the second priority.
+See <code>SpanData</code> for the info on span fields in decoded representation.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.SpanData.html"
+                                  title='struct swc_common::pos::SpanData'>SpanData</a></td>
+                           <td class='docblock-short'>
+                                <p>Spans represent a region of code, used for error reporting. Positions in spans
+are <em>absolute</em> positions from the beginning of the codemap, not positions
+relative to FileMaps. Methods on the CodeMap can be used to relate spans back
+to the original source.
+You must be careful if the span crosses more than one file - you will not be
+able to use many of the functions on spans in codemap and you cannot assume
+that the length of the span = hi - lo; there may be space in the BytePos
+range between files.</p>
+
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.FileName.html"
+                                  title='enum swc_common::pos::FileName'>FileName</a></td>
+                           <td class='docblock-short'>
+                                <p>Differentiates between real files and common virtual files</p>
+
+                           </td>
+                       </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.DUMMY_SP.html"
+                                  title='constant swc_common::pos::DUMMY_SP'>DUMMY_SP</a></td>
+                           <td class='docblock-short'>
+                                <p>Dummy span, both position and length are zero, syntax context is zero as well.
+This span is kept inline and encoded with format 0.</p>
+
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.Spanned.html"
+                                  title='trait swc_common::pos::Spanned'>Spanned</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "swc_common";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

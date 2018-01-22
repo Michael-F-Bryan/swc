@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ScalarRange` struct in crate `utf8_ranges`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ScalarRange">
+
+    <title>utf8_ranges::ScalarRange - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Struct ScalarRange</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.start">start</a><a href="#structfield.end">end</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.split">split</a><a href="#method.is_valid">is_valid</a><a href="#method.as_ascii">as_ascii</a><a href="#method.is_ascii">is_ascii</a><a href="#method.encode">encode</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>utf8_ranges</a></p><script>window.sidebarCurrent = {name: 'ScalarRange', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>utf8_ranges</a>::<wbr><a class="struct" href=''>ScalarRange</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/utf8_ranges/lib.rs.html#313-316' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>struct ScalarRange {
+    start: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>,
+    end: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.start" class="structfield small-section-header">
+                           <a href="#structfield.start" class="anchor field"></a>
+                           <span id="start.v" class='invisible'>
+                           <code>start: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a></code>
+                           </span></span><span id="structfield.end" class="structfield small-section-header">
+                           <a href="#structfield.end" class="anchor field"></a>
+                           <span id="end.v" class='invisible'>
+                           <code>end: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a></code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../utf8_ranges/struct.ScalarRange.html" title="struct utf8_ranges::ScalarRange">ScalarRange</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_ranges/lib.rs.html#378-429' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.split' class="method"><span id='split.v' class='invisible'><code>fn <a href='#method.split' class='fnname'>split</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="struct" href="../utf8_ranges/struct.ScalarRange.html" title="struct utf8_ranges::ScalarRange">ScalarRange</a>, <a class="struct" href="../utf8_ranges/struct.ScalarRange.html" title="struct utf8_ranges::ScalarRange">ScalarRange</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_ranges/lib.rs.html#382-394' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>split splits this range if it overlaps with a surrogate codepoint.</p>
+<p>Either or both ranges may be invalid.</p>
+</div><h4 id='method.is_valid' class="method"><span id='is_valid.v' class='invisible'><code>fn <a href='#method.is_valid' class='fnname'>is_valid</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_ranges/lib.rs.html#397-399' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>is_valid returns true if and only if start &lt;= end.</p>
+</div><h4 id='method.as_ascii' class="method"><span id='as_ascii.v' class='invisible'><code>fn <a href='#method.as_ascii' class='fnname'>as_ascii</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../utf8_ranges/struct.Utf8Range.html" title="struct utf8_ranges::Utf8Range">Utf8Range</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_ranges/lib.rs.html#403-409' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>as_ascii returns this range as a Utf8Range if and only if all scalar
+values in this range can be encoded as a single byte.</p>
+</div><h4 id='method.is_ascii' class="method"><span id='is_ascii.v' class='invisible'><code>fn <a href='#method.is_ascii' class='fnname'>is_ascii</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_ranges/lib.rs.html#413-415' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>is_ascii returns true if the range is ASCII only (i.e., takes a single
+byte to encode any scalar value).</p>
+</div><h4 id='method.encode' class="method"><span id='encode.v' class='invisible'><code>fn <a href='#method.encode' class='fnname'>encode</a>(&amp;self, start: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;mut [</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>, end: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;mut [</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_ranges/lib.rs.html#421-428' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>encode writes the UTF-8 encoding of the start and end of this range
+to the corresponding destination slices.</p>
+<p>The slices should have room for at least <code>MAX_UTF8_BYTES</code>.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../utf8_ranges/struct.ScalarRange.html" title="struct utf8_ranges::ScalarRange">ScalarRange</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_ranges/lib.rs.html#318-322' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_ranges/lib.rs.html#319-321' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "utf8_ranges";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

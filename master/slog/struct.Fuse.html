@@ -51,12 +51,10 @@
                    </a>
                </span><a class='srclink' href='../src/slog/lib.rs.html#1668-1670' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Fuse&lt;D:&nbsp;<a class="trait" href="../slog/trait.Drain.html" title="trait slog::Drain">Drain</a>&gt;(pub D)<br> <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;D::<a class="type" href="../slog/trait.Drain.html#associatedtype.Err" title="type slog::Drain::Err">Err</a>: <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a></span>;</pre><div class='docblock'><p><code>Drain</code> panicking on error</p>
-
 <p><code>Logger</code> requires a root drain to handle all errors (<code>Drain::Error == ()</code>),
 <code>Fuse</code> will wrap a <code>Drain</code> and panic if it returns any errors.</p>
-
-<p>Note: <code>Drain::Err</code> must implement <code>Display</code> (for displaying on panick). It&#39;s
-easy to create own <code>Fuse</code> drain if this requirement can&#39;t be fulfilled.</p>
+<p>Note: <code>Drain::Err</code> must implement <code>Display</code> (for displaying on panick). It's
+easy to create own <code>Fuse</code> drain if this requirement can't be fulfilled.</p>
 </div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
@@ -79,9 +77,9 @@ easy to create own <code>Fuse</code> drain if this requirement can&#39;t be fulf
 </div></div><h3 id='impl-Drain' class='impl'><span class='in-band'><code>impl&lt;D:&nbsp;<a class="trait" href="../slog/trait.Drain.html" title="trait slog::Drain">Drain</a>&gt; <a class="trait" href="../slog/trait.Drain.html" title="trait slog::Drain">Drain</a> for <a class="struct" href="../slog/struct.Fuse.html" title="struct slog::Fuse">Fuse</a>&lt;D&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;D::<a class="type" href="../slog/trait.Drain.html#associatedtype.Err" title="type slog::Drain::Err">Err</a>: <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a>,&nbsp;</span></code><a href='#impl-Drain' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog/lib.rs.html#1682-1698' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='associatedtype.Ok' class="type"><span id='Ok.t' class='invisible'><code>type <a href='../slog/trait.Drain.html#associatedtype.Ok' class="type">Ok</a> = <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a></code></span></h4>
 <div class='docblock'><p>Type returned by this drain <a href="../slog/trait.Drain.html#associatedtype.Ok">Read more</a></p>
-</div><h4 id='associatedtype.Err' class="type"><span id='Err.t' class='invisible'><code>type <a href='../slog/trait.Drain.html#associatedtype.Err' class="type">Err</a> = Never</code></span></h4>
+</div><h4 id='associatedtype.Err' class="type"><span id='Err.t' class='invisible'><code>type <a href='../slog/trait.Drain.html#associatedtype.Err' class="type">Err</a> = <a class="type" href="../slog/type.Never.html" title="type slog::Never">Never</a></code></span></h4>
 <div class='docblock'><p>Type of potential errors that can be returned by this <code>Drain</code></p>
-</div><h4 id='method.log' class="method"><span id='log.v' class='invisible'><code>fn <a href='../slog/trait.Drain.html#tymethod.log' class='fnname'>log</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;record: &amp;<a class="struct" href="../slog/struct.Record.html" title="struct slog::Record">Record</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;logger_values: &amp;<a class="struct" href="../slog/struct.OwnedKVList.html" title="struct slog::OwnedKVList">OwnedKVList</a><br>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Self::<a class="type" href="../slog/trait.Drain.html#associatedtype.Ok" title="type slog::Drain::Ok">Ok</a>, Never&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog/lib.rs.html#1688-1697' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.log' class="method"><span id='log.v' class='invisible'><code>fn <a href='../slog/trait.Drain.html#tymethod.log' class='fnname'>log</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;record: &amp;<a class="struct" href="../slog/struct.Record.html" title="struct slog::Record">Record</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;logger_values: &amp;<a class="struct" href="../slog/struct.OwnedKVList.html" title="struct slog::OwnedKVList">OwnedKVList</a><br>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Self::<a class="type" href="../slog/trait.Drain.html#associatedtype.Ok" title="type slog::Drain::Ok">Ok</a>, <a class="type" href="../slog/type.Never.html" title="type slog::Never">Never</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog/lib.rs.html#1688-1697' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Handle one logging statement (<code>Record</code>) <a href="../slog/trait.Drain.html#tymethod.log">Read more</a></p>
 </div><h4 id='method.map' class="method"><span id='map.v' class='invisible'><code>fn <a href='../slog/trait.Drain.html#method.map' class='fnname'>map</a>&lt;F, R&gt;(self, f: F) -&gt; R <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;Self: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(Self) -&gt; R,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog/lib.rs.html#1258-1264' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Pass <code>Drain</code> through a closure, eg. to wrap into another <code>Drain</code>. <a href="../slog/trait.Drain.html#method.map">Read more</a></p>
@@ -108,20 +106,22 @@ easy to create own <code>Fuse</code> drain if this requirement can&#39;t be fulf
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

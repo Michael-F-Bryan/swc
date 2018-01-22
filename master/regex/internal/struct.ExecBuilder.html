@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ExecBuilder` struct in crate `regex`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ExecBuilder">
+
+    <title>regex::internal::ExecBuilder - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    <link rel="shortcut icon" href="https://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        <a href='../../regex/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
+        <p class='location'>Struct ExecBuilder</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.options">options</a><a href="#structfield.match_type">match_type</a><a href="#structfield.bytes">bytes</a><a href="#structfield.only_utf8">only_utf8</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.new_many">new_many</a><a href="#method.new_options">new_options</a><a href="#method.automatic">automatic</a><a href="#method.nfa">nfa</a><a href="#method.bounded_backtracking">bounded_backtracking</a><a href="#method.bytes">bytes</a><a href="#method.only_utf8">only_utf8</a><a href="#method.unicode">unicode</a><a href="#method.parse">parse</a><a href="#method.build">build</a></div></div><p class='location'><a href='../index.html'>regex</a>::<wbr><a href='index.html'>internal</a></p><script>window.sidebarCurrent = {name: 'ExecBuilder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>regex</a>::<wbr><a href='index.html'>internal</a>::<wbr><a class="struct" href=''>ExecBuilder</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/regex/exec.rs.html#95-100' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ExecBuilder {
+    options: <a class="struct" href="../../regex/re_builder/struct.RegexOptions.html" title="struct regex::re_builder::RegexOptions">RegexOptions</a>,
+    match_type: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../../regex/exec/enum.MatchType.html" title="enum regex::exec::MatchType">MatchType</a>&gt;,
+    bytes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+    only_utf8: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+}</pre><div class='docblock'><p>Facilitates the construction of an executor by exposing various knobs
+to control how a regex is executed and what kinds of resources it's
+permitted to use.</p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.options" class="structfield small-section-header">
+                           <a href="#structfield.options" class="anchor field"></a>
+                           <span id="options.v" class='invisible'>
+                           <code>options: <a class="struct" href="../../regex/re_builder/struct.RegexOptions.html" title="struct regex::re_builder::RegexOptions">RegexOptions</a></code>
+                           </span></span><span id="structfield.match_type" class="structfield small-section-header">
+                           <a href="#structfield.match_type" class="anchor field"></a>
+                           <span id="match_type.v" class='invisible'>
+                           <code>match_type: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../../regex/exec/enum.MatchType.html" title="enum regex::exec::MatchType">MatchType</a>&gt;</code>
+                           </span></span><span id="structfield.bytes" class="structfield small-section-header">
+                           <a href="#structfield.bytes" class="anchor field"></a>
+                           <span id="bytes.v" class='invisible'>
+                           <code>bytes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
+                           </span></span><span id="structfield.only_utf8" class="structfield small-section-header">
+                           <a href="#structfield.only_utf8" class="anchor field"></a>
+                           <span id="only_utf8.v" class='invisible'>
+                           <code>only_utf8: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../regex/exec/struct.ExecBuilder.html" title="struct regex::exec::ExecBuilder">ExecBuilder</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#111-317' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>(re: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#117-119' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Create a regex execution builder.</p>
+<p>This uses default settings for everything except the regex itself,
+which must be provided. Further knobs can be set by calling methods,
+and then finally, <code>build</code> to actually create the executor.</p>
+</div><h4 id='method.new_many' class="method"><span id='new_many.v' class='invisible'><code>pub fn <a href='#method.new_many' class='fnname'>new_many</a>&lt;I, S&gt;(res: I) -&gt; Self <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;I: <a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.IntoIterator.html" title="trait core::iter::traits::IntoIterator">IntoIterator</a>&lt;Item = S&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#126-131' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Like new, but compiles the union of the given regular expressions.</p>
+<p>Note that when compiling 2 or more regular expressions, capture groups
+are completely unsupported. (This means both <code>find</code> and <code>captures</code>
+wont work.)</p>
+</div><h4 id='method.new_options' class="method"><span id='new_options.v' class='invisible'><code>pub fn <a href='#method.new_options' class='fnname'>new_options</a>(opts: <a class="struct" href="../../regex/re_builder/struct.RegexOptions.html" title="struct regex::re_builder::RegexOptions">RegexOptions</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#134-141' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Create a regex execution builder.</p>
+</div><h4 id='method.automatic' class="method"><span id='automatic.v' class='invisible'><code>pub fn <a href='#method.automatic' class='fnname'>automatic</a>(self) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#150-153' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Set the matching engine to be automatically determined.</p>
+<p>This is the default state and will apply whatever optimizations are
+possible, such as running a DFA.</p>
+<p>This overrides whatever was previously set via the <code>nfa</code> or
+<code>bounded_backtracking</code> methods.</p>
+</div><h4 id='method.nfa' class="method"><span id='nfa.v' class='invisible'><code>pub fn <a href='#method.nfa' class='fnname'>nfa</a>(self) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#160-163' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sets the matching engine to use the NFA algorithm no matter what
+optimizations are possible.</p>
+<p>This overrides whatever was previously set via the <code>automatic</code> or
+<code>bounded_backtracking</code> methods.</p>
+</div><h4 id='method.bounded_backtracking' class="method"><span id='bounded_backtracking.v' class='invisible'><code>pub fn <a href='#method.bounded_backtracking' class='fnname'>bounded_backtracking</a>(self) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#173-176' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sets the matching engine to use a bounded backtracking engine no
+matter what optimizations are possible.</p>
+<p>One must use this with care, since the bounded backtracking engine
+uses memory proportion to <code>len(regex) * len(text)</code>.</p>
+<p>This overrides whatever was previously set via the <code>automatic</code> or
+<code>nfa</code> methods.</p>
+</div><h4 id='method.bytes' class="method"><span id='bytes.v-1' class='invisible'><code>pub fn <a href='#method.bytes' class='fnname'>bytes</a>(self, yes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#187-190' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Compiles byte based programs for use with the NFA matching engines.</p>
+<p>By default, the NFA engines match on Unicode scalar values. They can
+be made to use byte based programs instead. In general, the byte based
+programs are slower because of a less efficient encoding of character
+classes.</p>
+<p>Note that this does not impact DFA matching engines, which always
+execute on bytes.</p>
+</div><h4 id='method.only_utf8' class="method"><span id='only_utf8.v-1' class='invisible'><code>pub fn <a href='#method.only_utf8' class='fnname'>only_utf8</a>(self, yes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#196-199' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>When disabled, the program compiled may match arbitrary bytes.</p>
+<p>When enabled (the default), all compiled programs exclusively match
+valid UTF-8 bytes.</p>
+</div><h4 id='method.unicode' class="method"><span id='unicode.v' class='invisible'><code>pub fn <a href='#method.unicode' class='fnname'>unicode</a>(self, yes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#202-205' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Set the Unicode flag.</p>
+</div><h4 id='method.parse' class="method"><span id='parse.v' class='invisible'><code>fn <a href='#method.parse' class='fnname'>parse</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../../regex/exec/struct.Parsed.html" title="struct regex::exec::Parsed">Parsed</a>, <a class="enum" href="../../regex/enum.Error.html" title="enum regex::Error">Error</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#208-259' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Parse the current set of patterns into their AST and extract literals.</p>
+</div><h4 id='method.build' class="method"><span id='build.v' class='invisible'><code>pub fn <a href='#method.build' class='fnname'>build</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../../regex/exec/struct.Exec.html" title="struct regex::exec::Exec">Exec</a>, <a class="enum" href="../../regex/enum.Error.html" title="enum regex::Error">Error</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/regex/exec.rs.html#262-316' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Build an executor that can run a regular expression.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "regex";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

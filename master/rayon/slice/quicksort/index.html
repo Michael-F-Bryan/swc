@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `quicksort` mod in crate `rayon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, quicksort">
+
+    <title>rayon::slice::quicksort - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Module quicksort</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../../index.html'>rayon</a>::<wbr><a href='../index.html'>slice</a></p><script>window.sidebarCurrent = {name: 'quicksort', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>rayon</a>::<wbr><a href='../index.html'>slice</a>::<wbr><a class="mod" href=''>quicksort</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/rayon/slice/quicksort.rs.html#1-788' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Parallel quicksort.</p>
+<p>This implementation is copied verbatim from <code>std::slice::sort_unstable</code> and then parallelized.
+The only difference from the original is that calls to <code>recurse</code> are executed in parallel using
+<code>rayon_core::join</code>.</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.CopyOnDrop.html"
+                                  title='struct rayon::slice::quicksort::CopyOnDrop'>CopyOnDrop</a></td>
+                           <td class='docblock-short'>
+                                <p>When dropped, copies from <code>src</code> into <code>dest</code>.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.NoDrop.html"
+                                  title='struct rayon::slice::quicksort::NoDrop'>NoDrop</a></td>
+                           <td class='docblock-short'>
+                                <p>Holds a value, but never drops it.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.WriteOnDrop.html"
+                                  title='struct rayon::slice::quicksort::WriteOnDrop'>WriteOnDrop</a></td>
+                           <td class='docblock-short'>
+                                <p>When dropped, takes the value out of <code>Option</code> and writes it into <code>dest</code>.</p>
+
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.break_patterns.html"
+                                  title='fn rayon::slice::quicksort::break_patterns'>break_patterns</a></td>
+                           <td class='docblock-short'>
+                                <p>Scatters some elements around in an attempt to break patterns that might cause imbalanced
+partitions in quicksort.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.choose_pivot.html"
+                                  title='fn rayon::slice::quicksort::choose_pivot'>choose_pivot</a></td>
+                           <td class='docblock-short'>
+                                <p>Chooses a pivot in <code>v</code> and returns the index and <code>true</code> if the slice is likely already sorted.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.heapsort.html"
+                                  title='fn rayon::slice::quicksort::heapsort'>heapsort</a></td>
+                           <td class='docblock-short'>
+                                <p>Sorts <code>v</code> using heapsort, which guarantees <code>O(n log n)</code> worst-case.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.insertion_sort.html"
+                                  title='fn rayon::slice::quicksort::insertion_sort'>insertion_sort</a></td>
+                           <td class='docblock-short'>
+                                <p>Sorts a slice using insertion sort, which is <code>O(n^2)</code> worst-case.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.par_quicksort.html"
+                                  title='fn rayon::slice::quicksort::par_quicksort'>par_quicksort</a></td>
+                           <td class='docblock-short'>
+                                <p>Sorts <code>v</code> using pattern-defeating quicksort in parallel.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.partial_insertion_sort.html"
+                                  title='fn rayon::slice::quicksort::partial_insertion_sort'>partial_insertion_sort</a></td>
+                           <td class='docblock-short'>
+                                <p>Partially sorts a slice by shifting several out-of-order elements around.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.partition.html"
+                                  title='fn rayon::slice::quicksort::partition'>partition</a></td>
+                           <td class='docblock-short'>
+                                <p>Partitions <code>v</code> into elements smaller than <code>v[pivot]</code>, followed by elements greater than or
+equal to <code>v[pivot]</code>.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.partition_equal.html"
+                                  title='fn rayon::slice::quicksort::partition_equal'>partition_equal</a></td>
+                           <td class='docblock-short'>
+                                <p>Partitions <code>v</code> into elements equal to <code>v[pivot]</code> followed by elements greater than <code>v[pivot]</code>.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.partition_in_blocks.html"
+                                  title='fn rayon::slice::quicksort::partition_in_blocks'>partition_in_blocks</a></td>
+                           <td class='docblock-short'>
+                                <p>Partitions <code>v</code> into elements smaller than <code>pivot</code>, followed by elements greater than or equal
+to <code>pivot</code>.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.recurse.html"
+                                  title='fn rayon::slice::quicksort::recurse'>recurse</a></td>
+                           <td class='docblock-short'>
+                                <p>Sorts <code>v</code> recursively.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.shift_head.html"
+                                  title='fn rayon::slice::quicksort::shift_head'>shift_head</a></td>
+                           <td class='docblock-short'>
+                                <p>Shifts the first element to the right until it encounters a greater or equal element.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.shift_tail.html"
+                                  title='fn rayon::slice::quicksort::shift_tail'>shift_tail</a></td>
+                           <td class='docblock-short'>
+                                <p>Shifts the last element to the left until it encounters a smaller or equal element.</p>
+
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "rayon";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

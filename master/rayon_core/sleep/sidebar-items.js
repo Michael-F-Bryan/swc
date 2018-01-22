@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["AWAKE",""],["ROUNDS_UNTIL_ASLEEP",""],["ROUNDS_UNTIL_SLEEPY",""],["SLEEPING",""]],"struct":[["Sleep",""]]});

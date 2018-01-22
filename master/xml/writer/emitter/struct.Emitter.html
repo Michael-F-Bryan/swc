@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Emitter` struct in crate `xml`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Emitter">
+
+    <title>xml::writer::emitter::Emitter - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Struct Emitter</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.config">config</a><a href="#structfield.nst">nst</a><a href="#structfield.indent_level">indent_level</a><a href="#structfield.indent_stack">indent_stack</a><a href="#structfield.element_names">element_names</a><a href="#structfield.start_document_emitted">start_document_emitted</a><a href="#structfield.just_wrote_start_element">just_wrote_start_element</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.namespace_stack_mut">namespace_stack_mut</a><a href="#method.wrote_text">wrote_text</a><a href="#method.wrote_markup">wrote_markup</a><a href="#method.set_wrote_text">set_wrote_text</a><a href="#method.set_wrote_markup">set_wrote_markup</a><a href="#method.reset_state">reset_state</a><a href="#method.write_newline">write_newline</a><a href="#method.before_markup">before_markup</a><a href="#method.after_markup">after_markup</a><a href="#method.before_start_element">before_start_element</a><a href="#method.after_start_element">after_start_element</a><a href="#method.before_end_element">before_end_element</a><a href="#method.after_end_element">after_end_element</a><a href="#method.after_text">after_text</a><a href="#method.emit_start_document">emit_start_document</a><a href="#method.check_document_started">check_document_started</a><a href="#method.fix_non_empty_element">fix_non_empty_element</a><a href="#method.emit_processing_instruction">emit_processing_instruction</a><a href="#method.emit_start_element_initial">emit_start_element_initial</a><a href="#method.emit_start_element">emit_start_element</a><a href="#method.emit_current_namespace_attributes">emit_current_namespace_attributes</a><a href="#method.emit_attributes">emit_attributes</a><a href="#method.emit_end_element">emit_end_element</a><a href="#method.emit_cdata">emit_cdata</a><a href="#method.emit_characters">emit_characters</a><a href="#method.emit_comment">emit_comment</a></div></div><p class='location'><a href='../../index.html'>xml</a>::<wbr><a href='../index.html'>writer</a>::<wbr><a href='index.html'>emitter</a></p><script>window.sidebarCurrent = {name: 'Emitter', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>xml</a>::<wbr><a href='../index.html'>writer</a>::<wbr><a href='index.html'>emitter</a>::<wbr><a class="struct" href=''>Emitter</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#80-92' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Emitter {
+    config: <a class="struct" href="../../../xml/struct.EmitterConfig.html" title="struct xml::EmitterConfig">EmitterConfig</a>,
+    nst: <a class="struct" href="../../../xml/namespace/struct.NamespaceStack.html" title="struct xml::namespace::NamespaceStack">NamespaceStack</a>,
+    indent_level: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
+    indent_stack: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../../xml/writer/emitter/struct.IndentFlags.html" title="struct xml::writer::emitter::IndentFlags">IndentFlags</a>&gt;,
+    element_names: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../../xml/name/struct.OwnedName.html" title="struct xml::name::OwnedName">OwnedName</a>&gt;,
+    start_document_emitted: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+    just_wrote_start_element: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.config" class="structfield small-section-header">
+                           <a href="#structfield.config" class="anchor field"></a>
+                           <span id="config.v" class='invisible'>
+                           <code>config: <a class="struct" href="../../../xml/struct.EmitterConfig.html" title="struct xml::EmitterConfig">EmitterConfig</a></code>
+                           </span></span><span id="structfield.nst" class="structfield small-section-header">
+                           <a href="#structfield.nst" class="anchor field"></a>
+                           <span id="nst.v" class='invisible'>
+                           <code>nst: <a class="struct" href="../../../xml/namespace/struct.NamespaceStack.html" title="struct xml::namespace::NamespaceStack">NamespaceStack</a></code>
+                           </span></span><span id="structfield.indent_level" class="structfield small-section-header">
+                           <a href="#structfield.indent_level" class="anchor field"></a>
+                           <span id="indent_level.v" class='invisible'>
+                           <code>indent_level: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code>
+                           </span></span><span id="structfield.indent_stack" class="structfield small-section-header">
+                           <a href="#structfield.indent_stack" class="anchor field"></a>
+                           <span id="indent_stack.v" class='invisible'>
+                           <code>indent_stack: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../../xml/writer/emitter/struct.IndentFlags.html" title="struct xml::writer::emitter::IndentFlags">IndentFlags</a>&gt;</code>
+                           </span></span><span id="structfield.element_names" class="structfield small-section-header">
+                           <a href="#structfield.element_names" class="anchor field"></a>
+                           <span id="element_names.v" class='invisible'>
+                           <code>element_names: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../../xml/name/struct.OwnedName.html" title="struct xml::name::OwnedName">OwnedName</a>&gt;</code>
+                           </span></span><span id="structfield.start_document_emitted" class="structfield small-section-header">
+                           <a href="#structfield.start_document_emitted" class="anchor field"></a>
+                           <span id="start_document_emitted.v" class='invisible'>
+                           <code>start_document_emitted: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
+                           </span></span><span id="structfield.just_wrote_start_element" class="structfield small-section-header">
+                           <a href="#structfield.just_wrote_start_element" class="anchor field"></a>
+                           <span id="just_wrote_start_element.v" class='invisible'>
+                           <code>just_wrote_start_element: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../../xml/writer/emitter/struct.Emitter.html" title="struct xml::writer::emitter::Emitter">Emitter</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#94-110' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>(config: <a class="struct" href="../../../xml/struct.EmitterConfig.html" title="struct xml::EmitterConfig">EmitterConfig</a>) -&gt; <a class="struct" href="../../../xml/writer/emitter/struct.Emitter.html" title="struct xml::writer::emitter::Emitter">Emitter</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#95-109' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../../xml/writer/emitter/struct.Emitter.html" title="struct xml::writer::emitter::Emitter">Emitter</a></code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#143-441' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.namespace_stack_mut' class="method"><span id='namespace_stack_mut.v' class='invisible'><code>pub fn <a href='#method.namespace_stack_mut' class='fnname'>namespace_stack_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../../xml/namespace/struct.NamespaceStack.html" title="struct xml::namespace::NamespaceStack">NamespaceStack</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#146-148' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the current state of namespaces.</p>
+</div><h4 id='method.wrote_text' class="method"><span id='wrote_text.v' class='invisible'><code>fn <a href='#method.wrote_text' class='fnname'>wrote_text</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#151-153' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.wrote_markup' class="method"><span id='wrote_markup.v' class='invisible'><code>fn <a href='#method.wrote_markup' class='fnname'>wrote_markup</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#156-158' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.set_wrote_text' class="method"><span id='set_wrote_text.v' class='invisible'><code>fn <a href='#method.set_wrote_text' class='fnname'>set_wrote_text</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#161-163' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.set_wrote_markup' class="method"><span id='set_wrote_markup.v' class='invisible'><code>fn <a href='#method.set_wrote_markup' class='fnname'>set_wrote_markup</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#166-168' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.reset_state' class="method"><span id='reset_state.v' class='invisible'><code>fn <a href='#method.reset_state' class='fnname'>reset_state</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#171-173' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.write_newline' class="method"><span id='write_newline.v' class='invisible'><code>fn <a href='#method.write_newline' class='fnname'>write_newline</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W, <br>&nbsp;&nbsp;&nbsp;&nbsp;level: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a><br>) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#175-181' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.before_markup' class="method"><span id='before_markup.v' class='invisible'><code>fn <a href='#method.before_markup' class='fnname'>before_markup</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(&amp;mut self, target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#183-193' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.after_markup' class="method"><span id='after_markup.v' class='invisible'><code>fn <a href='#method.after_markup' class='fnname'>after_markup</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#195-197' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.before_start_element' class="method"><span id='before_start_element.v' class='invisible'><code>fn <a href='#method.before_start_element' class='fnname'>before_start_element</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(&amp;mut self, target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#199-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.after_start_element' class="method"><span id='after_start_element.v' class='invisible'><code>fn <a href='#method.after_start_element' class='fnname'>after_start_element</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#205-208' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.before_end_element' class="method"><span id='before_end_element.v' class='invisible'><code>fn <a href='#method.before_end_element' class='fnname'>before_end_element</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(&amp;mut self, target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#210-218' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.after_end_element' class="method"><span id='after_end_element.v' class='invisible'><code>fn <a href='#method.after_end_element' class='fnname'>after_end_element</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#220-226' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.after_text' class="method"><span id='after_text.v' class='invisible'><code>fn <a href='#method.after_text' class='fnname'>after_text</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#228-230' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.emit_start_document' class="method"><span id='emit_start_document.v' class='invisible'><code>pub fn <a href='#method.emit_start_document' class='fnname'>emit_start_document</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W, <br>&nbsp;&nbsp;&nbsp;&nbsp;version: <a class="enum" href="../../../xml/common/enum.XmlVersion.html" title="enum xml::common::XmlVersion">XmlVersion</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;encoding: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;standalone: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;<br>) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#232-252' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.check_document_started' class="method"><span id='check_document_started.v' class='invisible'><code>fn <a href='#method.check_document_started' class='fnname'>check_document_started</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(&amp;mut self, target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#254-260' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.fix_non_empty_element' class="method"><span id='fix_non_empty_element.v' class='invisible'><code>fn <a href='#method.fix_non_empty_element' class='fnname'>fix_non_empty_element</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(&amp;mut self, target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#262-269' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.emit_processing_instruction' class="method"><span id='emit_processing_instruction.v' class='invisible'><code>pub fn <a href='#method.emit_processing_instruction' class='fnname'>emit_processing_instruction</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W, <br>&nbsp;&nbsp;&nbsp;&nbsp;name: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;data: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;<br>) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#271-285' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.emit_start_element_initial' class="method"><span id='emit_start_element_initial.v' class='invisible'><code>fn <a href='#method.emit_start_element_initial' class='fnname'>emit_start_element_initial</a>&lt;W&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W, <br>&nbsp;&nbsp;&nbsp;&nbsp;name: <a class="struct" href="../../../xml/name/struct.Name.html" title="struct xml::name::Name">Name</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;attributes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="struct" href="../../../xml/attribute/struct.Attribute.html" title="struct xml::attribute::Attribute">Attribute</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a><br>) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;W: <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#287-302' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.emit_start_element' class="method"><span id='emit_start_element.v' class='invisible'><code>pub fn <a href='#method.emit_start_element' class='fnname'>emit_start_element</a>&lt;W&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W, <br>&nbsp;&nbsp;&nbsp;&nbsp;name: <a class="struct" href="../../../xml/name/struct.Name.html" title="struct xml::name::Name">Name</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;attributes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="struct" href="../../../xml/attribute/struct.Attribute.html" title="struct xml::attribute::Attribute">Attribute</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a><br>) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;W: <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#304-320' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.emit_current_namespace_attributes' class="method"><span id='emit_current_namespace_attributes.v' class='invisible'><code>pub fn <a href='#method.emit_current_namespace_attributes' class='fnname'>emit_current_namespace_attributes</a>&lt;W&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W<br>) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;W: <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#322-340' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.emit_attributes' class="method"><span id='emit_attributes.v' class='invisible'><code>pub fn <a href='#method.emit_attributes' class='fnname'>emit_attributes</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W, <br>&nbsp;&nbsp;&nbsp;&nbsp;attributes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="struct" href="../../../xml/attribute/struct.Attribute.html" title="struct xml::attribute::Attribute">Attribute</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a><br>) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#342-353' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.emit_end_element' class="method"><span id='emit_end_element.v' class='invisible'><code>pub fn <a href='#method.emit_end_element' class='fnname'>emit_end_element</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W, <br>&nbsp;&nbsp;&nbsp;&nbsp;name: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../../xml/name/struct.Name.html" title="struct xml::name::Name">Name</a>&gt;<br>) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#355-388' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.emit_cdata' class="method"><span id='emit_cdata.v' class='invisible'><code>pub fn <a href='#method.emit_cdata' class='fnname'>emit_cdata</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W, <br>&nbsp;&nbsp;&nbsp;&nbsp;content: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a><br>) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#390-404' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.emit_characters' class="method"><span id='emit_characters.v' class='invisible'><code>pub fn <a href='#method.emit_characters' class='fnname'>emit_characters</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W, <br>&nbsp;&nbsp;&nbsp;&nbsp;content: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a><br>) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#406-415' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.emit_comment' class="method"><span id='emit_comment.v' class='invisible'><code>pub fn <a href='#method.emit_comment' class='fnname'>emit_comment</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>W, <br>&nbsp;&nbsp;&nbsp;&nbsp;content: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a><br>) -&gt; <a class="type" href="../../../xml/writer/emitter/type.Result.html" title="type xml::writer::emitter::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/xml/writer/emitter.rs.html#417-440' title='goto source code'>[src]</a></span></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "xml";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

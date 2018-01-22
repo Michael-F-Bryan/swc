@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Location","Location of `smart_quote!` macro invocation."],["Quote","Buffer for quasi quotting."]]});
+initSidebarItems({"mod":[["buffer",""]],"struct":[["Location","Location of `smart_quote!` macro invocation."],["Quote","Buffer for quasi quotting."]]});

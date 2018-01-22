@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `mergesort` fn in crate `rayon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, mergesort">
+
+    <title>rayon::slice::mergesort::mergesort - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc fn">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'><a href='../../index.html'>rayon</a>::<wbr><a href='../index.html'>slice</a>::<wbr><a href='index.html'>mergesort</a></p><script>window.sidebarCurrent = {name: 'mergesort', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Function <a href='../../index.html'>rayon</a>::<wbr><a href='../index.html'>slice</a>::<wbr><a href='index.html'>mergesort</a>::<wbr><a class="fn" href=''>mergesort</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/rayon/slice/mergesort.rs.html#300-379' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>unsafe fn mergesort&lt;T, F&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;v: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;mut [T]</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;buf: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut T</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;is_less: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>F<br>) -&gt; <a class="enum" href="../../../rayon/slice/mergesort/enum.MergesortResult.html" title="enum rayon::slice::mergesort::MergesortResult">MergesortResult</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,&nbsp;</span></pre><div class='docblock'><p>Sorts a slice using merge sort, unless it is already in descending order.</p>
+<p>This function doesn't modify the slice if it is already non-descending or descending.
+Otherwise, it sorts the slice into non-descending order.</p>
+<p>This merge sort borrows some (but not all) ideas from TimSort, which is described in detail
+<a href="http://svn.python.org/projects/python/trunk/Objects/listsort.txt">here</a>.</p>
+<p>The algorithm identifies strictly descending and non-descending subsequences, which are called
+natural runs. There is a stack of pending runs yet to be merged. Each newly found run is pushed
+onto the stack, and then some pairs of adjacent runs are merged until these two invariants are
+satisfied:</p>
+<ol>
+<li>for every <code>i</code> in <code>1..runs.len()</code>: <code>runs[i - 1].len &gt; runs[i].len</code></li>
+<li>for every <code>i</code> in <code>2..runs.len()</code>: <code>runs[i - 2].len &gt; runs[i - 1].len + runs[i].len</code></li>
+</ol>
+<p>The invariants ensure that the total running time is <code>O(n log n)</code> worst-case.</p>
+<h1 id="safety" class="section-header"><a href="#safety">Safety</a></h1>
+<p>The argument <code>buf</code> is used as a temporary buffer and must be at least as long as <code>v</code>.</p>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "rayon";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

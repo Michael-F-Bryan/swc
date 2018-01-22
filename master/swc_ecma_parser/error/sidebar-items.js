@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SyntaxError",""]]});
+initSidebarItems({"enum":[["SyntaxError",""]],"struct":[["Eof",""],["Error",""]]});

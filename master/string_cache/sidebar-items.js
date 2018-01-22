@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["atom",""]]});
+initSidebarItems({"mod":[["atom",""],["string_cache",""]]});

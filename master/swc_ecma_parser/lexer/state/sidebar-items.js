@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Type","The algorithm used to determine whether a regexp can appear at a given point in the program is loosely based on sweet.js' approach. See https://github.com/mozilla/sweet.js/wiki/design"]],"struct":[["Context",""],["State","State of lexer."]]});

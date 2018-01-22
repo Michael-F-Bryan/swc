@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Bag","A single, thread-local bag of garbage."],["ConcBag","A concurrent garbage bag, currently based on Treiber's stack."],["Item","One item of garbage."],["Local","A thread-local set of garbage bags."],["Node",""]]});

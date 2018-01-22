@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Bag` struct in crate `coco`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Bag">
+
+    <title>coco::epoch::garbage::Bag - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Struct Bag</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.len">len</a><a href="#structfield.objects">objects</a><a href="#structfield.epoch">epoch</a><a href="#structfield.next">next</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.is_empty">is_empty</a><a href="#method.try_insert">try_insert</a><a href="#method.destroy_all_objects">destroy_all_objects</a></div></div><p class='location'><a href='../../index.html'>coco</a>::<wbr><a href='../index.html'>epoch</a>::<wbr><a href='index.html'>garbage</a></p><script>window.sidebarCurrent = {name: 'Bag', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>coco</a>::<wbr><a href='../index.html'>epoch</a>::<wbr><a href='index.html'>garbage</a>::<wbr><a class="struct" href=''>Bag</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/coco/epoch/garbage.rs.html#54-63' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Bag {
+    len: <a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicUsize.html" title="struct core::sync::atomic::AtomicUsize">AtomicUsize</a>,
+    objects: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.UnsafeCell.html" title="struct core::cell::UnsafeCell">UnsafeCell</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a>unsafe <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(_: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, _: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>), <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 64]</a>,
+    epoch: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
+    next: <a class="struct" href="../../../coco/epoch/struct.Atomic.html" title="struct coco::epoch::Atomic">Atomic</a>&lt;<a class="struct" href="../../../coco/epoch/garbage/struct.Bag.html" title="struct coco::epoch::garbage::Bag">Bag</a>&gt;,
+}</pre><div class='docblock'><p>Holds removed objects that will be eventually destroyed.</p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.len" class="structfield small-section-header">
+                           <a href="#structfield.len" class="anchor field"></a>
+                           <span id="len.v" class='invisible'>
+                           <code>len: <a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicUsize.html" title="struct core::sync::atomic::AtomicUsize">AtomicUsize</a></code>
+                           </span></span><div class='docblock'><p>Number of objects in the bag.</p>
+</div><span id="structfield.objects" class="structfield small-section-header">
+                           <a href="#structfield.objects" class="anchor field"></a>
+                           <span id="objects.v" class='invisible'>
+                           <code>objects: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.UnsafeCell.html" title="struct core::cell::UnsafeCell">UnsafeCell</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a>unsafe <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(_: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, _: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>), <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 64]</a></code>
+                           </span></span><div class='docblock'><p>Removed objects.</p>
+</div><span id="structfield.epoch" class="structfield small-section-header">
+                           <a href="#structfield.epoch" class="anchor field"></a>
+                           <span id="epoch.v" class='invisible'>
+                           <code>epoch: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code>
+                           </span></span><div class='docblock'><p>The global epoch at the moment when this bag got pushed into the queue.</p>
+</div><span id="structfield.next" class="structfield small-section-header">
+                           <a href="#structfield.next" class="anchor field"></a>
+                           <span id="next.v" class='invisible'>
+                           <code>next: <a class="struct" href="../../../coco/epoch/struct.Atomic.html" title="struct coco::epoch::Atomic">Atomic</a>&lt;<a class="struct" href="../../../coco/epoch/garbage/struct.Bag.html" title="struct coco::epoch::garbage::Bag">Bag</a>&gt;</code>
+                           </span></span><div class='docblock'><p>The next bag in the queue.</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../../coco/epoch/garbage/struct.Bag.html" title="struct coco::epoch::garbage::Bag">Bag</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/coco/epoch/garbage.rs.html#65-117' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>() -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/coco/epoch/garbage.rs.html#67-74' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a new, empty bag.</p>
+</div><h4 id='method.is_empty' class="method"><span id='is_empty.v' class='invisible'><code>pub fn <a href='#method.is_empty' class='fnname'>is_empty</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/coco/epoch/garbage.rs.html#77-79' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns <code>true</code> if the bag is empty.</p>
+</div><h4 id='method.try_insert' class="method"><span id='try_insert.v' class='invisible'><code>pub fn <a href='#method.try_insert' class='fnname'>try_insert</a>&lt;T&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;destroy: unsafe <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(_: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut T</a>, _: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>), <br>&nbsp;&nbsp;&nbsp;&nbsp;object: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut T</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;count: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a><br>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/coco/epoch/garbage.rs.html#82-106' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Attempts to insert a garbage object into the bag and returns <code>true</code> if succeeded.</p>
+</div><h4 id='method.destroy_all_objects' class="method"><span id='destroy_all_objects.v' class='invisible'><code>unsafe fn <a href='#method.destroy_all_objects' class='fnname'>destroy_all_objects</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/coco/epoch/garbage.rs.html#111-116' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Destroys all objects in the bag.</p>
+<p>Note: can be called only once!</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "coco";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

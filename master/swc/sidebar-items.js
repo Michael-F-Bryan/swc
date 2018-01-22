@@ -1,1 +1,1 @@
-initSidebarItems({});
+initSidebarItems({"fn":[["logger",""],["main",""],["run",""]]});

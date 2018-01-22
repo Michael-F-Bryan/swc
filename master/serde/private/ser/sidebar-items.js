@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Unsupported",""]],"fn":[["constrain","Used to check that serde(getter) attributes return the expected type. Not public API."],["serialize_tagged_newtype","Not public API."]],"mod":[["content",""]],"struct":[["Error","Used only by Serde doc tests. Not public API."],["TaggedSerializer",""]]});

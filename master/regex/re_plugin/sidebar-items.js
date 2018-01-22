@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Plugin","Plugin is the compiler plugin's data structure. It declare some static data (like capture groups and the original regex string), but defines its matching engine as a simple function."]]});

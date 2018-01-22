@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Module sip</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li></ul></div><p class='location'><a href='../index.html'>siphasher</a></p><script>window.sidebarCurrent = {name: 'sip', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+        <p class='location'>Module sip</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../index.html'>siphasher</a></p><script>window.sidebarCurrent = {name: 'sip', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -54,10 +54,32 @@
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Hasher.html"
+                                  title='struct siphasher::sip::Hasher'>Hasher</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Sip13Rounds.html"
+                                  title='struct siphasher::sip::Sip13Rounds'>Sip13Rounds</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Sip24Rounds.html"
+                                  title='struct siphasher::sip::Sip24Rounds'>Sip24Rounds</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
                            <td><a class="struct" href="struct.SipHasher.html"
                                   title='struct siphasher::sip::SipHasher'>SipHasher</a></td>
                            <td class='docblock-short'>
                                 <p>An implementation of SipHash 2-4.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -65,6 +87,7 @@
                                   title='struct siphasher::sip::SipHasher13'>SipHasher13</a></td>
                            <td class='docblock-short'>
                                 <p>An implementation of SipHash 1-3.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -72,6 +95,31 @@
                                   title='struct siphasher::sip::SipHasher24'>SipHasher24</a></td>
                            <td class='docblock-short'>
                                 <p>An implementation of SipHash 2-4.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.State.html"
+                                  title='struct siphasher::sip::State'>State</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.Sip.html"
+                                  title='trait siphasher::sip::Sip'>Sip</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.u8to64_le.html"
+                                  title='fn siphasher::sip::u8to64_le'>u8to64_le</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p>Load an u64 using up to 7 bytes of a byte slice.</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -86,20 +134,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

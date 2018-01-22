@@ -66,6 +66,7 @@
                                   title='mod pmutil::prelude'>prelude</a></td>
                            <td class='docblock-short'>
                                 <p>Prelude for convenience.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -73,6 +74,14 @@
                                   title='mod pmutil::respan'>respan</a></td>
                            <td class='docblock-short'>
                                 <p>Span support for quasi-quotting.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="span_ext/index.html"
+                                  title='mod pmutil::span_ext'>span_ext</a></td>
+                           <td class='docblock-short'>
+                                
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -80,6 +89,7 @@
                                   title='mod pmutil::spanned_quote'>spanned_quote</a></td>
                            <td class='docblock-short'>
                                 <p>Span-aware quasi quotting built on top of <code>quote</code> crate.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -87,14 +97,54 @@
                                   title='mod pmutil::synom_ext'>synom_ext</a></td>
                            <td class='docblock-short'>
                                 <p>Utils for tokens from synom::tokens.</p>
+
                            </td>
                        </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
 <table>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.__sq_quote_closure.html"
+                                  title='macro pmutil::__sq_quote_closure'>__sq_quote_closure</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.__sq_quote_tokens_to.html"
+                                  title='macro pmutil::__sq_quote_tokens_to'>__sq_quote_tokens_to</a></td>
+                           <td class='docblock-short'>
+                                <p>This macro assumes that <code>Vars</code> is already handled.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.declare_vars_for_quote.html"
+                                  title='macro pmutil::declare_vars_for_quote'>declare_vars_for_quote</a></td>
+                           <td class='docblock-short'>
+                                <p>This macro handles <code>Vars</code>, and creates a new hidden macro used inside quasi-quotting.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.handle_vars_for_quote.html"
+                                  title='macro pmutil::handle_vars_for_quote'>handle_vars_for_quote</a></td>
+                           <td class='docblock-short'>
+                                <p>Usage: __sq_handle_vars! { a, b: expression(), c, };</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.quoter_location.html"
+                                  title='macro pmutil::quoter_location'>quoter_location</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
                        <tr class=' module-item'>
                            <td><a class="macro" href="macro.smart_quote.html"
                                   title='macro pmutil::smart_quote'>smart_quote</a></td>
                            <td class='docblock-short'>
                                 <p>ide-friendly quasi quotting.</p>
+
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -103,6 +153,7 @@
                                   title='struct pmutil::Quote'>Quote</a></td>
                            <td class='docblock-short'>
                                 <p>Buffer for quasi quotting.</p>
+
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -111,6 +162,7 @@
                                   title='trait pmutil::IdentExt'>IdentExt</a></td>
                            <td class='docblock-short'>
                                 <p>Extension trait for <a href="../syn/struct.Ident.html">syn::Ident</a>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -118,6 +170,7 @@
                                   title='trait pmutil::SpanExt'>SpanExt</a></td>
                            <td class='docblock-short'>
                                 <p>Extension trait for <a href="../proc_macro2/struct.Span.html">Span</a> and <a href="../syn/struct.Span.html">syn::Span</a>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -139,20 +192,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

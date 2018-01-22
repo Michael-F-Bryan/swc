@@ -75,6 +75,9 @@
 <div class='docblock'><p>A short description of the error. <a href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html#tymethod.description">Read more</a></p>
 </div><h4 id='method.cause' class="method"><span id='cause.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.cause' class='fnname'>cause</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html" title="trait std::error::Error">Error</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog/lib.rs.html#1767-1772' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>The lower-level cause of this error, if any. <a href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.cause">Read more</a></p>
+</div><h4 id='method.type_id' class="method"><span id='type_id.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.type_id' class='fnname'>type_id</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/core/any/struct.TypeId.html" title="struct core::any::TypeId">TypeId</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;Self: 'static,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/error.rs.html#161-163' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>error_type_id</code>)</summary><p>unclear whether to commit to this public implementation detail</p>
+</details></div></div><div class='docblock'><p>Get the <code>TypeId</code> of <code>self</code></p>
 </div></div><h3 id='impl-From%3CPoisonError%3CMutexGuard%3C%27a%2C%20D%3E%3E%3E' class='impl'><span class='in-band'><code>impl&lt;'a, D:&nbsp;<a class="trait" href="../slog/trait.Drain.html" title="trait slog::Drain">Drain</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sys_common/poison/struct.PoisonError.html" title="struct std::sys_common::poison::PoisonError">PoisonError</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/mutex/struct.MutexGuard.html" title="struct std::sync::mutex::MutexGuard">MutexGuard</a>&lt;'a, D&gt;&gt;&gt; for <a class="enum" href="../slog/enum.MutexDrainError.html" title="enum slog::MutexDrainError">MutexDrainError</a>&lt;D&gt;</code><a href='#impl-From%3CPoisonError%3CMutexGuard%3C%27a%2C%20D%3E%3E%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog/lib.rs.html#1776-1783' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.from' class="method"><span id='from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(_: <a class="struct" href="https://doc.rust-lang.org/nightly/std/sys_common/poison/struct.PoisonError.html" title="struct std::sys_common::poison::PoisonError">PoisonError</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/mutex/struct.MutexGuard.html" title="struct std::sync::mutex::MutexGuard">MutexGuard</a>&lt;'a, D&gt;&gt;) -&gt; <a class="enum" href="../slog/enum.MutexDrainError.html" title="enum slog::MutexDrainError">MutexDrainError</a>&lt;D&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog/lib.rs.html#1778-1782' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Performs the conversion.</p>
@@ -94,20 +97,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

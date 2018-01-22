@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Crate slog</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#statics">Statics</a></li><li><a href="#traits">Traits</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'slog', ty: 'mod', relpath: '../'};</script></div>
+        <p class='location'>Crate slog</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#statics">Statics</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'slog', ty: 'mod', relpath: '../'};</script></div>
     </nav>
 
     <nav class="sub">
@@ -50,19 +50,15 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/slog/lib.rs.html#1-3151' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'>
-<h1 id='slog----structured-extensible-composable-logging-for-rust' class='section-header'><a href='#slog----structured-extensible-composable-logging-for-rust'>Slog -  Structured, extensible, composable logging for Rust</a></h1>
+<div class='docblock'><h1 id="slog----structured-extensible-composable-logging-for-rust" class="section-header"><a href="#slog----structured-extensible-composable-logging-for-rust">Slog -  Structured, extensible, composable logging for Rust</a></h1>
 <p><code>slog-rs</code> is an ecosystem of reusable components for structured, extensible,
 composable logging for Rust.</p>
-
-<p><code>slog</code> is <code>slog-rs</code>&#39;s main crate providing core components shared between
+<p><code>slog</code> is <code>slog-rs</code>'s main crate providing core components shared between
 all other parts of <code>slog-rs</code> ecosystem.</p>
-
 <p>This is auto-generated technical documentation of <code>slog</code>. For information
 about project organization, development, help, etc. please see
 <a href="https://github.com/slog-rs/slog">slog github page</a></p>
-
-<h2 id='core-advantages-over-log-crate' class='section-header'><a href='#core-advantages-over-log-crate'>Core advantages over <code>log</code> crate</a></h2>
+<h2 id="core-advantages-over-log-crate" class="section-header"><a href="#core-advantages-over-log-crate">Core advantages over <code>log</code> crate</a></h2>
 <ul>
 <li><strong>extensible</strong> - <code>slog</code> crate provides core functionality: very basic
 and portable standard feature-set based on open <code>trait</code>s. This allows
@@ -70,7 +66,7 @@ implementing new features that can be independently published.</li>
 <li><strong>composable</strong> - <code>trait</code>s that <code>slog</code> exposes to provide extensibility
 are designed to be easy to efficiently reuse and combine. By combining
 different functionalities every application can specify when, where and
-how exactly process logging data from the application and it&#39;s
+how exactly process logging data from the application and it's
 dependencies.</li>
 <li><strong>flexible</strong> - <code>slog</code> does not constrain logging to just one globally
 registered backend. Parts of your application can handle logging
@@ -81,47 +77,44 @@ data is preserved.  Data can be serialized to machine readable formats like
 JSON and send it to data-mining system for further analysis etc. On the
 other hand, when presenting on screen, logging information can be presented
 in aesthetically pleasing and easy to understand way.</li>
-<li><strong>contextual</strong> - <code>slog</code>&#39;s <code>Logger</code> objects carry set of key-value data
+<li><strong>contextual</strong> - <code>slog</code>'s <code>Logger</code> objects carry set of key-value data
 pairs that contains the context of logging - information that otherwise
 would have to be repeated in every logging statement.</li>
 </ul>
-
-<h2 id='slog-features' class='section-header'><a href='#slog-features'><code>slog</code> features</a></h2>
+<h2 id="slog-features" class="section-header"><a href="#slog-features"><code>slog</code> features</a></h2>
 <ul>
 <li>performance oriented; read <a href="https://github.com/slog-rs/slog/wiki/What-makes-slog-fast">what makes slog
 fast</a> and see:
 <a href="https://github.com/dpc/slog-rs/wiki/Bench-log">slog bench log</a>
-
 <ul>
 <li>lazily evaluation through closure values</li>
 <li>async IO support included: see <a href="https://docs.rs/slog-async"><code>slog-async</code>
 crate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><code>#![no_std]</code> support (with opt-out <code>std</code> cargo feature flag)</li>
 <li>tree-structured loggers</li>
 <li>modular, lightweight and very extensible
-
 <ul>
 <li>tiny core crate that does not pull any dependencies</li>
 <li>feature-crates for specific functionality</li>
 <li>using <code>slog</code> in library does not force users of the library to use slog
 (but provides additional functionality); see <a href="https://github.com/slog-rs/example-lib">example how to use
 <code>slog</code> in library</a></li>
-</ul></li>
+</ul>
+</li>
 <li>backward and forward compatibility with <code>log</code> crate:
 see <a href="https://docs.rs/slog-stdlog"><code>slog-stdlog</code> crate</a></li>
 <li>convenience crates:
-
 <ul>
 <li>logging-scopes for implicit <code>Logger</code> passing: see
 <a href="https://docs.rs/slog-scope">slog-scope crate</a></li>
-</ul></li>
+</ul>
+</li>
 <li>many existing core&amp;community provided features:
-
 <ul>
 <li>multiple outputs</li>
 <li>filtering control
-
 <ul>
 <li>compile-time log level filter using cargo features (same as in <code>log</code>
 crate)</li>
@@ -130,49 +123,45 @@ crate)</li>
 <code>env_logger</code></li>
 <li>terminal output, with color support: see <a href="docs.r/slog-term"><code>slog-term</code>
 crate</a></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="https://docs.rs/slog-json">json</a>
-
 <ul>
 <li><a href="https://docs.rs/slog-bunyan">bunyan</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://docs.rs/slog-syslog">syslog</a>
 and <a href="https://docs.rs/slog-journald">journald</a> support</li>
 <li>run-time configuration:
-
 <ul>
 <li>run-time behavior change;
 see <a href="https://docs.rs/slog-atomic">slog-atomic</a></li>
 <li>run-time configuration; see
 <a href="https://docs.rs/slog-config">slog-config crate</a></li>
-</ul></li>
-</ul></li>
 </ul>
-
-<h2 id='notable-details' class='section-header'><a href='#notable-details'>Notable details</a></h2>
+</li>
+</ul>
+<h2 id="notable-details" class="section-header"><a href="#notable-details">Notable details</a></h2>
 <p><strong>Note:</strong> At compile time <code>slog</code> by default removes trace and debug level
 statements in release builds, and trace level records in debug builds. This
 makes <code>trace</code> and <code>debug</code> level logging records practically free, which
 should encourage using them freely. If you want to enable trace/debug
 messages or raise the compile time logging level limit, use the following in
 your <code>Cargo.toml</code>:</p>
-
 <pre><code class="language-norust">slog = { version = ... ,
          features = [&quot;max_level_trace&quot;, &quot;release_max_level_warn&quot;] }
 </code></pre>
-
 <p>Root drain (passed to <code>Logger::root</code>) must be one that does not ever return
 errors. This forces user to pick error handing strategy.
 <code>Drain::fuse()</code> or <code>Drain::ignore_res()</code>.</p>
-
-<h2 id='where-to-start' class='section-header'><a href='#where-to-start'>Where to start</a></h2>
+<h2 id="where-to-start" class="section-header"><a href="#where-to-start">Where to start</a></h2>
 <p><a href="trait.Drain.html"><code>Drain</code></a>, <a href="struct.Logger.html"><code>Logger</code></a> and
 <a href="macro.log.html"><code>log</code> macro</a> are the most important elements of
 slog. Make sure to read their respective documentation</p>
-
 <p>Typically the biggest problem is creating a <code>Drain</code></p>
-
-<h3 id='logging-to-the-terminal' class='section-header'><a href='#logging-to-the-terminal'>Logging to the terminal</a></h3>
+<h3 id="logging-to-the-terminal" class="section-header"><a href="#logging-to-the-terminal">Logging to the terminal</a></h3>
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">slog</span>;
@@ -188,8 +177,7 @@ slog. Make sure to read their respective documentation</p>
 
     <span class="kw">let</span> <span class="ident">_log</span> <span class="op">=</span> <span class="ident">slog</span>::<span class="ident">Logger</span>::<span class="ident">root</span>(<span class="ident">drain</span>, <span class="macro">o</span><span class="macro">!</span>());
 }</pre>
-
-<h3 id='logging-to-a-file' class='section-header'><a href='#logging-to-a-file'>Logging to a file</a></h3>
+<h3 id="logging-to-a-file" class="section-header"><a href="#logging-to-a-file">Logging to a file</a></h3>
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">slog</span>;
@@ -214,13 +202,11 @@ slog. Make sure to read their respective documentation</p>
 
     <span class="kw">let</span> <span class="ident">_log</span> <span class="op">=</span> <span class="ident">slog</span>::<span class="ident">Logger</span>::<span class="ident">root</span>(<span class="ident">drain</span>, <span class="macro">o</span><span class="macro">!</span>());
 }</pre>
-
 <p>You can consider using <code>slog-json</code> instead of <code>slog-term</code>.
 <code>slog-term</code> only coincidently fits the role of a file output format. A
 proper <code>slog-file</code> crate with suitable format, log file rotation and other
 file-logging related features would be awesome. Contributions are welcome!</p>
-
-<h3 id='change-logging-level-at-runtime' class='section-header'><a href='#change-logging-level-at-runtime'>Change logging level at runtime</a></h3>
+<h3 id="change-logging-level-at-runtime" class="section-header"><a href="#change-logging-level-at-runtime">Change logging level at runtime</a></h3>
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">slog</span>;
@@ -284,33 +270,25 @@ file-logging related features would be awesome. Contributions are welcome!</p>
     <span class="comment">// switch level in your code</span>
     <span class="ident">on</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering</span>::<span class="ident">Relaxed</span>);
 }</pre>
-
 <p>Why is this not an existing crate? Because there are multiple ways to
-achieve the same result, and each application might come with it&#39;s own
+achieve the same result, and each application might come with it's own
 variation. Supporting a more general solution is a maintenance effort.
 There is also nothing stopping anyone from publishing their own crate
 implementing it.</p>
-
 <p>Alternative to the above aproach is <code>slog-atomic</code> crate. It implements
 swapping whole parts of <code>Drain</code> logging hierarchy.</p>
-
-<h2 id='examples--help' class='section-header'><a href='#examples--help'>Examples &amp; help</a></h2>
+<h2 id="examples--help" class="section-header"><a href="#examples--help">Examples &amp; help</a></h2>
 <p>Basic examples that are kept up-to-date are typically stored in
 respective git repository, under <code>examples/</code> subdirectory. Eg.
 <a href="https://github.com/slog-rs/term/tree/master/examples">slog-term examples</a>.</p>
-
 <p><a href="https://github.com/slog-rs/slog/wiki">slog-rs wiki pages</a> contain
 some pages about <code>slog-rs</code> technical details.</p>
-
 <p>Source code of other <a href="https://crates.io/crates/slog/reverse_dependencies">software using
 slog-rs</a> can
 be an useful reference.</p>
-
 <p>Visit <a href="https://gitter.im/slog-rs/slog">slog-rs gitter channel</a> for immediate
 help.</p>
-
-<h2 id='migrating-from-slog-v1-to-slog-v2' class='section-header'><a href='#migrating-from-slog-v1-to-slog-v2'>Migrating from slog v1 to slog v2</a></h2>
-<h3 id='key-value-pairs-come-now-after-format-string' class='section-header'><a href='#key-value-pairs-come-now-after-format-string'>Key-value pairs come now after format string</a></h3>
+<h2 id="migrating-from-slog-v1-to-slog-v2" class="section-header"><a href="#migrating-from-slog-v1-to-slog-v2">Migrating from slog v1 to slog v2</a></h2><h3 id="key-value-pairs-come-now-after-format-string" class="section-header"><a href="#key-value-pairs-come-now-after-format-string">Key-value pairs come now after format string</a></h3>
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">slog</span>;
@@ -320,10 +298,8 @@ help.</p>
     <span class="kw">let</span> <span class="ident">root</span> <span class="op">=</span> <span class="ident">slog</span>::<span class="ident">Logger</span>::<span class="ident">root</span>(<span class="ident">drain</span>, <span class="macro">o</span><span class="macro">!</span>());
     <span class="macro">info</span><span class="macro">!</span>(<span class="ident">root</span>, <span class="string">&quot;formatted: {}&quot;</span>, <span class="number">1</span>; <span class="string">&quot;log-key&quot;</span> <span class="op">=&gt;</span> <span class="bool-val">true</span>);
 }</pre>
-
 <p>See more information about format at <a href="macro.log.html"><code>log</code></a>.</p>
-
-<h3 id='slog-streamer-is-gone' class='section-header'><a href='#slog-streamer-is-gone'><code>slog-streamer</code> is gone</a></h3>
+<h3 id="slog-streamer-is-gone" class="section-header"><a href="#slog-streamer-is-gone"><code>slog-streamer</code> is gone</a></h3>
 <p>Create simple terminal logger like this:</p>
 
 <pre class="rust rust-example-rendered">
@@ -341,16 +317,30 @@ help.</p>
 
     <span class="kw">let</span> <span class="ident">_log</span> <span class="op">=</span> <span class="ident">slog</span>::<span class="ident">Logger</span>::<span class="ident">root</span>(<span class="ident">drain</span>, <span class="macro">o</span><span class="macro">!</span>());
 }</pre>
-
-<h3 id='logging-macros-now-takes-ownership-of-values' class='section-header'><a href='#logging-macros-now-takes-ownership-of-values'>Logging macros now takes ownership of values.</a></h3>
+<h3 id="logging-macros-now-takes-ownership-of-values" class="section-header"><a href="#logging-macros-now-takes-ownership-of-values">Logging macros now takes ownership of values.</a></h3>
 <p>Pass them by reference: <code>&amp;x</code>.</p>
 </div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="key/index.html"
+                                  title='mod slog::key'>key</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="private/index.html"
+                                  title='mod slog::private'>private</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
                        <tr class=' module-item'>
                            <td><a class="mod" href="ser/index.html"
                                   title='mod slog::ser'>ser</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>Compatibility name to ease upgrading from <code>slog v1</code></p>
+
                            </td>
                        </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
 <table>
@@ -360,6 +350,7 @@ help.</p>
                            <td class='docblock-short'>
                                 <p>Macro for building group of key-value pairs in
 <a href="struct.BorrowedKV.html"><code>BorrowedKV</code></a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -367,6 +358,7 @@ help.</p>
                                   title='macro slog::crit'>crit</a></td>
                            <td class='docblock-short'>
                                 <p>Log critical level record</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -374,6 +366,7 @@ help.</p>
                                   title='macro slog::debug'>debug</a></td>
                            <td class='docblock-short'>
                                 <p>Log debug level record</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -381,6 +374,7 @@ help.</p>
                                   title='macro slog::error'>error</a></td>
                            <td class='docblock-short'>
                                 <p>Log error level record</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -388,6 +382,7 @@ help.</p>
                                   title='macro slog::info'>info</a></td>
                            <td class='docblock-short'>
                                 <p>Log info level record</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -395,6 +390,7 @@ help.</p>
                                   title='macro slog::kv'>kv</a></td>
                            <td class='docblock-short'>
                                 <p>Macro for build <code>KV</code> implementing type</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -402,6 +398,7 @@ help.</p>
                                   title='macro slog::log'>log</a></td>
                            <td class='docblock-short'>
                                 <p>Log message a logging record</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -410,6 +407,7 @@ help.</p>
                            <td class='docblock-short'>
                                 <p>Macro for building group of key-value pairs:
 <a href="struct.OwnedKV.html"><code>OwnedKV</code></a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -417,6 +415,7 @@ help.</p>
                                   title='macro slog::record'>record</a></td>
                            <td class='docblock-short'>
                                 <p>Create <code>Record</code> at the given code location</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -424,6 +423,7 @@ help.</p>
                                   title='macro slog::record_static'>record_static</a></td>
                            <td class='docblock-short'>
                                 <p>Create <code>RecordStatic</code> at the given code location</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -431,6 +431,7 @@ help.</p>
                                   title='macro slog::slog_b'>slog_b</a></td>
                            <td class='docblock-short'>
                                 <p>Alias of <code>b</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -438,6 +439,7 @@ help.</p>
                                   title='macro slog::slog_crit'>slog_crit</a></td>
                            <td class='docblock-short'>
                                 <p>Log critical level record (alias)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -445,6 +447,7 @@ help.</p>
                                   title='macro slog::slog_debug'>slog_debug</a></td>
                            <td class='docblock-short'>
                                 <p>Log debug level record (alias)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -452,6 +455,7 @@ help.</p>
                                   title='macro slog::slog_error'>slog_error</a></td>
                            <td class='docblock-short'>
                                 <p>Log error level record</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -459,6 +463,7 @@ help.</p>
                                   title='macro slog::slog_info'>slog_info</a></td>
                            <td class='docblock-short'>
                                 <p>Log info level record (alias)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -466,6 +471,7 @@ help.</p>
                                   title='macro slog::slog_kv'>slog_kv</a></td>
                            <td class='docblock-short'>
                                 <p>Alias of <code>kv</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -473,6 +479,7 @@ help.</p>
                                   title='macro slog::slog_log'>slog_log</a></td>
                            <td class='docblock-short'>
                                 <p>Log message a logging record (alias)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -480,6 +487,7 @@ help.</p>
                                   title='macro slog::slog_o'>slog_o</a></td>
                            <td class='docblock-short'>
                                 <p>Macro for building group of key-value pairs (alias)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -487,6 +495,7 @@ help.</p>
                                   title='macro slog::slog_record'>slog_record</a></td>
                            <td class='docblock-short'>
                                 <p>Create <code>Record</code> at the given code location (alias)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -494,6 +503,7 @@ help.</p>
                                   title='macro slog::slog_record_static'>slog_record_static</a></td>
                            <td class='docblock-short'>
                                 <p>Create <code>RecordStatic</code> at the given code location (alias)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -501,6 +511,7 @@ help.</p>
                                   title='macro slog::slog_trace'>slog_trace</a></td>
                            <td class='docblock-short'>
                                 <p>Log trace level record (alias)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -508,6 +519,7 @@ help.</p>
                                   title='macro slog::slog_warn'>slog_warn</a></td>
                            <td class='docblock-short'>
                                 <p>Log warning level record (alias)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -515,6 +527,7 @@ help.</p>
                                   title='macro slog::trace'>trace</a></td>
                            <td class='docblock-short'>
                                 <p>Log trace level record</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -522,14 +535,24 @@ help.</p>
                                   title='macro slog::warn'>warn</a></td>
                            <td class='docblock-short'>
                                 <p>Log warning level record</p>
+
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.AsFmtSerializer.html"
+                                  title='struct slog::AsFmtSerializer'>AsFmtSerializer</a></td>
+                           <td class='docblock-short'>
+                                <p>Serializer to closure adapter.</p>
+
+                           </td>
+                       </tr>
                        <tr class=' module-item'>
                            <td><a class="struct" href="struct.BorrowedKV.html"
                                   title='struct slog::BorrowedKV'>BorrowedKV</a></td>
                            <td class='docblock-short'>
                                 <p>Borrowed <code>KV</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -537,6 +560,7 @@ help.</p>
                                   title='struct slog::Discard'>Discard</a></td>
                            <td class='docblock-short'>
                                 <p><code>Drain</code> discarding everything</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -544,6 +568,7 @@ help.</p>
                                   title='struct slog::Duplicate'>Duplicate</a></td>
                            <td class='docblock-short'>
                                 <p><code>Drain</code> duplicating records into two other <code>Drain</code>s</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -551,6 +576,7 @@ help.</p>
                                   title='struct slog::Filter'>Filter</a></td>
                            <td class='docblock-short'>
                                 <p><code>Drain</code> filtering records</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -558,6 +584,7 @@ help.</p>
                                   title='struct slog::FnValue'>FnValue</a></td>
                            <td class='docblock-short'>
                                 <p>Explicit lazy-closure <code>Value</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -565,6 +592,7 @@ help.</p>
                                   title='struct slog::Fuse'>Fuse</a></td>
                            <td class='docblock-short'>
                                 <p><code>Drain</code> panicking on error</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -572,6 +600,7 @@ help.</p>
                                   title='struct slog::IgnoreResult'>IgnoreResult</a></td>
                            <td class='docblock-short'>
                                 <p><code>Drain</code> ignoring result</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -579,6 +608,7 @@ help.</p>
                                   title='struct slog::LevelFilter'>LevelFilter</a></td>
                            <td class='docblock-short'>
                                 <p><code>Drain</code> filtering records by <code>Record</code> logging level</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -586,6 +616,7 @@ help.</p>
                                   title='struct slog::Logger'>Logger</a></td>
                            <td class='docblock-short'>
                                 <p>Logging handle used to execute logging statements</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -593,6 +624,14 @@ help.</p>
                                   title='struct slog::MapError'>MapError</a></td>
                            <td class='docblock-short'>
                                 <p><code>Drain</code> mapping error returned by another <code>Drain</code></p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.MultiListNode.html"
+                                  title='struct slog::MultiListNode'>MultiListNode</a></td>
+                           <td class='docblock-short'>
+                                
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -600,6 +639,7 @@ help.</p>
                                   title='struct slog::OwnedKV'>OwnedKV</a></td>
                            <td class='docblock-short'>
                                 <p>Owned KV</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -607,6 +647,14 @@ help.</p>
                                   title='struct slog::OwnedKVList'>OwnedKVList</a></td>
                            <td class='docblock-short'>
                                 <p>Chain of <code>SyncMultiSerialize</code>-s of a <code>Logger</code> and its ancestors</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.OwnedKVListNode.html"
+                                  title='struct slog::OwnedKVListNode'>OwnedKVListNode</a></td>
+                           <td class='docblock-short'>
+                                
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -614,6 +662,7 @@ help.</p>
                                   title='struct slog::PushFnValue'>PushFnValue</a></td>
                            <td class='docblock-short'>
                                 <p>Lazy <code>Value</code> that writes to Serializer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -621,6 +670,7 @@ help.</p>
                                   title='struct slog::PushFnValueSerializer'>PushFnValueSerializer</a></td>
                            <td class='docblock-short'>
                                 <p>Handle passed to <code>PushFnValue</code> closure</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -628,6 +678,23 @@ help.</p>
                                   title='struct slog::Record'>Record</a></td>
                            <td class='docblock-short'>
                                 <p>One logging record</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.RecordLocation.html"
+                                  title='struct slog::RecordLocation'>RecordLocation</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.RecordStatic.html"
+                                  title='struct slog::RecordStatic'>RecordStatic</a></td>
+                           <td class='docblock-short'>
+                                <p>Information that can be static in the given record thus allowing to optimize
+record creation to be done mostly at compile-time.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -635,6 +702,7 @@ help.</p>
                                   title='struct slog::SingleKV'>SingleKV</a></td>
                            <td class='docblock-short'>
                                 <p>Single pair <code>Key</code> and <code>Value</code></p>
+
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -643,6 +711,7 @@ help.</p>
                                   title='enum slog::Error'>Error</a></td>
                            <td class='docblock-short'>
                                 <p>Serialization Error</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -650,6 +719,7 @@ help.</p>
                                   title='enum slog::FilterLevel'>FilterLevel</a></td>
                            <td class='docblock-short'>
                                 <p>Logging filtering level</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -657,6 +727,7 @@ help.</p>
                                   title='enum slog::Level'>Level</a></td>
                            <td class='docblock-short'>
                                 <p>Logging level associated with a logging <code>Record</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -664,14 +735,23 @@ help.</p>
                                   title='enum slog::MutexDrainError'>MutexDrainError</a></td>
                            <td class='docblock-short'>
                                 <p>Error returned by <code>Mutex&lt;D : Drain&gt;</code></p>
+
                            </td>
                        </tr></table><h2 id='statics' class='section-header'><a href="#statics">Statics</a></h2>
 <table>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ASCII_LOWERCASE_MAP.html"
+                                  title='static slog::ASCII_LOWERCASE_MAP'>ASCII_LOWERCASE_MAP</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
                        <tr class=' module-item'>
                            <td><a class="static" href="static.LOG_LEVEL_NAMES.html"
                                   title='static slog::LOG_LEVEL_NAMES'>LOG_LEVEL_NAMES</a></td>
                            <td class='docblock-short'>
                                 <p>Official capitalized logging (and logging filtering) level names</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -679,6 +759,15 @@ help.</p>
                                   title='static slog::LOG_LEVEL_SHORT_NAMES'>LOG_LEVEL_SHORT_NAMES</a></td>
                            <td class='docblock-short'>
                                 <p>Official capitalized logging (and logging filtering) short level names</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.STATIC_TERMINATOR_UNIT.html"
+                                  title='static slog::STATIC_TERMINATOR_UNIT'>STATIC_TERMINATOR_UNIT</a></td>
+                           <td class='docblock-short'>
+                                <p>This is not part of &quot;stable&quot; API</p>
+
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -687,6 +776,7 @@ help.</p>
                                   title='trait slog::Drain'>Drain</a></td>
                            <td class='docblock-short'>
                                 <p>Logging drain</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -694,6 +784,7 @@ help.</p>
                                   title='trait slog::FilterFn'>FilterFn</a></td>
                            <td class='docblock-short'>
                                 <p>Function that can be used in <code>Filter</code> drain</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -701,6 +792,7 @@ help.</p>
                                   title='trait slog::KV'>KV</a></td>
                            <td class='docblock-short'>
                                 <p>Key-value pair(s)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -708,6 +800,7 @@ help.</p>
                                   title='trait slog::MapErrFn'>MapErrFn</a></td>
                            <td class='docblock-short'>
                                 <p>Function that can be used in <code>MapErr</code> drain</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -715,6 +808,7 @@ help.</p>
                                   title='trait slog::SendRefUnwindSafeDrain'>SendRefUnwindSafeDrain</a></td>
                            <td class='docblock-short'>
                                 <p><code>Drain + Send + RefUnwindSafe</code> bound</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -722,6 +816,7 @@ help.</p>
                                   title='trait slog::SendSyncRefUnwindSafeDrain'>SendSyncRefUnwindSafeDrain</a></td>
                            <td class='docblock-short'>
                                 <p><code>Drain + Send + Sync + RefUnwindSafe</code> bound</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -729,6 +824,7 @@ help.</p>
                                   title='trait slog::SendSyncRefUnwindSafeKV'>SendSyncRefUnwindSafeKV</a></td>
                            <td class='docblock-short'>
                                 <p>Thread-local safety bound for <code>KV</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -736,6 +832,7 @@ help.</p>
                                   title='trait slog::SendSyncUnwindSafe'>SendSyncUnwindSafe</a></td>
                            <td class='docblock-short'>
                                 <p><code>Send + Sync + UnwindSafe</code> bound</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -743,6 +840,7 @@ help.</p>
                                   title='trait slog::SendSyncUnwindSafeDrain'>SendSyncUnwindSafeDrain</a></td>
                            <td class='docblock-short'>
                                 <p><code>Drain + Send + Sync + UnwindSafe</code> bound</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -750,6 +848,7 @@ help.</p>
                                   title='trait slog::Serializer'>Serializer</a></td>
                            <td class='docblock-short'>
                                 <p>Serializer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -757,6 +856,16 @@ help.</p>
                                   title='trait slog::Value'>Value</a></td>
                            <td class='docblock-short'>
                                 <p>Value that can be serialized</p>
+
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.__slog_static_max_level.html"
+                                  title='fn slog::__slog_static_max_level'>__slog_static_max_level</a></td>
+                           <td class='docblock-short'>
+                                <p>Not an API</p>
+
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
@@ -765,6 +874,17 @@ help.</p>
                                   title='type slog::Key'>Key</a></td>
                            <td class='docblock-short'>
                                 <p>Key type</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="type" href="type.Never.html"
+                                  title='type slog::Never'>Never</a></td>
+                           <td class='docblock-short'>
+                                <p>This type is here just to abstract away lack of <code>!</code> type support in stable
+rust during time of the release. It will be switched to <code>!</code> at some point
+and <code>Never</code> should not be considered &quot;stable&quot; API.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -772,6 +892,7 @@ help.</p>
                                   title='type slog::OwnedKeyValueList'>OwnedKeyValueList</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>Compatibility name to ease upgrading from <code>slog v1</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -779,6 +900,7 @@ help.</p>
                                   title='type slog::PushFnSerializer'>PushFnSerializer</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>Old name of <code>PushFnValueSerializer</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -786,6 +908,7 @@ help.</p>
                                   title='type slog::PushLazy'>PushLazy</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>Compatibility name to ease upgrading from <code>slog v1</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -793,6 +916,7 @@ help.</p>
                                   title='type slog::Result'>Result</a></td>
                            <td class='docblock-short'>
                                 <p>Serialization <code>Result</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -800,6 +924,7 @@ help.</p>
                                   title='type slog::Serialize'>Serialize</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>Compatibility name to ease upgrading from <code>slog v1</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -807,6 +932,7 @@ help.</p>
                                   title='type slog::ValueSerializer'>ValueSerializer</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>Compatibility name to ease upgrading from <code>slog v1</code></p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -821,20 +947,22 @@ help.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

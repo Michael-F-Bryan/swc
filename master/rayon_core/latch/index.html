@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `latch` mod in crate `rayon_core`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, latch">
+
+    <title>rayon_core::latch - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Module latch</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'><a href='../index.html'>rayon_core</a></p><script>window.sidebarCurrent = {name: 'latch', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>rayon_core</a>::<wbr><a class="mod" href=''>latch</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/rayon_core/latch.rs.html#1-185' title='goto source code'>[src]</a></span></h1>
+<h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.CountLatch.html"
+                                  title='struct rayon_core::latch::CountLatch'>CountLatch</a></td>
+                           <td class='docblock-short'>
+                                <p>Counting latches are used to implement scopes. They track a
+counter. Unlike other latches, calling <code>set()</code> does not
+necessarily make the latch be considered <code>set()</code>; instead, it just
+decrements the counter. The latch is only &quot;set&quot; (in the sense that
+<code>probe()</code> returns true) once the counter reaches zero.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.LockLatch.html"
+                                  title='struct rayon_core::latch::LockLatch'>LockLatch</a></td>
+                           <td class='docblock-short'>
+                                <p>A Latch starts as false and eventually becomes true. You can block
+until it becomes true.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.SpinLatch.html"
+                                  title='struct rayon_core::latch::SpinLatch'>SpinLatch</a></td>
+                           <td class='docblock-short'>
+                                <p>Spin latches are the simplest, most efficient kind, but they do
+not support a <code>wait()</code> operation. They just have a boolean flag
+that becomes true when <code>set()</code> is called.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.TickleLatch.html"
+                                  title='struct rayon_core::latch::TickleLatch'>TickleLatch</a></td>
+                           <td class='docblock-short'>
+                                <p>A tickling latch wraps another latch type, and will also awaken a thread
+pool when it is set.  This is useful for jobs injected between thread pools,
+so the source pool can continue processing its own work while waiting.</p>
+
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.Latch.html"
+                                  title='trait rayon_core::latch::Latch'>Latch</a></td>
+                           <td class='docblock-short'>
+                                <p>We define various kinds of latches, which are all a primitive signaling
+mechanism. A latch starts as false. Eventually someone calls <code>set()</code> and
+it becomes true. You can test if it has been set by calling <code>probe()</code>.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.LatchProbe.html"
+                                  title='trait rayon_core::latch::LatchProbe'>LatchProbe</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "rayon_core";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

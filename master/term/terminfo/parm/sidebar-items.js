@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Error","An error from interpreting a parameterized string."],["FormatOp",""],["FormatState",""],["Param","Types of parameters a capability can use"],["States",""]],"fn":[["expand","Expand a parameterized capability"],["format",""]],"struct":[["Flags",""],["Variables","Container for static and dynamic variable arrays"]]});

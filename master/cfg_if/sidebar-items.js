@@ -1,1 +1,1 @@
-initSidebarItems({"macro":[["cfg_if",""]]});
+initSidebarItems({"macro":[["__cfg_if_apply",""],["__cfg_if_items",""],["cfg_if",""]]});

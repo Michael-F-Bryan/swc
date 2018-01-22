@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DATE_NEWTYPE_STRUCT_NAME",""]],"struct":[["DateNewtypeVisitor",""],["DateStrVisitor",""]]});

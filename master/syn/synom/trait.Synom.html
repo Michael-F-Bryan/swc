@@ -56,9 +56,7 @@
     fn <a href='#method.description' class='fnname'>description</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; { ... }
 }</pre><div class='docblock'><p>Parsing interface implemented by all types that can be parsed in a default
 way from a token stream.</p>
-
 <p>Refer to the <a href="index.html">module documentation</a> for details about parsing in Syn.</p>
-
 <p><em>This trait is available if Syn is built with the <code>&quot;parsing&quot;</code> feature.</em></p>
 </div>
             <h2 id='required-methods' class='small-section-header'>
@@ -194,30 +192,30 @@ way from a token stream.</p>
 <li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2061-2074' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.Label.html" title="struct syn::Label">Label</a></code></li>
 <li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2077-2091' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.ExprContinue.html" title="struct syn::ExprContinue">ExprContinue</a></code></li>
 <li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2125-2157' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.ExprStruct.html" title="struct syn::ExprStruct">ExprStruct</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2160-2189' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.FieldValue.html" title="struct syn::FieldValue">FieldValue</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2192-2212' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.ExprRepeat.html" title="struct syn::ExprRepeat">ExprRepeat</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2215-2229' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.ExprUnsafe.html" title="struct syn::ExprUnsafe">ExprUnsafe</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2232-2244' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.ExprBlock.html" title="struct syn::ExprBlock">ExprBlock</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2259-2273' title='goto source code'>[src]</a></div><code>impl Synom for <a class="enum" href="../../syn/enum.RangeLimits.html" title="enum syn::RangeLimits">RangeLimits</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2275-2288' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.ExprPath.html" title="struct syn::ExprPath">ExprPath</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2296-2308' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.Block.html" title="struct syn::Block">Block</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2338-2354' title='goto source code'>[src]</a></div><code>impl Synom for <a class="enum" href="../../syn/enum.Stmt.html" title="enum syn::Stmt">Stmt</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2430-2460' title='goto source code'>[src]</a></div><code>impl Synom for <a class="enum" href="../../syn/enum.Pat.html" title="enum syn::Pat">Pat</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2463-2472' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatWild.html" title="struct syn::PatWild">PatWild</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2475-2488' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatBox.html" title="struct syn::PatBox">PatBox</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2491-2514' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatIdent.html" title="struct syn::PatIdent">PatIdent</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2517-2530' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatTupleStruct.html" title="struct syn::PatTupleStruct">PatTupleStruct</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2533-2552' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatStruct.html" title="struct syn::PatStruct">PatStruct</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2555-2600' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.FieldPat.html" title="struct syn::FieldPat">FieldPat</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2603-2613' title='goto source code'>[src]</a></div><code>impl Synom for <a class="enum" href="../../syn/enum.Member.html" title="enum syn::Member">Member</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2616-2631' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.Index.html" title="struct syn::Index">Index</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2634-2643' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatPath.html" title="struct syn::PatPath">PatPath</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2646-2679' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatTuple.html" title="struct syn::PatTuple">PatTuple</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2682-2697' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatRef.html" title="struct syn::PatRef">PatRef</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2700-2715' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatLit.html" title="struct syn::PatLit">PatLit</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2718-2733' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatRange.html" title="struct syn::PatRange">PatRange</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2755-2799' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatSlice.html" title="struct syn::PatSlice">PatSlice</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2802-2808' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatMacro.html" title="struct syn::PatMacro">PatMacro</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2160-2187' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.FieldValue.html" title="struct syn::FieldValue">FieldValue</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2190-2210' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.ExprRepeat.html" title="struct syn::ExprRepeat">ExprRepeat</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2213-2227' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.ExprUnsafe.html" title="struct syn::ExprUnsafe">ExprUnsafe</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2230-2242' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.ExprBlock.html" title="struct syn::ExprBlock">ExprBlock</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2257-2271' title='goto source code'>[src]</a></div><code>impl Synom for <a class="enum" href="../../syn/enum.RangeLimits.html" title="enum syn::RangeLimits">RangeLimits</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2273-2286' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.ExprPath.html" title="struct syn::ExprPath">ExprPath</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2294-2306' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.Block.html" title="struct syn::Block">Block</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2336-2352' title='goto source code'>[src]</a></div><code>impl Synom for <a class="enum" href="../../syn/enum.Stmt.html" title="enum syn::Stmt">Stmt</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2428-2458' title='goto source code'>[src]</a></div><code>impl Synom for <a class="enum" href="../../syn/enum.Pat.html" title="enum syn::Pat">Pat</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2461-2470' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatWild.html" title="struct syn::PatWild">PatWild</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2473-2486' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatBox.html" title="struct syn::PatBox">PatBox</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2489-2512' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatIdent.html" title="struct syn::PatIdent">PatIdent</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2515-2528' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatTupleStruct.html" title="struct syn::PatTupleStruct">PatTupleStruct</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2531-2550' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatStruct.html" title="struct syn::PatStruct">PatStruct</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2553-2598' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.FieldPat.html" title="struct syn::FieldPat">FieldPat</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2601-2611' title='goto source code'>[src]</a></div><code>impl Synom for <a class="enum" href="../../syn/enum.Member.html" title="enum syn::Member">Member</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2614-2629' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.Index.html" title="struct syn::Index">Index</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2632-2641' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatPath.html" title="struct syn::PatPath">PatPath</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2644-2677' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatTuple.html" title="struct syn::PatTuple">PatTuple</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2680-2695' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatRef.html" title="struct syn::PatRef">PatRef</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2698-2713' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatLit.html" title="struct syn::PatLit">PatLit</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2716-2731' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatRange.html" title="struct syn::PatRange">PatRange</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2753-2797' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatSlice.html" title="struct syn::PatSlice">PatSlice</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../src/syn/expr.rs.html#2800-2806' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.PatMacro.html" title="struct syn::PatMacro">PatMacro</a></code></li>
 <li><div class='out-of-band'><a class='srclink' href='../../src/syn/generics.rs.html#476-510' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.Generics.html" title="struct syn::Generics">Generics</a></code></li>
 <li><div class='out-of-band'><a class='srclink' href='../../src/syn/generics.rs.html#512-524' title='goto source code'>[src]</a></div><code>impl Synom for <a class="enum" href="../../syn/enum.GenericParam.html" title="enum syn::GenericParam">GenericParam</a></code></li>
 <li><div class='out-of-band'><a class='srclink' href='../../src/syn/generics.rs.html#526-546' title='goto source code'>[src]</a></div><code>impl Synom for <a class="struct" href="../../syn/struct.LifetimeDef.html" title="struct syn::LifetimeDef">LifetimeDef</a></code></li>
@@ -318,20 +316,22 @@ way from a token stream.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

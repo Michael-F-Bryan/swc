@@ -70,9 +70,7 @@
     ) <span class="op">=&gt;</span> { ... };
 }</pre>
 <div class='docblock'><p>ide-friendly quasi quotting.</p>
-
-<h1 id='syntax' class='section-header'><a href='#syntax'>Syntax</a></h1>
-<h2 id='vars' class='section-header'><a href='#vars'>Vars</a></h2>
+<h1 id="syntax" class="section-header"><a href="#syntax">Syntax</a></h1><h2 id="vars" class="section-header"><a href="#vars">Vars</a></h2>
 <p>Syntax is simillar to field initialization syntax.</p>
 
 <div class='information'><div class='tooltip ignore'>ⓘ<span class='tooltiptext'>This example is not tested</span></div></div><pre class="rust rust-example-rendered ignore">
@@ -90,26 +88,22 @@
   <span class="ident">d</span>: <span class="ident">d</span>,
 }
 </pre>
-
-<p>Note that <code>Vars{}</code> is required even if there&#39;s no variable.</p>
-
-<h2 id='tokens' class='section-header'><a href='#tokens'>Tokens</a></h2>
+<p>Note that <code>Vars{}</code> is required even if there's no variable.</p>
+<h2 id="tokens" class="section-header"><a href="#tokens">Tokens</a></h2>
 <p>As parsers for syntax highligters implement error recovery,
-  tokens are wrapped in block or paren like <code>{ tokens.. }</code>/ <code>( tokens.. )</code>.</p>
-
-<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
+tokens are wrapped in block or paren like <code>{ tokens.. }</code>/ <code>( tokens.. )</code>.</p>
+<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
 <div class='information'><div class='tooltip ignore'>ⓘ<span class='tooltiptext'>This example is not tested</span></div></div><pre class="rust rust-example-rendered ignore">
-<span class="macro">smart_quote</span><span class="macro">!</span>(<span class="ident">Vars</span>{
+ <span class="macro">smart_quote</span><span class="macro">!</span>(<span class="ident">Vars</span>{
      <span class="ident">OrigTrait</span>: <span class="ident">tr</span>.<span class="ident">ident</span>,
      <span class="ident">SpecializerTrait</span>: <span class="ident">tr</span>.<span class="ident">ident</span>.<span class="ident">new_ident_with</span>(<span class="op">|</span><span class="ident">tr</span><span class="op">|</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}Specializer&quot;</span>, <span class="ident">tr</span>)),
  }, {
      <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">OrigTrait</span> <span class="kw">for</span> <span class="ident">T</span> <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">SpecializerTrait</span> {
      }
  })</pre>
-
-<h1 id='example-no-variable' class='section-header'><a href='#example-no-variable'>Example (no variable)</a></h1>
+<h1 id="example-no-variable" class="section-header"><a href="#example-no-variable">Example (no variable)</a></h1>
 <div class='information'><div class='tooltip ignore'>ⓘ<span class='tooltiptext'>This example is not tested</span></div></div><pre class="rust rust-example-rendered ignore">
-<span class="macro">smart_quote</span><span class="macro">!</span>(<span class="ident">Vars</span>{}, {
+ <span class="macro">smart_quote</span><span class="macro">!</span>(<span class="ident">Vars</span>{}, {
      <span class="kw">yield</span> ();
  })</pre>
 </div></section>
@@ -125,20 +119,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

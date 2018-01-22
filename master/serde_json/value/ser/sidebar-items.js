@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["SerializeMap",""],["SerializeStructVariant",""],["SerializeTupleVariant",""],["SerializeVec",""],["Serializer",""]]});

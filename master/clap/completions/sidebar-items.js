@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["all_subcommand_names",""],["all_subcommands",""],["get_all_subcommand_paths",""],["subcommands_of",""]],"mod":[["bash",""],["fish",""],["macros",""],["powershell",""],["shell",""],["zsh",""]],"struct":[["ComplGen",""]]});

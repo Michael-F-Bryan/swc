@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CACHE_LINE",""]],"fn":[["assert_valid","Assert that the size and alignment of `T` are consistent with `CachePadded<T>`."]],"struct":[["CachePadded","Pad `T` to the length of a cacheline."],["Padding",""]],"trait":[["ZerosValid","Types for which mem::zeroed() is safe."]]});

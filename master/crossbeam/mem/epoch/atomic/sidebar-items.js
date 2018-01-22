@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["opt_owned_as_raw",""],["opt_owned_into_raw",""],["opt_shared_into_raw",""]],"struct":[["Atomic","Like `std::sync::atomic::AtomicPtr`."]]});

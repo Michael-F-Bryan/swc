@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ReentrantMutex","A mutex which can be recursively locked by a single thread."],["ReentrantMutexGuard","An RAII implementation of a \"scoped lock\" of a reentrant mutex. When this structure is dropped (falls out of scope), the lock will be unlocked."]]});

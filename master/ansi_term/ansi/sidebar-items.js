@@ -1,0 +1,1 @@
+initSidebarItems({"static":[["RESET","The code to send to reset all styles and return to `Style::default()`."]],"struct":[["Infix","Like `ANSIString`, but only displays the difference between two styles."],["Prefix","Like `ANSIString`, but only displays the style prefix."],["Suffix","Like `ANSIString`, but only displays the style suffix."]]});

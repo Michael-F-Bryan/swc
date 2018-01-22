@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Payload",""]],"struct":[["MsQueue","A Michael-Scott lock-free queue, with support for blocking `pop`s."],["Node",""],["Signal","A blocked request for data, which includes a slot to write the data."]]});

@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Module parser</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../index.html'>swc_ecma_parser</a></p><script>window.sidebarCurrent = {name: 'parser', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+        <p class='location'>Module parser</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../index.html'>swc_ecma_parser</a></p><script>window.sidebarCurrent = {name: 'parser', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -49,21 +49,81 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/swc_ecma_parser/parser/mod.rs.html#1-110' title='goto source code'>[src]</a></span></h1>
-<h2 id='reexports' class='section-header'><a href="#reexports">Re-exports</a></h2>
-<table><tr><td><code>pub use self::input::<a class="trait" href="../../swc_ecma_parser/parser/input/trait.Input.html" title="trait swc_ecma_parser::parser::input::Input">Input</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+               </span><a class='srclink' href='../../src/swc_ecma_parser/parser/mod.rs.html#1-91' title='goto source code'>[src]</a></span></h1>
+<h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="class_and_fn/index.html"
+                                  title='mod swc_ecma_parser::parser::class_and_fn'>class_and_fn</a></td>
+                           <td class='docblock-short'>
+                                <p>Parser for function expression and function declaration.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="expr/index.html"
+                                  title='mod swc_ecma_parser::parser::expr'>expr</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="ident/index.html"
+                                  title='mod swc_ecma_parser::parser::ident'>ident</a></td>
+                           <td class='docblock-short'>
+                                <p>12.1 Identifiers</p>
+
+                           </td>
+                       </tr>
                        <tr class=' module-item'>
                            <td><a class="mod" href="input/index.html"
                                   title='mod swc_ecma_parser::parser::input'>input</a></td>
                            <td class='docblock-short'>
                                 <p>Note: this module requires <code>#![feature(nll)]</code>.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="macros/index.html"
+                                  title='mod swc_ecma_parser::parser::macros'>macros</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="object/index.html"
+                                  title='mod swc_ecma_parser::parser::object'>object</a></td>
+                           <td class='docblock-short'>
+                                <p>Parser for object literal.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="pat/index.html"
+                                  title='mod swc_ecma_parser::parser::pat'>pat</a></td>
+                           <td class='docblock-short'>
+                                <p>13.3.3 Destructuring Binding Patterns</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="stmt/index.html"
+                                  title='mod swc_ecma_parser::parser::stmt'>stmt</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="util/index.html"
+                                  title='mod swc_ecma_parser::parser::util'>util</a></td>
+                           <td class='docblock-short'>
+                                
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Config.html"
-                                  title='struct swc_ecma_parser::parser::Config'>Config</a></td>
+                           <td><a class="struct" href="struct.Context.html"
+                                  title='struct swc_ecma_parser::parser::Context'>Context</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
@@ -73,12 +133,12 @@
                                   title='struct swc_ecma_parser::parser::Parser'>Parser</a></td>
                            <td class='docblock-short'>
                                 <p>EcmaScript parser.</p>
+
                            </td>
-                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
-<table>
+                       </tr>
                        <tr class=' module-item'>
-                           <td><a class="enum" href="enum.Error.html"
-                                  title='enum swc_ecma_parser::parser::Error'>Error</a></td>
+                           <td><a class="struct" href="struct.State.html"
+                                  title='struct swc_ecma_parser::parser::State'>State</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
@@ -103,20 +163,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

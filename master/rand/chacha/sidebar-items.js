@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CHACHA_ROUNDS",""],["KEY_WORDS",""],["STATE_WORDS",""]],"fn":[["core",""]],"static":[["EMPTY",""]],"struct":[["ChaChaRng","A random number generator that uses the ChaCha20 algorithm [1]."]]});

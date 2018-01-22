@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ObligationForest` struct in crate `rustc_data_structures`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ObligationForest">
+
+    <title>rustc_data_structures::obligation_forest::ObligationForest - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    <link rel="shortcut icon" href="https://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        <a href='../../rustc_data_structures/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
+        <p class='location'>Struct ObligationForest</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.nodes">nodes</a><a href="#structfield.done_cache">done_cache</a><a href="#structfield.waiting_cache">waiting_cache</a><a href="#structfield.cache_list">cache_list</a><a href="#structfield.scratch">scratch</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.len">len</a><a href="#method.register_obligation">register_obligation</a><a href="#method.register_obligation_at">register_obligation_at</a><a href="#method.to_errors">to_errors</a><a href="#method.pending_obligations">pending_obligations</a><a href="#method.process_obligations">process_obligations</a><a href="#method.process_cycles">process_cycles</a><a href="#method.find_cycles_from_node">find_cycles_from_node</a><a href="#method.error_at">error_at</a><a href="#method.mark_neighbors_as_waiting_from">mark_neighbors_as_waiting_from</a><a href="#method.mark_as_waiting">mark_as_waiting</a><a href="#method.mark_as_waiting_from">mark_as_waiting_from</a><a href="#method.compress">compress</a><a href="#method.apply_rewrites">apply_rewrites</a></div></div><p class='location'><a href='../index.html'>rustc_data_structures</a>::<wbr><a href='index.html'>obligation_forest</a></p><script>window.sidebarCurrent = {name: 'ObligationForest', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>rustc_data_structures</a>::<wbr><a href='index.html'>obligation_forest</a>::<wbr><a class="struct" href=''>ObligationForest</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#60-82' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ObligationForest&lt;O:&nbsp;<a class="trait" href="../../rustc_data_structures/obligation_forest/trait.ForestObligation.html" title="trait rustc_data_structures::obligation_forest::ForestObligation">ForestObligation</a>&gt; {
+    nodes: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../rustc_data_structures/obligation_forest/struct.Node.html" title="struct rustc_data_structures::obligation_forest::Node">Node</a>&lt;O&gt;&gt;,
+    done_cache: <a class="type" href="../../rustc_data_structures/fx/type.FxHashSet.html" title="type rustc_data_structures::fx::FxHashSet">FxHashSet</a>&lt;O::<a class="type" href="../../rustc_data_structures/obligation_forest/trait.ForestObligation.html#associatedtype.Predicate" title="type rustc_data_structures::obligation_forest::ForestObligation::Predicate">Predicate</a>&gt;,
+    waiting_cache: <a class="type" href="../../rustc_data_structures/fx/type.FxHashMap.html" title="type rustc_data_structures::fx::FxHashMap">FxHashMap</a>&lt;O::<a class="type" href="../../rustc_data_structures/obligation_forest/trait.ForestObligation.html#associatedtype.Predicate" title="type rustc_data_structures::obligation_forest::ForestObligation::Predicate">Predicate</a>, <a class="struct" href="../../rustc_data_structures/obligation_forest/node_index/struct.NodeIndex.html" title="struct rustc_data_structures::obligation_forest::node_index::NodeIndex">NodeIndex</a>&gt;,
+    cache_list: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;O::<a class="type" href="../../rustc_data_structures/obligation_forest/trait.ForestObligation.html#associatedtype.Predicate" title="type rustc_data_structures::obligation_forest::ForestObligation::Predicate">Predicate</a>&gt;,
+    scratch: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt;&gt;,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.nodes" class="structfield small-section-header">
+                           <a href="#structfield.nodes" class="anchor field"></a>
+                           <span id="nodes.v" class='invisible'>
+                           <code>nodes: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../rustc_data_structures/obligation_forest/struct.Node.html" title="struct rustc_data_structures::obligation_forest::Node">Node</a>&lt;O&gt;&gt;</code>
+                           </span></span><div class='docblock'><p>The list of obligations. In between calls to
+<code>process_obligations</code>, this list only contains nodes in the
+<code>Pending</code> or <code>Success</code> state (with a non-zero number of
+incomplete children). During processing, some of those nodes
+may be changed to the error state, or we may find that they
+are completed (That is, <code>num_incomplete_children</code> drops to 0).
+At the end of processing, those nodes will be removed by a
+call to <code>compress</code>.</p>
+<p>At all times we maintain the invariant that every node appears
+at a higher index than its parent. This is needed by the
+backtrace iterator (which uses <code>split_at</code>).</p>
+</div><span id="structfield.done_cache" class="structfield small-section-header">
+                           <a href="#structfield.done_cache" class="anchor field"></a>
+                           <span id="done_cache.v" class='invisible'>
+                           <code>done_cache: <a class="type" href="../../rustc_data_structures/fx/type.FxHashSet.html" title="type rustc_data_structures::fx::FxHashSet">FxHashSet</a>&lt;O::<a class="type" href="../../rustc_data_structures/obligation_forest/trait.ForestObligation.html#associatedtype.Predicate" title="type rustc_data_structures::obligation_forest::ForestObligation::Predicate">Predicate</a>&gt;</code>
+                           </span></span><div class='docblock'><p>A cache of predicates that have been successfully completed.</p>
+</div><span id="structfield.waiting_cache" class="structfield small-section-header">
+                           <a href="#structfield.waiting_cache" class="anchor field"></a>
+                           <span id="waiting_cache.v" class='invisible'>
+                           <code>waiting_cache: <a class="type" href="../../rustc_data_structures/fx/type.FxHashMap.html" title="type rustc_data_structures::fx::FxHashMap">FxHashMap</a>&lt;O::<a class="type" href="../../rustc_data_structures/obligation_forest/trait.ForestObligation.html#associatedtype.Predicate" title="type rustc_data_structures::obligation_forest::ForestObligation::Predicate">Predicate</a>, <a class="struct" href="../../rustc_data_structures/obligation_forest/node_index/struct.NodeIndex.html" title="struct rustc_data_structures::obligation_forest::node_index::NodeIndex">NodeIndex</a>&gt;</code>
+                           </span></span><div class='docblock'><p>An cache of the nodes in <code>nodes</code>, indexed by predicate.</p>
+</div><span id="structfield.cache_list" class="structfield small-section-header">
+                           <a href="#structfield.cache_list" class="anchor field"></a>
+                           <span id="cache_list.v" class='invisible'>
+                           <code>cache_list: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;O::<a class="type" href="../../rustc_data_structures/obligation_forest/trait.ForestObligation.html#associatedtype.Predicate" title="type rustc_data_structures::obligation_forest::ForestObligation::Predicate">Predicate</a>&gt;</code>
+                           </span></span><div class='docblock'><p>A list of the obligations added in snapshots, to allow
+for their removal.</p>
+</div><span id="structfield.scratch" class="structfield small-section-header">
+                           <a href="#structfield.scratch" class="anchor field"></a>
+                           <span id="scratch.v" class='invisible'>
+                           <code>scratch: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt;&gt;</code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;O:&nbsp;<a class="trait" href="../../rustc_data_structures/obligation_forest/trait.ForestObligation.html" title="trait rustc_data_structures::obligation_forest::ForestObligation">ForestObligation</a>&gt; <a class="struct" href="../../rustc_data_structures/obligation_forest/struct.ObligationForest.html" title="struct rustc_data_structures::obligation_forest::ObligationForest">ObligationForest</a>&lt;O&gt;</code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#155-588' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class="struct" href="../../rustc_data_structures/obligation_forest/struct.ObligationForest.html" title="struct rustc_data_structures::obligation_forest::ObligationForest">ObligationForest</a>&lt;O&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#156-164' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.len' class="method"><span id='len.v' class='invisible'><code>pub fn <a href='#method.len' class='fnname'>len</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#168-170' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the total number of nodes in the forest that have not
+yet been fully resolved.</p>
+</div><h4 id='method.register_obligation' class="method"><span id='register_obligation.v' class='invisible'><code>pub fn <a href='#method.register_obligation' class='fnname'>register_obligation</a>(&amp;mut self, obligation: O)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#175-178' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Registers an obligation</p>
+<p>This CAN be done in a snapshot</p>
+</div><h4 id='method.register_obligation_at' class="method"><span id='register_obligation_at.v' class='invisible'><code>fn <a href='#method.register_obligation_at' class='fnname'>register_obligation_at</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;obligation: O, <br>&nbsp;&nbsp;&nbsp;&nbsp;parent: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../rustc_data_structures/obligation_forest/node_index/struct.NodeIndex.html" title="struct rustc_data_structures::obligation_forest::node_index::NodeIndex">NodeIndex</a>&gt;<br>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#181-215' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.to_errors' class="method"><div class="important-traits"><div class='tooltip'>ⓘ<span class='tooltiptext'>Important traits for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</span></div><div class="content hidden"><h3 class="important">Important traits for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</h3><code class="content"><span class="where fmt-newline">impl <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a> for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</span></code></div></div><span id='to_errors.v' class='invisible'><code>pub fn <a href='#method.to_errors' class='fnname'>to_errors</a>&lt;E:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a>&gt;(&amp;mut self, error: E) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../rustc_data_structures/obligation_forest/struct.Error.html" title="struct rustc_data_structures::obligation_forest::Error">Error</a>&lt;O, E&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#220-234' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Convert all remaining obligations to the given error.</p>
+<p>This cannot be done during a snapshot.</p>
+</div><h4 id='method.pending_obligations' class="method"><div class="important-traits"><div class='tooltip'>ⓘ<span class='tooltiptext'>Important traits for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</span></div><div class="content hidden"><h3 class="important">Important traits for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</h3><code class="content"><span class="where fmt-newline">impl <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a> for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</span></code></div></div><span id='pending_obligations.v' class='invisible'><code>pub fn <a href='#method.pending_obligations' class='fnname'>pending_obligations</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;O&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;O: <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#237-245' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the set of obligations that are in a pending state.</p>
+</div><h4 id='method.process_obligations' class="method"><span id='process_obligations.v' class='invisible'><code>pub fn <a href='#method.process_obligations' class='fnname'>process_obligations</a>&lt;P&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;processor: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>P<br>) -&gt; <a class="struct" href="../../rustc_data_structures/obligation_forest/struct.Outcome.html" title="struct rustc_data_structures::obligation_forest::Outcome">Outcome</a>&lt;O, P::<a class="type" href="../../rustc_data_structures/obligation_forest/trait.ObligationProcessor.html#associatedtype.Error" title="type rustc_data_structures::obligation_forest::ObligationProcessor::Error">Error</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;P: <a class="trait" href="../../rustc_data_structures/obligation_forest/trait.ObligationProcessor.html" title="trait rustc_data_structures::obligation_forest::ObligationProcessor">ObligationProcessor</a>&lt;Obligation = O&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#251-332' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Perform a pass through the obligation list. This must
+be called in a loop until <code>outcome.stalled</code> is false.</p>
+<p>This CANNOT be unrolled (presently, at least).</p>
+</div><h4 id='method.process_cycles' class="method"><span id='process_cycles.v' class='invisible'><code>fn <a href='#method.process_cycles' class='fnname'>process_cycles</a>&lt;P&gt;(&amp;mut self, processor: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>P) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;P: <a class="trait" href="../../rustc_data_structures/obligation_forest/trait.ObligationProcessor.html" title="trait rustc_data_structures::obligation_forest::ObligationProcessor">ObligationProcessor</a>&lt;Obligation = O&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#338-362' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Mark all NodeState::Success nodes as NodeState::Done and
+report all cycles between them. This should be called
+after <code>mark_as_waiting</code> marks all nodes with pending
+subobligations as NodeState::Waiting.</p>
+</div><h4 id='method.find_cycles_from_node' class="method"><span id='find_cycles_from_node.v' class='invisible'><code>fn <a href='#method.find_cycles_from_node' class='fnname'>find_cycles_from_node</a>&lt;P&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;stack: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;processor: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>P, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a><br>) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;P: <a class="trait" href="../../rustc_data_structures/obligation_forest/trait.ObligationProcessor.html" title="trait rustc_data_structures::obligation_forest::ObligationProcessor">ObligationProcessor</a>&lt;Obligation = O&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#364-397' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.error_at' class="method"><div class="important-traits"><div class='tooltip'>ⓘ<span class='tooltiptext'>Important traits for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</span></div><div class="content hidden"><h3 class="important">Important traits for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</h3><code class="content"><span class="where fmt-newline">impl <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a> for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</span></code></div></div><span id='error_at.v' class='invisible'><code>fn <a href='#method.error_at' class='fnname'>error_at</a>(&amp;mut self, p: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;O&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#401-439' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a vector of obligations for <code>p</code> and all of its
+ancestors, putting them into the error state in the process.</p>
+</div><h4 id='method.mark_neighbors_as_waiting_from' class="method"><span id='mark_neighbors_as_waiting_from.v' class='invisible'><code>fn <a href='#method.mark_neighbors_as_waiting_from' class='fnname'>mark_neighbors_as_waiting_from</a>(&amp;self, node: &amp;<a class="struct" href="../../rustc_data_structures/obligation_forest/struct.Node.html" title="struct rustc_data_structures::obligation_forest::Node">Node</a>&lt;O&gt;)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#442-450' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.mark_as_waiting' class="method"><span id='mark_as_waiting.v' class='invisible'><code>fn <a href='#method.mark_as_waiting' class='fnname'>mark_as_waiting</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#453-465' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Marks all nodes that depend on a pending node as NodeState::Waiting.</p>
+</div><h4 id='method.mark_as_waiting_from' class="method"><span id='mark_as_waiting_from.v' class='invisible'><code>fn <a href='#method.mark_as_waiting_from' class='fnname'>mark_as_waiting_from</a>(&amp;self, node: &amp;<a class="struct" href="../../rustc_data_structures/obligation_forest/struct.Node.html" title="struct rustc_data_structures::obligation_forest::Node">Node</a>&lt;O&gt;)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#467-475' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.compress' class="method"><div class="important-traits"><div class='tooltip'>ⓘ<span class='tooltiptext'>Important traits for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</span></div><div class="content hidden"><h3 class="important">Important traits for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</h3><code class="content"><span class="where fmt-newline">impl <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a> for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</span></code></div></div><span id='compress.v' class='invisible'><code>fn <a href='#method.compress' class='fnname'>compress</a>(&amp;mut self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;O&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#484-548' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Compresses the vector, removing all popped nodes. This adjusts
+the indices and hence invalidates any outstanding
+indices. Cannot be used during a transaction.</p>
+<p>Beforehand, all nodes must be marked as <code>Done</code> and no cycles
+on these nodes may be present. This is done by e.g. <code>process_cycles</code>.</p>
+</div><h4 id='method.apply_rewrites' class="method"><span id='apply_rewrites.v' class='invisible'><code>fn <a href='#method.apply_rewrites' class='fnname'>apply_rewrites</a>(&amp;mut self, node_rewrites: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/obligation_forest/mod.rs.html#550-587' title='goto source code'>[src]</a></span></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "rustc_data_structures";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

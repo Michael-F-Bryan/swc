@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["low_bits","Returns a mask containing unused least significant bits of an aligned pointer to `T`."],["raw_and_tag","Tags the unused least significant bits of `raw` with `tag`."]],"struct":[["Atomic","A tagged atomic nullable pointer."],["Ptr","A tagged nullable pointer."]]});

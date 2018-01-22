@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ChunksMutProducer` struct in crate `rayon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ChunksMutProducer">
+
+    <title>rayon::slice::ChunksMutProducer - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Struct ChunksMutProducer</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.chunk_size">chunk_size</a><a href="#structfield.slice">slice</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Producer">Producer</a></div></div><p class='location'><a href='../index.html'>rayon</a>::<wbr><a href='index.html'>slice</a></p><script>window.sidebarCurrent = {name: 'ChunksMutProducer', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>rayon</a>::<wbr><a href='index.html'>slice</a>::<wbr><a class="struct" href=''>ChunksMutProducer</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/rayon/slice/mod.rs.html#695-698' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>struct ChunksMutProducer&lt;'data, T:&nbsp;'data + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>&gt; {
+    chunk_size: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
+    slice: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;'data mut [T]</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.chunk_size" class="structfield small-section-header">
+                           <a href="#structfield.chunk_size" class="anchor field"></a>
+                           <span id="chunk_size.v" class='invisible'>
+                           <code>chunk_size: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code>
+                           </span></span><span id="structfield.slice" class="structfield small-section-header">
+                           <a href="#structfield.slice" class="anchor field"></a>
+                           <span id="slice.v" class='invisible'>
+                           <code>slice: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;'data mut [T]</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Producer' class='impl'><span class='in-band'><code>impl&lt;'data, T:&nbsp;'data + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>&gt; <a class="trait" href="../../rayon/iter/plumbing/trait.Producer.html" title="trait rayon::iter::plumbing::Producer">Producer</a> for <a class="struct" href="../../rayon/slice/struct.ChunksMutProducer.html" title="struct rayon::slice::ChunksMutProducer">ChunksMutProducer</a>&lt;'data, T&gt;</code><a href='#impl-Producer' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rayon/slice/mod.rs.html#700-720' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Item' class="type"><span id='Item.t' class='invisible'><code>type <a href='../../rayon/iter/plumbing/trait.Producer.html#associatedtype.Item' class="type">Item</a> = <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;'data mut [T]</a></code></span></h4>
+<h4 id='associatedtype.IntoIter' class="type"><span id='IntoIter.t' class='invisible'><code>type <a href='../../rayon/iter/plumbing/trait.Producer.html#associatedtype.IntoIter' class="type">IntoIter</a> = <a class="struct" href="https://doc.rust-lang.org/nightly/core/slice/struct.ChunksMut.html" title="struct core::slice::ChunksMut">ChunksMut</a>&lt;'data, T&gt;</code></span></h4>
+<h4 id='method.into_iter' class="method"><span id='into_iter.v' class='invisible'><code>fn <a href='../../rayon/iter/plumbing/trait.Producer.html#tymethod.into_iter' class='fnname'>into_iter</a>(self) -&gt; Self::<a class="type" href="../../rayon/iter/plumbing/trait.Producer.html#associatedtype.IntoIter" title="type rayon::iter::plumbing::Producer::IntoIter">IntoIter</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rayon/slice/mod.rs.html#704-706' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.split_at' class="method"><span id='split_at.v' class='invisible'><code>fn <a href='../../rayon/iter/plumbing/trait.Producer.html#tymethod.split_at' class='fnname'>split_at</a>(self, index: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a>Self, Self<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rayon/slice/mod.rs.html#708-719' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Split into two producers; one produces items <code>0..index</code>, the other <code>index..N</code>. Index must be less than or equal to <code>N</code>. <a href="../../rayon/iter/plumbing/trait.Producer.html#tymethod.split_at">Read more</a></p>
+</div><h4 id='method.min_len' class="method"><span id='min_len.v' class='invisible'><code>fn <a href='../../rayon/iter/plumbing/trait.Producer.html#method.min_len' class='fnname'>min_len</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rayon/iter/plumbing.rs.html#30-32' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.max_len' class="method"><span id='max_len.v' class='invisible'><code>fn <a href='../../rayon/iter/plumbing/trait.Producer.html#method.max_len' class='fnname'>max_len</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rayon/iter/plumbing.rs.html#33-35' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.fold_with' class="method"><span id='fold_with.v' class='invisible'><code>fn <a href='../../rayon/iter/plumbing/trait.Producer.html#method.fold_with' class='fnname'>fold_with</a>&lt;F&gt;(self, folder: F) -&gt; F <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="../../rayon/iter/plumbing/trait.Folder.html" title="trait rayon::iter::plumbing::Folder">Folder</a>&lt;Self::<a class="type" href="../../rayon/iter/plumbing/trait.Producer.html#associatedtype.Item" title="type rayon::iter::plumbing::Producer::Item">Item</a>&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rayon/iter/plumbing.rs.html#45-49' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Iterate the producer, feeding each element to <code>folder</code>, and stop when the folder is full (or all elements have been consumed). <a href="../../rayon/iter/plumbing/trait.Producer.html#method.fold_with">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "rayon";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

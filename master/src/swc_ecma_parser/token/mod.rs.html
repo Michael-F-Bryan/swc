@@ -502,6 +502,10 @@
 <span id="456">456</span>
 <span id="457">457</span>
 <span id="458">458</span>
+<span id="459">459</span>
+<span id="460">460</span>
+<span id="461">461</span>
+<span id="462">462</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Ported from [babel/bablyon][]</span>
 <span class="doccomment">//!</span>
@@ -614,6 +618,8 @@
     <span class="doccomment">/// TODO: Make Num as enum and separate decimal, binary, ..etc</span>
     <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">starts_expr</span>)]</span>
     <span class="ident">Num</span>(<span class="ident">Number</span>),
+
+    <span class="ident">Error</span>,
 }
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Kind</span>, <span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>)]</span>
@@ -686,6 +692,8 @@
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">TokenAndSpan</span> {
     <span class="kw">pub</span> <span class="ident">token</span>: <span class="ident">Token</span>,
+    <span class="doccomment">/// Had a line break before this token?</span>
+    <span class="kw">pub</span> <span class="ident">had_line_break</span>: <span class="ident">bool</span>,
     <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
 }
 
@@ -975,20 +983,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `UnindexedConsumer` trait in crate `rayon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, UnindexedConsumer">
+
+    <title>rayon::iter::plumbing::UnindexedConsumer - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc trait">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Trait UnindexedConsumer</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.split_off_left">split_off_left</a><a href="#tymethod.to_reducer">to_reducer</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../index.html'>rayon</a>::<wbr><a href='../index.html'>iter</a>::<wbr><a href='index.html'>plumbing</a></p><script>window.sidebarCurrent = {name: 'UnindexedConsumer', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>rayon</a>::<wbr><a href='../index.html'>iter</a>::<wbr><a href='index.html'>plumbing</a>::<wbr><a class="trait" href=''>UnindexedConsumer</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/rayon/iter/plumbing.rs.html#107-113' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait UnindexedConsumer&lt;I&gt;: <a class="trait" href="../../../rayon/iter/plumbing/trait.Consumer.html" title="trait rayon::iter::plumbing::Consumer">Consumer</a>&lt;I&gt; {
+    fn <a href='#tymethod.split_off_left' class='fnname'>split_off_left</a>(&amp;self) -&gt; Self;
+<div class='item-spacer'></div>    fn <a href='#tymethod.to_reducer' class='fnname'>to_reducer</a>(&amp;self) -&gt; Self::<a class="type" href="../../../rayon/iter/plumbing/trait.Consumer.html#associatedtype.Reducer" title="type rayon::iter::plumbing::Consumer::Reducer">Reducer</a>;
+}</pre><div class='docblock'><p>A stateless consumer can be freely copied.</p>
+</div>
+            <h2 id='required-methods' class='small-section-header'>
+              Required Methods<a href='#required-methods' class='anchor'></a>
+            </h2>
+            <div class='methods'>
+        <h3 id='tymethod.split_off_left' class='method'><span id='split_off_left.v' class='invisible'><code>fn <a href='#tymethod.split_off_left' class='fnname'>split_off_left</a>(&amp;self) -&gt; Self</code></span></h3><h3 id='tymethod.to_reducer' class='method'><span id='to_reducer.v' class='invisible'><code>fn <a href='#tymethod.to_reducer' class='fnname'>to_reducer</a>(&amp;self) -&gt; Self::<a class="type" href="../../../rayon/iter/plumbing/trait.Consumer.html#associatedtype.Reducer" title="type rayon::iter::plumbing::Consumer::Reducer">Reducer</a></code></span></h3></div>
+        <h2 id='implementors' class='small-section-header'>
+          Implementors<a href='#implementors' class='anchor'></a>
+        </h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/find.rs.html#54-65' title='goto source code'>[src]</a></div><code>impl&lt;'p, T, P:&nbsp;'p&gt; UnindexedConsumer&lt;T&gt; for rayon::iter::find::<a class="struct" href="../../../rayon/iter/find/struct.FindConsumer.html" title="struct rayon::iter::find::FindConsumer">FindConsumer</a>&lt;'p, P&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;P: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/find_first_last/mod.rs.html#118-150' title='goto source code'>[src]</a></div><code>impl&lt;'p, T, P&gt; UnindexedConsumer&lt;T&gt; for rayon::iter::find_first_last::<a class="struct" href="../../../rayon/iter/find_first_last/struct.FindConsumer.html" title="struct rayon::iter::find_first_last::FindConsumer">FindConsumer</a>&lt;'p, P&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;P: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/collect/consumer.rs.html#95-102' title='goto source code'>[src]</a></div><code>impl&lt;'c, T:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'c&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/collect/consumer/struct.CollectConsumer.html" title="struct rayon::iter::collect::consumer::CollectConsumer">CollectConsumer</a>&lt;'c, T&gt;</code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/filter.rs.html#97-108' title='goto source code'>[src]</a></div><code>impl&lt;'p, T, C, P:&nbsp;'p&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/filter/struct.FilterConsumer.html" title="struct rayon::iter::filter::FilterConsumer">FilterConsumer</a>&lt;'p, C, P&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;T&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;P: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/filter_map.rs.html#98-109' title='goto source code'>[src]</a></div><code>impl&lt;'p, T, U, C, P&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/filter_map/struct.FilterMapConsumer.html" title="struct rayon::iter::filter_map::FilterMapConsumer">FilterMapConsumer</a>&lt;'p, C, P&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;U&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;P: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(T) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;U&gt; + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> + 'p,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/flat_map.rs.html#102-114' title='goto source code'>[src]</a></div><code>impl&lt;'f, T, U, C, F&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/flat_map/struct.FlatMapConsumer.html" title="struct rayon::iter::flat_map::FlatMapConsumer">FlatMapConsumer</a>&lt;'f, C, F&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;U::<a class="type" href="../../../rayon/iter/trait.IntoParallelIterator.html#associatedtype.Item" title="type rayon::iter::IntoParallelIterator::Item">Item</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(T) -&gt; U + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;U: <a class="trait" href="../../../rayon/iter/trait.IntoParallelIterator.html" title="trait rayon::iter::IntoParallelIterator">IntoParallelIterator</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/for_each.rs.html#55-65' title='goto source code'>[src]</a></div><code>impl&lt;'f, F, T&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/for_each/struct.ForEachConsumer.html" title="struct rayon::iter::for_each::ForEachConsumer">ForEachConsumer</a>&lt;'f, F&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(T) + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/fold.rs.html#94-107' title='goto source code'>[src]</a></div><code>impl&lt;'r, U, T, C, ID, F&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/fold/struct.FoldConsumer.html" title="struct rayon::iter::fold::FoldConsumer">FoldConsumer</a>&lt;'r, C, ID, F&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;U&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(U, T) -&gt; U + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;ID: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>() -&gt; U + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;U: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/fold.rs.html#228-240' title='goto source code'>[src]</a></div><code>impl&lt;'r, U, T, C, F&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/fold/struct.FoldWithConsumer.html" title="struct rayon::iter::fold::FoldWithConsumer">FoldWithConsumer</a>&lt;'r, C, U, F&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;U&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(U, T) -&gt; U + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;U: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/reduce.rs.html#55-67' title='goto source code'>[src]</a></div><code>impl&lt;'r, R, ID, T&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/reduce/struct.ReduceConsumer.html" title="struct rayon::iter::reduce::ReduceConsumer">ReduceConsumer</a>&lt;'r, R, ID&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;R: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(T, T) -&gt; T + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;ID: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>() -&gt; T + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/map.rs.html#192-204' title='goto source code'>[src]</a></div><code>impl&lt;'f, T, R, C, F&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/map/struct.MapConsumer.html" title="struct rayon::iter::map::MapConsumer">MapConsumer</a>&lt;'f, C, F&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;F::<a class="type" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html#associatedtype.Output" title="type core::ops::function::FnOnce::Output">Output</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(T) -&gt; R + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;R: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/map_with.rs.html#256-269' title='goto source code'>[src]</a></div><code>impl&lt;'f, T, U, R, C, F&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/map_with/struct.MapWithConsumer.html" title="struct rayon::iter::map_with::MapWithConsumer">MapWithConsumer</a>&lt;'f, C, U, F&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;R&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;U: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>U, T) -&gt; R + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;R: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/intersperse.rs.html#311-328' title='goto source code'>[src]</a></div><code>impl&lt;C, T&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/intersperse/struct.IntersperseConsumer.html" title="struct rayon::iter::intersperse::IntersperseConsumer">IntersperseConsumer</a>&lt;C, T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;T&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/noop.rs.html#43-51' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/noop/struct.NoopConsumer.html" title="struct rayon::iter::noop::NoopConsumer">NoopConsumer</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/sum.rs.html#52-62' title='goto source code'>[src]</a></div><code>impl&lt;S, T&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/sum/struct.SumConsumer.html" title="struct rayon::iter::sum::SumConsumer">SumConsumer</a>&lt;S&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.Sum.html" title="trait core::iter::traits::Sum">Sum</a>&lt;T&gt; + <a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.Sum.html" title="trait core::iter::traits::Sum">Sum</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/product.rs.html#52-62' title='goto source code'>[src]</a></div><code>impl&lt;P, T&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/product/struct.ProductConsumer.html" title="struct rayon::iter::product::ProductConsumer">ProductConsumer</a>&lt;P&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;P: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.Product.html" title="trait core::iter::traits::Product">Product</a>&lt;T&gt; + <a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.Product.html" title="trait core::iter::traits::Product">Product</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/cloned.rs.html#152-163' title='goto source code'>[src]</a></div><code>impl&lt;'a, T, C&gt; UnindexedConsumer&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;'a </a>T&gt; for <a class="struct" href="../../../rayon/iter/cloned/struct.ClonedConsumer.html" title="struct rayon::iter::cloned::ClonedConsumer">ClonedConsumer</a>&lt;C&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;T&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;T: 'a + <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/inspect.rs.html#192-203' title='goto source code'>[src]</a></div><code>impl&lt;'f, T, C, F&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/inspect/struct.InspectConsumer.html" title="struct rayon::iter::inspect::InspectConsumer">InspectConsumer</a>&lt;'f, C, F&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;T&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T) + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/while_some.rs.html#81-92' title='goto source code'>[src]</a></div><code>impl&lt;'f, T, C&gt; UnindexedConsumer&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;T&gt;&gt; for <a class="struct" href="../../../rayon/iter/while_some/struct.WhileSomeConsumer.html" title="struct rayon::iter::while_some::WhileSomeConsumer">WhileSomeConsumer</a>&lt;'f, C&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;T&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/rayon/iter/unzip.rs.html#319-338' title='goto source code'>[src]</a></div><code>impl&lt;'a, T, OP, CA, CB&gt; UnindexedConsumer&lt;T&gt; for <a class="struct" href="../../../rayon/iter/unzip/struct.UnzipConsumer.html" title="struct rayon::iter::unzip::UnzipConsumer">UnzipConsumer</a>&lt;'a, OP, CA, CB&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;OP: <a class="trait" href="../../../rayon/iter/unzip/trait.UnzipOp.html" title="trait rayon::iter::unzip::UnzipOp">UnzipOp</a>&lt;T&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;CA: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;OP::<a class="type" href="../../../rayon/iter/unzip/trait.UnzipOp.html#associatedtype.Left" title="type rayon::iter::unzip::UnzipOp::Left">Left</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;CB: <a class="trait" href="../../../rayon/iter/plumbing/trait.UnindexedConsumer.html" title="trait rayon::iter::plumbing::UnindexedConsumer">UnindexedConsumer</a>&lt;OP::<a class="type" href="../../../rayon/iter/unzip/trait.UnzipOp.html#associatedtype.Right" title="type rayon::iter::unzip::UnzipOp::Right">Right</a>&gt;,&nbsp;</span></code></li>
+</ul><script type="text/javascript" async
+                         src="../../../implementors/rayon/iter/plumbing/trait.UnindexedConsumer.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "rayon";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

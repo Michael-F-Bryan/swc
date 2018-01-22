@@ -1,1 +1,1 @@
-initSidebarItems({"trait":[["Input","Input for parser."]]});
+initSidebarItems({"struct":[["ParserInput","This struct is responsible for managing current token and peeked token."]]});

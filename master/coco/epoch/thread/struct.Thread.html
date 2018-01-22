@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Thread` struct in crate `coco`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Thread">
+
+    <title>coco::epoch::thread::Thread - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Struct Thread</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.state">state</a><a href="#structfield.next">next</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.set_pinned">set_pinned</a><a href="#method.set_unpinned">set_unpinned</a><a href="#method.register">register</a><a href="#method.unregister">unregister</a></div></div><p class='location'><a href='../../index.html'>coco</a>::<wbr><a href='../index.html'>epoch</a>::<wbr><a href='index.html'>thread</a></p><script>window.sidebarCurrent = {name: 'Thread', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>coco</a>::<wbr><a href='../index.html'>epoch</a>::<wbr><a href='index.html'>thread</a>::<wbr><a class="struct" href=''>Thread</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/coco/epoch/thread.rs.html#81-88' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>struct Thread {
+    state: <a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicUsize.html" title="struct core::sync::atomic::AtomicUsize">AtomicUsize</a>,
+    next: <a class="struct" href="../../../coco/epoch/struct.Atomic.html" title="struct coco::epoch::Atomic">Atomic</a>&lt;<a class="struct" href="../../../coco/epoch/thread/struct.Thread.html" title="struct coco::epoch::thread::Thread">Thread</a>&gt;,
+}</pre><div class='docblock'><p>An entry in the linked list of participating threads.</p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.state" class="structfield small-section-header">
+                           <a href="#structfield.state" class="anchor field"></a>
+                           <span id="state.v" class='invisible'>
+                           <code>state: <a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicUsize.html" title="struct core::sync::atomic::AtomicUsize">AtomicUsize</a></code>
+                           </span></span><div class='docblock'><p>The least significant bit is set if the thread is currently pinned. The rest of the bits
+encode the current epoch.</p>
+</div><span id="structfield.next" class="structfield small-section-header">
+                           <a href="#structfield.next" class="anchor field"></a>
+                           <span id="next.v" class='invisible'>
+                           <code>next: <a class="struct" href="../../../coco/epoch/struct.Atomic.html" title="struct coco::epoch::Atomic">Atomic</a>&lt;<a class="struct" href="../../../coco/epoch/thread/struct.Thread.html" title="struct coco::epoch::thread::Thread">Thread</a>&gt;</code>
+                           </span></span><div class='docblock'><p>The next thread in the linked list of participants. If the tag is 1, this entry is deleted
+and can be unlinked from the list.</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../../coco/epoch/thread/struct.Thread.html" title="struct coco::epoch::thread::Thread">Thread</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/coco/epoch/thread.rs.html#90-175' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.set_pinned' class="method"><span id='set_pinned.v' class='invisible'><code>fn <a href='#method.set_pinned' class='fnname'>set_pinned</a>(&amp;self, _pin: &amp;<a class="struct" href="../../../coco/epoch/struct.Pin.html" title="struct coco::epoch::Pin">Pin</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/coco/epoch/thread.rs.html#95-115' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Marks the thread as pinned.</p>
+<p>Must not be called if the thread is already pinned!</p>
+</div><h4 id='method.set_unpinned' class="method"><span id='set_unpinned.v' class='invisible'><code>fn <a href='#method.set_unpinned' class='fnname'>set_unpinned</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/coco/epoch/thread.rs.html#119-123' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Marks the thread as unpinned.</p>
+</div><h4 id='method.register' class="method"><span id='register.v' class='invisible'><code>fn <a href='#method.register' class='fnname'>register</a>() -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../../coco/epoch/thread/struct.Thread.html" title="struct coco::epoch::thread::Thread">Thread</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/coco/epoch/thread.rs.html#128-154' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Registers a thread by adding a new entry to the list of participanting threads.</p>
+<p>Returns a pointer to the newly allocated entry.</p>
+</div><h4 id='method.unregister' class="method"><span id='unregister.v' class='invisible'><code>fn <a href='#method.unregister' class='fnname'>unregister</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/coco/epoch/thread.rs.html#160-174' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Unregisters the thread by marking it's entry as deleted.</p>
+<p>This function doesn't physically remove the entry from the linked list, though. That will
+do a future call to <code>try_advance</code>.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "coco";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

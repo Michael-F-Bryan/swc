@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["new","Create a new `Enumerate` iterator."]],"struct":[["Enumerate","`Enumerate` is an iterator that returns the current count along with the element. This struct is created by the [`enumerate()`] method on [`ParallelIterator`]"],["EnumerateProducer","//////////////////////////////////////////////////////////////////////// Producer implementation"]]});
