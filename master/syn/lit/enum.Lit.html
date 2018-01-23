@@ -98,9 +98,15 @@ represents an integer larger than 64 bits.</p>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
-                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="enum" href="../../syn/enum.Lit.html" title="enum syn::Lit">Lit</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/lit.rs.html#493-552' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>(token: <a class="struct" href="../../proc_macro2/struct.Literal.html" title="struct proc_macro2::Literal">Literal</a>, span: <a class="struct" href="../../proc_macro2/struct.Span.html" title="struct proc_macro2::Span">Span</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/lit.rs.html#494-551' title='goto source code'>[src]</a></span></h4>
-</div>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="enum" href="../../syn/enum.Lit.html" title="enum syn::Lit">Lit</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/lit.rs.html#493-563' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>(token: <a class="struct" href="../../proc_macro2/struct.Literal.html" title="struct proc_macro2::Literal">Literal</a>, span: <a class="struct" href="../../proc_macro2/struct.Span.html" title="struct proc_macro2::Span">Span</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/syn/lit.rs.html#505-562' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Interpret a Syn literal from a proc-macro2 literal.</p>
+<p>Not all proc-macro2 literals are valid Syn literals. In particular,
+doc comments are considered by proc-macro2 to be literals but in Syn
+they are <a href="struct.Attribute.html"><code>Attribute</code></a>.</p>
+<h1 id="panics" class="section-header"><a href="#panics">Panics</a></h1>
+<p>Panics if the input is a doc comment literal.</p>
+</div></div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>

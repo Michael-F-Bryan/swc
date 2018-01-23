@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/syn-0.12.7/src/lit.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/syn-0.12.9/src/lit.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lit.rs.html -- source</title>
@@ -1013,6 +1013,17 @@
 <span id="967">967</span>
 <span id="968">968</span>
 <span id="969">969</span>
+<span id="970">970</span>
+<span id="971">971</span>
+<span id="972">972</span>
+<span id="973">973</span>
+<span id="974">974</span>
+<span id="975">975</span>
+<span id="976">976</span>
+<span id="977">977</span>
+<span id="978">978</span>
+<span id="979">979</span>
+<span id="980">980</span>
 </pre><pre class="rust ">
 <span class="comment">// Copyright 2018 Syn Developers</span>
 <span class="comment">//</span>
@@ -1507,6 +1518,17 @@
     <span class="kw">use</span> <span class="ident">proc_macro2</span>::<span class="ident">TokenStream</span>;
 
     <span class="kw">impl</span> <span class="ident">Lit</span> {
+        <span class="doccomment">/// Interpret a Syn literal from a proc-macro2 literal.</span>
+        <span class="doccomment">///</span>
+        <span class="doccomment">/// Not all proc-macro2 literals are valid Syn literals. In particular,</span>
+        <span class="doccomment">/// doc comments are considered by proc-macro2 to be literals but in Syn</span>
+        <span class="doccomment">/// they are [`Attribute`].</span>
+        <span class="doccomment">///</span>
+        <span class="doccomment">/// [`Attribute`]: struct.Attribute.html</span>
+        <span class="doccomment">///</span>
+        <span class="doccomment">/// # Panics</span>
+        <span class="doccomment">///</span>
+        <span class="doccomment">/// Panics if the input is a doc comment literal.</span>
         <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">token</span>: <span class="ident">Literal</span>, <span class="ident">span</span>: <span class="ident">Span</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
             <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">token</span>.<span class="ident">to_string</span>();
 

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CharIndices",""],["LexerInput","Used inside lexer."]],"trait":[["Input",""]]});
+initSidebarItems({"struct":[["FileMapInput",""],["LexerInput","Used inside lexer."]],"trait":[["Input",""]]});

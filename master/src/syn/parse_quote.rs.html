@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/syn-0.12.7/src/parse_quote.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/syn-0.12.9/src/parse_quote.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>parse_quote.rs.html -- source</title>
@@ -200,6 +200,10 @@
 <span id="154">154</span>
 <span id="155">155</span>
 <span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
+<span id="159">159</span>
+<span id="160">160</span>
 </pre><pre class="rust ">
 <span class="doccomment">/// Quasi-quotation macro that accepts input like the [`quote!`] macro but uses</span>
 <span class="doccomment">/// type inference to figure out a return type for those tokens.</span>
@@ -232,8 +236,9 @@
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// *This macro is available if Syn is built with both the `&quot;parsing&quot;` and</span>
-<span class="doccomment">/// `&quot;printing&quot;` features.*</span>
+<span class="doccomment">/// *This macro is available if Syn is built with the `&quot;parsing&quot;` feature,</span>
+<span class="doccomment">/// although interpolation of syntax tree nodes into the quoted tokens is only</span>
+<span class="doccomment">/// supported if Syn is built with the `&quot;printing&quot;` feature as well.*</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Example</span>
 <span class="doccomment">///</span>
@@ -283,21 +288,24 @@
 <span class="attribute">#[<span class="ident">macro_export</span>]</span>
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">parse_quote</span> {
     ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">tt</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">parse_quote</span>::<span class="ident">parse</span>(<span class="macro">quote</span><span class="macro">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">tt</span>)<span class="kw-2">*</span>))
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">parse_quote</span>::<span class="ident">parse</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">parse_quote</span>::<span class="ident">From</span>::<span class="ident">from</span>(<span class="macro">quote</span><span class="macro">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">tt</span>)<span class="kw-2">*</span>)))
     };
 }
 
 <span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
 <span class="comment">// Can parse any type that implements Synom.</span>
 
-<span class="kw">use</span> <span class="ident">quote</span>::<span class="ident">Tokens</span>;
 <span class="kw">use</span> <span class="ident">synom</span>::{<span class="ident">Synom</span>, <span class="ident">Parser</span>, <span class="ident">PResult</span>};
 <span class="kw">use</span> <span class="ident">buffer</span>::<span class="ident">Cursor</span>;
+<span class="kw">use</span> <span class="ident">proc_macro2</span>::<span class="ident">TokenStream</span>;
 
 <span class="comment">// Not public API.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">parse</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">ParseQuote</span><span class="op">&gt;</span>(<span class="ident">tokens</span>: <span class="ident">Tokens</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
-    <span class="kw">let</span> <span class="ident">token_stream</span> <span class="op">=</span> <span class="ident">tokens</span>.<span class="ident">into</span>();
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">From</span>;
+
+<span class="comment">// Not public API.</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">parse</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">ParseQuote</span><span class="op">&gt;</span>(<span class="ident">token_stream</span>: <span class="ident">TokenStream</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
     <span class="kw">let</span> <span class="ident">parser</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">parse</span>;
     <span class="kw">match</span> <span class="ident">parser</span>.<span class="ident">parse2</span>(<span class="ident">token_stream</span>) {
         <span class="prelude-val">Ok</span>(<span class="ident">t</span>) <span class="op">=&gt;</span> <span class="ident">t</span>,
