@@ -10,8 +10,11 @@
     <title>swc_ecma_parser::parser::util::ParseObject - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Trait ParseObject</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#associated-types">Associated Types</a><div class="sidebar-links"><a href="#associatedtype.Prop">Prop</a></div><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.make_object">make_object</a><a href="#tymethod.parse_object_prop">parse_object_prop</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../index.html'>swc_ecma_parser</a>::<wbr><a href='../index.html'>parser</a>::<wbr><a href='index.html'>util</a></p><script>window.sidebarCurrent = {name: 'ParseObject', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -49,7 +59,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/swc_ecma_parser/parser/util.rs.html#45-49' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../../src/swc_ecma_parser/parser/util.rs.html#118-122' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait ParseObject&lt;'a, Obj&gt; {
     type <a href='#associatedtype.Prop' class="type">Prop</a>;
     fn <a href='#tymethod.make_object' class='fnname'>make_object</a>(span: <a class="struct" href="../../../syntax_pos/span_encoding/struct.Span.html" title="struct syntax_pos::span_encoding::Span">Span</a>, props: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;Self::<a class="type" href="../../../swc_ecma_parser/parser/util/trait.ParseObject.html#associatedtype.Prop" title="type swc_ecma_parser::parser::util::ParseObject::Prop">Prop</a>&gt;) -&gt; Obj;
@@ -69,8 +79,8 @@
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><div class='out-of-band'><a class='srclink' href='../../../src/swc_ecma_parser/parser/object.rs.html#72-199' title='goto source code'>[src]</a></div><code>impl&lt;'a, I:&nbsp;<a class="trait" href="../../../swc_ecma_parser/lexer/input/trait.Input.html" title="trait swc_ecma_parser::lexer::input::Input">Input</a>&gt; ParseObject&lt;'a, <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../../../swc_ecma_ast/expr/struct.Expr.html" title="struct swc_ecma_ast::expr::Expr">Expr</a>&gt;&gt; for <a class="struct" href="../../../swc_ecma_parser/struct.Parser.html" title="struct swc_ecma_parser::Parser">Parser</a>&lt;'a, I&gt;<span class="where fmt-newline">  type <a href='#associatedtype.Prop' class="type">Prop</a> = <a class="struct" href="../../../swc_ecma_ast/prop/struct.Prop.html" title="struct swc_ecma_ast::prop::Prop">Prop</a>;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../src/swc_ecma_parser/parser/object.rs.html#202-234' title='goto source code'>[src]</a></div><code>impl&lt;'a, I:&nbsp;<a class="trait" href="../../../swc_ecma_parser/lexer/input/trait.Input.html" title="trait swc_ecma_parser::lexer::input::Input">Input</a>&gt; ParseObject&lt;'a, <a class="struct" href="../../../swc_ecma_ast/pat/struct.Pat.html" title="struct swc_ecma_ast::pat::Pat">Pat</a>&gt; for <a class="struct" href="../../../swc_ecma_parser/struct.Parser.html" title="struct swc_ecma_parser::Parser">Parser</a>&lt;'a, I&gt;<span class="where fmt-newline">  type <a href='#associatedtype.Prop' class="type">Prop</a> = <a class="enum" href="../../../swc_ecma_ast/pat/enum.ObjectPatProp.html" title="enum swc_ecma_ast::pat::ObjectPatProp">ObjectPatProp</a>;</span></code></li>
+    <li><div class='out-of-band'><a class='srclink' href='../../../src/swc_ecma_parser/parser/object.rs.html#72-190' title='goto source code'>[src]</a></div><code>impl&lt;'a, I:&nbsp;<a class="trait" href="../../../swc_ecma_parser/lexer/input/trait.Input.html" title="trait swc_ecma_parser::lexer::input::Input">Input</a>&gt; ParseObject&lt;'a, <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="../../../swc_ecma_ast/expr/struct.Expr.html" title="struct swc_ecma_ast::expr::Expr">Expr</a>&gt;&gt; for <a class="struct" href="../../../swc_ecma_parser/struct.Parser.html" title="struct swc_ecma_parser::Parser">Parser</a>&lt;'a, I&gt;<span class="where fmt-newline">  type <a href='#associatedtype.Prop' class="type">Prop</a> = <a class="struct" href="../../../swc_ecma_ast/prop/struct.Prop.html" title="struct swc_ecma_ast::prop::Prop">Prop</a>;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/swc_ecma_parser/parser/object.rs.html#193-230' title='goto source code'>[src]</a></div><code>impl&lt;'a, I:&nbsp;<a class="trait" href="../../../swc_ecma_parser/lexer/input/trait.Input.html" title="trait swc_ecma_parser::lexer::input::Input">Input</a>&gt; ParseObject&lt;'a, <a class="struct" href="../../../swc_ecma_ast/pat/struct.Pat.html" title="struct swc_ecma_ast::pat::Pat">Pat</a>&gt; for <a class="struct" href="../../../swc_ecma_parser/struct.Parser.html" title="struct swc_ecma_parser::Parser">Parser</a>&lt;'a, I&gt;<span class="where fmt-newline">  type <a href='#associatedtype.Prop' class="type">Prop</a> = <a class="enum" href="../../../swc_ecma_ast/pat/enum.ObjectPatProp.html" title="enum swc_ecma_ast::pat::ObjectPatProp">ObjectPatProp</a>;</span></code></li>
 </ul><script type="text/javascript" async
                          src="../../../implementors/swc_ecma_parser/parser/util/trait.ParseObject.js">
                  </script></section>

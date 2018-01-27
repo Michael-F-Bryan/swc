@@ -10,8 +10,11 @@
     <title>regex::internal::Compiler - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     <link rel="shortcut icon" href="https://www.rust-lang.org/favicon.ico">
@@ -33,6 +36,13 @@
         <p class='location'>Struct Compiler</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.insts">insts</a><a href="#structfield.compiled">compiled</a><a href="#structfield.capture_name_idx">capture_name_idx</a><a href="#structfield.num_exprs">num_exprs</a><a href="#structfield.size_limit">size_limit</a><a href="#structfield.suffix_cache">suffix_cache</a><a href="#structfield.utf8_seqs">utf8_seqs</a><a href="#structfield.byte_classes">byte_classes</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.size_limit">size_limit</a><a href="#method.bytes">bytes</a><a href="#method.only_utf8">only_utf8</a><a href="#method.dfa">dfa</a><a href="#method.reverse">reverse</a><a href="#method.compile">compile</a><a href="#method.compile_one">compile_one</a><a href="#method.compile_many">compile_many</a><a href="#method.compile_finish">compile_finish</a><a href="#method.c">c</a><a href="#method.c_capture">c_capture</a><a href="#method.c_dotstar">c_dotstar</a><a href="#method.c_literal">c_literal</a><a href="#method.c_char">c_char</a><a href="#method.c_class">c_class</a><a href="#method.c_bytes">c_bytes</a><a href="#method.c_byte">c_byte</a><a href="#method.c_class_bytes">c_class_bytes</a><a href="#method.c_empty_look">c_empty_look</a><a href="#method.c_concat">c_concat</a><a href="#method.c_alternate">c_alternate</a><a href="#method.c_repeat">c_repeat</a><a href="#method.c_repeat_zero_or_one">c_repeat_zero_or_one</a><a href="#method.c_repeat_zero_or_more">c_repeat_zero_or_more</a><a href="#method.c_repeat_one_or_more">c_repeat_one_or_more</a><a href="#method.c_repeat_range_min_or_more">c_repeat_range_min_or_more</a><a href="#method.c_repeat_range">c_repeat_range</a><a href="#method.fill">fill</a><a href="#method.fill_to_next">fill_to_next</a><a href="#method.fill_split">fill_split</a><a href="#method.push_compiled">push_compiled</a><a href="#method.push_hole">push_hole</a><a href="#method.push_split_hole">push_split_hole</a><a href="#method.check_size">check_size</a></div></div><p class='location'><a href='../index.html'>regex</a>::<wbr><a href='index.html'>internal</a></p><script>window.sidebarCurrent = {name: 'Compiler', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">

@@ -10,8 +10,11 @@
     <title>swc_atoms::js_word - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../dark.css">
+    <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
+    <script src="../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'><a href='index.html'>swc_atoms</a></p><script>window.sidebarCurrent = {name: 'js_word', ty: 'macro', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -49,62 +59,63 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/swc_atoms/home/travis/build/swc-project/swc/target/debug/build/swc_atoms-692e8db2e99f48e7/out/js_word.rs.html#58-112' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/swc_atoms/home/travis/build/swc-project/swc/target/debug/build/swc_atoms-47f64d1f0f2f9ed2/out/js_word.rs.html#59-114' title='goto source code'>[src]</a></span></h1>
 <pre class="rust macro">
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">js_word</span> {
-    ( <span class="string">&quot;continue&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;implements&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;false&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;public&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;case&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;break&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;instanceof&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;from&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;await&quot;</span> ) <span class="op">=&gt;</span> { ... };
     ( <span class="string">&quot;default&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;package&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;with&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;true&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;import&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;null&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;super&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;void&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;if&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;do&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;yield&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;private&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;static&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;let&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;throw&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;of&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;switch&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;set&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;extends&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;class&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;return&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;const&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;typeof&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;while&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;in&quot;</span> ) <span class="op">=&gt;</span> { ... };
     ( <span class="string">&quot;get&quot;</span> ) <span class="op">=&gt;</span> { ... };
     ( <span class="string">&quot;export&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;from&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;this&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;in&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;debugger&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;for&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;protected&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;interface&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;continue&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;catch&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;try&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;null&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;false&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;let&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;class&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;implements&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;else&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;static&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;public&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;break&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;const&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;while&quot;</span> ) <span class="op">=&gt;</span> { ... };
     ( <span class="string">&quot;finally&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;with&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;delete&quot;</span> ) <span class="op">=&gt;</span> { ... };
     ( <span class="string">&quot;target&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;do&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;if&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;yield&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;switch&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;set&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;protected&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;import&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;true&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;function&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;instanceof&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;private&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;package&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;extends&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;typeof&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;for&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;throw&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;of&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;return&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;super&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;this&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;void&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;var&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;case&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;enum&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;debugger&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;as&quot;</span> ) <span class="op">=&gt;</span> { ... };
+    ( <span class="string">&quot;interface&quot;</span> ) <span class="op">=&gt;</span> { ... };
     ( <span class="string">&quot;async&quot;</span> ) <span class="op">=&gt;</span> { ... };
     ( <span class="string">&quot;new&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;function&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;try&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;as&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;var&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;await&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;else&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;delete&quot;</span> ) <span class="op">=&gt;</span> { ... };
-    ( <span class="string">&quot;catch&quot;</span> ) <span class="op">=&gt;</span> { ... };
 }</pre>
 </section>
     <section id='search' class="content hidden"></section>

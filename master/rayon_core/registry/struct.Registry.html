@@ -10,8 +10,11 @@
     <title>rayon_core::registry::Registry - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Struct Registry</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.thread_infos">thread_infos</a><a href="#structfield.state">state</a><a href="#structfield.sleep">sleep</a><a href="#structfield.job_uninjector">job_uninjector</a><a href="#structfield.panic_handler">panic_handler</a><a href="#structfield.start_handler">start_handler</a><a href="#structfield.exit_handler">exit_handler</a><a href="#structfield.terminate_latch">terminate_latch</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.current">current</a><a href="#method.current_num_threads">current_num_threads</a><a href="#method.id">id</a><a href="#method.num_threads">num_threads</a><a href="#method.handle_panic">handle_panic</a><a href="#method.wait_until_primed">wait_until_primed</a><a href="#method.inject_or_push">inject_or_push</a><a href="#method.inject">inject</a><a href="#method.pop_injected_job">pop_injected_job</a><a href="#method.in_worker">in_worker</a><a href="#method.in_worker_cold">in_worker_cold</a><a href="#method.in_worker_cross">in_worker_cross</a><a href="#method.increment_terminate_count">increment_terminate_count</a><a href="#method.terminate">terminate</a></div></div><p class='location'><a href='../index.html'>rayon_core</a>::<wbr><a href='index.html'>registry</a></p><script>window.sidebarCurrent = {name: 'Registry', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">

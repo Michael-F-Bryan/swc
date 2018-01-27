@@ -10,8 +10,11 @@
     <title>lit.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -80,13 +90,21 @@
 <span id="34">34</span>
 <span id="35">35</span>
 <span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fmt</span>::{<span class="self">self</span>, <span class="ident">Display</span>, <span class="ident">Formatter</span>};
 <span class="kw">use</span> <span class="ident">swc_macros</span>::<span class="ident">ast_node</span>;
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">Lit</span> {
-    <span class="ident">Str</span>(<span class="ident">String</span>),
+    <span class="ident">Str</span> {
+        <span class="ident">value</span>: <span class="ident">String</span>,
+        <span class="doccomment">/// This includes line escape.</span>
+        <span class="ident">has_escape</span>: <span class="ident">bool</span>,
+    },
     <span class="ident">Bool</span>(<span class="ident">bool</span>),
     <span class="ident">Null</span>,
     <span class="ident">Num</span>(<span class="ident">Number</span>),

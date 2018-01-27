@@ -10,8 +10,11 @@
     <title>serde::lib::str::pattern::ReverseSearcher - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <script src="../../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Trait ReverseSearcher</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.next_back">next_back</a></div><a class="sidebar-title" href="#provided-methods">Provided Methods</a><div class="sidebar-links"><a href="#method.next_match_back">next_match_back</a><a href="#method.next_reject_back">next_reject_back</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../../index.html'>serde</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>str</a>::<wbr><a href='index.html'>pattern</a></p><script>window.sidebarCurrent = {name: 'ReverseSearcher', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -102,10 +112,10 @@ might produce the stream
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/str/pattern.rs.html#874-941' title='goto source code'>[src]</a></div><code>impl&lt;'a, 'b&gt; ReverseSearcher&lt;'a&gt; for <a class="struct" href="../../../../serde/lib/str/pattern/struct.StrSearcher.html" title="struct serde::lib::str::pattern::StrSearcher">StrSearcher</a>&lt;'a, 'b&gt;</code></li>
-<li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/str/pattern.rs.html#353-427' title='goto source code'>[src]</a></div><code>impl&lt;'a&gt; ReverseSearcher&lt;'a&gt; for <a class="struct" href="../../../../serde/lib/str/pattern/struct.CharSearcher.html" title="struct serde::lib::str::pattern::CharSearcher">CharSearcher</a>&lt;'a&gt;</code></li>
-<li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/str/pattern.rs.html#649-651' title='goto source code'>[src]</a></div><code>impl&lt;'a, 'b&gt; ReverseSearcher&lt;'a&gt; for <a class="struct" href="../../../../serde/lib/str/pattern/struct.CharSliceSearcher.html" title="struct serde::lib::str::pattern::CharSliceSearcher">CharSliceSearcher</a>&lt;'a, 'b&gt;</code></li>
+    <li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/str/pattern.rs.html#649-651' title='goto source code'>[src]</a></div><code>impl&lt;'a, 'b&gt; ReverseSearcher&lt;'a&gt; for <a class="struct" href="../../../../serde/lib/str/pattern/struct.CharSliceSearcher.html" title="struct serde::lib::str::pattern::CharSliceSearcher">CharSliceSearcher</a>&lt;'a, 'b&gt;</code></li>
 <li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/str/pattern.rs.html#685-689' title='goto source code'>[src]</a></div><code>impl&lt;'a, F&gt; ReverseSearcher&lt;'a&gt; for <a class="struct" href="../../../../serde/lib/str/pattern/struct.CharPredicateSearcher.html" title="struct serde::lib::str::pattern::CharPredicateSearcher">CharPredicateSearcher</a>&lt;'a, F&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="../../../../serde/lib/ops/trait.FnMut.html" title="trait serde::lib::ops::FnMut">FnMut</a>(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/str/pattern.rs.html#353-427' title='goto source code'>[src]</a></div><code>impl&lt;'a&gt; ReverseSearcher&lt;'a&gt; for <a class="struct" href="../../../../serde/lib/str/pattern/struct.CharSearcher.html" title="struct serde::lib::str::pattern::CharSearcher">CharSearcher</a>&lt;'a&gt;</code></li>
+<li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/str/pattern.rs.html#874-941' title='goto source code'>[src]</a></div><code>impl&lt;'a, 'b&gt; ReverseSearcher&lt;'a&gt; for <a class="struct" href="../../../../serde/lib/str/pattern/struct.StrSearcher.html" title="struct serde::lib::str::pattern::StrSearcher">StrSearcher</a>&lt;'a, 'b&gt;</code></li>
 </ul><script type="text/javascript" async
                          src="../../../../implementors/core/str/pattern/trait.ReverseSearcher.js">
                  </script></section>

@@ -10,8 +10,11 @@
     <title>serialize::json::Parser - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     <link rel="shortcut icon" href="https://doc.rust-lang.org/favicon.ico">
@@ -33,6 +36,13 @@
         <p class='location'>Struct Parser</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.rdr">rdr</a><a href="#structfield.ch">ch</a><a href="#structfield.line">line</a><a href="#structfield.col">col</a><a href="#structfield.stack">stack</a><a href="#structfield.state">state</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.stack">stack</a><a href="#method.eof">eof</a><a href="#method.ch_or_null">ch_or_null</a><a href="#method.bump">bump</a><a href="#method.next_char">next_char</a><a href="#method.ch_is">ch_is</a><a href="#method.error">error</a><a href="#method.parse_whitespace">parse_whitespace</a><a href="#method.parse_number">parse_number</a><a href="#method.parse_u64">parse_u64</a><a href="#method.parse_decimal">parse_decimal</a><a href="#method.parse_exponent">parse_exponent</a><a href="#method.decode_hex_escape">decode_hex_escape</a><a href="#method.parse_str">parse_str</a><a href="#method.parse">parse</a><a href="#method.parse_start">parse_start</a><a href="#method.parse_array">parse_array</a><a href="#method.parse_array_comma_or_end">parse_array_comma_or_end</a><a href="#method.parse_object">parse_object</a><a href="#method.parse_object_end">parse_object_end</a><a href="#method.parse_value">parse_value</a><a href="#method.parse_ident">parse_ident</a><a href="#method.error_event">error_event</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Iterator">Iterator</a></div></div><p class='location'><a href='../index.html'>serialize</a>::<wbr><a href='index.html'>json</a></p><script>window.sidebarCurrent = {name: 'Parser', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">

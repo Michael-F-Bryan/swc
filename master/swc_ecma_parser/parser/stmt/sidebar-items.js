@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ForHead",""]],"mod":[["module_item",""]],"trait":[["StmtLikeParser",""]]});
+initSidebarItems({"enum":[["ForHead",""]],"mod":[["module_item",""]],"trait":[["IsDirective",""],["StmtLikeParser",""]]});

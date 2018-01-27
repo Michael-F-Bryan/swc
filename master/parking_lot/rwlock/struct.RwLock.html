@@ -10,8 +10,11 @@
     <title>parking_lot::rwlock::RwLock - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Struct RwLock</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.raw">raw</a><a href="#structfield.data">data</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.into_inner">into_inner</a><a href="#method.read_guard">read_guard</a><a href="#method.write_guard">write_guard</a><a href="#method.upgradable_guard">upgradable_guard</a><a href="#method.read">read</a><a href="#method.try_read">try_read</a><a href="#method.try_read_for">try_read_for</a><a href="#method.try_read_until">try_read_until</a><a href="#method.read_recursive">read_recursive</a><a href="#method.try_read_recursive">try_read_recursive</a><a href="#method.try_read_recursive_for">try_read_recursive_for</a><a href="#method.try_read_recursive_until">try_read_recursive_until</a><a href="#method.write">write</a><a href="#method.try_write">try_write</a><a href="#method.try_write_for">try_write_for</a><a href="#method.try_write_until">try_write_until</a><a href="#method.upgradable_read">upgradable_read</a><a href="#method.try_upgradable_read">try_upgradable_read</a><a href="#method.try_upgradable_read_for">try_upgradable_read_for</a><a href="#method.try_upgradable_read_until">try_upgradable_read_until</a><a href="#method.get_mut">get_mut</a><a href="#method.raw_unlock_read">raw_unlock_read</a><a href="#method.raw_unlock_write">raw_unlock_write</a><a href="#method.raw_unlock_upgradable_read">raw_unlock_upgradable_read</a><a href="#method.raw_unlock_read_fair">raw_unlock_read_fair</a><a href="#method.raw_unlock_write_fair">raw_unlock_write_fair</a><a href="#method.raw_unlock_upgradable_read_fair">raw_unlock_upgradable_read_fair</a><a href="#method.raw_downgrade">raw_downgrade</a><a href="#method.raw_downgrade_upgradable_read">raw_downgrade_upgradable_read</a><a href="#method.raw_read">raw_read</a><a href="#method.raw_try_read">raw_try_read</a><a href="#method.raw_read_recursive">raw_read_recursive</a><a href="#method.raw_try_read_recursive">raw_try_read_recursive</a><a href="#method.raw_write">raw_write</a><a href="#method.raw_try_write">raw_try_write</a><a href="#method.raw_upgradable_read">raw_upgradable_read</a><a href="#method.raw_try_upgradable_read">raw_try_upgradable_read</a><a href="#method.raw_upgrade">raw_upgrade</a><a href="#method.raw_try_upgrade">raw_try_upgrade</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a><a href="#impl-Default">Default</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='../index.html'>parking_lot</a>::<wbr><a href='index.html'>rwlock</a></p><script>window.sidebarCurrent = {name: 'RwLock', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AssignOpToken",""],["BinOpToken",""],["Keyword","Keywords"],["Token",""],["Word",""]],"struct":[["Number",""],["TokenAndSpan",""]]});
+initSidebarItems({"enum":[["BinOpToken",""],["Keyword","Keywords"],["Token",""],["Word",""]],"struct":[["TokenAndSpan",""]]});

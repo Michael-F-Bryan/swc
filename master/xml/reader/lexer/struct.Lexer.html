@@ -10,8 +10,11 @@
     <title>xml::reader::lexer::Lexer - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Struct Lexer</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.pos">pos</a><a href="#structfield.head_pos">head_pos</a><a href="#structfield.char_queue">char_queue</a><a href="#structfield.st">st</a><a href="#structfield.skip_errors">skip_errors</a><a href="#structfield.inside_comment">inside_comment</a><a href="#structfield.inside_token">inside_token</a><a href="#structfield.eof_handled">eof_handled</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.enable_errors">enable_errors</a><a href="#method.disable_errors">disable_errors</a><a href="#method.inside_comment">inside_comment</a><a href="#method.outside_comment">outside_comment</a><a href="#method.reset_eof_handled">reset_eof_handled</a><a href="#method.next_token">next_token</a><a href="#method.error">error</a><a href="#method.read_next_token">read_next_token</a><a href="#method.dispatch_char">dispatch_char</a><a href="#method.move_to">move_to</a><a href="#method.move_to_with">move_to_with</a><a href="#method.move_to_with_unread">move_to_with_unread</a><a href="#method.handle_error">handle_error</a><a href="#method.normal">normal</a><a href="#method.tag_opened">tag_opened</a><a href="#method.comment_or_cdata_or_doctype_started">comment_or_cdata_or_doctype_started</a><a href="#method.comment_started">comment_started</a><a href="#method.cdata_started">cdata_started</a><a href="#method.doctype_started">doctype_started</a><a href="#method.processing_instruction_closing">processing_instruction_closing</a><a href="#method.empty_element_closing">empty_element_closing</a><a href="#method.comment_closing">comment_closing</a><a href="#method.cdata_closing">cdata_closing</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Position">Position</a></div></div><p class='location'><a href='../../index.html'>xml</a>::<wbr><a href='../index.html'>reader</a>::<wbr><a href='index.html'>lexer</a></p><script>window.sidebarCurrent = {name: 'Lexer', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">

@@ -10,8 +10,11 @@
     <title>serde::lib::ToOwned - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Trait ToOwned</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#associated-types">Associated Types</a><div class="sidebar-links"><a href="#associatedtype.Owned">Owned</a></div><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.to_owned">to_owned</a></div><a class="sidebar-title" href="#provided-methods">Provided Methods</a><div class="sidebar-links"><a href="#method.clone_into">clone_into</a></div><a class="sidebar-title" href="#foreign-impls">Implementations on Foreign Types</a><div class="sidebar-links"><a href="#impl-ToOwned">[T]</a><a href="#impl-ToOwned">str</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../index.html'>serde</a>::<wbr><a href='index.html'>lib</a></p><script>window.sidebarCurrent = {name: 'ToOwned', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -116,9 +126,9 @@ from any borrow of a given type.</p>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/path.rs.html#1501-1509' title='goto source code'>[src]</a></div><code>impl ToOwned for <a class="struct" href="../../serde/lib/struct.Path.html" title="struct serde::lib::Path">Path</a><span class="where fmt-newline">  type <a href='#associatedtype.Owned' class="type">Owned</a> = <a class="struct" href="../../serde/lib/struct.PathBuf.html" title="struct serde::lib::PathBuf">PathBuf</a>;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/ffi/os_str.rs.html#775-784' title='goto source code'>[src]</a></div><code>impl ToOwned for <a class="struct" href="../../serde/lib/struct.OsStr.html" title="struct serde::lib::OsStr">OsStr</a><span class="where fmt-newline">  type <a href='#associatedtype.Owned' class="type">Owned</a> = <a class="struct" href="../../serde/lib/struct.OsString.html" title="struct serde::lib::OsString">OsString</a>;</span></code></li>
+    <li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/ffi/os_str.rs.html#775-784' title='goto source code'>[src]</a></div><code>impl ToOwned for <a class="struct" href="../../serde/lib/struct.OsStr.html" title="struct serde::lib::OsStr">OsStr</a><span class="where fmt-newline">  type <a href='#associatedtype.Owned' class="type">Owned</a> = <a class="struct" href="../../serde/lib/struct.OsString.html" title="struct serde::lib::OsString">OsString</a>;</span></code></li>
 <li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/ffi/c_str.rs.html#1194-1200' title='goto source code'>[src]</a></div><code>impl ToOwned for <a class="struct" href="../../serde/lib/struct.CStr.html" title="struct serde::lib::CStr">CStr</a><span class="where fmt-newline">  type <a href='#associatedtype.Owned' class="type">Owned</a> = <a class="struct" href="../../serde/lib/struct.CString.html" title="struct serde::lib::CString">CString</a>;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/path.rs.html#1501-1509' title='goto source code'>[src]</a></div><code>impl ToOwned for <a class="struct" href="../../serde/lib/struct.Path.html" title="struct serde::lib::Path">Path</a><span class="where fmt-newline">  type <a href='#associatedtype.Owned' class="type">Owned</a> = <a class="struct" href="../../serde/lib/struct.PathBuf.html" title="struct serde::lib::PathBuf">PathBuf</a>;</span></code></li>
 <li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/borrow.rs.html#89-100' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; ToOwned for T <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../serde/export/trait.Clone.html" title="trait serde::export::Clone">Clone</a>,&nbsp;</span><span class="where fmt-newline">  type <a href='#associatedtype.Owned' class="type">Owned</a> = T;</span></code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/alloc/borrow/trait.ToOwned.js">

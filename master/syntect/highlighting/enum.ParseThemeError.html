@@ -10,8 +10,11 @@
     <title>syntect::highlighting::ParseThemeError - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Enum ParseThemeError</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#variants">Variants</a><div class="sidebar-links"><a href="#variant.IncorrectUnderlineOption">IncorrectUnderlineOption</a><a href="#variant.IncorrectFontStyle">IncorrectFontStyle</a><a href="#variant.IncorrectColor">IncorrectColor</a><a href="#variant.IncorrectSyntax">IncorrectSyntax</a><a href="#variant.IncorrectSettings">IncorrectSettings</a><a href="#variant.UndefinedSettings">UndefinedSettings</a><a href="#variant.UndefinedScopeSettings">UndefinedScopeSettings</a><a href="#variant.ColorShemeScopeIsNotObject">ColorShemeScopeIsNotObject</a><a href="#variant.ColorShemeSettingsIsNotObject">ColorShemeSettingsIsNotObject</a><a href="#variant.ScopeSelectorIsNotString">ScopeSelectorIsNotString</a><a href="#variant.DuplicateSettings">DuplicateSettings</a><a href="#variant.ScopeParse">ScopeParse</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-From%3CParseScopeError%3E">From&lt;ParseScopeError&gt;</a><a href="#impl-From%3CParseThemeError%3E">From&lt;ParseThemeError&gt;</a></div></div><p class='location'><a href='../index.html'>syntect</a>::<wbr><a href='index.html'>highlighting</a></p><script>window.sidebarCurrent = {name: 'ParseThemeError', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">

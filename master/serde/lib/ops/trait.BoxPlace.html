@@ -10,8 +10,11 @@
     <title>serde::lib::ops::BoxPlace - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Trait BoxPlace</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.make_place">make_place</a></div><a class="sidebar-title" href="#foreign-impls">Implementations on Foreign Types</a><div class="sidebar-links"><a href="#impl-BoxPlace%3CT%3E">IntermediateBox&lt;T&gt;</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../index.html'>serde</a>::<wbr><a href='../index.html'>lib</a>::<wbr><a href='index.html'>ops</a></p><script>window.sidebarCurrent = {name: 'BoxPlace', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -49,7 +59,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/ops/place.rs.html#137-140' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/ops/place.rs.html#140-143' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait BoxPlace&lt;Data&gt;: <a class="trait" href="../../../serde/lib/ops/trait.Place.html" title="trait serde::lib::ops::Place">Place</a>&lt;Data&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;Data: ?<a class="trait" href="../../../serde/lib/marker/trait.Sized.html" title="trait serde::lib::marker::Sized">Sized</a>,&nbsp;</span>{
     fn <a href='#tymethod.make_place' class='fnname'>make_place</a>() -&gt; Self;
 }</pre><div class='stability'><div class='stab unstable'><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>placement_new_protocol</code>)</div></div><div class='docblock'><p>Specialization of <code>Place</code> trait supporting <code>box EXPR</code>.</p>

@@ -10,8 +10,11 @@
     <title>serde::lib::ops::Try - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Trait Try</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#associated-types">Associated Types</a><div class="sidebar-links"><a href="#associatedtype.Ok">Ok</a><a href="#associatedtype.Error">Error</a></div><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.into_result">into_result</a><a href="#tymethod.from_error">from_error</a><a href="#tymethod.from_ok">from_ok</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../index.html'>serde</a>::<wbr><a href='../index.html'>lib</a>::<wbr><a href='index.html'>ops</a></p><script>window.sidebarCurrent = {name: 'Try', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -90,8 +100,8 @@ is returned, where <code>X</code> is the return type of the enclosing function.<
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/option.rs.html#1214-1229' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Try for <a class="enum" href="../../../serde/export/enum.Option.html" title="enum serde::export::Option">Option</a>&lt;T&gt;<span class="where fmt-newline">  type <a href='#associatedtype.Ok' class="type">Ok</a> = T;</span><span class="where fmt-newline">  type <a href='#associatedtype.Error' class="type">Error</a> = <a class="struct" href="../../../serde/lib/option/struct.NoneError.html" title="struct serde::lib::option::NoneError">NoneError</a>;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/result.rs.html#1196-1211' title='goto source code'>[src]</a></div><code>impl&lt;T, E&gt; Try for <a class="enum" href="../../../serde/export/enum.Result.html" title="enum serde::export::Result">Result</a>&lt;T, E&gt;<span class="where fmt-newline">  type <a href='#associatedtype.Ok' class="type">Ok</a> = T;</span><span class="where fmt-newline">  type <a href='#associatedtype.Error' class="type">Error</a> = E;</span></code></li>
+    <li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/result.rs.html#1196-1211' title='goto source code'>[src]</a></div><code>impl&lt;T, E&gt; Try for <a class="enum" href="../../../serde/export/enum.Result.html" title="enum serde::export::Result">Result</a>&lt;T, E&gt;<span class="where fmt-newline">  type <a href='#associatedtype.Ok' class="type">Ok</a> = T;</span><span class="where fmt-newline">  type <a href='#associatedtype.Error' class="type">Error</a> = E;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/option.rs.html#1214-1229' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Try for <a class="enum" href="../../../serde/export/enum.Option.html" title="enum serde::export::Option">Option</a>&lt;T&gt;<span class="where fmt-newline">  type <a href='#associatedtype.Ok' class="type">Ok</a> = T;</span><span class="where fmt-newline">  type <a href='#associatedtype.Error' class="type">Error</a> = <a class="struct" href="../../../serde/lib/option/struct.NoneError.html" title="struct serde::lib::option::NoneError">NoneError</a>;</span></code></li>
 </ul><script type="text/javascript" async
                          src="../../../implementors/core/ops/try/trait.Try.js">
                  </script></section>

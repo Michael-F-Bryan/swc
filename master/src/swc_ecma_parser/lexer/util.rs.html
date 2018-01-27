@@ -10,8 +10,11 @@
     <title>util.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -219,6 +229,8 @@
 <span id="173">173</span>
 <span id="174">174</span>
 <span id="175">175</span>
+<span id="176">176</span>
+<span id="177">177</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Ported from [babylon/util/identifier.js][]</span>
 <span class="doccomment">//!</span>
@@ -229,9 +241,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! Note: Currently this use xid instead of id. (because unicode_xid crate</span>
 <span class="doccomment">//! exists)</span>
-
-<span class="kw">use</span> <span class="kw">super</span>::<span class="ident">Lexer</span>;
+<span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">LexResult</span>, <span class="ident">Lexer</span>};
 <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">input</span>::<span class="ident">Input</span>;
+<span class="kw">use</span> <span class="ident">error</span>::<span class="ident">SyntaxError</span>;
 <span class="kw">use</span> <span class="ident">parser_macros</span>::<span class="ident">parser</span>;
 <span class="kw">use</span> <span class="ident">unicode_xid</span>::<span class="ident">UnicodeXID</span>;
 
@@ -247,7 +259,7 @@
     <span class="doccomment">/// Skip comments or whitespaces.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// See https://tc39.github.io/ecma262/#sec-white-space</span>
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">skip_space</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">skip_space</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">LexResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">line_break</span> <span class="op">=</span> <span class="bool-val">false</span>;
 
         <span class="kw">while</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">c</span>) <span class="op">=</span> <span class="macro">cur</span><span class="macro">!</span>() {
@@ -264,7 +276,7 @@
                         <span class="self">self</span>.<span class="ident">skip_line_comment</span>(<span class="number">2</span>);
                         <span class="kw">continue</span>;
                     } <span class="kw">else</span> <span class="kw">if</span> <span class="macro">peek</span><span class="macro">!</span>() <span class="op">==</span> <span class="prelude-val">Some</span>(<span class="string">&#39;*&#39;</span>) {
-                        <span class="self">self</span>.<span class="ident">skip_block_comment</span>();
+                        <span class="self">self</span>.<span class="ident">skip_block_comment</span>()<span class="question-mark">?</span>;
                         <span class="kw">continue</span>;
                     }
                     <span class="kw">break</span>;
@@ -275,6 +287,8 @@
 
             <span class="macro">bump</span><span class="macro">!</span>();
         }
+
+        <span class="prelude-val">Ok</span>(())
     }
 
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">skip_line_comment</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">start_skip</span>: <span class="ident">usize</span>) {
@@ -299,7 +313,7 @@
     }
 
     <span class="doccomment">/// Expects current char to be &#39;/&#39; and next char to be &#39;*&#39;.</span>
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">skip_block_comment</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">skip_block_comment</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">LexResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="macro">cur_pos</span><span class="macro">!</span>();
 
         <span class="macro">debug_assert_eq</span><span class="macro">!</span>(<span class="macro">cur</span><span class="macro">!</span>(), <span class="prelude-val">Some</span>(<span class="string">&#39;/&#39;</span>));
@@ -314,7 +328,7 @@
             <span class="kw">if</span> <span class="ident">was_star</span> <span class="op">&amp;&amp;</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&#39;/&#39;</span>) {
                 <span class="macro">bump</span><span class="macro">!</span>();
                 <span class="comment">// TODO: push comment</span>
-                <span class="kw">return</span>;
+                <span class="kw">return</span> <span class="prelude-val">Ok</span>(());
             }
             <span class="kw">if</span> <span class="ident">c</span>.<span class="ident">is_line_break</span>() {
                 <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">had_line_break</span> <span class="op">=</span> <span class="bool-val">true</span>;
@@ -324,7 +338,7 @@
             <span class="macro">bump</span><span class="macro">!</span>();
         }
 
-        <span class="macro">unimplemented</span><span class="macro">!</span>(<span class="string">&quot;error: unterminated block comment&quot;</span>);
+        <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>), <span class="ident">SyntaxError</span>::<span class="ident">UnterminatedBlockComment</span>)
     }
 }
 

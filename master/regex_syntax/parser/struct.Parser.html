@@ -10,8 +10,11 @@
     <title>regex_syntax::parser::Parser - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Struct Parser</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.chars">chars</a><a href="#structfield.chari">chari</a><a href="#structfield.stack">stack</a><a href="#structfield.caps">caps</a><a href="#structfield.names">names</a><a href="#structfield.flags">flags</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.parse">parse</a><a href="#method.parse_expr">parse_expr</a><a href="#method.parse_escape">parse_escape</a><a href="#method.parse_group">parse_group</a><a href="#method.parse_group_flags">parse_group_flags</a><a href="#method.parse_group_name">parse_group_name</a><a href="#method.parse_counted_repeat">parse_counted_repeat</a><a href="#method.parse_simple_repeat">parse_simple_repeat</a><a href="#method.parse_decimal">parse_decimal</a><a href="#method.parse_octal">parse_octal</a><a href="#method.parse_hex">parse_hex</a><a href="#method.parse_hex_many_digits">parse_hex_many_digits</a><a href="#method.parse_hex_two_digits">parse_hex_two_digits</a><a href="#method.parse_class">parse_class</a><a href="#method.parse_class_range">parse_class_range</a><a href="#method.maybe_parse_ascii">maybe_parse_ascii</a><a href="#method.parse_unicode_class">parse_unicode_class</a><a href="#method.parse_perl_class">parse_perl_class</a><a href="#method.parse_one">parse_one</a><a href="#method.chars">chars</a><a href="#method.bump">bump</a><a href="#method.cur">cur</a><a href="#method.eof">eof</a><a href="#method.bump_get">bump_get</a><a href="#method.bump_if">bump_if</a><a href="#method.peek_is">peek_is</a><a href="#method.err">err</a><a href="#method.errat">errat</a><a href="#method.windowat">windowat</a><a href="#method.pop">pop</a><a href="#method.class_transform">class_transform</a><a href="#method.codepoint_to_one_byte">codepoint_to_one_byte</a><a href="#method.u32_to_one_byte">u32_to_one_byte</a><a href="#method.lit">lit</a><a href="#method.alternate">alternate</a><a href="#method.close_paren">close_paren</a><a href="#method.finish_concat">finish_concat</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='../index.html'>regex_syntax</a>::<wbr><a href='index.html'>parser</a></p><script>window.sidebarCurrent = {name: 'Parser', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">

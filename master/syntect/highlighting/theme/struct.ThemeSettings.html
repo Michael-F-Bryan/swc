@@ -10,8 +10,11 @@
     <title>syntect::highlighting::theme::ThemeSettings - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Struct ThemeSettings</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.foreground">foreground</a><a href="#structfield.background">background</a><a href="#structfield.caret">caret</a><a href="#structfield.line_highlight">line_highlight</a><a href="#structfield.misspelling">misspelling</a><a href="#structfield.minimap_border">minimap_border</a><a href="#structfield.accent">accent</a><a href="#structfield.popup_css">popup_css</a><a href="#structfield.phantom_css">phantom_css</a><a href="#structfield.bracket_contents_foreground">bracket_contents_foreground</a><a href="#structfield.bracket_contents_options">bracket_contents_options</a><a href="#structfield.brackets_foreground">brackets_foreground</a><a href="#structfield.brackets_background">brackets_background</a><a href="#structfield.brackets_options">brackets_options</a><a href="#structfield.tags_foreground">tags_foreground</a><a href="#structfield.tags_options">tags_options</a><a href="#structfield.highlight">highlight</a><a href="#structfield.find_highlight">find_highlight</a><a href="#structfield.find_highlight_foreground">find_highlight_foreground</a><a href="#structfield.gutter">gutter</a><a href="#structfield.gutter_foreground">gutter_foreground</a><a href="#structfield.selection">selection</a><a href="#structfield.selection_foreground">selection_foreground</a><a href="#structfield.selection_background">selection_background</a><a href="#structfield.selection_border">selection_border</a><a href="#structfield.inactive_selection">inactive_selection</a><a href="#structfield.inactive_selection_foreground">inactive_selection_foreground</a><a href="#structfield.guide">guide</a><a href="#structfield.active_guide">active_guide</a><a href="#structfield.stack_guide">stack_guide</a><a href="#structfield.highlight_foreground">highlight_foreground</a><a href="#structfield.shadow">shadow</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Clone">Clone</a><a href="#impl-Debug">Debug</a><a href="#impl-Default">Default</a><a href="#impl-ParseSettings">ParseSettings</a></div></div><p class='location'><a href='../../index.html'>syntect</a>::<wbr><a href='../index.html'>highlighting</a>::<wbr><a href='index.html'>theme</a></p><script>window.sidebarCurrent = {name: 'ThemeSettings', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">

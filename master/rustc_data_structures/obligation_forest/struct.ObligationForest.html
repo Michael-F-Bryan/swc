@@ -10,8 +10,11 @@
     <title>rustc_data_structures::obligation_forest::ObligationForest - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     <link rel="shortcut icon" href="https://www.rust-lang.org/favicon.ico">
@@ -33,6 +36,13 @@
         <p class='location'>Struct ObligationForest</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.nodes">nodes</a><a href="#structfield.done_cache">done_cache</a><a href="#structfield.waiting_cache">waiting_cache</a><a href="#structfield.cache_list">cache_list</a><a href="#structfield.scratch">scratch</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.len">len</a><a href="#method.register_obligation">register_obligation</a><a href="#method.register_obligation_at">register_obligation_at</a><a href="#method.to_errors">to_errors</a><a href="#method.pending_obligations">pending_obligations</a><a href="#method.process_obligations">process_obligations</a><a href="#method.process_cycles">process_cycles</a><a href="#method.find_cycles_from_node">find_cycles_from_node</a><a href="#method.error_at">error_at</a><a href="#method.mark_neighbors_as_waiting_from">mark_neighbors_as_waiting_from</a><a href="#method.mark_as_waiting">mark_as_waiting</a><a href="#method.mark_as_waiting_from">mark_as_waiting_from</a><a href="#method.compress">compress</a><a href="#method.apply_rewrites">apply_rewrites</a></div></div><p class='location'><a href='../index.html'>rustc_data_structures</a>::<wbr><a href='index.html'>obligation_forest</a></p><script>window.sidebarCurrent = {name: 'ObligationForest', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">

@@ -10,8 +10,11 @@
     <title>swc_ecma_parser::parser::ident::MaybeOptionalIdentParser - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Trait MaybeOptionalIdentParser</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.parse_maybe_opt_binding_ident">parse_maybe_opt_binding_ident</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../index.html'>swc_ecma_parser</a>::<wbr><a href='../index.html'>parser</a>::<wbr><a href='index.html'>ident</a></p><script>window.sidebarCurrent = {name: 'MaybeOptionalIdentParser', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -49,7 +59,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/swc_ecma_parser/parser/ident.rs.html#91-93' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../../src/swc_ecma_parser/parser/ident.rs.html#97-99' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>trait MaybeOptionalIdentParser&lt;'a, Ident&gt; {
     fn <a href='#tymethod.parse_maybe_opt_binding_ident' class='fnname'>parse_maybe_opt_binding_ident</a>(&amp;mut self) -&gt; <a class="type" href="../../../swc_ecma_parser/parser/type.PResult.html" title="type swc_ecma_parser::parser::PResult">PResult</a>&lt;'a, Ident&gt;;
 }</pre>
@@ -62,8 +72,8 @@
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><div class='out-of-band'><a class='srclink' href='../../../src/swc_ecma_parser/parser/ident.rs.html#94-98' title='goto source code'>[src]</a></div><code>impl&lt;'a, I:&nbsp;<a class="trait" href="../../../swc_ecma_parser/lexer/input/trait.Input.html" title="trait swc_ecma_parser::lexer::input::Input">Input</a>&gt; MaybeOptionalIdentParser&lt;'a, <a class="struct" href="../../../swc_ecma_ast/struct.Ident.html" title="struct swc_ecma_ast::Ident">Ident</a>&gt; for <a class="struct" href="../../../swc_ecma_parser/struct.Parser.html" title="struct swc_ecma_parser::Parser">Parser</a>&lt;'a, I&gt;</code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../src/swc_ecma_parser/parser/ident.rs.html#99-103' title='goto source code'>[src]</a></div><code>impl&lt;'a, I:&nbsp;<a class="trait" href="../../../swc_ecma_parser/lexer/input/trait.Input.html" title="trait swc_ecma_parser::lexer::input::Input">Input</a>&gt; MaybeOptionalIdentParser&lt;'a, <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../../swc_ecma_ast/struct.Ident.html" title="struct swc_ecma_ast::Ident">Ident</a>&gt;&gt; for <a class="struct" href="../../../swc_ecma_parser/struct.Parser.html" title="struct swc_ecma_parser::Parser">Parser</a>&lt;'a, I&gt;</code></li>
+    <li><div class='out-of-band'><a class='srclink' href='../../../src/swc_ecma_parser/parser/ident.rs.html#100-104' title='goto source code'>[src]</a></div><code>impl&lt;'a, I:&nbsp;<a class="trait" href="../../../swc_ecma_parser/lexer/input/trait.Input.html" title="trait swc_ecma_parser::lexer::input::Input">Input</a>&gt; MaybeOptionalIdentParser&lt;'a, <a class="struct" href="../../../swc_ecma_ast/struct.Ident.html" title="struct swc_ecma_ast::Ident">Ident</a>&gt; for <a class="struct" href="../../../swc_ecma_parser/struct.Parser.html" title="struct swc_ecma_parser::Parser">Parser</a>&lt;'a, I&gt;</code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/swc_ecma_parser/parser/ident.rs.html#105-109' title='goto source code'>[src]</a></div><code>impl&lt;'a, I:&nbsp;<a class="trait" href="../../../swc_ecma_parser/lexer/input/trait.Input.html" title="trait swc_ecma_parser::lexer::input::Input">Input</a>&gt; MaybeOptionalIdentParser&lt;'a, <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../../swc_ecma_ast/struct.Ident.html" title="struct swc_ecma_ast::Ident">Ident</a>&gt;&gt; for <a class="struct" href="../../../swc_ecma_parser/struct.Parser.html" title="struct swc_ecma_parser::Parser">Parser</a>&lt;'a, I&gt;</code></li>
 </ul><script type="text/javascript" async
                          src="../../../implementors/swc_ecma_parser/parser/ident/trait.MaybeOptionalIdentParser.js">
                  </script></section>

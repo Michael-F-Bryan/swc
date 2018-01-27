@@ -10,8 +10,11 @@
     <title>pmutil::synom_ext::FromSpan - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Trait FromSpan</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.from_span">from_span</a></div><a class="sidebar-title" href="#foreign-impls">Implementations on Foreign Types</a><div class="sidebar-links"><a href="#impl-FromSpan">[T; 1]</a><a href="#impl-FromSpan">[T; 2]</a><a href="#impl-FromSpan">[T; 3]</a><a href="#impl-FromSpan">[T; 4]</a><a href="#impl-FromSpan">Add</a><a href="#impl-FromSpan">AddEq</a><a href="#impl-FromSpan">And</a><a href="#impl-FromSpan">AndAnd</a><a href="#impl-FromSpan">AndEq</a><a href="#impl-FromSpan">As</a><a href="#impl-FromSpan">At</a><a href="#impl-FromSpan">Auto</a><a href="#impl-FromSpan">Bang</a><a href="#impl-FromSpan">Box</a><a href="#impl-FromSpan">Brace</a><a href="#impl-FromSpan">Bracket</a><a href="#impl-FromSpan">Break</a><a href="#impl-FromSpan">CapSelf</a><a href="#impl-FromSpan">Caret</a><a href="#impl-FromSpan">CaretEq</a><a href="#impl-FromSpan">Catch</a><a href="#impl-FromSpan">Colon</a><a href="#impl-FromSpan">Colon2</a><a href="#impl-FromSpan">Comma</a><a href="#impl-FromSpan">Const</a><a href="#impl-FromSpan">Continue</a><a href="#impl-FromSpan">Crate</a><a href="#impl-FromSpan">Default</a><a href="#impl-FromSpan">Div</a><a href="#impl-FromSpan">DivEq</a><a href="#impl-FromSpan">Do</a><a href="#impl-FromSpan">Dot</a><a href="#impl-FromSpan">Dot2</a><a href="#impl-FromSpan">Dot3</a><a href="#impl-FromSpan">DotDotEq</a><a href="#impl-FromSpan">Dyn</a><a href="#impl-FromSpan">Else</a><a href="#impl-FromSpan">Enum</a><a href="#impl-FromSpan">Eq</a><a href="#impl-FromSpan">EqEq</a><a href="#impl-FromSpan">Extern</a><a href="#impl-FromSpan">Fn</a><a href="#impl-FromSpan">For</a><a href="#impl-FromSpan">Ge</a><a href="#impl-FromSpan">Group</a><a href="#impl-FromSpan">Gt</a><a href="#impl-FromSpan">If</a><a href="#impl-FromSpan">Impl</a><a href="#impl-FromSpan">In</a><a href="#impl-FromSpan">LArrow</a><a href="#impl-FromSpan">Le</a><a href="#impl-FromSpan">Let</a><a href="#impl-FromSpan">Loop</a><a href="#impl-FromSpan">Lt</a><a href="#impl-FromSpan">Macro</a><a href="#impl-FromSpan">Match</a><a href="#impl-FromSpan">Mod</a><a href="#impl-FromSpan">Move</a><a href="#impl-FromSpan">MulEq</a><a href="#impl-FromSpan">Mut</a><a href="#impl-FromSpan">Ne</a><a href="#impl-FromSpan">Or</a><a href="#impl-FromSpan">OrEq</a><a href="#impl-FromSpan">OrOr</a><a href="#impl-FromSpan">Paren</a><a href="#impl-FromSpan">Pound</a><a href="#impl-FromSpan">Pub</a><a href="#impl-FromSpan">Question</a><a href="#impl-FromSpan">RArrow</a><a href="#impl-FromSpan">Ref</a><a href="#impl-FromSpan">Rem</a><a href="#impl-FromSpan">RemEq</a><a href="#impl-FromSpan">Return</a><a href="#impl-FromSpan">Rocket</a><a href="#impl-FromSpan">Self_</a><a href="#impl-FromSpan">Semi</a><a href="#impl-FromSpan">Shl</a><a href="#impl-FromSpan">ShlEq</a><a href="#impl-FromSpan">Shr</a><a href="#impl-FromSpan">ShrEq</a><a href="#impl-FromSpan">Star</a><a href="#impl-FromSpan">Static</a><a href="#impl-FromSpan">Struct</a><a href="#impl-FromSpan">Sub</a><a href="#impl-FromSpan">SubEq</a><a href="#impl-FromSpan">Super</a><a href="#impl-FromSpan">Trait</a><a href="#impl-FromSpan">Type</a><a href="#impl-FromSpan">Underscore</a><a href="#impl-FromSpan">Union</a><a href="#impl-FromSpan">Unsafe</a><a href="#impl-FromSpan">Use</a><a href="#impl-FromSpan">Where</a><a href="#impl-FromSpan">While</a><a href="#impl-FromSpan">Yield</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../index.html'>pmutil</a>::<wbr><a href='index.html'>synom_ext</a></p><script>window.sidebarCurrent = {name: 'FromSpan', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">

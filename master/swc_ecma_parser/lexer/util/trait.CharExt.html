@@ -10,8 +10,11 @@
     <title>swc_ecma_parser::lexer::util::CharExt - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Trait CharExt</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.to_char">to_char</a></div><a class="sidebar-title" href="#provided-methods">Provided Methods</a><div class="sidebar-links"><a href="#method.is_ident_start">is_ident_start</a><a href="#method.is_ident_part">is_ident_part</a><a href="#method.is_line_break">is_line_break</a><a href="#method.is_ws">is_ws</a></div><a class="sidebar-title" href="#foreign-impls">Implementations on Foreign Types</a><div class="sidebar-links"><a href="#impl-CharExt">char</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../index.html'>swc_ecma_parser</a>::<wbr><a href='../index.html'>lexer</a>::<wbr><a href='index.html'>util</a></p><script>window.sidebarCurrent = {name: 'CharExt', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -49,7 +59,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#110-168' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#112-170' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait CharExt: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> {
     fn <a href='#tymethod.to_char' class='fnname'>to_char</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>&gt;;
 
@@ -77,12 +87,12 @@
                 <h2 id='foreign-impls' class='small-section-header'>
                   Implementations on Foreign Types<a href='#foreign-impls' class='anchor'></a>
                 </h2>
-            <h3 id='impl-CharExt' class='impl'><span class='in-band'><code>impl <a class="trait" href="../../../swc_ecma_parser/lexer/util/trait.CharExt.html" title="trait swc_ecma_parser::lexer::util::CharExt">CharExt</a> for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a></code><a href='#impl-CharExt' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#170-175' title='goto source code'>[src]</a></span></h3>
-<span class='docblock autohide'><div class='impl-items'><h4 id='method.to_char' class="method"><span id='to_char.v-1' class='invisible'><code>fn <a href='#method.to_char' class='fnname'>to_char</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#172-174' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.is_ident_start-1' class="method"><span id='is_ident_start.v-1' class='invisible'><code>fn <a href='../../../swc_ecma_parser/lexer/util/trait.CharExt.html#method.is_ident_start' class='fnname'>is_ident_start</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#116-123' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.is_ident_part-1' class="method"><span id='is_ident_part.v-1' class='invisible'><code>fn <a href='../../../swc_ecma_parser/lexer/util/trait.CharExt.html#method.is_ident_part' class='fnname'>is_ident_part</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#126-133' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.is_line_break-1' class="method"><span id='is_line_break.v-1' class='invisible'><code>fn <a href='../../../swc_ecma_parser/lexer/util/trait.CharExt.html#method.is_line_break' class='fnname'>is_line_break</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#136-145' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.is_ws-1' class="method"><span id='is_ws.v-1' class='invisible'><code>fn <a href='../../../swc_ecma_parser/lexer/util/trait.CharExt.html#method.is_ws' class='fnname'>is_ws</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#148-167' title='goto source code'>[src]</a></span></h4>
+            <h3 id='impl-CharExt' class='impl'><span class='in-band'><code>impl <a class="trait" href="../../../swc_ecma_parser/lexer/util/trait.CharExt.html" title="trait swc_ecma_parser::lexer::util::CharExt">CharExt</a> for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a></code><a href='#impl-CharExt' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#172-177' title='goto source code'>[src]</a></span></h3>
+<span class='docblock autohide'><div class='impl-items'><h4 id='method.to_char' class="method"><span id='to_char.v-1' class='invisible'><code>fn <a href='#method.to_char' class='fnname'>to_char</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#174-176' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_ident_start-1' class="method"><span id='is_ident_start.v-1' class='invisible'><code>fn <a href='../../../swc_ecma_parser/lexer/util/trait.CharExt.html#method.is_ident_start' class='fnname'>is_ident_start</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#118-125' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_ident_part-1' class="method"><span id='is_ident_part.v-1' class='invisible'><code>fn <a href='../../../swc_ecma_parser/lexer/util/trait.CharExt.html#method.is_ident_part' class='fnname'>is_ident_part</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#128-135' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_line_break-1' class="method"><span id='is_line_break.v-1' class='invisible'><code>fn <a href='../../../swc_ecma_parser/lexer/util/trait.CharExt.html#method.is_line_break' class='fnname'>is_line_break</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#138-147' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_ws-1' class="method"><span id='is_ws.v-1' class='invisible'><code>fn <a href='../../../swc_ecma_parser/lexer/util/trait.CharExt.html#method.is_ws' class='fnname'>is_ws</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/swc_ecma_parser/lexer/util.rs.html#150-169' title='goto source code'>[src]</a></span></h4>
 </div></span>
         <h2 id='implementors' class='small-section-header'>
           Implementors<a href='#implementors' class='anchor'></a>
