@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["error",""],["input","Note: this module requires `#![feature(nll)]`."],["lexer","ECMAScript lexer."],["macros",""],["parser",""],["token","Ported from [babel/bablyon][]"]],"struct":[["Config",""],["Context","Syntatic context."],["FileMapInput",""],["Parser","EcmaScript parser."],["Session",""]],"trait":[["Input",""]],"type":[["PResult",""]]});
+initSidebarItems({"mod":[["input",""]],"struct":[["Config",""],["FileMapInput",""],["Parser","EcmaScript parser."],["Session",""]],"trait":[["Input",""]],"type":[["PResult",""]]});

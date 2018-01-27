@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Crate regex_syntax</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'regex_syntax', ty: 'mod', relpath: '../'};</script></div>
+        <p class='location'>Crate regex_syntax</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'regex_syntax', ty: 'mod', relpath: '../'};</script></div>
     </nav>
 
     <div class="theme-picker">
@@ -100,29 +100,7 @@ if an invalid character class range is given:</p>
 <span class="kw">let</span> <span class="ident">err</span> <span class="op">=</span> <span class="ident">Expr</span>::<span class="ident">parse</span>(<span class="string">r&quot;ab(cd&quot;</span>).<span class="ident">unwrap_err</span>();
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">err</span>.<span class="ident">position</span>(), <span class="number">2</span>);
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">err</span>.<span class="ident">kind</span>(), <span class="kw-2">&amp;</span><span class="ident">ErrorKind</span>::<span class="ident">UnclosedParen</span>);</pre>
-</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="literals/index.html"
-                                  title='mod regex_syntax::literals'>literals</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="parser/index.html"
-                                  title='mod regex_syntax::parser'>parser</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="unicode/index.html"
-                                  title='mod regex_syntax::unicode'>unicode</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="struct" href="struct.ByteClass.html"
@@ -215,88 +193,14 @@ if an invalid character class range is given:</p>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class="fn" href="fn.binary_search.html"
-                                  title='fn regex_syntax::binary_search'>binary_search</a></td>
-                           <td class='docblock-short'>
-                                <p>Binary search to find first element such that <code>pred(T) == true</code>.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.dec_char.html"
-                                  title='fn regex_syntax::dec_char'>dec_char</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.inc_char.html"
-                                  title='fn regex_syntax::inc_char'>inc_char</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.is_word_byte.html"
-                                  title='fn regex_syntax::is_word_byte'>is_word_byte</a></td>
-                           <td class='docblock-short'>
-                                <p>Returns true if and only if <code>c</code> is an ASCII word byte.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.is_word_char.html"
-                                  title='fn regex_syntax::is_word_char'>is_word_char</a></td>
-                           <td class='docblock-short'>
-                                <p>Returns true if and only if <code>c</code> is a word character.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
                            <td><a class="fn" href="fn.quote.html"
                                   title='fn regex_syntax::quote'>quote</a></td>
                            <td class='docblock-short'>
                                 <p>Escapes all regular expression meta characters in <code>text</code>.</p>
 
                            </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.quote_byte.html"
-                                  title='fn regex_syntax::quote_byte'>quote_byte</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.quote_char.html"
-                                  title='fn regex_syntax::quote_char'>quote_char</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.simple_case_fold_both_result.html"
-                                  title='fn regex_syntax::simple_case_fold_both_result'>simple_case_fold_both_result</a></td>
-                           <td class='docblock-short'>
-                                <p>The result of binary search on the simple case folding table.</p>
-
-                           </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
-                       <tr class=' module-item'>
-                           <td><a class="type" href="type.CaptureIndex.html"
-                                  title='type regex_syntax::CaptureIndex'>CaptureIndex</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="type" href="type.CaptureName.html"
-                                  title='type regex_syntax::CaptureName'>CaptureName</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
                        <tr class=' module-item'>
                            <td><a class="type" href="type.Result.html"
                                   title='type regex_syntax::Result'>Result</a></td>

@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["Handler","A handler deals with errors."]]});

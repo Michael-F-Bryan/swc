@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["parser","This attribute macro injects first argument of function (typically `self`) to all known macros invocation in a function."]],"mod":[["expand",""]]});
+initSidebarItems({"fn":[["parser","This attribute macro injects first argument of function (typically `self`) to all known macros invocation in a function."]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["escape_help",""],["escape_value",""],["get_args_of",""],["get_subcommands_of",""],["parser_of",""],["subcommand_details",""],["subcommands_of",""],["write_flags_of",""],["write_opts_of",""],["write_positionals_of",""]],"struct":[["ZshGen",""]]});

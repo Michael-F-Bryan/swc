@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Node","A single node in a stack."],["Stack","A lock-free stack."]]});
+initSidebarItems({"struct":[["Stack","A lock-free stack."]]});

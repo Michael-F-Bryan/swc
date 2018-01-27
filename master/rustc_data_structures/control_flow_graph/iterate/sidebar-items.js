@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["post_order_from",""],["post_order_from_to",""],["post_order_walk",""],["reverse_post_order",""]]});
+initSidebarItems({"fn":[["post_order_from",""],["post_order_from_to",""],["reverse_post_order",""]]});

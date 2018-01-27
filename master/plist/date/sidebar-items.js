@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["serde_impls",""]],"struct":[["Date","A UTC timestamp. Used for serialization to and from the plist date type."]]});

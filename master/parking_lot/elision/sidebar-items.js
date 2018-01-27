@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["have_elision",""]],"trait":[["AtomicElisionExt",""]]});

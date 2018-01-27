@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["NodeState","The state of one node in some tree within the forest. This represents the current state of processing for the obligation (of type `O`) associated with this node."]],"mod":[["node_index",""]],"struct":[["Error",""],["GetObligation",""],["Node",""],["ObligationForest",""],["Outcome",""]],"trait":[["ForestObligation",""],["ObligationProcessor",""]]});
+initSidebarItems({"struct":[["Error",""],["ObligationForest",""],["Outcome",""]],"trait":[["ForestObligation",""],["ObligationProcessor",""]]});

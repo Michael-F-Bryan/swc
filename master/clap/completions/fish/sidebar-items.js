@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["escape_string",""],["gen_fish_inner",""]],"struct":[["FishGen",""]]});

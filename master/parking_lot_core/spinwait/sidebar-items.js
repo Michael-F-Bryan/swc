@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["cpu_relax",""],["thread_yield",""]],"struct":[["SpinWait","A counter used to perform exponential backoff in spin loops."]]});

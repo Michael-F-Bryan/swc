@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["Iter",""],["ParticipantNode",""],["Participants","Global, threadsafe list of threads participating in epoch management."]]});

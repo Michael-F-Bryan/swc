@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../../rustc_data_structures/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Struct Drain</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.tail_start">tail_start</a><a href="#structfield.tail_len">tail_len</a><a href="#structfield.iter">iter</a><a href="#structfield.array_vec">array_vec</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Iterator">Iterator</a><a href="#impl-Drop">Drop</a></div></div><p class='location'><a href='../index.html'>rustc_data_structures</a>::<wbr><a href='index.html'>array_vec</a></p><script>window.sidebarCurrent = {name: 'Drain', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct Drain</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Iterator">Iterator</a><a href="#impl-Drop">Drop</a></div></div><p class='location'><a href='../index.html'>rustc_data_structures</a>::<wbr><a href='index.html'>array_vec</a></p><script>window.sidebarCurrent = {name: 'Drain', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,29 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/rustc_data_structures/array_vec.rs.html#229-236' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct Drain&lt;'a, A:&nbsp;<a class="trait" href="../../rustc_data_structures/array_vec/trait.Array.html" title="trait rustc_data_structures::array_vec::Array">Array</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;A::<a class="type" href="../../rustc_data_structures/array_vec/trait.Array.html#associatedtype.Element" title="type rustc_data_structures::array_vec::Array::Element">Element</a>: 'a,&nbsp;</span> {
-    tail_start: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
-    tail_len: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
-    iter: <a class="struct" href="https://doc.rust-lang.org/nightly/core/slice/struct.Iter.html" title="struct core::slice::Iter">Iter</a>&lt;'a, <a class="union" href="https://doc.rust-lang.org/nightly/core/mem/union.ManuallyDrop.html" title="union core::mem::ManuallyDrop">ManuallyDrop</a>&lt;A::<a class="type" href="../../rustc_data_structures/array_vec/trait.Array.html#associatedtype.Element" title="type rustc_data_structures::array_vec::Array::Element">Element</a>&gt;&gt;,
-    array_vec: <a class="type" href="https://doc.rust-lang.org/nightly/core/ptr/type.Shared.html" title="type core::ptr::Shared">Shared</a>&lt;<a class="struct" href="../../rustc_data_structures/array_vec/struct.ArrayVec.html" title="struct rustc_data_structures::array_vec::ArrayVec">ArrayVec</a>&lt;A&gt;&gt;,
-}</pre><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.tail_start" class="structfield small-section-header">
-                           <a href="#structfield.tail_start" class="anchor field"></a>
-                           <span id="tail_start.v" class='invisible'>
-                           <code>tail_start: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code>
-                           </span></span><span id="structfield.tail_len" class="structfield small-section-header">
-                           <a href="#structfield.tail_len" class="anchor field"></a>
-                           <span id="tail_len.v" class='invisible'>
-                           <code>tail_len: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code>
-                           </span></span><span id="structfield.iter" class="structfield small-section-header">
-                           <a href="#structfield.iter" class="anchor field"></a>
-                           <span id="iter.v" class='invisible'>
-                           <code>iter: <a class="struct" href="https://doc.rust-lang.org/nightly/core/slice/struct.Iter.html" title="struct core::slice::Iter">Iter</a>&lt;'a, <a class="union" href="https://doc.rust-lang.org/nightly/core/mem/union.ManuallyDrop.html" title="union core::mem::ManuallyDrop">ManuallyDrop</a>&lt;A::<a class="type" href="../../rustc_data_structures/array_vec/trait.Array.html#associatedtype.Element" title="type rustc_data_structures::array_vec::Array::Element">Element</a>&gt;&gt;</code>
-                           </span></span><span id="structfield.array_vec" class="structfield small-section-header">
-                           <a href="#structfield.array_vec" class="anchor field"></a>
-                           <span id="array_vec.v" class='invisible'>
-                           <code>array_vec: <a class="type" href="https://doc.rust-lang.org/nightly/core/ptr/type.Shared.html" title="type core::ptr::Shared">Shared</a>&lt;<a class="struct" href="../../rustc_data_structures/array_vec/struct.ArrayVec.html" title="struct rustc_data_structures::array_vec::ArrayVec">ArrayVec</a>&lt;A&gt;&gt;</code>
-                           </span></span>
+<pre class='rust struct'>pub struct Drain&lt;'a, A:&nbsp;<a class="trait" href="../../rustc_data_structures/array_vec/trait.Array.html" title="trait rustc_data_structures::array_vec::Array">Array</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;A::<a class="type" href="../../rustc_data_structures/array_vec/trait.Array.html#associatedtype.Element" title="type rustc_data_structures::array_vec::Array::Element">Element</a>: 'a,&nbsp;</span> { /* fields omitted */ }</pre>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>

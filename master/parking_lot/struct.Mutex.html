@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct Mutex</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.raw">raw</a><a href="#structfield.data">data</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.into_inner">into_inner</a><a href="#method.guard">guard</a><a href="#method.lock">lock</a><a href="#method.try_lock">try_lock</a><a href="#method.try_lock_for">try_lock_for</a><a href="#method.try_lock_until">try_lock_until</a><a href="#method.get_mut">get_mut</a><a href="#method.raw_unlock">raw_unlock</a><a href="#method.raw_unlock_fair">raw_unlock_fair</a><a href="#method.raw_lock">raw_lock</a><a href="#method.raw_try_lock">raw_try_lock</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a><a href="#impl-Default">Default</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>parking_lot</a></p><script>window.sidebarCurrent = {name: 'Mutex', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct Mutex</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.into_inner">into_inner</a><a href="#method.lock">lock</a><a href="#method.try_lock">try_lock</a><a href="#method.try_lock_for">try_lock_for</a><a href="#method.try_lock_until">try_lock_until</a><a href="#method.get_mut">get_mut</a><a href="#method.raw_unlock">raw_unlock</a><a href="#method.raw_unlock_fair">raw_unlock_fair</a><a href="#method.raw_lock">raw_lock</a><a href="#method.raw_try_lock">raw_try_lock</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a><a href="#impl-Default">Default</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>parking_lot</a></p><script>window.sidebarCurrent = {name: 'Mutex', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,10 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/parking_lot/mutex.rs.html#96-99' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct Mutex&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt; {
-    raw: <a class="struct" href="../parking_lot/raw_mutex/struct.RawMutex.html" title="struct parking_lot::raw_mutex::RawMutex">RawMutex</a>,
-    data: <a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.UnsafeCell.html" title="struct core::cell::UnsafeCell">UnsafeCell</a>&lt;T&gt;,
-}</pre><div class='docblock'><p>A mutual exclusion primitive useful for protecting shared data</p>
+<pre class='rust struct'>pub struct Mutex&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt; { /* fields omitted */ }</pre><div class='docblock'><p>A mutual exclusion primitive useful for protecting shared data</p>
 <p>This mutex will block threads waiting for the lock to become available. The
 mutex can also be statically initialized or created via a <code>new</code>
 constructor. Each mutex has a type parameter which represents the data that
@@ -131,16 +128,7 @@ unlocking a mutex instead of simply dropping the <code>MutexGuard</code>.</p>
 }
 
 <span class="ident">rx</span>.<span class="ident">recv</span>().<span class="ident">unwrap</span>();</pre>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.raw" class="structfield small-section-header">
-                           <a href="#structfield.raw" class="anchor field"></a>
-                           <span id="raw.v" class='invisible'>
-                           <code>raw: <a class="struct" href="../parking_lot/raw_mutex/struct.RawMutex.html" title="struct parking_lot::raw_mutex::RawMutex">RawMutex</a></code>
-                           </span></span><span id="structfield.data" class="structfield small-section-header">
-                           <a href="#structfield.data" class="anchor field"></a>
-                           <span id="data.v" class='invisible'>
-                           <code>data: <a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.UnsafeCell.html" title="struct core::cell::UnsafeCell">UnsafeCell</a>&lt;T&gt;</code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
@@ -150,8 +138,7 @@ unlocking a mutex instead of simply dropping the <code>MutexGuard</code>.</p>
 </div><h4 id='method.into_inner' class="method"><span id='into_inner.v' class='invisible'><code>pub fn <a href='#method.into_inner' class='fnname'>into_inner</a>(self) -&gt; T</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/mutex.rs.html#141-143' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Consumes this mutex, returning the underlying data.</p>
 </div></div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt; <a class="struct" href="../parking_lot/struct.Mutex.html" title="struct parking_lot::Mutex">Mutex</a>&lt;T&gt;</code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/mutex.rs.html#146-249' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.guard' class="method"><span id='guard.v' class='invisible'><code>fn <a href='#method.guard' class='fnname'>guard</a>(&amp;self) -&gt; <a class="struct" href="../parking_lot/struct.MutexGuard.html" title="struct parking_lot::MutexGuard">MutexGuard</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/mutex.rs.html#148-154' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.lock' class="method"><span id='lock.v' class='invisible'><code>pub fn <a href='#method.lock' class='fnname'>lock</a>(&amp;self) -&gt; <a class="struct" href="../parking_lot/struct.MutexGuard.html" title="struct parking_lot::MutexGuard">MutexGuard</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/mutex.rs.html#166-169' title='goto source code'>[src]</a></span></h4>
+<div class='impl-items'><h4 id='method.lock' class="method"><span id='lock.v' class='invisible'><code>pub fn <a href='#method.lock' class='fnname'>lock</a>(&amp;self) -&gt; <a class="struct" href="../parking_lot/struct.MutexGuard.html" title="struct parking_lot::MutexGuard">MutexGuard</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/mutex.rs.html#166-169' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Acquires a mutex, blocking the current thread until it is able to do so.</p>
 <p>This function will block the local thread until it is available to acquire
 the mutex. Upon returning, the thread is the only thread with the mutex

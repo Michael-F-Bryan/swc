@@ -60,8 +60,8 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/serde/ser/mod.rs.html#131-169' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait Error: <a class="trait" href="../../serde/lib/marker/trait.Sized.html" title="trait serde::lib::marker::Sized">Sized</a> + <a class="trait" href="../../serde/lib/error/trait.Error.html" title="trait serde::lib::error::Error">Error</a> {
-    fn <a href='#tymethod.custom' class='fnname'>custom</a>&lt;T&gt;(msg: T) -&gt; Self<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../serde/export/fmt/trait.Display.html" title="trait serde::export::fmt::Display">Display</a></span>;
+<pre class='rust trait'>pub trait Error: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html" title="trait std::error::Error">Error</a> {
+    fn <a href='#tymethod.custom' class='fnname'>custom</a>&lt;T&gt;(msg: T) -&gt; Self<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a></span>;
 }</pre><div class='docblock'><p>Trait used by <code>Serialize</code> implementations to generically construct
 errors belonging to the <code>Serializer</code> against which they are
 currently running.</p>
@@ -70,7 +70,7 @@ currently running.</p>
               Required Methods<a href='#required-methods' class='anchor'></a>
             </h2>
             <div class='methods'>
-        <h3 id='tymethod.custom' class='method'><span id='custom.v' class='invisible'><code>fn <a href='#tymethod.custom' class='fnname'>custom</a>&lt;T&gt;(msg: T) -&gt; Self <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../serde/export/fmt/trait.Display.html" title="trait serde::export::fmt::Display">Display</a>,&nbsp;</span></code></span></h3><div class='docblock'><p>Used when a <a href="../trait.Serialize.html"><code>Serialize</code></a> implementation encounters any error
+        <h3 id='tymethod.custom' class='method'><span id='custom.v' class='invisible'><code>fn <a href='#tymethod.custom' class='fnname'>custom</a>&lt;T&gt;(msg: T) -&gt; Self <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a>,&nbsp;</span></code></span></h3><div class='docblock'><p>Used when a <a href="../trait.Serialize.html"><code>Serialize</code></a> implementation encounters any error
 while serializing a type.</p>
 <p>The message should not be capitalized and should not end with a
 period.</p>
@@ -95,8 +95,7 @@ itself if it contains invalid UTF-8 data.</p>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><div class='out-of-band'><a class='srclink' href='../../src/serde/de/value.rs.html#80-87' title='goto source code'>[src]</a></div><code>impl Error for serde::de::value::<a class="struct" href="../../serde/de/value/struct.Error.html" title="struct serde::de::value::Error">Error</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../src/serde/private/ser.rs.html#347-354' title='goto source code'>[src]</a></div><code>impl Error for serde::private::ser::<a class="struct" href="../../serde/private/ser/struct.Error.html" title="struct serde::private::ser::Error">Error</a></code></li>
+    <li><div class='out-of-band'><a class='srclink' href='../../src/serde/de/value.rs.html#80-87' title='goto source code'>[src]</a></div><code>impl Error for <a class="struct" href="../../serde/de/value/struct.Error.html" title="struct serde::de::value::Error">Error</a></code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/serde/ser/trait.Error.js">
                  </script></section>

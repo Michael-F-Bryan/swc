@@ -60,7 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/slog_term/lib.rs.html#1072-1074' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct PlainSyncDecorator&lt;W&gt;(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/mutex/struct.Mutex.html" title="struct std::sync::mutex::Mutex">Mutex</a>&lt;W&gt;&gt;)<br> <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;W: <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a></span>;</pre><div class='docblock'><p>PlainSync <code>Decorator</code> implementation</p>
+<pre class='rust struct'>pub struct PlainSyncDecorator&lt;W&gt;(_)<br> <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;W: <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a></span>;</pre><div class='docblock'><p>PlainSync <code>Decorator</code> implementation</p>
 <p>This implementation is exactly like <code>PlainDecorator</code> but it takes care
 of synchronizing writes to <code>io</code>.</p>
 

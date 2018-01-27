@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["collect_extended","Create an empty default collection and extend it."]]});

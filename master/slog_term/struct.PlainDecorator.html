@@ -60,7 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/slog_term/lib.rs.html#982-984' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct PlainDecorator&lt;W&gt;(<a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.RefCell.html" title="struct core::cell::RefCell">RefCell</a>&lt;W&gt;)<br> <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;W: <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a></span>;</pre><div class='docblock'><p>Plain (no-op) <code>Decorator</code> implementation</p>
+<pre class='rust struct'>pub struct PlainDecorator&lt;W&gt;(_)<br> <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;W: <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a></span>;</pre><div class='docblock'><p>Plain (no-op) <code>Decorator</code> implementation</p>
 <p>This decorator doesn't do any coloring, and doesn't do any synchronization
 between threads, so is not <code>Sync</code>. It is however useful combined with
 <code>slog_async::Async</code> drain, as <code>slog_async::Async</code> uses only one thread,

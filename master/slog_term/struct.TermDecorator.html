@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct TermDecorator</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.term">term</a><a href="#structfield.use_color">use_color</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.level_to_color">level_to_color</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Decorator">Decorator</a></div></div><p class='location'><a href='index.html'>slog_term</a></p><script>window.sidebarCurrent = {name: 'TermDecorator', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct TermDecorator</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.level_to_color">level_to_color</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Decorator">Decorator</a></div></div><p class='location'><a href='index.html'>slog_term</a></p><script>window.sidebarCurrent = {name: 'TermDecorator', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,24 +60,12 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/slog_term/lib.rs.html#1273-1276' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct TermDecorator {
-    term: <a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.RefCell.html" title="struct core::cell::RefCell">RefCell</a>&lt;<a class="enum" href="../slog_term/enum.AnyTerminal.html" title="enum slog_term::AnyTerminal">AnyTerminal</a>&gt;,
-    use_color: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
-}</pre><div class='docblock'><p><code>Decorator</code> implemented using <code>term</code> crate</p>
+<pre class='rust struct'>pub struct TermDecorator { /* fields omitted */ }</pre><div class='docblock'><p><code>Decorator</code> implemented using <code>term</code> crate</p>
 <p>This decorator will add nice formatting to the logs it's outputting. It's
 based on <code>term</code> crate.</p>
 <p>It does not deal with serialization so is <code>!Sync</code>. Run in a separate thread
 with <code>slog_async::Async</code>.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.term" class="structfield small-section-header">
-                           <a href="#structfield.term" class="anchor field"></a>
-                           <span id="term.v" class='invisible'>
-                           <code>term: <a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.RefCell.html" title="struct core::cell::RefCell">RefCell</a>&lt;<a class="enum" href="../slog_term/enum.AnyTerminal.html" title="enum slog_term::AnyTerminal">AnyTerminal</a>&gt;</code>
-                           </span></span><span id="structfield.use_color" class="structfield small-section-header">
-                           <a href="#structfield.use_color" class="anchor field"></a>
-                           <span id="use_color.v" class='invisible'>
-                           <code>use_color: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>

@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["init","Register `slog-stdlog` as `log` backend."],["log_to_slog_level",""]],"struct":[["KSV","Key-Separator-Value serializer"],["LazyLogString",""],["Logger",""],["StdLog","Drain logging `Record`s into `log` crate"]]});
+initSidebarItems({"fn":[["init","Register `slog-stdlog` as `log` backend."]],"struct":[["StdLog","Drain logging `Record`s into `log` crate"]]});

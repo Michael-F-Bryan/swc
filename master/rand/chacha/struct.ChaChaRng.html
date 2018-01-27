@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../../rand/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk.png' alt='logo' width='100'></a>
-        <p class='location'>Struct ChaChaRng</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.buffer">buffer</a><a href="#structfield.state">state</a><a href="#structfield.index">index</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new_unseeded">new_unseeded</a><a href="#method.set_counter">set_counter</a><a href="#method.init">init</a><a href="#method.update">update</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a><a href="#impl-Debug">Debug</a><a href="#impl-Rng">Rng</a><a href="#impl-SeedableRng%3C%26%27a%20%5Bu32%5D%3E">SeedableRng&lt;&amp;&#39;a [u32]&gt;</a><a href="#impl-Rand">Rand</a></div></div><p class='location'><a href='../index.html'>rand</a>::<wbr><a href='index.html'>chacha</a></p><script>window.sidebarCurrent = {name: 'ChaChaRng', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct ChaChaRng</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new_unseeded">new_unseeded</a><a href="#method.set_counter">set_counter</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a><a href="#impl-Debug">Debug</a><a href="#impl-Rng">Rng</a><a href="#impl-SeedableRng%3C%26%27a%20%5Bu32%5D%3E">SeedableRng&lt;&amp;&#39;a [u32]&gt;</a><a href="#impl-Rand">Rand</a></div></div><p class='location'><a href='../index.html'>rand</a>::<wbr><a href='index.html'>chacha</a></p><script>window.sidebarCurrent = {name: 'ChaChaRng', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,31 +60,14 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/rand/chacha.rs.html#30-34' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct ChaChaRng {
-    buffer: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 16]</a>,
-    state: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 16]</a>,
-    index: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
-}</pre><div class='docblock'><p>A random number generator that uses the ChaCha20 algorithm [1].</p>
+<pre class='rust struct'>pub struct ChaChaRng { /* fields omitted */ }</pre><div class='docblock'><p>A random number generator that uses the ChaCha20 algorithm [1].</p>
 <p>The ChaCha algorithm is widely accepted as suitable for
 cryptographic purposes, but this implementation has not been
 verified as such. Prefer a generator like <code>OsRng</code> that defers to
 the operating system for cases that need high security.</p>
 <p>[1]: D. J. Bernstein, <a href="http://cr.yp.to/chacha.html"><em>ChaCha, a variant of
 Salsa20</em></a></p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.buffer" class="structfield small-section-header">
-                           <a href="#structfield.buffer" class="anchor field"></a>
-                           <span id="buffer.v" class='invisible'>
-                           <code>buffer: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 16]</a></code>
-                           </span></span><span id="structfield.state" class="structfield small-section-header">
-                           <a href="#structfield.state" class="anchor field"></a>
-                           <span id="state.v" class='invisible'>
-                           <code>state: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 16]</a></code>
-                           </span></span><span id="structfield.index" class="structfield small-section-header">
-                           <a href="#structfield.index" class="anchor field"></a>
-                           <span id="index.v" class='invisible'>
-                           <code>index: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
@@ -122,24 +105,6 @@ arguments <code>0, desired_nonce</code>.</p>
 <span class="ident">ra</span>.<span class="ident">set_counter</span>(<span class="number">0u64</span>, <span class="number">1234567890u64</span>);
 <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">ra</span>.<span class="ident">next_u32</span>());
 <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">ra</span>.<span class="ident">next_u32</span>());</pre>
-</div><h4 id='method.init' class="method"><span id='init.v' class='invisible'><code>fn <a href='#method.init' class='fnname'>init</a>(&amp;mut self, key: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 8]</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rand/chacha.rs.html#152-168' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Initializes <code>self.state</code> with the appropriate key and constants</p>
-<p>We deviate slightly from the ChaCha specification regarding
-the nonce, which is used to extend the counter to 128 bits.
-This is provably as strong as the original cipher, though,
-since any distinguishing attack on our variant also works
-against ChaCha with a chosen-nonce. See the XSalsa20 [1]
-security proof for a more involved example of this.</p>
-<p>The modified word layout is:</p>
-<pre><code class="language-text">constant constant constant constant
-key      key      key      key
-key      key      key      key
-counter  counter  counter  counter
-</code></pre>
-<p>[1]: Daniel J. Bernstein. <a href="http://cr.yp.to/papers.html#xsalsa"><em>Extending the Salsa20
-nonce.</em></a></p>
-</div><h4 id='method.update' class="method"><span id='update.v' class='invisible'><code>fn <a href='#method.update' class='fnname'>update</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rand/chacha.rs.html#171-182' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Refill the internal output buffer (<code>self.buffer</code>)</p>
 </div></div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>

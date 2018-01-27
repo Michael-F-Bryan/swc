@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Crate rayon_core</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'rayon_core', ty: 'mod', relpath: '../'};</script></div>
+        <p class='location'>Crate rayon_core</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'rayon_core', ty: 'mod', relpath: '../'};</script></div>
     </nav>
 
     <div class="theme-picker">
@@ -74,91 +74,7 @@ possible to arrive at this situation if different crates have overly
 restrictive tilde or inequality requirements for <code>rayon-core</code>.  The
 conflicting requirements will need to be resolved before the build will
 succeed.</p>
-</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="job/index.html"
-                                  title='mod rayon_core::job'>job</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="join/index.html"
-                                  title='mod rayon_core::join'>join</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="latch/index.html"
-                                  title='mod rayon_core::latch'>latch</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="log/index.html"
-                                  title='mod rayon_core::log'>log</a></td>
-                           <td class='docblock-short'>
-                                <p>Debug Logging</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="registry/index.html"
-                                  title='mod rayon_core::registry'>registry</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="scope/index.html"
-                                  title='mod rayon_core::scope'>scope</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="sleep/index.html"
-                                  title='mod rayon_core::sleep'>sleep</a></td>
-                           <td class='docblock-short'>
-                                <p>Code that decides when workers should go to sleep. See README.md
-for an overview.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="spawn/index.html"
-                                  title='mod rayon_core::spawn'>spawn</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="thread_pool/index.html"
-                                  title='mod rayon_core::thread_pool'>thread_pool</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="unwind/index.html"
-                                  title='mod rayon_core::unwind'>unwind</a></td>
-                           <td class='docblock-short'>
-                                <p>Package up unwind recovery. Note that if you are in some sensitive
-place, you can use the <code>AbortIfPanic</code> helper to protect against
-accidental panics in the rayon code itself.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="util/index.html"
-                                  title='mod rayon_core::util'>util</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="struct" href="struct.Configuration.html"
@@ -283,36 +199,6 @@ tied to the current stack frame, and hence it cannot hold any
 references other than those with <code>'static</code> lifetime. If you want
 to spawn a task that references stack data, use <a href="fn.scope.html">the <code>scope()</code>
 function</a> to create a scope.</p>
-
-                           </td>
-                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="type" href="type.ExitHandler.html"
-                                  title='type rayon_core::ExitHandler'>ExitHandler</a></td>
-                           <td class='docblock-short'>
-                                <p>The type for a closure that gets invoked when a thread exits. The
-closure is passed the index of the thread on which is is invoked.
-Note that this same closure may be invoked multiple times in parallel.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="type" href="type.PanicHandler.html"
-                                  title='type rayon_core::PanicHandler'>PanicHandler</a></td>
-                           <td class='docblock-short'>
-                                <p>The type for a panic handling closure. Note that this same closure
-may be invoked multiple times in parallel.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="type" href="type.StartHandler.html"
-                                  title='type rayon_core::StartHandler'>StartHandler</a></td>
-                           <td class='docblock-short'>
-                                <p>The type for a closure that gets invoked when a thread starts. The
-closure is passed the index of the thread on which it is invoked.
-Note that this same closure may be invoked multiple times in parallel.</p>
 
                            </td>
                        </tr></table></section>

@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["new","Create a new `Zip` iterator."]],"struct":[["Zip","`Zip` is an iterator that zips up `a` and `b` into a single iterator of pairs. This struct is created by the [`zip()`] method on [`IndexedParallelIterator`]"],["ZipProducer","////////////////////////////////////////////////////////////////////////"]]});

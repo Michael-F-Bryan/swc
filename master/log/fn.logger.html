@@ -59,8 +59,10 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/log/lib.rs.html#879-887' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>fn logger() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../log/struct.LoggerGuard.html" title="struct log::LoggerGuard">LoggerGuard</a>&gt;</pre></section>
+               </span><a class='srclink' href='../src/log/lib.rs.html#1109-1118' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub fn logger() -&gt; &amp;'static <a class="trait" href="../log/trait.Log.html" title="trait log::Log">Log</a></pre><div class='docblock'><p>Returns a reference to the logger.</p>
+<p>If a logger has not been set, a no-op implementation is returned.</p>
+</div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

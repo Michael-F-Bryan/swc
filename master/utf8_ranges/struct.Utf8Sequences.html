@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct Utf8Sequences</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.range_stack">range_stack</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.reset">reset</a><a href="#method.push">push</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Iterator">Iterator</a></div></div><p class='location'><a href='index.html'>utf8_ranges</a></p><script>window.sidebarCurrent = {name: 'Utf8Sequences', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct Utf8Sequences</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Iterator">Iterator</a></div></div><p class='location'><a href='index.html'>utf8_ranges</a></p><script>window.sidebarCurrent = {name: 'Utf8Sequences', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,9 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/utf8_ranges/lib.rs.html#285-287' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct Utf8Sequences {
-    range_stack: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../utf8_ranges/struct.ScalarRange.html" title="struct utf8_ranges::ScalarRange">ScalarRange</a>&gt;,
-}</pre><div class='docblock'><p>An iterator over ranges of matching UTF-8 byte sequences.</p>
+<pre class='rust struct'>pub struct Utf8Sequences { /* fields omitted */ }</pre><div class='docblock'><p>An iterator over ranges of matching UTF-8 byte sequences.</p>
 <p>The iteration represents an alternation of comprehensive byte sequences
 that match precisely the set of UTF-8 encoded scalar values.</p>
 <p>A byte sequence corresponds to one of the scalar values in the range given
@@ -105,12 +103,7 @@ scalar values.</p>
 illustrative. In practice, you could just try to decode your byte sequence
 and compare it with the scalar value range directly. However, this is not
 always possible (for example, in a byte based automaton).</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.range_stack" class="structfield small-section-header">
-                           <a href="#structfield.range_stack" class="anchor field"></a>
-                           <span id="range_stack.v" class='invisible'>
-                           <code>range_stack: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../utf8_ranges/struct.ScalarRange.html" title="struct utf8_ranges::ScalarRange">ScalarRange</a>&gt;</code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
@@ -118,12 +111,7 @@ always possible (for example, in a byte based automaton).</p>
 <div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>(start: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>, end: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_ranges/lib.rs.html#292-296' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Create a new iterator over UTF-8 byte ranges for the scalar value range
 given.</p>
-</div><h4 id='method.reset' class="method"><span id='reset.v' class='invisible'><code>pub fn <a href='#method.reset' class='fnname'>reset</a>(&amp;mut self, start: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>, end: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_ranges/lib.rs.html#303-306' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>reset resets the scalar value range.
-Any existing state is cleared, but resources may be reused.</p>
-<p>N.B. Benchmarks say that this method is dubious.</p>
-</div><h4 id='method.push' class="method"><span id='push.v' class='invisible'><code>fn <a href='#method.push' class='fnname'>push</a>(&amp;mut self, start: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>, end: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_ranges/lib.rs.html#308-310' title='goto source code'>[src]</a></span></h4>
-</div>
+</div></div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>

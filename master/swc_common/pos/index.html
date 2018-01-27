@@ -59,21 +59,15 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/swc_common/pos/mod.rs.html#1-15' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>This module is almost copied from <a href="TODO">rustc_errors</a>.</p>
-<p>Modified a bit because, unlike rustc, we</p>
-<ul>
-<li>work with lot of files (node_modules).</li>
-<li>need source information in every run (I think?)</li>
-</ul>
-<hr />
-</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+               </span><a class='srclink' href='../../src/swc_common/pos/mod.rs.html#1-24' title='goto source code'>[src]</a></span></h1>
+<h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class="mod" href="span/index.html"
-                                  title='mod swc_common::pos::span'>span</a></td>
+                           <td><a class="mod" href="hygiene/index.html"
+                                  title='mod swc_common::pos::hygiene'>hygiene</a></td>
                            <td class='docblock-short'>
-                                
+                                <p>Machinery for hygienic macros, inspired by the MTWT[1] paper.</p>
+
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -83,6 +77,14 @@
                            <td class='docblock-short'>
                                 <p>A byte offset. Keep this small (currently 32-bits), as AST contains
 a lot of them.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ExpnInfo.html"
+                                  title='struct swc_common::pos::ExpnInfo'>ExpnInfo</a></td>
+                           <td class='docblock-short'>
+                                <p>Extra information for tracking spans of macro and syntax sugar expansion</p>
 
                            </td>
                        </tr>
@@ -100,6 +102,13 @@ a lot of them.</p>
                            <td class='docblock-short'>
                                 <p>A collection of spans. Spans have two orthogonal attributes:</p>
 
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.NameAndSpan.html"
+                                  title='struct swc_common::pos::NameAndSpan'>NameAndSpan</a></td>
+                           <td class='docblock-short'>
+                                
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -128,8 +137,24 @@ that the length of the span = hi - lo; there may be space in the BytePos
 range between files.</p>
 
                            </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.SyntaxContext.html"
+                                  title='struct swc_common::pos::SyntaxContext'>SyntaxContext</a></td>
+                           <td class='docblock-short'>
+                                <p>A SyntaxContext represents a chain of macro expansions (represented by marks).</p>
+
+                           </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ExpnFormat.html"
+                                  title='enum swc_common::pos::ExpnFormat'>ExpnFormat</a></td>
+                           <td class='docblock-short'>
+                                <p>The source of expansion.</p>
+
+                           </td>
+                       </tr>
                        <tr class=' module-item'>
                            <td><a class="enum" href="enum.FileName.html"
                                   title='enum swc_common::pos::FileName'>FileName</a></td>
@@ -146,6 +171,13 @@ range between files.</p>
                                 <p>Dummy span, both position and length are zero, syntax context is zero as well.
 This span is kept inline and encoded with format 0.</p>
 
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NO_EXPANSION.html"
+                                  title='constant swc_common::pos::NO_EXPANSION'>NO_EXPANSION</a></td>
+                           <td class='docblock-short'>
+                                
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>

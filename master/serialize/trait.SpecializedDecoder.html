@@ -60,8 +60,8 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/serialize/serialize.rs.html#813-816' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait SpecializedDecoder&lt;T:&nbsp;<a class="trait" href="../serialize/serialize/trait.UseSpecializedDecodable.html" title="trait serialize::serialize::UseSpecializedDecodable">UseSpecializedDecodable</a>&gt;: <a class="trait" href="../serialize/serialize/trait.Decoder.html" title="trait serialize::serialize::Decoder">Decoder</a> {
-    fn <a href='#tymethod.specialized_decode' class='fnname'>specialized_decode</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;T, Self::<a class="type" href="../serialize/serialize/trait.Decoder.html#associatedtype.Error" title="type serialize::serialize::Decoder::Error">Error</a>&gt;;
+<pre class='rust trait'>pub trait SpecializedDecoder&lt;T:&nbsp;<a class="trait" href="../serialize/trait.UseSpecializedDecodable.html" title="trait serialize::UseSpecializedDecodable">UseSpecializedDecodable</a>&gt;: <a class="trait" href="../serialize/trait.Decoder.html" title="trait serialize::Decoder">Decoder</a> {
+    fn <a href='#tymethod.specialized_decode' class='fnname'>specialized_decode</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;T, Self::<a class="type" href="../serialize/trait.Decoder.html#associatedtype.Error" title="type serialize::Decoder::Error">Error</a>&gt;;
 }</pre><div class='docblock'><p>Implement this trait on decoders, with <code>T</code> being the type
 you want to decode (employing <code>UseSpecializedDecodable</code>),
 using a strategy specific to the decoder.</p>
@@ -70,13 +70,13 @@ using a strategy specific to the decoder.</p>
               Required Methods<a href='#required-methods' class='anchor'></a>
             </h2>
             <div class='methods'>
-        <h3 id='tymethod.specialized_decode' class='method'><span id='specialized_decode.v' class='invisible'><code>fn <a href='#tymethod.specialized_decode' class='fnname'>specialized_decode</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;T, Self::<a class="type" href="../serialize/serialize/trait.Decoder.html#associatedtype.Error" title="type serialize::serialize::Decoder::Error">Error</a>&gt;</code></span></h3><div class='docblock'><p>Decode a value in a manner specific to this decoder state.</p>
+        <h3 id='tymethod.specialized_decode' class='method'><span id='specialized_decode.v' class='invisible'><code>fn <a href='#tymethod.specialized_decode' class='fnname'>specialized_decode</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;T, Self::<a class="type" href="../serialize/trait.Decoder.html#associatedtype.Error" title="type serialize::Decoder::Error">Error</a>&gt;</code></span></h3><div class='docblock'><p>Decode a value in a manner specific to this decoder state.</p>
 </div></div>
         <h2 id='implementors' class='small-section-header'>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><div class='out-of-band'><a class='srclink' href='../src/serialize/serialize.rs.html#818-822' title='goto source code'>[src]</a></div><code>impl&lt;D:&nbsp;<a class="trait" href="../serialize/serialize/trait.Decoder.html" title="trait serialize::serialize::Decoder">Decoder</a>, T:&nbsp;<a class="trait" href="../serialize/serialize/trait.UseSpecializedDecodable.html" title="trait serialize::serialize::UseSpecializedDecodable">UseSpecializedDecodable</a>&gt; SpecializedDecoder&lt;T&gt; for D</code></li>
+    <li><div class='out-of-band'><a class='srclink' href='../src/serialize/serialize.rs.html#818-822' title='goto source code'>[src]</a></div><code>impl&lt;D:&nbsp;<a class="trait" href="../serialize/trait.Decoder.html" title="trait serialize::Decoder">Decoder</a>, T:&nbsp;<a class="trait" href="../serialize/trait.UseSpecializedDecodable.html" title="trait serialize::UseSpecializedDecodable">UseSpecializedDecodable</a>&gt; SpecializedDecoder&lt;T&gt; for D</code></li>
 </ul><script type="text/javascript" async
                          src="../implementors/serialize/trait.SpecializedDecoder.js">
                  </script></section>

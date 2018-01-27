@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["bytes",""],["unicode",""]],"struct":[["RegexOptions","The set of user configurable options for compiling zero or more regexes."]]});

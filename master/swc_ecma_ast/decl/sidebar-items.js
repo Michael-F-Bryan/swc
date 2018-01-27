@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Decl",""],["VarDeclKind",""]],"struct":[["ClassDecl",""],["FnDecl",""],["VarDecl",""],["VarDeclarator",""]]});

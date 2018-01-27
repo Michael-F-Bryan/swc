@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AccumulateVec",""],["Drain",""],["IntoIterRepr",""]],"struct":[["IntoIter",""]]});
+initSidebarItems({"enum":[["AccumulateVec",""],["Drain",""]],"struct":[["IntoIter",""]]});

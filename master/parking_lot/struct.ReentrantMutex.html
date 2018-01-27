@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct ReentrantMutex</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.raw">raw</a><a href="#structfield.data">data</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.into_inner">into_inner</a><a href="#method.guard">guard</a><a href="#method.lock">lock</a><a href="#method.try_lock">try_lock</a><a href="#method.try_lock_for">try_lock_for</a><a href="#method.try_lock_until">try_lock_until</a><a href="#method.get_mut">get_mut</a><a href="#method.raw_unlock">raw_unlock</a><a href="#method.raw_unlock_fair">raw_unlock_fair</a><a href="#method.raw_lock">raw_lock</a><a href="#method.raw_try_lock">raw_try_lock</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a><a href="#impl-Default">Default</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>parking_lot</a></p><script>window.sidebarCurrent = {name: 'ReentrantMutex', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct ReentrantMutex</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.into_inner">into_inner</a><a href="#method.lock">lock</a><a href="#method.try_lock">try_lock</a><a href="#method.try_lock_for">try_lock_for</a><a href="#method.try_lock_until">try_lock_until</a><a href="#method.get_mut">get_mut</a><a href="#method.raw_unlock">raw_unlock</a><a href="#method.raw_unlock_fair">raw_unlock_fair</a><a href="#method.raw_lock">raw_lock</a><a href="#method.raw_try_lock">raw_try_lock</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a><a href="#impl-Default">Default</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>parking_lot</a></p><script>window.sidebarCurrent = {name: 'ReentrantMutex', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,10 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/parking_lot/remutex.rs.html#31-34' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct ReentrantMutex&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt; {
-    raw: <a class="struct" href="../parking_lot/raw_remutex/struct.RawReentrantMutex.html" title="struct parking_lot::raw_remutex::RawReentrantMutex">RawReentrantMutex</a>,
-    data: <a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.UnsafeCell.html" title="struct core::cell::UnsafeCell">UnsafeCell</a>&lt;T&gt;,
-}</pre><div class='docblock'><p>A mutex which can be recursively locked by a single thread.</p>
+<pre class='rust struct'>pub struct ReentrantMutex&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt; { /* fields omitted */ }</pre><div class='docblock'><p>A mutex which can be recursively locked by a single thread.</p>
 <p>This type is identical to <code>Mutex</code> except for the following points:</p>
 <ul>
 <li>Locking multiple times from the same thread will work correctly instead of
@@ -74,16 +71,7 @@ Use a <code>RefCell</code> if you need this.</li>
 </ul>
 <p>See <a href="struct.Mutex.html"><code>Mutex</code></a> for more details about the underlying mutex
 primitive.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.raw" class="structfield small-section-header">
-                           <a href="#structfield.raw" class="anchor field"></a>
-                           <span id="raw.v" class='invisible'>
-                           <code>raw: <a class="struct" href="../parking_lot/raw_remutex/struct.RawReentrantMutex.html" title="struct parking_lot::raw_remutex::RawReentrantMutex">RawReentrantMutex</a></code>
-                           </span></span><span id="structfield.data" class="structfield small-section-header">
-                           <a href="#structfield.data" class="anchor field"></a>
-                           <span id="data.v" class='invisible'>
-                           <code>data: <a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.UnsafeCell.html" title="struct core::cell::UnsafeCell">UnsafeCell</a>&lt;T&gt;</code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
@@ -93,8 +81,7 @@ primitive.</p>
 </div><h4 id='method.into_inner' class="method"><span id='into_inner.v' class='invisible'><code>pub fn <a href='#method.into_inner' class='fnname'>into_inner</a>(self) -&gt; T</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/remutex.rs.html#76-78' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Consumes this reentrant mutex, returning the underlying data.</p>
 </div></div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt; <a class="struct" href="../parking_lot/struct.ReentrantMutex.html" title="struct parking_lot::ReentrantMutex">ReentrantMutex</a>&lt;T&gt;</code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/remutex.rs.html#81-185' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.guard' class="method"><span id='guard.v' class='invisible'><code>fn <a href='#method.guard' class='fnname'>guard</a>(&amp;self) -&gt; <a class="struct" href="../parking_lot/struct.ReentrantMutexGuard.html" title="struct parking_lot::ReentrantMutexGuard">ReentrantMutexGuard</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/remutex.rs.html#83-89' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.lock' class="method"><span id='lock.v' class='invisible'><code>pub fn <a href='#method.lock' class='fnname'>lock</a>(&amp;self) -&gt; <a class="struct" href="../parking_lot/struct.ReentrantMutexGuard.html" title="struct parking_lot::ReentrantMutexGuard">ReentrantMutexGuard</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/remutex.rs.html#102-105' title='goto source code'>[src]</a></span></h4>
+<div class='impl-items'><h4 id='method.lock' class="method"><span id='lock.v' class='invisible'><code>pub fn <a href='#method.lock' class='fnname'>lock</a>(&amp;self) -&gt; <a class="struct" href="../parking_lot/struct.ReentrantMutexGuard.html" title="struct parking_lot::ReentrantMutexGuard">ReentrantMutexGuard</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/remutex.rs.html#102-105' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Acquires a reentrant mutex, blocking the current thread until it is able
 to do so.</p>
 <p>If the mutex is held by another thread then this function will block the

@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["Join_Control_table",""],["Noncharacter_Code_Point_table",""],["White_Space_table",""]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"trait":[["DirEntryExt","Unix-specific extension methods for `walkdir::DirEntry`"]]});

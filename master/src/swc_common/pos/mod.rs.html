@@ -69,22 +69,40 @@
 <span id="13">13</span>
 <span id="14">14</span>
 <span id="15">15</span>
+<span id="16">16</span>
+<span id="17">17</span>
+<span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
 </pre><pre class="rust ">
-<span class="doccomment">//! This module is almost copied from [rustc_errors][].</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Modified a bit because, unlike rustc, we</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!  - work with lot of files (node_modules).</span>
-<span class="doccomment">//!  - need source information in every run (I think?)</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!-----</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//![rustc_errors]:TODO</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">span</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">syntax_pos</span>::{<span class="ident">FileMap</span>, <span class="ident">FileName</span>, <span class="ident">MultiSpan</span>};
+<span class="kw">use</span> <span class="ident">fold</span>::<span class="ident">FoldWith</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">syntax_pos</span>::{<span class="ident">hygiene</span>, <span class="ident">BytePos</span>, <span class="ident">ExpnFormat</span>, <span class="ident">ExpnInfo</span>, <span class="ident">FileMap</span>, <span class="ident">FileName</span>, <span class="ident">MultiSpan</span>,
+                     <span class="ident">NameAndSpan</span>, <span class="ident">Span</span>, <span class="ident">SpanData</span>, <span class="ident">SyntaxContext</span>, <span class="ident">DUMMY_SP</span>, <span class="ident">NO_EXPANSION</span>};
 
-<span class="kw">mod</span> <span class="ident">span</span>;
+<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Spanned</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>: <span class="ident">Sized</span> {
+    <span class="doccomment">/// Creates `Self` from `node` and `span.</span>
+    <span class="kw">fn</span> <span class="ident">from_unspanned</span>(<span class="ident">node</span>: <span class="ident">T</span>, <span class="ident">span</span>: <span class="ident">Span</span>) <span class="op">-&gt;</span> <span class="self">Self</span>;
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">S</span>, <span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Spanned</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">S</span><span class="op">&gt;</span>
+<span class="kw">where</span>
+    <span class="ident">S</span>: <span class="ident">Spanned</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
+{
+    <span class="kw">fn</span> <span class="ident">from_unspanned</span>(<span class="ident">node</span>: <span class="ident">T</span>, <span class="ident">span</span>: <span class="ident">Span</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
+        <span class="kw">box</span> <span class="ident">S</span>::<span class="ident">from_unspanned</span>(<span class="ident">node</span>, <span class="ident">span</span>)
+    }
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="ident">FoldWith</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Span</span> {
+    <span class="doccomment">/// No op as span does not have any child.</span>
+    <span class="kw">fn</span> <span class="ident">fold_children</span>(<span class="self">self</span>, _: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">F</span>) <span class="op">-&gt;</span> <span class="ident">Span</span> {
+        <span class="self">self</span>
+    }
+}
 </pre>
 </section>
     <section id='search' class="content hidden"></section>

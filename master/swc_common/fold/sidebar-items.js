@@ -1,1 +1,0 @@
-initSidebarItems({"trait":[["FoldWith","Trait implemented for types which know how to fold itself."],["Folder","Folder based on a type system."]]});

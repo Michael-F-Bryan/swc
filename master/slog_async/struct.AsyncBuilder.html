@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct AsyncBuilder</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.core">core</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.chan_size">chan_size</a><a href="#method.build">build</a><a href="#method.build_no_guard">build_no_guard</a><a href="#method.build_with_guard">build_with_guard</a></div></div><p class='location'><a href='index.html'>slog_async</a></p><script>window.sidebarCurrent = {name: 'AsyncBuilder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct AsyncBuilder</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.chan_size">chan_size</a><a href="#method.build">build</a><a href="#method.build_no_guard">build_no_guard</a><a href="#method.build_with_guard">build_with_guard</a></div></div><p class='location'><a href='index.html'>slog_async</a></p><script>window.sidebarCurrent = {name: 'AsyncBuilder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,21 +60,13 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/slog_async/lib.rs.html#463-468' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct AsyncBuilder&lt;D&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;D: <a class="trait" href="../slog/trait.Drain.html" title="trait slog::Drain">Drain</a>&lt;Err = Never, Ok = <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt; + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'static,&nbsp;</span> {
-    core: <a class="struct" href="../slog_async/struct.AsyncCoreBuilder.html" title="struct slog_async::AsyncCoreBuilder">AsyncCoreBuilder</a>&lt;D&gt;,
-}</pre><div class='docblock'><p><code>Async</code> builder</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.core" class="structfield small-section-header">
-                           <a href="#structfield.core" class="anchor field"></a>
-                           <span id="core.v" class='invisible'>
-                           <code>core: <a class="struct" href="../slog_async/struct.AsyncCoreBuilder.html" title="struct slog_async::AsyncCoreBuilder">AsyncCoreBuilder</a>&lt;D&gt;</code>
-                           </span></span>
+<pre class='rust struct'>pub struct AsyncBuilder&lt;D&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;D: <a class="trait" href="../slog/trait.Drain.html" title="trait slog::Drain">Drain</a>&lt;Err = Never, Ok = <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt; + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'static,&nbsp;</span> { /* fields omitted */ }</pre><div class='docblock'><p><code>Async</code> builder</p>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
                 <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;D&gt; <a class="struct" href="../slog_async/struct.AsyncBuilder.html" title="struct slog_async::AsyncBuilder">AsyncBuilder</a>&lt;D&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;D: <a class="trait" href="../slog/trait.Drain.html" title="trait slog::Drain">Drain</a>&lt;Err = Never, Ok = <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt; + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'static,&nbsp;</span></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_async/lib.rs.html#470-517' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>(drain: D) -&gt; <a class="struct" href="../slog_async/struct.AsyncBuilder.html" title="struct slog_async::AsyncBuilder">AsyncBuilder</a>&lt;D&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_async/lib.rs.html#474-478' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.chan_size' class="method"><span id='chan_size.v' class='invisible'><code>pub fn <a href='#method.chan_size' class='fnname'>chan_size</a>(self, s: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_async/lib.rs.html#482-486' title='goto source code'>[src]</a></span></h4>
+<div class='impl-items'><h4 id='method.chan_size' class="method"><span id='chan_size.v' class='invisible'><code>pub fn <a href='#method.chan_size' class='fnname'>chan_size</a>(self, s: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_async/lib.rs.html#482-486' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Set channel size used to send logging records to worker thread. When
 buffer is full <code>AsyncCore</code> will start returning <code>AsyncError::Full</code>.</p>
 </div><h4 id='method.build' class="method"><span id='build.v' class='invisible'><code>pub fn <a href='#method.build' class='fnname'>build</a>(self) -&gt; <a class="struct" href="../slog_async/struct.Async.html" title="struct slog_async::Async">Async</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_async/lib.rs.html#489-494' title='goto source code'>[src]</a></span></h4>

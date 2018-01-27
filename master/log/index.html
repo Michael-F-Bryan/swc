@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../log/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Crate log</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#statics">Statics</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'log', ty: 'mod', relpath: '../'};</script></div>
+        <p class='location'>Crate log</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'log', ty: 'mod', relpath: '../'};</script></div>
     </nav>
 
     <div class="theme-picker">
@@ -182,15 +182,7 @@ shut down the global logger before exiting:</p>
         <span class="ident">logger</span>.<span class="ident">flush</span>();
     })
 }</pre>
-</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="macros/index.html"
-                                  title='mod log::macros'>macros</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+</div><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="macro" href="macro.debug.html"
@@ -275,33 +267,12 @@ be logged.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class="struct" href="struct.LoggerAdaptor.html"
-                                  title='struct log::LoggerAdaptor'>LoggerAdaptor</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.LoggerGuard.html"
-                                  title='struct log::LoggerGuard'>LoggerGuard</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
                            <td><a class="struct" href="struct.MaxLogLevelFilter.html"
                                   title='struct log::MaxLogLevelFilter'>MaxLogLevelFilter</a></td>
                            <td class='docblock-short'>
                                 <p>A token providing read and write access to the global maximum log level
 filter.</p>
 
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.NopLogger.html"
-                                  title='struct log::NopLogger'>NopLogger</a></td>
-                           <td class='docblock-short'>
-                                
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -338,50 +309,6 @@ already been called or if <code>set_logger_raw</code> has not been called yet.</
 framework.</p>
 
                            </td>
-                       </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="constant" href="constant.INITIALIZED.html"
-                                  title='constant log::INITIALIZED'>INITIALIZED</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="constant" href="constant.INITIALIZING.html"
-                                  title='constant log::INITIALIZING'>INITIALIZING</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr></table><h2 id='statics' class='section-header'><a href="#statics">Statics</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="static" href="static.LOGGER.html"
-                                  title='static log::LOGGER'>LOGGER</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="static" href="static.LOG_LEVEL_NAMES.html"
-                                  title='static log::LOG_LEVEL_NAMES'>LOG_LEVEL_NAMES</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="static" href="static.REFCOUNT.html"
-                                  title='static log::REFCOUNT'>REFCOUNT</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="static" href="static.STATE.html"
-                                  title='static log::STATE'>STATE</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -394,53 +321,11 @@ framework.</p>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class="fn" href="fn.__enabled.html"
-                                  title='fn log::__enabled'>__enabled</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.__log.html"
-                                  title='fn log::__log'>__log</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.__static_max_level.html"
-                                  title='fn log::__static_max_level'>__static_max_level</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.eq_ignore_ascii_case.html"
-                                  title='fn log::eq_ignore_ascii_case'>eq_ignore_ascii_case</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.logger.html"
-                                  title='fn log::logger'>logger</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
                            <td><a class="fn" href="fn.max_log_level.html"
                                   title='fn log::max_log_level'>max_log_level</a></td>
                            <td class='docblock-short'>
                                 <p>Returns the current maximum log level.</p>
 
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.ok_or.html"
-                                  title='fn log::ok_or'>ok_or</a></td>
-                           <td class='docblock-short'>
-                                
                            </td>
                        </tr>
                        <tr class=' module-item'>

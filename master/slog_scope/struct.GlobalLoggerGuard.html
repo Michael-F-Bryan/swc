@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct GlobalLoggerGuard</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.canceled">canceled</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.cancel_reset">cancel_reset</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Drop">Drop</a></div></div><p class='location'><a href='index.html'>slog_scope</a></p><script>window.sidebarCurrent = {name: 'GlobalLoggerGuard', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct GlobalLoggerGuard</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.cancel_reset">cancel_reset</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Drop">Drop</a></div></div><p class='location'><a href='index.html'>slog_scope</a></p><script>window.sidebarCurrent = {name: 'GlobalLoggerGuard', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -61,23 +61,15 @@
                    </a>
                </span><a class='srclink' href='../src/slog_scope/lib.rs.html#135-137' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'><div class="docblock attributes">#[must_use]
-</div>pub struct GlobalLoggerGuard {
-    canceled: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
-}</pre><div class='docblock'><p>Guard resetting global logger</p>
+</div>pub struct GlobalLoggerGuard { /* fields omitted */ }</pre><div class='docblock'><p>Guard resetting global logger</p>
 <p>On drop it will reset global logger to <code>slog::Discard</code>.
 This will <code>drop</code> any existing global logger.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.canceled" class="structfield small-section-header">
-                           <a href="#structfield.canceled" class="anchor field"></a>
-                           <span id="canceled.v" class='invisible'>
-                           <code>canceled: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
                 <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../slog_scope/struct.GlobalLoggerGuard.html" title="struct slog_scope::GlobalLoggerGuard">GlobalLoggerGuard</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_scope/lib.rs.html#139-151' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_scope/lib.rs.html#141-145' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.cancel_reset' class="method"><span id='cancel_reset.v' class='invisible'><code>pub fn <a href='#method.cancel_reset' class='fnname'>cancel_reset</a>(self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_scope/lib.rs.html#148-150' title='goto source code'>[src]</a></span></h4>
+<div class='impl-items'><h4 id='method.cancel_reset' class="method"><span id='cancel_reset.v' class='invisible'><code>pub fn <a href='#method.cancel_reset' class='fnname'>cancel_reset</a>(self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_scope/lib.rs.html#148-150' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Cancel resetting global logger</p>
 </div></div>
             <h2 id='implementations' class='small-section-header'>

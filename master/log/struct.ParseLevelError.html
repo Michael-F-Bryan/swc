@@ -60,7 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/log/lib.rs.html#1090' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct ParseLevelError(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>);</pre><div class='docblock'><p>The type returned by <a href="https://doc.rust-lang.org/std/str/trait.FromStr.html#tymethod.from_str"><code>from_str</code></a> when the string doesn't match any of the log levels.</p>
+<pre class='rust struct'>pub struct ParseLevelError(_);</pre><div class='docblock'><p>The type returned by <a href="https://doc.rust-lang.org/std/str/trait.FromStr.html#tymethod.from_str"><code>from_str</code></a> when the string doesn't match any of the log levels.</p>
 </div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
@@ -81,9 +81,6 @@
 <div class='docblock'><p>A short description of the error. <a href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html#tymethod.description">Read more</a></p>
 </div><h4 id='method.cause' class="method"><span id='cause.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.cause' class='fnname'>cause</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html" title="trait std::error::Error">Error</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/error.rs.html#154' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>The lower-level cause of this error, if any. <a href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.cause">Read more</a></p>
-</div><h4 id='method.type_id' class="method"><span id='type_id.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.type_id' class='fnname'>type_id</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/core/any/struct.TypeId.html" title="struct core::any::TypeId">TypeId</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;Self: 'static,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/error.rs.html#161-163' title='goto source code'>[src]</a></span></h4>
-<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>error_type_id</code>)</summary><p>unclear whether to commit to this public implementation detail</p>
-</details></div></div><div class='docblock'><p>Get the <code>TypeId</code> of <code>self</code></p>
 </div></div></section>
     <section id='search' class="content hidden"></section>
 

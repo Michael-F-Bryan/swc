@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct Atomic</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.ptr">ptr</a><a href="#structfield._marker">_marker</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.null">null</a><a href="#method.new">new</a><a href="#method.load">load</a><a href="#method.store">store</a><a href="#method.store_and_ref">store_and_ref</a><a href="#method.store_shared">store_shared</a><a href="#method.cas">cas</a><a href="#method.cas_and_ref">cas_and_ref</a><a href="#method.cas_shared">cas_shared</a><a href="#method.swap">swap</a><a href="#method.swap_shared">swap_shared</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a></div></div><p class='location'><a href='../../index.html'>crossbeam</a>::<wbr><a href='../index.html'>mem</a>::<wbr><a href='index.html'>epoch</a></p><script>window.sidebarCurrent = {name: 'Atomic', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct Atomic</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.null">null</a><a href="#method.new">new</a><a href="#method.load">load</a><a href="#method.store">store</a><a href="#method.store_and_ref">store_and_ref</a><a href="#method.store_shared">store_shared</a><a href="#method.cas">cas</a><a href="#method.cas_and_ref">cas_and_ref</a><a href="#method.cas_shared">cas_shared</a><a href="#method.swap">swap</a><a href="#method.swap_shared">swap_shared</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a></div></div><p class='location'><a href='../../index.html'>crossbeam</a>::<wbr><a href='../index.html'>mem</a>::<wbr><a href='index.html'>epoch</a></p><script>window.sidebarCurrent = {name: 'Atomic', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,22 +60,10 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../../src/crossbeam/mem/epoch/atomic.rs.html#13-16' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct Atomic&lt;T&gt; {
-    ptr: <a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicPtr.html" title="struct core::sync::atomic::AtomicPtr">AtomicPtr</a>&lt;T&gt;,
-    _marker: <a class="struct" href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomData.html" title="struct core::marker::PhantomData">PhantomData</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;,
-}</pre><div class='docblock'><p>Like <code>std::sync::atomic::AtomicPtr</code>.</p>
+<pre class='rust struct'>pub struct Atomic&lt;T&gt; { /* fields omitted */ }</pre><div class='docblock'><p>Like <code>std::sync::atomic::AtomicPtr</code>.</p>
 <p>Provides atomic access to a (nullable) pointer of type <code>T</code>, interfacing with
 the <code>Owned</code> and <code>Shared</code> types.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.ptr" class="structfield small-section-header">
-                           <a href="#structfield.ptr" class="anchor field"></a>
-                           <span id="ptr.v" class='invisible'>
-                           <code>ptr: <a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicPtr.html" title="struct core::sync::atomic::AtomicPtr">AtomicPtr</a>&lt;T&gt;</code>
-                           </span></span><span id="structfield._marker" class="structfield small-section-header">
-                           <a href="#structfield._marker" class="anchor field"></a>
-                           <span id="_marker.v" class='invisible'>
-                           <code>_marker: <a class="struct" href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomData.html" title="struct core::marker::PhantomData">PhantomData</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>

@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["dominators",""],["dominators_given_rpo",""],["intersect",""],["intersect_opt",""]],"struct":[["DominatorTree",""],["DominatorTreeNode",""],["Dominators",""],["Iter",""]]});
+initSidebarItems({"fn":[["dominators",""],["dominators_given_rpo",""]],"struct":[["DominatorTree",""],["Dominators",""],["Iter",""]]});

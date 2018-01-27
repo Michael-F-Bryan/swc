@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["UndoLog",""]],"struct":[["Snapshot",""],["SnapshotMap",""]]});
+initSidebarItems({"struct":[["Snapshot",""],["SnapshotMap",""]]});

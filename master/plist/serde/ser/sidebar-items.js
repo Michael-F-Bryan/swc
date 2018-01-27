@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["Compound",""],["DateSerializer",""],["Serializer",""],["StructFieldSerializer",""]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["PrivateMarker","If this type is pub but not publicly reachable, third parties can't name it and can't implement traits using it."]]});

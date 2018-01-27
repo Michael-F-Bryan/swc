@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["extend","Perform a generic `par_extend` by collecting to a `LinkedList<Vec<_>>` in parallel, then extending the collection sequentially."],["len","Compute the total length of a `LinkedList<Vec<_>>`."],["str_len","Compute the total string length of a `LinkedList<Vec<AsRef<str>>>`."]]});

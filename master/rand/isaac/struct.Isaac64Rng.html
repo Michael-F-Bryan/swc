@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../../rand/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk.png' alt='logo' width='100'></a>
-        <p class='location'>Struct Isaac64Rng</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.cnt">cnt</a><a href="#structfield.rsl">rsl</a><a href="#structfield.mem">mem</a><a href="#structfield.a">a</a><a href="#structfield.b">b</a><a href="#structfield.c">c</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new_unseeded">new_unseeded</a><a href="#method.init">init</a><a href="#method.isaac64">isaac64</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a><a href="#impl-Rng">Rng</a><a href="#impl-SeedableRng%3C%26%27a%20%5Bu64%5D%3E">SeedableRng&lt;&amp;&#39;a [u64]&gt;</a><a href="#impl-Rand">Rand</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='../index.html'>rand</a>::<wbr><a href='index.html'>isaac</a></p><script>window.sidebarCurrent = {name: 'Isaac64Rng', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct Isaac64Rng</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new_unseeded">new_unseeded</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a><a href="#impl-Rng">Rng</a><a href="#impl-SeedableRng%3C%26%27a%20%5Bu64%5D%3E">SeedableRng&lt;&amp;&#39;a [u64]&gt;</a><a href="#impl-Rand">Rand</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='../index.html'>rand</a>::<wbr><a href='index.html'>isaac</a></p><script>window.sidebarCurrent = {name: 'Isaac64Rng', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,14 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/rand/isaac.rs.html#284-291' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct Isaac64Rng {
-    cnt: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
-    rsl: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 256]</a>,
-    mem: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 256]</a>,
-    a: <a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;,
-    b: <a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;,
-    c: <a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;,
-}</pre><div class='docblock'><p>A random number generator that uses ISAAC-64[1], the 64-bit
+<pre class='rust struct'>pub struct Isaac64Rng { /* fields omitted */ }</pre><div class='docblock'><p>A random number generator that uses ISAAC-64[1], the 64-bit
 variant of the ISAAC algorithm.</p>
 <p>The ISAAC algorithm is generally accepted as suitable for
 cryptographic purposes, but this implementation has not be
@@ -75,32 +68,7 @@ verified as such. Prefer a generator like <code>OsRng</code> that defers to
 the operating system for cases that need high security.</p>
 <p>[1]: Bob Jenkins, <a href="http://www.burtleburtle.net/bob/rand/isaacafa.html"><em>ISAAC: A fast cryptographic random number
 generator</em></a></p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.cnt" class="structfield small-section-header">
-                           <a href="#structfield.cnt" class="anchor field"></a>
-                           <span id="cnt.v" class='invisible'>
-                           <code>cnt: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code>
-                           </span></span><span id="structfield.rsl" class="structfield small-section-header">
-                           <a href="#structfield.rsl" class="anchor field"></a>
-                           <span id="rsl.v" class='invisible'>
-                           <code>rsl: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 256]</a></code>
-                           </span></span><span id="structfield.mem" class="structfield small-section-header">
-                           <a href="#structfield.mem" class="anchor field"></a>
-                           <span id="mem.v" class='invisible'>
-                           <code>mem: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 256]</a></code>
-                           </span></span><span id="structfield.a" class="structfield small-section-header">
-                           <a href="#structfield.a" class="anchor field"></a>
-                           <span id="a.v" class='invisible'>
-                           <code>a: <a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;</code>
-                           </span></span><span id="structfield.b" class="structfield small-section-header">
-                           <a href="#structfield.b" class="anchor field"></a>
-                           <span id="b.v" class='invisible'>
-                           <code>b: <a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;</code>
-                           </span></span><span id="structfield.c" class="structfield small-section-header">
-                           <a href="#structfield.c" class="anchor field"></a>
-                           <span id="c.v" class='invisible'>
-                           <code>c: <a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.Wrapping.html" title="struct core::num::Wrapping">w</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;</code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
@@ -108,12 +76,6 @@ generator</em></a></p>
 <div class='impl-items'><h4 id='method.new_unseeded' class="method"><span id='new_unseeded.v' class='invisible'><code>pub fn <a href='#method.new_unseeded' class='fnname'>new_unseeded</a>() -&gt; <a class="struct" href="../../rand/isaac/struct.Isaac64Rng.html" title="struct rand::isaac::Isaac64Rng">Isaac64Rng</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rand/isaac.rs.html#303-307' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Create a 64-bit ISAAC random number generator using the
 default fixed seed.</p>
-</div><h4 id='method.init' class="method"><span id='init.v' class='invisible'><code>fn <a href='#method.init' class='fnname'>init</a>(&amp;mut self, use_rsl: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rand/isaac.rs.html#312-368' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Initialises <code>self</code>. If <code>use_rsl</code> is true, then use the current value
-of <code>rsl</code> as a seed, otherwise construct one algorithmically (not
-randomly).</p>
-</div><h4 id='method.isaac64' class="method"><span id='isaac64.v' class='invisible'><code>fn <a href='#method.isaac64' class='fnname'>isaac64</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rand/isaac.rs.html#371-433' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Refills the output buffer (<code>self.rsl</code>)</p>
 </div></div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>

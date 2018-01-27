@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["UNICODE_VERSION","The version of Unicode that this version of unicode-xid is based on."]],"fn":[["bsearch_range_table",""]],"mod":[["derived_property",""]]});

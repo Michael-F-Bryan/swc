@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct ExprBuilder</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.flags">flags</a><a href="#structfield.nest_limit">nest_limit</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.case_insensitive">case_insensitive</a><a href="#method.multi_line">multi_line</a><a href="#method.dot_matches_new_line">dot_matches_new_line</a><a href="#method.swap_greed">swap_greed</a><a href="#method.ignore_whitespace">ignore_whitespace</a><a href="#method.unicode">unicode</a><a href="#method.allow_bytes">allow_bytes</a><a href="#method.nest_limit">nest_limit</a><a href="#method.parse">parse</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Clone">Clone</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>regex_syntax</a></p><script>window.sidebarCurrent = {name: 'ExprBuilder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct ExprBuilder</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.case_insensitive">case_insensitive</a><a href="#method.multi_line">multi_line</a><a href="#method.dot_matches_new_line">dot_matches_new_line</a><a href="#method.swap_greed">swap_greed</a><a href="#method.ignore_whitespace">ignore_whitespace</a><a href="#method.unicode">unicode</a><a href="#method.allow_bytes">allow_bytes</a><a href="#method.nest_limit">nest_limit</a><a href="#method.parse">parse</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Clone">Clone</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>regex_syntax</a></p><script>window.sidebarCurrent = {name: 'ExprBuilder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,22 +60,10 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/regex_syntax/lib.rs.html#310-313' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct ExprBuilder {
-    flags: <a class="struct" href="../regex_syntax/parser/struct.Flags.html" title="struct regex_syntax::parser::Flags">Flags</a>,
-    nest_limit: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
-}</pre><div class='docblock'><p>A builder for configuring regular expression parsing.</p>
+<pre class='rust struct'>pub struct ExprBuilder { /* fields omitted */ }</pre><div class='docblock'><p>A builder for configuring regular expression parsing.</p>
 <p>This allows setting the default values of flags and other options, such
 as the maximum nesting depth.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.flags" class="structfield small-section-header">
-                           <a href="#structfield.flags" class="anchor field"></a>
-                           <span id="flags.v" class='invisible'>
-                           <code>flags: <a class="struct" href="../regex_syntax/parser/struct.Flags.html" title="struct regex_syntax::parser::Flags">Flags</a></code>
-                           </span></span><span id="structfield.nest_limit" class="structfield small-section-header">
-                           <a href="#structfield.nest_limit" class="anchor field"></a>
-                           <span id="nest_limit.v" class='invisible'>
-                           <code>nest_limit: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
@@ -107,7 +95,7 @@ corresponds to the UTF-8 byte sequence <code>\xCE\xBF</code>. Conversely,
 <p>When <code>allow_bytes</code> is disabled (the default), an expression like
 <code>(?-u:\xFF)</code> will cause the parser to return an error, since it would
 otherwise match invalid UTF-8. When enabled, it will be allowed.</p>
-</div><h4 id='method.nest_limit' class="method"><span id='nest_limit.v-1' class='invisible'><code>pub fn <a href='#method.nest_limit' class='fnname'>nest_limit</a>(self, limit: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <a class="struct" href="../regex_syntax/struct.ExprBuilder.html" title="struct regex_syntax::ExprBuilder">ExprBuilder</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/regex_syntax/lib.rs.html#389-392' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.nest_limit' class="method"><span id='nest_limit.v' class='invisible'><code>pub fn <a href='#method.nest_limit' class='fnname'>nest_limit</a>(self, limit: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <a class="struct" href="../regex_syntax/struct.ExprBuilder.html" title="struct regex_syntax::ExprBuilder">ExprBuilder</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/regex_syntax/lib.rs.html#389-392' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Set the nesting limit for regular expression parsing.</p>
 <p>Regular expressions that nest more than this limit will result in a
 <code>StackExhausted</code> error.</p>

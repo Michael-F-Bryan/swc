@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../regex/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Enum Error</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#variants">Variants</a><div class="sidebar-links"><a href="#variant.Syntax">Syntax</a><a href="#variant.CompiledTooBig">CompiledTooBig</a><a href="#variant.InvalidSet">InvalidSet</a><a href="#variant.__Nonexhaustive">__Nonexhaustive</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Error">Error</a><a href="#impl-Display">Display</a><a href="#impl-From%3CError%3E">From&lt;Error&gt;</a></div></div><p class='location'><a href='index.html'>regex</a></p><script>window.sidebarCurrent = {name: 'Error', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Enum Error</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#variants">Variants</a><div class="sidebar-links"><a href="#variant.Syntax">Syntax</a><a href="#variant.CompiledTooBig">CompiledTooBig</a><a href="#variant.InvalidSet">InvalidSet</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Error">Error</a><a href="#impl-Display">Display</a><a href="#impl-From%3CError%3E">From&lt;Error&gt;</a></div></div><p class='location'><a href='index.html'>regex</a></p><script>window.sidebarCurrent = {name: 'Error', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -64,7 +64,7 @@
     Syntax(<a class="struct" href="../regex_syntax/struct.Error.html" title="struct regex_syntax::Error">Error</a>),
     CompiledTooBig(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>),
     InvalidSet,
-    __Nonexhaustive,
+    // some variants omitted
 }</pre><div class='docblock'><p>An error that occurred during parsing or compiling a regular expression.</p>
 </div><h2 id='variants' class='variants small-section-header'>
                    Variants<a href='#variants' class='anchor'></a></h2>
@@ -74,10 +74,6 @@ The argument is the size limit imposed.</p>
 </div><span id="variant.InvalidSet" class="variant small-section-header"><a href="#variant.InvalidSet" class="anchor field"></a><span id='InvalidSet.v' class='invisible'><code>InvalidSet</code></span></span><div class='docblock'><p><strong>DEPRECATED:</strong> Will be removed on next major version bump.</p>
 <p>This error is no longer used. (A <code>RegexSet</code> can now contain zero or
 more regular expressions.)</p>
-</div><span id="variant.__Nonexhaustive" class="variant small-section-header"><a href="#variant.__Nonexhaustive" class="anchor field"></a><span id='__Nonexhaustive.v' class='invisible'><code>__Nonexhaustive</code></span></span><div class='docblock'><p>Hints that destructuring should not be exhaustive.</p>
-<p>This enum may grow additional variants, so this makes sure clients
-don't count on exhaustive matching. (Otherwise, adding a new variant
-could break existing code.)</p>
 </div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
@@ -90,9 +86,6 @@ could break existing code.)</p>
 <div class='docblock'><p>A short description of the error. <a href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html#tymethod.description">Read more</a></p>
 </div><h4 id='method.cause' class="method"><span id='cause.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.cause' class='fnname'>cause</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html" title="trait std::error::Error">Error</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/regex/error.rs.html#49-54' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>The lower-level cause of this error, if any. <a href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.cause">Read more</a></p>
-</div><h4 id='method.type_id' class="method"><span id='type_id.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.type_id' class='fnname'>type_id</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/core/any/struct.TypeId.html" title="struct core::any::TypeId">TypeId</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;Self: 'static,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/error.rs.html#161-163' title='goto source code'>[src]</a></span></h4>
-<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>error_type_id</code>)</summary><p>unclear whether to commit to this public implementation detail</p>
-</details></div></div><div class='docblock'><p>Get the <code>TypeId</code> of <code>self</code></p>
 </div></div><h3 id='impl-Display' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="enum" href="../regex/enum.Error.html" title="enum regex::Error">Error</a></code><a href='#impl-Display' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/regex/error.rs.html#57-71' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/regex/error.rs.html#58-70' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt">Read more</a></p>

@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../../regex/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Struct Captures</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.text">text</a><a href="#structfield.slots">slots</a><a href="#structfield.named_groups">named_groups</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.pos">pos</a><a href="#method.at">at</a><a href="#method.name">name</a><a href="#method.iter">iter</a><a href="#method.iter_pos">iter_pos</a><a href="#method.iter_named">iter_named</a><a href="#method.expand">expand</a><a href="#method.len">len</a><a href="#method.is_empty">is_empty</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Index%3Cusize%3E">Index&lt;usize&gt;</a><a href="#impl-Index%3C%26%27i%20str%3E">Index&lt;&amp;&#39;i str&gt;</a></div></div><p class='location'><a href='../index.html'>regex</a>::<wbr><a href='index.html'>bytes</a></p><script>window.sidebarCurrent = {name: 'Captures', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct Captures</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.pos">pos</a><a href="#method.at">at</a><a href="#method.name">name</a><a href="#method.iter">iter</a><a href="#method.iter_pos">iter_pos</a><a href="#method.iter_named">iter_named</a><a href="#method.expand">expand</a><a href="#method.len">len</a><a href="#method.is_empty">is_empty</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Index%3Cusize%3E">Index&lt;usize&gt;</a><a href="#impl-Index%3C%26%27i%20str%3E">Index&lt;&amp;&#39;i str&gt;</a></div></div><p class='location'><a href='../index.html'>regex</a>::<wbr><a href='index.html'>bytes</a></p><script>window.sidebarCurrent = {name: 'Captures', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,11 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/regex/re_bytes.rs.html#695-699' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct Captures&lt;'t&gt; {
-    text: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;'t [</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>,
-    slots: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt;&gt;,
-    named_groups: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt;&gt;,
-}</pre><div class='docblock'><p>Captures represents a group of captured byte strings for a single match.</p>
+<pre class='rust struct'>pub struct Captures&lt;'t&gt; { /* fields omitted */ }</pre><div class='docblock'><p>Captures represents a group of captured byte strings for a single match.</p>
 <p>The 0th capture always corresponds to the entire match. Each subsequent
 index corresponds to the next capture group in the regex. If a capture
 group is named, then the matched byte string is <em>also</em> available via the
@@ -72,20 +68,7 @@ group is named, then the matched byte string is <em>also</em> available via the
 accessed with the <code>at</code> method.)</p>
 <p>Positions returned from a capture group are always byte indices.</p>
 <p><code>'t</code> is the lifetime of the matched text.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.text" class="structfield small-section-header">
-                           <a href="#structfield.text" class="anchor field"></a>
-                           <span id="text.v" class='invisible'>
-                           <code>text: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;'t [</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code>
-                           </span></span><span id="structfield.slots" class="structfield small-section-header">
-                           <a href="#structfield.slots" class="anchor field"></a>
-                           <span id="slots.v" class='invisible'>
-                           <code>slots: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt;&gt;</code>
-                           </span></span><span id="structfield.named_groups" class="structfield small-section-header">
-                           <a href="#structfield.named_groups" class="anchor field"></a>
-                           <span id="named_groups.v" class='invisible'>
-                           <code>named_groups: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt;&gt;</code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>

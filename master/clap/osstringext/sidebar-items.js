@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["OsSplit",""]],"trait":[["OsStrExt2",""]]});

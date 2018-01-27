@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["stderr_isatty",""],["stdin_isatty",""],["stdout_isatty",""]],"mod":[["stream",""],["unix",""]]});
+initSidebarItems({"fn":[["stderr_isatty",""],["stdin_isatty",""],["stdout_isatty",""]]});

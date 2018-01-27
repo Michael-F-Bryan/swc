@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CHARS",""]],"enum":[["FromHexError","Errors that can occur when decoding a hex encoded string"]],"trait":[["FromHex","A trait for converting hexadecimal encoded values"],["ToHex","A trait for converting a value to hexadecimal encoding"]]});
+initSidebarItems({"enum":[["FromHexError","Errors that can occur when decoding a hex encoded string"]],"trait":[["FromHex","A trait for converting hexadecimal encoded values"],["ToHex","A trait for converting a value to hexadecimal encoding"]]});

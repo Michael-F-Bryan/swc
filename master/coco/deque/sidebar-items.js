@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["MIN_CAP","Minimum buffer capacity for a deque."]],"fn":[["new","Returns a new work-stealing deque."]],"struct":[["Buffer","A buffer where deque elements are stored."],["Deque",""],["Stealer","Stealer side of a work-stealing deque."],["Worker","Worker side of a work-stealing deque."]]});
+initSidebarItems({"fn":[["new","Returns a new work-stealing deque."]],"struct":[["Stealer","Stealer side of a work-stealing deque."],["Worker","Worker side of a work-stealing deque."]]});

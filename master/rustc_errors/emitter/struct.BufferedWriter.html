@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../../rustc_errors/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Struct BufferedWriter</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.buffer">buffer</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method._new">_new</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Write">Write</a></div></div><p class='location'><a href='../index.html'>rustc_errors</a>::<wbr><a href='index.html'>emitter</a></p><script>window.sidebarCurrent = {name: 'BufferedWriter', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct BufferedWriter</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Write">Write</a></div></div><p class='location'><a href='../index.html'>rustc_errors</a>::<wbr><a href='index.html'>emitter</a></p><script>window.sidebarCurrent = {name: 'BufferedWriter', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,22 +60,9 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/rustc_errors/emitter.rs.html#1398-1400' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct BufferedWriter {
-    buffer: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;,
-}</pre><div class='docblock'><p>Buffered writer gives us a way on Unix to buffer up an entire error message before we output
+<pre class='rust struct'>pub struct BufferedWriter { /* fields omitted */ }</pre><div class='docblock'><p>Buffered writer gives us a way on Unix to buffer up an entire error message before we output
 it.  This helps to prevent interleaving of multiple error messages when multiple compiler
 processes error simultaneously</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.buffer" class="structfield small-section-header">
-                           <a href="#structfield.buffer" class="anchor field"></a>
-                           <span id="buffer.v" class='invisible'>
-                           <code>buffer: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</code>
-                           </span></span>
-                    <h2 id='methods' class='small-section-header'>
-                      Methods<a href='#methods' class='anchor'></a>
-                    </h2>
-                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../rustc_errors/emitter/struct.BufferedWriter.html" title="struct rustc_errors::emitter::BufferedWriter">BufferedWriter</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_errors/emitter.rs.html#1402-1408' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method._new' class="method"><div class="important-traits"><div class='tooltip'>ⓘ<span class='tooltiptext'>Important traits for <a class="struct" href="../../rustc_errors/emitter/struct.BufferedWriter.html" title="struct rustc_errors::emitter::BufferedWriter">BufferedWriter</a></span></div><div class="content hidden"><h3 class="important">Important traits for <a class="struct" href="../../rustc_errors/emitter/struct.BufferedWriter.html" title="struct rustc_errors::emitter::BufferedWriter">BufferedWriter</a></h3><code class="content"><span class="where fmt-newline">impl <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a> for <a class="struct" href="../../rustc_errors/emitter/struct.BufferedWriter.html" title="struct rustc_errors::emitter::BufferedWriter">BufferedWriter</a></span></code></div></div><span id='_new.v' class='invisible'><code>fn <a href='#method._new' class='fnname'>_new</a>() -&gt; <a class="struct" href="../../rustc_errors/emitter/struct.BufferedWriter.html" title="struct rustc_errors::emitter::BufferedWriter">BufferedWriter</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_errors/emitter.rs.html#1405-1407' title='goto source code'>[src]</a></span></h4>
 </div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>

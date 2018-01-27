@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["imp",""]],"struct":[["Lock",""]]});
+initSidebarItems({"struct":[["Lock",""]]});

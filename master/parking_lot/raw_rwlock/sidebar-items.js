@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["EXCLUSIVE_GUARD",""],["GUARD_COUNT_MASK",""],["PARKED_BIT",""],["SHARED_GUARD",""],["TOKEN_EXCLUSIVE",""],["TOKEN_SHARED",""],["TOKEN_UPGRADABLE",""],["TOKEN_UPGRADING",""],["UPGRADABLE_GUARD",""],["UPGRADING_BIT",""],["USABLE_BITS_MASK",""]],"fn":[["checked_add",""]],"struct":[["RawRwLock",""]]});

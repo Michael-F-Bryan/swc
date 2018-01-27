@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["MAX_SECS_BITS","The tight upper bound guarantees that a duration with `|Duration| >= 2^MAX_SECS_BITS` will always overflow the addition with any date and time type."]],"struct":[["NaiveDateTime","ISO 8601 combined date and time without timezone."],["TsSeconds","A DateTime that can be deserialized from a seconds-based timestamp"]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Settings","Represents any valid JSON value."],["SettingsError","An error parsing a settings file"]],"fn":[["read_plist",""],["to_json",""]],"trait":[["FromSettings",""],["ParseSettings",""]]});

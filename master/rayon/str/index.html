@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Module str</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../index.html'>rayon</a></p><script>window.sidebarCurrent = {name: 'str', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+        <p class='location'>Module str</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'><a href='../index.html'>rayon</a></p><script>window.sidebarCurrent = {name: 'str', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -68,19 +68,7 @@ traits defined in this module.</p>
 reference a <code>Pattern</code> trait which is not visible outside this crate.
 This trait is intentionally kept private, for use only by Rayon itself.
 It is implemented for <code>char</code> and any <code>F: Fn(char) -&gt; bool + Sync + Send</code>.</p>
-</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="mod" href="private/index.html"
-                                  title='mod rayon::str::private'>private</a></td>
-                           <td class='docblock-short'>
-                                <p>We hide the <code>Pattern</code> trait in a private module, as its API is not meant
-for general consumption.  If we could have privacy on trait items, then it
-would be nicer to have its basic existence and implementors public while
-keeping all of the methods private.</p>
-
-                           </td>
-                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="struct" href="struct.Chars.html"
@@ -88,13 +76,6 @@ keeping all of the methods private.</p>
                            <td class='docblock-short'>
                                 <p>Parallel iterator over the characters of a string</p>
 
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.CharsProducer.html"
-                                  title='struct rayon::str::CharsProducer'>CharsProducer</a></td>
-                           <td class='docblock-short'>
-                                
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -122,13 +103,6 @@ keeping all of the methods private.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class="struct" href="struct.SplitTerminatorProducer.html"
-                                  title='struct rayon::str::SplitTerminatorProducer'>SplitTerminatorProducer</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
                            <td><a class="struct" href="struct.SplitWhitespace.html"
                                   title='struct rayon::str::SplitWhitespace'>SplitWhitespace</a></td>
                            <td class='docblock-short'>
@@ -142,24 +116,6 @@ keeping all of the methods private.</p>
                                   title='trait rayon::str::ParallelString'>ParallelString</a></td>
                            <td class='docblock-short'>
                                 <p>Parallel extensions for strings.</p>
-
-                           </td>
-                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.find_char_midpoint.html"
-                                  title='fn rayon::str::find_char_midpoint'>find_char_midpoint</a></td>
-                           <td class='docblock-short'>
-                                <p>Find the index of a character boundary near the midpoint.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.is_char_boundary.html"
-                                  title='fn rayon::str::is_char_boundary'>is_char_boundary</a></td>
-                           <td class='docblock-short'>
-                                <p>Test if a byte is the start of a UTF-8 character.
-(extracted from <code>str::is_char_boundary</code>)</p>
 
                            </td>
                        </tr></table></section>

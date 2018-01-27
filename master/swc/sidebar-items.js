@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["logger",""],["main",""],["run",""]]});
+initSidebarItems({"struct":[["Compiler",""]]});

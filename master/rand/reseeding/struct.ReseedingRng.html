@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../../rand/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk.png' alt='logo' width='100'></a>
-        <p class='location'>Struct ReseedingRng</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.rng">rng</a><a href="#structfield.generation_threshold">generation_threshold</a><a href="#structfield.bytes_generated">bytes_generated</a><a href="#structfield.reseeder">reseeder</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.reseed_if_necessary">reseed_if_necessary</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Rng">Rng</a><a href="#impl-SeedableRng%3C(Rsdr%2C%20S)%3E">SeedableRng&lt;(Rsdr, S)&gt;</a></div></div><p class='location'><a href='../index.html'>rand</a>::<wbr><a href='index.html'>reseeding</a></p><script>window.sidebarCurrent = {name: 'ReseedingRng', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct ReseedingRng</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.reseeder">reseeder</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.reseed_if_necessary">reseed_if_necessary</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Rng">Rng</a><a href="#impl-SeedableRng%3C(Rsdr%2C%20S)%3E">SeedableRng&lt;(Rsdr, S)&gt;</a></div></div><p class='location'><a href='../index.html'>rand</a>::<wbr><a href='index.html'>reseeding</a></p><script>window.sidebarCurrent = {name: 'ReseedingRng', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -61,26 +61,12 @@
                    </a>
                </span><a class='srclink' href='../../src/rand/reseeding.rs.html#25-31' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct ReseedingRng&lt;R, Rsdr&gt; {
-    rng: R,
-    generation_threshold: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>,
-    bytes_generated: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>,
     pub reseeder: Rsdr,
+    // some fields omitted
 }</pre><div class='docblock'><p>A wrapper around any RNG which reseeds the underlying RNG after it
 has generated a certain number of random bytes.</p>
 </div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.rng" class="structfield small-section-header">
-                           <a href="#structfield.rng" class="anchor field"></a>
-                           <span id="rng.v" class='invisible'>
-                           <code>rng: R</code>
-                           </span></span><span id="structfield.generation_threshold" class="structfield small-section-header">
-                           <a href="#structfield.generation_threshold" class="anchor field"></a>
-                           <span id="generation_threshold.v" class='invisible'>
-                           <code>generation_threshold: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a></code>
-                           </span></span><span id="structfield.bytes_generated" class="structfield small-section-header">
-                           <a href="#structfield.bytes_generated" class="anchor field"></a>
-                           <span id="bytes_generated.v" class='invisible'>
-                           <code>bytes_generated: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a></code>
-                           </span></span><span id="structfield.reseeder" class="structfield small-section-header">
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.reseeder" class="structfield small-section-header">
                            <a href="#structfield.reseeder" class="anchor field"></a>
                            <span id="reseeder.v" class='invisible'>
                            <code>reseeder: Rsdr</code>

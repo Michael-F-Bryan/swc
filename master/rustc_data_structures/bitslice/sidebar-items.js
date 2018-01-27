@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["bit_lookup",""],["bit_str",""],["bits_to_string",""],["bitwise",""]],"struct":[["BitLookup",""],["Intersect",""],["Subtract",""],["Union",""]],"trait":[["BitSlice","`BitSlice` provides helper methods for treating a `[Word]` as a bitvector."],["BitwiseOperator",""]],"type":[["Word",""]]});
+initSidebarItems({"fn":[["bits_to_string",""],["bitwise",""]],"struct":[["Intersect",""],["Subtract",""],["Union",""]],"trait":[["BitSlice","`BitSlice` provides helper methods for treating a `[Word]` as a bitvector."],["BitwiseOperator",""]],"type":[["Word",""]]});

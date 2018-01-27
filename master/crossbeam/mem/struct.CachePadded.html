@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct CachePadded</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.data">data</a><a href="#structfield._marker">_marker</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.zeroed">zeroed</a><a href="#method.new">new</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a><a href="#impl-Deref">Deref</a><a href="#impl-DerefMut">DerefMut</a></div></div><p class='location'><a href='../index.html'>crossbeam</a>::<wbr><a href='index.html'>mem</a></p><script>window.sidebarCurrent = {name: 'CachePadded', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct CachePadded</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.zeroed">zeroed</a><a href="#method.new">new</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a><a href="#impl-Deref">Deref</a><a href="#impl-DerefMut">DerefMut</a></div></div><p class='location'><a href='../index.html'>crossbeam</a>::<wbr><a href='index.html'>mem</a></p><script>window.sidebarCurrent = {name: 'CachePadded', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,10 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/crossbeam/mem/cache_padded.rs.html#28-31' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct CachePadded&lt;T&gt; {
-    data: <a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.UnsafeCell.html" title="struct core::cell::UnsafeCell">UnsafeCell</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 32]</a>&gt;,
-    _marker: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="../../crossbeam/mem/cache_padded/struct.Padding.html" title="struct crossbeam::mem::cache_padded::Padding">Padding</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 0]</a>, <a class="struct" href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomData.html" title="struct core::marker::PhantomData">PhantomData</a>&lt;T&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>,
-}</pre><div class='docblock'><p>Pad <code>T</code> to the length of a cacheline.</p>
+<pre class='rust struct'>pub struct CachePadded&lt;T&gt; { /* fields omitted */ }</pre><div class='docblock'><p>Pad <code>T</code> to the length of a cacheline.</p>
 <p>Sometimes concurrent programming requires a piece of data to be padded out
 to the size of a cacheline to avoid &quot;false sharing&quot;: cachelines being
 invalidated due to unrelated concurrent activity. Use the <code>CachePadded</code> type
@@ -72,20 +69,11 @@ when you want to <em>avoid</em> cache locality.</p>
 architectures.</p>
 <p><strong>Warning</strong>: the wrapped data is never dropped; move out using <code>ptr::read</code>
 if you need to run dtors.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.data" class="structfield small-section-header">
-                           <a href="#structfield.data" class="anchor field"></a>
-                           <span id="data.v" class='invisible'>
-                           <code>data: <a class="struct" href="https://doc.rust-lang.org/nightly/core/cell/struct.UnsafeCell.html" title="struct core::cell::UnsafeCell">UnsafeCell</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 32]</a>&gt;</code>
-                           </span></span><span id="structfield._marker" class="structfield small-section-header">
-                           <a href="#structfield._marker" class="anchor field"></a>
-                           <span id="_marker.v" class='invisible'>
-                           <code>_marker: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="../../crossbeam/mem/cache_padded/struct.Padding.html" title="struct crossbeam::mem::cache_padded::Padding">Padding</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 0]</a>, <a class="struct" href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomData.html" title="struct core::marker::PhantomData">PhantomData</a>&lt;T&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a></code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
-                <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;<a class="trait" href="../../crossbeam/mem/cache_padded/trait.ZerosValid.html" title="trait crossbeam::mem::cache_padded::ZerosValid">ZerosValid</a>&gt; <a class="struct" href="../../crossbeam/mem/struct.CachePadded.html" title="struct crossbeam::mem::CachePadded">CachePadded</a>&lt;T&gt;</code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/crossbeam/mem/cache_padded.rs.html#76-94' title='goto source code'>[src]</a></span></h3>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;<a class="trait" href="../../crossbeam/mem/trait.ZerosValid.html" title="trait crossbeam::mem::ZerosValid">ZerosValid</a>&gt; <a class="struct" href="../../crossbeam/mem/struct.CachePadded.html" title="struct crossbeam::mem::CachePadded">CachePadded</a>&lt;T&gt;</code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/crossbeam/mem/cache_padded.rs.html#76-94' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.zeroed' class="method"><span id='zeroed.v' class='invisible'><code>pub fn <a href='#method.zeroed' class='fnname'>zeroed</a>() -&gt; <a class="struct" href="../../crossbeam/mem/struct.CachePadded.html" title="struct crossbeam::mem::CachePadded">CachePadded</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/crossbeam/mem/cache_padded.rs.html#79-84' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>A const fn equivalent to mem::zeroed().</p>
 </div></div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class="struct" href="../../crossbeam/mem/struct.CachePadded.html" title="struct crossbeam::mem::CachePadded">CachePadded</a>&lt;T&gt;</code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/crossbeam/mem/cache_padded.rs.html#103-120' title='goto source code'>[src]</a></span></h3>

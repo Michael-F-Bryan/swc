@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct Once</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.state">state</a><a href="#method.call_once">call_once</a><a href="#method.call_once_force">call_once_force</a><a href="#method.call_once_slow">call_once_slow</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Default">Default</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>parking_lot</a></p><script>window.sidebarCurrent = {name: 'Once', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct Once</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.state">state</a><a href="#method.call_once">call_once</a><a href="#method.call_once_force">call_once_force</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Default">Default</a><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>parking_lot</a></p><script>window.sidebarCurrent = {name: 'Once', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,7 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/parking_lot/once.rs.html#89' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct Once(<a class="struct" href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicU8.html" title="struct core::sync::atomic::AtomicU8">AtomicU8</a>);</pre><div class='docblock'><p>A synchronization primitive which can be used to run a one-time
+<pre class='rust struct'>pub struct Once(_);</pre><div class='docblock'><p>A synchronization primitive which can be used to run a one-time
 initialization. Useful for one-time initialization for globals, FFI or
 related functionality.</p>
 <h1 id="differences-from-the-standard-library-once" class="section-header"><a href="#differences-from-the-standard-library-once">Differences from the standard library <code>Once</code></a></h1>
@@ -139,8 +139,7 @@ until one of them doesn't panic.</p>
 <p>The closure <code>f</code> is yielded a structure which can be used to query the
 state of this <code>Once</code> (whether initialization has previously panicked or
 not).</p>
-</div><h4 id='method.call_once_slow' class="method"><span id='call_once_slow.v' class='invisible'><code>fn <a href='#method.call_once_slow' class='fnname'>call_once_slow</a>(&amp;self, ignore_poison: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>, f: &amp;mut <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnMut.html" title="trait core::ops::function::FnMut">FnMut</a>(<a class="enum" href="../parking_lot/enum.OnceState.html" title="enum parking_lot::OnceState">OnceState</a>))</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/once.rs.html#223-333' title='goto source code'>[src]</a></span></h4>
-</div>
+</div></div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>

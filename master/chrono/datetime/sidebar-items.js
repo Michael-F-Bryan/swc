@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["map_local","Maps the local datetime to other datetime with given conversion function."]],"struct":[["DateTime","ISO 8601 combined date and time with time zone."]]});

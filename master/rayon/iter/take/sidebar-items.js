@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["new","Create a new `Take` iterator."]],"struct":[["Take","`Take` is an iterator that iterates over the first `n` elements. This struct is created by the [`take()`] method on [`ParallelIterator`]"]]});

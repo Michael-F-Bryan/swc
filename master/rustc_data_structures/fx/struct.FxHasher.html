@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../../rustc_data_structures/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Struct FxHasher</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.hash">hash</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.add_to_hash">add_to_hash</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Default">Default</a><a href="#impl-Hasher">Hasher</a></div></div><p class='location'><a href='../index.html'>rustc_data_structures</a>::<wbr><a href='index.html'>fx</a></p><script>window.sidebarCurrent = {name: 'FxHasher', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct FxHasher</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Default">Default</a><a href="#impl-Hasher">Hasher</a></div></div><p class='location'><a href='../index.html'>rustc_data_structures</a>::<wbr><a href='index.html'>fx</a></p><script>window.sidebarCurrent = {name: 'FxHasher', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,9 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/rustc_data_structures/fx.rs.html#40-42' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct FxHasher {
-    hash: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
-}</pre><div class='docblock'><p>A speedy hash algorithm for use within rustc. The hashmap in liballoc
+<pre class='rust struct'>pub struct FxHasher { /* fields omitted */ }</pre><div class='docblock'><p>A speedy hash algorithm for use within rustc. The hashmap in liballoc
 by default uses SipHash which isn't quite as speedy as we want. In the
 compiler we're not really worried about DOS attempts, so we use a fast
 non-cryptographic hash.</p>
@@ -72,17 +70,6 @@ one not based on any widely-known algorithm -- though modified to produce
 out-performs an FNV-based hash within rustc itself -- the collision rate is
 similar or slightly worse than FNV, but the speed of the hash function
 itself is much higher because it works on up to 8 bytes at a time.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.hash" class="structfield small-section-header">
-                           <a href="#structfield.hash" class="anchor field"></a>
-                           <span id="hash.v" class='invisible'>
-                           <code>hash: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code>
-                           </span></span>
-                    <h2 id='methods' class='small-section-header'>
-                      Methods<a href='#methods' class='anchor'></a>
-                    </h2>
-                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../rustc_data_structures/fx/struct.FxHasher.html" title="struct rustc_data_structures::fx::FxHasher">FxHasher</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/fx.rs.html#56-61' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.add_to_hash' class="method"><span id='add_to_hash.v' class='invisible'><code>fn <a href='#method.add_to_hash' class='fnname'>add_to_hash</a>(&amp;mut self, i: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/fx.rs.html#58-60' title='goto source code'>[src]</a></span></h4>
 </div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>

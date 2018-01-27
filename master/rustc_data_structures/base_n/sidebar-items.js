@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ALPHANUMERIC_ONLY",""],["BASE_64",""],["CASE_INSENSITIVE",""],["MAX_BASE",""]],"fn":[["encode",""],["push_str",""]]});
+initSidebarItems({"constant":[["ALPHANUMERIC_ONLY",""],["CASE_INSENSITIVE",""],["MAX_BASE",""]],"fn":[["encode",""],["push_str",""]]});

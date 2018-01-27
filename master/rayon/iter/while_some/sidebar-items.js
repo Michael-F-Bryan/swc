@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["new","Create a new `WhileSome` iterator."]],"struct":[["WhileSome","`WhileSome` is an iterator that yields the `Some` elements of an iterator, halting as soon as any `None` is produced."],["WhileSomeConsumer","//////////////////////////////////////////////////////////////////////// Consumer implementation"],["WhileSomeFolder",""]]});

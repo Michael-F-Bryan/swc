@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["as_24_bit_terminal_escaped","Formats the styled fragments using 24-bit colour terminal escape codes. Meant for debugging and testing. It's currently fairly inefficient in its use of escape codes."]]});

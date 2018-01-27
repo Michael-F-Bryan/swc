@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["next_u32",""],["next_u64",""]],"mod":[["imp",""]],"struct":[["OsRng","A random number generator that retrieves randomness straight from the operating system. Platform sources:"]]});
+initSidebarItems({"struct":[["OsRng","A random number generator that retrieves randomness straight from the operating system. Platform sources:"]]});

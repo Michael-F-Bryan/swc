@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["Function","Common parts of function and method."]]});

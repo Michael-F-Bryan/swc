@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Colour","A colour is one specific type of ANSI escape code, and can refer to either the foreground or background colour."]],"struct":[["Style","A style is a collection of properties that can format a string using ANSI escape codes."]]});

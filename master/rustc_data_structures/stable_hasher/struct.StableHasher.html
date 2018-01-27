@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../../rustc_data_structures/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Struct StableHasher</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.state">state</a><a href="#structfield.bytes_hashed">bytes_hashed</a><a href="#structfield.width">width</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.finish">finish</a><a href="#method.finalize">finalize</a><a href="#method.bytes_hashed">bytes_hashed</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Hasher">Hasher</a></div></div><p class='location'><a href='../index.html'>rustc_data_structures</a>::<wbr><a href='index.html'>stable_hasher</a></p><script>window.sidebarCurrent = {name: 'StableHasher', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct StableHasher</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.finish">finish</a><a href="#method.finalize">finalize</a><a href="#method.bytes_hashed">bytes_hashed</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Hasher">Hasher</a></div></div><p class='location'><a href='../index.html'>rustc_data_structures</a>::<wbr><a href='index.html'>stable_hasher</a></p><script>window.sidebarCurrent = {name: 'StableHasher', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,30 +60,13 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/rustc_data_structures/stable_hasher.rs.html#23-27' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct StableHasher&lt;W&gt; {
-    state: <a class="struct" href="../../rustc_data_structures/sip128/struct.SipHasher128.html" title="struct rustc_data_structures::sip128::SipHasher128">SipHasher128</a>,
-    bytes_hashed: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>,
-    width: <a class="struct" href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomData.html" title="struct core::marker::PhantomData">PhantomData</a>&lt;W&gt;,
-}</pre><div class='docblock'><p>When hashing something that ends up affecting properties like symbol names,
+<pre class='rust struct'>pub struct StableHasher&lt;W&gt; { /* fields omitted */ }</pre><div class='docblock'><p>When hashing something that ends up affecting properties like symbol names,
 we want these symbol names to be calculated independently of other factors
 like what architecture you're compiling <em>from</em>.</p>
 <p>To that end we always convert integers to little-endian format before
 hashing and the architecture dependent <code>isize</code> and <code>usize</code> types are
 extended to 64 bits if needed.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.state" class="structfield small-section-header">
-                           <a href="#structfield.state" class="anchor field"></a>
-                           <span id="state.v" class='invisible'>
-                           <code>state: <a class="struct" href="../../rustc_data_structures/sip128/struct.SipHasher128.html" title="struct rustc_data_structures::sip128::SipHasher128">SipHasher128</a></code>
-                           </span></span><span id="structfield.bytes_hashed" class="structfield small-section-header">
-                           <a href="#structfield.bytes_hashed" class="anchor field"></a>
-                           <span id="bytes_hashed.v" class='invisible'>
-                           <code>bytes_hashed: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a></code>
-                           </span></span><span id="structfield.width" class="structfield small-section-header">
-                           <a href="#structfield.width" class="anchor field"></a>
-                           <span id="width.v" class='invisible'>
-                           <code>width: <a class="struct" href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomData.html" title="struct core::marker::PhantomData">PhantomData</a>&lt;W&gt;</code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
@@ -92,7 +75,7 @@ extended to 64 bits if needed.</p>
 <h4 id='method.finish' class="method"><span id='finish.v' class='invisible'><code>pub fn <a href='#method.finish' class='fnname'>finish</a>(self) -&gt; W</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/stable_hasher.rs.html#48-50' title='goto source code'>[src]</a></span></h4>
 </div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl&lt;W&gt; <a class="struct" href="../../rustc_data_structures/stable_hasher/struct.StableHasher.html" title="struct rustc_data_structures::stable_hasher::StableHasher">StableHasher</a>&lt;W&gt;</code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/stable_hasher.rs.html#66-76' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.finalize' class="method"><span id='finalize.v' class='invisible'><code>pub fn <a href='#method.finalize' class='fnname'>finalize</a>(self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/stable_hasher.rs.html#68-70' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.bytes_hashed' class="method"><span id='bytes_hashed.v-1' class='invisible'><code>pub fn <a href='#method.bytes_hashed' class='fnname'>bytes_hashed</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/stable_hasher.rs.html#73-75' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.bytes_hashed' class="method"><span id='bytes_hashed.v' class='invisible'><code>pub fn <a href='#method.bytes_hashed' class='fnname'>bytes_hashed</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_data_structures/stable_hasher.rs.html#73-75' title='goto source code'>[src]</a></span></h4>
 </div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>

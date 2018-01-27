@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../../serialize/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Struct Builder</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.parser">parser</a><a href="#structfield.token">token</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.build">build</a><a href="#method.bump">bump</a><a href="#method.build_value">build_value</a><a href="#method.build_array">build_array</a><a href="#method.build_object">build_object</a></div></div><p class='location'><a href='../index.html'>serialize</a>::<wbr><a href='index.html'>json</a></p><script>window.sidebarCurrent = {name: 'Builder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct Builder</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.build">build</a></div></div><p class='location'><a href='../index.html'>serialize</a>::<wbr><a href='index.html'>json</a></p><script>window.sidebarCurrent = {name: 'Builder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,20 +60,8 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/serialize/json.rs.html#1964-1967' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct Builder&lt;T&gt; {
-    parser: <a class="struct" href="../../serialize/json/struct.Parser.html" title="struct serialize::json::Parser">Parser</a>&lt;T&gt;,
-    token: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../../serialize/json/enum.JsonEvent.html" title="enum serialize::json::JsonEvent">JsonEvent</a>&gt;,
-}</pre><div class='docblock'><p>A Builder consumes a json::Parser to create a generic Json structure.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.parser" class="structfield small-section-header">
-                           <a href="#structfield.parser" class="anchor field"></a>
-                           <span id="parser.v" class='invisible'>
-                           <code>parser: <a class="struct" href="../../serialize/json/struct.Parser.html" title="struct serialize::json::Parser">Parser</a>&lt;T&gt;</code>
-                           </span></span><span id="structfield.token" class="structfield small-section-header">
-                           <a href="#structfield.token" class="anchor field"></a>
-                           <span id="token.v" class='invisible'>
-                           <code>token: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../../serialize/json/enum.JsonEvent.html" title="enum serialize::json::JsonEvent">JsonEvent</a>&gt;</code>
-                           </span></span>
+<pre class='rust struct'>pub struct Builder&lt;T&gt; { /* fields omitted */ }</pre><div class='docblock'><p>A Builder consumes a json::Parser to create a generic Json structure.</p>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
@@ -81,10 +69,6 @@
 <div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>(src: T) -&gt; <a class="struct" href="../../serialize/json/struct.Builder.html" title="struct serialize::json::Builder">Builder</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serialize/json.rs.html#1971-1973' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Create a JSON Builder.</p>
 </div><h4 id='method.build' class="method"><span id='build.v' class='invisible'><code>pub fn <a href='#method.build' class='fnname'>build</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="enum" href="../../serialize/json/enum.Json.html" title="enum serialize::json::Json">Json</a>, <a class="type" href="../../serialize/json/type.BuilderError.html" title="type serialize::json::BuilderError">BuilderError</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serialize/json.rs.html#1976-1986' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.bump' class="method"><span id='bump.v' class='invisible'><code>fn <a href='#method.bump' class='fnname'>bump</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serialize/json.rs.html#1988-1990' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.build_value' class="method"><span id='build_value.v' class='invisible'><code>fn <a href='#method.build_value' class='fnname'>build_value</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="enum" href="../../serialize/json/enum.Json.html" title="enum serialize::json::Json">Json</a>, <a class="type" href="../../serialize/json/type.BuilderError.html" title="type serialize::json::BuilderError">BuilderError</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serialize/json.rs.html#1992-2011' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.build_array' class="method"><span id='build_array.v' class='invisible'><code>fn <a href='#method.build_array' class='fnname'>build_array</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="enum" href="../../serialize/json/enum.Json.html" title="enum serialize::json::Json">Json</a>, <a class="type" href="../../serialize/json/type.BuilderError.html" title="type serialize::json::BuilderError">BuilderError</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serialize/json.rs.html#2013-2027' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.build_object' class="method"><span id='build_object.v' class='invisible'><code>fn <a href='#method.build_object' class='fnname'>build_object</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="enum" href="../../serialize/json/enum.Json.html" title="enum serialize::json::Json">Json</a>, <a class="type" href="../../serialize/json/type.BuilderError.html" title="type serialize::json::BuilderError">BuilderError</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serialize/json.rs.html#2029-2052' title='goto source code'>[src]</a></span></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 

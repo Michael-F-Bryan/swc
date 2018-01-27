@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct FnContext</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.migrated">migrated</a><a href="#structfield._marker">_marker</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.migrated">migrated</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>rayon_core</a></p><script>window.sidebarCurrent = {name: 'FnContext', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct FnContext</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.migrated">migrated</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a></div></div><p class='location'><a href='index.html'>rayon_core</a></p><script>window.sidebarCurrent = {name: 'FnContext', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,28 +60,13 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/rayon_core/lib.rs.html#366-371' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct FnContext {
-    migrated: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
-    _marker: <a class="struct" href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomData.html" title="struct core::marker::PhantomData">PhantomData</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;,
-}</pre><div class='docblock'><p>Provides the calling context to a closure called by <code>join_context</code>.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.migrated" class="structfield small-section-header">
-                           <a href="#structfield.migrated" class="anchor field"></a>
-                           <span id="migrated.v" class='invisible'>
-                           <code>migrated: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
-                           </span></span><span id="structfield._marker" class="structfield small-section-header">
-                           <a href="#structfield._marker" class="anchor field"></a>
-                           <span id="_marker.v" class='invisible'>
-                           <code>_marker: <a class="struct" href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomData.html" title="struct core::marker::PhantomData">PhantomData</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code>
-                           </span></span><div class='docblock'><p>disable <code>Send</code> and <code>Sync</code>, just for a little future-proofing.</p>
+<pre class='rust struct'>pub struct FnContext { /* fields omitted */ }</pre><div class='docblock'><p>Provides the calling context to a closure called by <code>join_context</code>.</p>
 </div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
-                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../rayon_core/struct.FnContext.html" title="struct rayon_core::FnContext">FnContext</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/rayon_core/lib.rs.html#373-381' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>(migrated: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/rayon_core/lib.rs.html#375-380' title='goto source code'>[src]</a></span></h4>
-</div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl <a class="struct" href="../rayon_core/struct.FnContext.html" title="struct rayon_core::FnContext">FnContext</a></code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/rayon_core/lib.rs.html#383-390' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.migrated' class="method"><span id='migrated.v-1' class='invisible'><code>pub fn <a href='#method.migrated' class='fnname'>migrated</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/rayon_core/lib.rs.html#387-389' title='goto source code'>[src]</a></span></h4>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../rayon_core/struct.FnContext.html" title="struct rayon_core::FnContext">FnContext</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/rayon_core/lib.rs.html#383-390' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.migrated' class="method"><span id='migrated.v' class='invisible'><code>pub fn <a href='#method.migrated' class='fnname'>migrated</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/rayon_core/lib.rs.html#387-389' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if the closure was called from a different thread
 than it was provided from.</p>
 </div></div>

@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct AsyncGuard</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.join">join</a><a href="#structfield.tx">tx</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Drop">Drop</a></div></div><p class='location'><a href='index.html'>slog_async</a></p><script>window.sidebarCurrent = {name: 'AsyncGuard', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct AsyncGuard</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Drop">Drop</a></div></div><p class='location'><a href='index.html'>slog_async</a></p><script>window.sidebarCurrent = {name: 'AsyncGuard', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,10 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/slog_async/lib.rs.html#321-326' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct AsyncGuard {
-    join: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/thread/struct.JoinHandle.html" title="struct std::thread::JoinHandle">JoinHandle</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;&gt;,
-    tx: <a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/mpsc/struct.SyncSender.html" title="struct std::sync::mpsc::SyncSender">SyncSender</a>&lt;<a class="enum" href="../slog_async/enum.AsyncMsg.html" title="enum slog_async::AsyncMsg">AsyncMsg</a>&gt;,
-}</pre><div class='docblock'><p>Async guard</p>
+<pre class='rust struct'>pub struct AsyncGuard { /* fields omitted */ }</pre><div class='docblock'><p>Async guard</p>
 <p>All <code>Drain</code>s are reference-counted by every <code>Logger</code> that uses them.
 <code>Async</code> drain runs a worker thread and sends a termination (and flushing)
 message only when being <code>drop</code>ed. Because of that it's actually
@@ -75,16 +72,7 @@ program bug, but logging should work reliably especially in case of bugs.</p>
 <p><code>AsyncGuard</code> is a remedy: it will send a flush and termination message to
 a <code>Async</code> worker thread, and wait for it to finish on it's own <code>drop</code>. Using it
 is a simplest way to guarantee log flushing when using <code>slog_async</code>.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.join" class="structfield small-section-header">
-                           <a href="#structfield.join" class="anchor field"></a>
-                           <span id="join.v" class='invisible'>
-                           <code>join: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/thread/struct.JoinHandle.html" title="struct std::thread::JoinHandle">JoinHandle</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;&gt;</code>
-                           </span></span><span id="structfield.tx" class="structfield small-section-header">
-                           <a href="#structfield.tx" class="anchor field"></a>
-                           <span id="tx.v" class='invisible'>
-                           <code>tx: <a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/mpsc/struct.SyncSender.html" title="struct std::sync::mpsc::SyncSender">SyncSender</a>&lt;<a class="enum" href="../slog_async/enum.AsyncMsg.html" title="enum slog_async::AsyncMsg">AsyncMsg</a>&gt;</code>
-                           </span></span>
+</div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>

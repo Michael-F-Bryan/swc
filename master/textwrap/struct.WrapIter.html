@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct WrapIter</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.wrapper">wrapper</a><a href="#structfield.wrap_iter_impl">wrap_iter_impl</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Iterator">Iterator</a></div></div><p class='location'><a href='index.html'>textwrap</a></p><script>window.sidebarCurrent = {name: 'WrapIter', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct WrapIter</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Iterator">Iterator</a></div></div><p class='location'><a href='index.html'>textwrap</a></p><script>window.sidebarCurrent = {name: 'WrapIter', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,24 +60,12 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/textwrap/lib.rs.html#535-538' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct WrapIter&lt;'w, 'a: 'w, S:&nbsp;<a class="trait" href="../textwrap/trait.WordSplitter.html" title="trait textwrap::WordSplitter">WordSplitter</a> + 'w&gt; {
-    wrapper: &amp;'w <a class="struct" href="../textwrap/struct.Wrapper.html" title="struct textwrap::Wrapper">Wrapper</a>&lt;'a, S&gt;,
-    wrap_iter_impl: <a class="struct" href="../textwrap/struct.WrapIterImpl.html" title="struct textwrap::WrapIterImpl">WrapIterImpl</a>&lt;'a&gt;,
-}</pre><div class='docblock'><p>An iterator over the lines of the input string which borrows a
+<pre class='rust struct'>pub struct WrapIter&lt;'w, 'a: 'w, S:&nbsp;<a class="trait" href="../textwrap/trait.WordSplitter.html" title="trait textwrap::WordSplitter">WordSplitter</a> + 'w&gt; { /* fields omitted */ }</pre><div class='docblock'><p>An iterator over the lines of the input string which borrows a
 <code>Wrapper</code>. An instance of <code>WrapIter</code> is typically obtained
 through the <a href="struct.Wrapper.html#method.wrap_iter"><code>Wrapper::wrap_iter</code></a> method.</p>
 <p>Each call of <code>.next()</code> method yields a line wrapped in <code>Some</code> if the
 input hasn't been fully processed yet. Otherwise it returns <code>None</code>.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.wrapper" class="structfield small-section-header">
-                           <a href="#structfield.wrapper" class="anchor field"></a>
-                           <span id="wrapper.v" class='invisible'>
-                           <code>wrapper: &amp;'w <a class="struct" href="../textwrap/struct.Wrapper.html" title="struct textwrap::Wrapper">Wrapper</a>&lt;'a, S&gt;</code>
-                           </span></span><span id="structfield.wrap_iter_impl" class="structfield small-section-header">
-                           <a href="#structfield.wrap_iter_impl" class="anchor field"></a>
-                           <span id="wrap_iter_impl.v" class='invisible'>
-                           <code>wrap_iter_impl: <a class="struct" href="../textwrap/struct.WrapIterImpl.html" title="struct textwrap::WrapIterImpl">WrapIterImpl</a>&lt;'a&gt;</code>
-                           </span></span>
+</div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>

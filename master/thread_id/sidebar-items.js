@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["get","Returns a number that is unique to the calling thread."],["get_internal",""]]});
+initSidebarItems({"fn":[["get","Returns a number that is unique to the calling thread."]]});

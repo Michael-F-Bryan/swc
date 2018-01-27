@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["reader",""],["writer",""]],"struct":[["EventReader",""],["EventWriter",""]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["EnumAttrs",""],["EnumVar","Variant of enum."],["FnDef","Function to generate."],["Input","Parsed input."],["VariantAttr",""],["VariantAttrs","Parsed attributes."]]});

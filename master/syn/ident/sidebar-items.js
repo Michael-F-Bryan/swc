@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["parsing",""],["printing",""]],"struct":[["Ident","A word of Rust code, which may be a keyword or legal variable name."]]});

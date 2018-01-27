@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct ArgGroup</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.name">name</a><a href="#structfield.args">args</a><a href="#structfield.required">required</a><a href="#structfield.requires">requires</a><a href="#structfield.conflicts">conflicts</a><a href="#structfield.multiple">multiple</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.with_name">with_name</a><a href="#method.arg">arg</a><a href="#method.args">args</a><a href="#method.multiple">multiple</a><a href="#method.required">required</a><a href="#method.requires">requires</a><a href="#method.requires_all">requires_all</a><a href="#method.conflicts_with">conflicts_with</a><a href="#method.conflicts_with_all">conflicts_with_all</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Default">Default</a><a href="#impl-Debug">Debug</a><a href="#impl-From%3C%26%27z%20ArgGroup%3C%27a%3E%3E">From&lt;&amp;&#39;z ArgGroup&lt;&#39;a&gt;&gt;</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='index.html'>clap</a></p><script>window.sidebarCurrent = {name: 'ArgGroup', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct ArgGroup</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.with_name">with_name</a><a href="#method.arg">arg</a><a href="#method.args">args</a><a href="#method.multiple">multiple</a><a href="#method.required">required</a><a href="#method.requires">requires</a><a href="#method.requires_all">requires_all</a><a href="#method.conflicts_with">conflicts_with</a><a href="#method.conflicts_with_all">conflicts_with_all</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Default">Default</a><a href="#impl-Debug">Debug</a><a href="#impl-From%3C%26%27z%20ArgGroup%3C%27a%3E%3E">From&lt;&amp;&#39;z ArgGroup&lt;&#39;a&gt;&gt;</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='index.html'>clap</a></p><script>window.sidebarCurrent = {name: 'ArgGroup', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,14 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/clap/args/group.rs.html#81-88' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct ArgGroup&lt;'a&gt; {
-    pub name: &amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-    pub args: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
-    pub required: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
-    pub requires: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;&gt;,
-    pub conflicts: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;&gt;,
-    pub multiple: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
-}</pre><div class='docblock'><p><code>ArgGroup</code>s are a family of related <a href="./struct.Arg.html">arguments</a> and way for you to express, &quot;Any of these
+<pre class='rust struct'>pub struct ArgGroup&lt;'a&gt; { /* fields omitted */ }</pre><div class='docblock'><p><code>ArgGroup</code>s are a family of related <a href="./struct.Arg.html">arguments</a> and way for you to express, &quot;Any of these
 arguments&quot;. By placing arguments in a logical group, you can create easier requirement and
 exclusion rules instead of having to list each argument individually, or when you want a rule
 to apply &quot;any but not all&quot; arguments.</p>
@@ -125,32 +118,7 @@ the arguments from the specified group is present at runtime.</p>
 <span class="comment">// We may not know which of the args was used, so we can test for the group...</span>
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">matches</span>.<span class="ident">is_present</span>(<span class="string">&quot;vers&quot;</span>));
 <span class="comment">// we could also alternatively check each arg individually (not shown here)</span></pre>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.name" class="structfield small-section-header">
-                           <a href="#structfield.name" class="anchor field"></a>
-                           <span id="name.v" class='invisible'>
-                           <code>name: &amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code>
-                           </span></span><span id="structfield.args" class="structfield small-section-header">
-                           <a href="#structfield.args" class="anchor field"></a>
-                           <span id="args.v" class='invisible'>
-                           <code>args: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code>
-                           </span></span><span id="structfield.required" class="structfield small-section-header">
-                           <a href="#structfield.required" class="anchor field"></a>
-                           <span id="required.v" class='invisible'>
-                           <code>required: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
-                           </span></span><span id="structfield.requires" class="structfield small-section-header">
-                           <a href="#structfield.requires" class="anchor field"></a>
-                           <span id="requires.v" class='invisible'>
-                           <code>requires: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;&gt;</code>
-                           </span></span><span id="structfield.conflicts" class="structfield small-section-header">
-                           <a href="#structfield.conflicts" class="anchor field"></a>
-                           <span id="conflicts.v" class='invisible'>
-                           <code>conflicts: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;&gt;</code>
-                           </span></span><span id="structfield.multiple" class="structfield small-section-header">
-                           <a href="#structfield.multiple" class="anchor field"></a>
-                           <span id="multiple.v" class='invisible'>
-                           <code>multiple: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
@@ -178,7 +146,7 @@ get values from the group or refer to the group inside of conflict and requireme
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">m</span>.<span class="ident">is_present</span>(<span class="string">&quot;req_flags&quot;</span>));
 <span class="comment">// but we can also check individually if needed</span>
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">m</span>.<span class="ident">is_present</span>(<span class="string">&quot;flag&quot;</span>));</pre>
-</div><h4 id='method.args' class="method"><span id='args.v-1' class='invisible'><code>pub fn <a href='#method.args' class='fnname'>args</a>(self, ns: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a>&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/clap/args/group.rs.html#180-185' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.args' class="method"><span id='args.v' class='invisible'><code>pub fn <a href='#method.args' class='fnname'>args</a>(self, ns: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a>&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/clap/args/group.rs.html#180-185' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Adds multiple <a href="./struct.Arg.html">arguments</a> to this group by name</p>
 <h1 id="examples-3" class="section-header"><a href="#examples-3">Examples</a></h1>
 <pre class="rust rust-example-rendered">
@@ -194,7 +162,7 @@ get values from the group or refer to the group inside of conflict and requireme
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">m</span>.<span class="ident">is_present</span>(<span class="string">&quot;req_flags&quot;</span>));
 <span class="comment">// but we can also check individually if needed</span>
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">m</span>.<span class="ident">is_present</span>(<span class="string">&quot;flag&quot;</span>));</pre>
-</div><h4 id='method.multiple' class="method"><span id='multiple.v-1' class='invisible'><code>pub fn <a href='#method.multiple' class='fnname'>multiple</a>(self, m: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/clap/args/group.rs.html#227-230' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.multiple' class="method"><span id='multiple.v' class='invisible'><code>pub fn <a href='#method.multiple' class='fnname'>multiple</a>(self, m: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/clap/args/group.rs.html#227-230' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Allows more than one of the <a href="./struct.Arg.html">'Arg'</a>s in this group to be used. (Default: <code>false</code>)</p>
 <h1 id="examples-4" class="section-header"><a href="#examples-4">Examples</a></h1>
 <p>Notice in this example we use <em>both</em> the <code>-f</code> and <code>-c</code> flags which are both part of the
@@ -228,7 +196,7 @@ an error if more than one of the args in the group was used.</p>
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">result</span>.<span class="ident">is_err</span>());
 <span class="kw">let</span> <span class="ident">err</span> <span class="op">=</span> <span class="ident">result</span>.<span class="ident">unwrap_err</span>();
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">err</span>.<span class="ident">kind</span>, <span class="ident">ErrorKind</span>::<span class="ident">ArgumentConflict</span>);</pre>
-</div><h4 id='method.required' class="method"><span id='required.v-1' class='invisible'><code>pub fn <a href='#method.required' class='fnname'>required</a>(self, r: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/clap/args/group.rs.html#266-269' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.required' class="method"><span id='required.v' class='invisible'><code>pub fn <a href='#method.required' class='fnname'>required</a>(self, r: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/clap/args/group.rs.html#266-269' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Sets the group as required or not. A required group will be displayed in the usage string
 of the application in the format <code>&lt;arg|arg2|arg3&gt;</code>. A required <code>ArgGroup</code> simply states
 that one argument from this group <em>must</em> be present at runtime (unless
@@ -254,7 +222,7 @@ states, '<em>At least</em> one arg from this group must be used. Using multiple 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">result</span>.<span class="ident">is_err</span>());
 <span class="kw">let</span> <span class="ident">err</span> <span class="op">=</span> <span class="ident">result</span>.<span class="ident">unwrap_err</span>();
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">err</span>.<span class="ident">kind</span>, <span class="ident">ErrorKind</span>::<span class="ident">MissingRequiredArgument</span>);</pre>
-</div><h4 id='method.requires' class="method"><span id='requires.v-1' class='invisible'><code>pub fn <a href='#method.requires' class='fnname'>requires</a>(self, n: &amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/clap/args/group.rs.html#301-308' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.requires' class="method"><span id='requires.v' class='invisible'><code>pub fn <a href='#method.requires' class='fnname'>requires</a>(self, n: &amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/clap/args/group.rs.html#301-308' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Sets the requirement rules of this group. This is not to be confused with a
 <a href="./struct.ArgGroup.html#method.required">required group</a>. Requirement rules function just like <a href="./struct.Arg.html#method.requires">argument requirement rules</a>, you
 can name other arguments or groups that must be present when any one of the arguments from

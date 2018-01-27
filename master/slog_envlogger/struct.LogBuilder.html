@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../slog_envlogger/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Struct LogBuilder</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.drain">drain</a><a href="#structfield.directives">directives</a><a href="#structfield.filter">filter</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.filter">filter</a><a href="#method.parse">parse</a><a href="#method.build">build</a></div></div><p class='location'><a href='index.html'>slog_envlogger</a></p><script>window.sidebarCurrent = {name: 'LogBuilder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct LogBuilder</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.filter">filter</a><a href="#method.parse">parse</a><a href="#method.build">build</a></div></div><p class='location'><a href='index.html'>slog_envlogger</a></p><script>window.sidebarCurrent = {name: 'LogBuilder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -60,34 +60,17 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/slog_envlogger/lib.rs.html#102-106' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct LogBuilder&lt;T:&nbsp;<a class="trait" href="../slog/trait.Drain.html" title="trait slog::Drain">Drain</a>&gt; {
-    drain: T,
-    directives: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../slog_envlogger/struct.LogDirective.html" title="struct slog_envlogger::LogDirective">LogDirective</a>&gt;,
-    filter: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../regex/re_unicode/struct.Regex.html" title="struct regex::re_unicode::Regex">Regex</a>&gt;,
-}</pre><div class='docblock'><p>LogBuilder acts as builder for initializing the EnvLogger.
+<pre class='rust struct'>pub struct LogBuilder&lt;T:&nbsp;<a class="trait" href="../slog/trait.Drain.html" title="trait slog::Drain">Drain</a>&gt; { /* fields omitted */ }</pre><div class='docblock'><p>LogBuilder acts as builder for initializing the EnvLogger.
 It can be used change the enviromental variable used
 to provide the logging directives and also set the default log level filter.</p>
-</div><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.drain" class="structfield small-section-header">
-                           <a href="#structfield.drain" class="anchor field"></a>
-                           <span id="drain.v" class='invisible'>
-                           <code>drain: T</code>
-                           </span></span><span id="structfield.directives" class="structfield small-section-header">
-                           <a href="#structfield.directives" class="anchor field"></a>
-                           <span id="directives.v" class='invisible'>
-                           <code>directives: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../slog_envlogger/struct.LogDirective.html" title="struct slog_envlogger::LogDirective">LogDirective</a>&gt;</code>
-                           </span></span><span id="structfield.filter" class="structfield small-section-header">
-                           <a href="#structfield.filter" class="anchor field"></a>
-                           <span id="filter.v" class='invisible'>
-                           <code>filter: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../regex/re_unicode/struct.Regex.html" title="struct regex::re_unicode::Regex">Regex</a>&gt;</code>
-                           </span></span>
+</div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
                 <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;<a class="trait" href="../slog/trait.Drain.html" title="trait slog::Drain">Drain</a>&gt; <a class="struct" href="../slog_envlogger/struct.LogBuilder.html" title="struct slog_envlogger::LogBuilder">LogBuilder</a>&lt;T&gt;</code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_envlogger/lib.rs.html#108-177' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>(d: T) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_envlogger/lib.rs.html#110-116' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Initializes the log builder with defaults</p>
-</div><h4 id='method.filter' class="method"><span id='filter.v-1' class='invisible'><code>pub fn <a href='#method.filter' class='fnname'>filter</a>(self, module: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, level: <a class="enum" href="../slog/enum.FilterLevel.html" title="enum slog::FilterLevel">FilterLevel</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_envlogger/lib.rs.html#122-130' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.filter' class="method"><span id='filter.v' class='invisible'><code>pub fn <a href='#method.filter' class='fnname'>filter</a>(self, module: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, level: <a class="enum" href="../slog/enum.FilterLevel.html" title="enum slog::FilterLevel">FilterLevel</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/slog_envlogger/lib.rs.html#122-130' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Adds filters to the logger</p>
 <p>The given module (if any) will log at most the specified level provided.
 If no module is provided then the filter will apply to all log messages.</p>
