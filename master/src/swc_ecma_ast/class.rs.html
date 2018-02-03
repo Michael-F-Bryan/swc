@@ -85,23 +85,17 @@
 <span id="29">29</span>
 <span id="30">30</span>
 <span id="31">31</span>
-<span id="32">32</span>
-<span id="33">33</span>
-<span id="34">34</span>
-<span id="35">35</span>
-<span id="36">36</span>
-<span id="37">37</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">Expr</span>, <span class="ident">Function</span>, <span class="ident">PropName</span>};
-<span class="kw">use</span> <span class="ident">swc_common</span>::{<span class="ident">FoldWith</span>, <span class="ident">Span</span>};
+<span class="kw">use</span> <span class="ident">swc_common</span>::<span class="ident">Span</span>;
 <span class="kw">use</span> <span class="ident">swc_macros</span>::<span class="ident">ast_node</span>;
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Class</span> {
     <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
 
-    <span class="kw">pub</span> <span class="ident">super_class</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span>,
     <span class="kw">pub</span> <span class="ident">body</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ClassMethod</span><span class="op">&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">super_class</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 }
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
@@ -116,18 +110,12 @@
     <span class="kw">pub</span> <span class="ident">is_static</span>: <span class="ident">bool</span>,
 }
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">Hash</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">Hash</span>, <span class="ident">Fold</span>)]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">ClassMethodKind</span> {
     <span class="ident">Constructor</span>,
     <span class="ident">Method</span>,
     <span class="ident">Getter</span>,
     <span class="ident">Setter</span>,
-}
-
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="ident">FoldWith</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ClassMethodKind</span> {
-    <span class="kw">fn</span> <span class="ident">fold_children</span>(<span class="self">self</span>, _: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">F</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
-        <span class="self">self</span>
-    }
 }
 </pre>
 </section>

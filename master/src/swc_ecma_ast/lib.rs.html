@@ -124,6 +124,13 @@
 <span id="68">68</span>
 <span id="69">69</span>
 <span id="70">70</span>
+<span id="71">71</span>
+<span id="72">72</span>
+<span id="73">73</span>
+<span id="74">74</span>
+<span id="75">75</span>
+<span id="76">76</span>
+<span id="77">77</span>
 </pre><pre class="rust ">
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">box_syntax</span>)]</span>
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">box_patterns</span>)]</span>
@@ -137,21 +144,28 @@
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">swc_macros</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">class</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">decl</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">expr</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">function</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">lit</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">module</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">module_decl</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">operators</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">pat</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">prop</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">stmt</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">class</span>::{<span class="ident">Class</span>, <span class="ident">ClassMethod</span>, <span class="ident">ClassMethodKind</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">decl</span>::{<span class="ident">ClassDecl</span>, <span class="ident">Decl</span>, <span class="ident">FnDecl</span>, <span class="ident">VarDecl</span>, <span class="ident">VarDeclKind</span>, <span class="ident">VarDeclarator</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">expr</span>::{<span class="ident">ArrayLit</span>, <span class="ident">ArrowExpr</span>, <span class="ident">AssignExpr</span>, <span class="ident">AwaitExpr</span>, <span class="ident">BinExpr</span>, <span class="ident">BlockStmtOrExpr</span>,
+                     <span class="ident">CallExpr</span>, <span class="ident">ClassExpr</span>, <span class="ident">CondExpr</span>, <span class="ident">Expr</span>, <span class="ident">ExprKind</span>, <span class="ident">ExprOrSpread</span>, <span class="ident">ExprOrSuper</span>,
+                     <span class="ident">FnExpr</span>, <span class="ident">MemberExpr</span>, <span class="ident">MetaPropExpr</span>, <span class="ident">NewExpr</span>, <span class="ident">ObjectLit</span>, <span class="ident">PatOrExpr</span>, <span class="ident">SeqExpr</span>,
+                     <span class="ident">TplElement</span>, <span class="ident">TplLit</span>, <span class="ident">UnaryExpr</span>, <span class="ident">UpdateExpr</span>, <span class="ident">YieldExpr</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">function</span>::<span class="ident">Function</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">lit</span>::{<span class="ident">Lit</span>, <span class="ident">Number</span>, <span class="ident">Regex</span>, <span class="ident">RegexFlags</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">module</span>::{<span class="ident">Module</span>, <span class="ident">ModuleItem</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">module_decl</span>::{<span class="ident">ExportDefaultDecl</span>, <span class="ident">ExportSpecifier</span>, <span class="ident">ImportSpecifier</span>,
+                            <span class="ident">ImportSpecifierKind</span>, <span class="ident">ModuleDecl</span>, <span class="ident">ModuleDeclKind</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">operators</span>::{<span class="ident">AssignOp</span>, <span class="ident">BinaryOp</span>, <span class="ident">UnaryOp</span>, <span class="ident">UpdateOp</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">pat</span>::{<span class="ident">ObjectPatProp</span>, <span class="ident">Pat</span>, <span class="ident">PatKind</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">prop</span>::{<span class="ident">Prop</span>, <span class="ident">PropKind</span>, <span class="ident">PropName</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">stmt</span>::{<span class="ident">BlockStmt</span>, <span class="ident">BreakStmt</span>, <span class="ident">CatchClause</span>, <span class="ident">ContinueStmt</span>, <span class="ident">DoWhileStmt</span>, <span class="ident">ForInStmt</span>,
+                     <span class="ident">ForOfStmt</span>, <span class="ident">ForStmt</span>, <span class="ident">IfStmt</span>, <span class="ident">LabeledStmt</span>, <span class="ident">ReturnStmt</span>, <span class="ident">Stmt</span>, <span class="ident">StmtKind</span>,
+                     <span class="ident">SwitchCase</span>, <span class="ident">SwitchStmt</span>, <span class="ident">ThrowStmt</span>, <span class="ident">TryStmt</span>, <span class="ident">VarDeclOrExpr</span>, <span class="ident">VarDeclOrPat</span>,
+                     <span class="ident">WhileStmt</span>, <span class="ident">WithStmt</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fmt</span>::{<span class="self">self</span>, <span class="ident">Debug</span>, <span class="ident">Display</span>, <span class="ident">Formatter</span>};
 <span class="kw">use</span> <span class="ident">swc_atoms</span>::<span class="ident">JsWord</span>;
 <span class="kw">use</span> <span class="ident">swc_common</span>::{<span class="ident">Span</span>, <span class="ident">Spanned</span>};
-<span class="kw">use</span> <span class="ident">swc_macros</span>::<span class="ident">AstNode</span>;
+<span class="kw">use</span> <span class="ident">swc_macros</span>::{<span class="ident">AstNode</span>, <span class="ident">Fold</span>};
 
 <span class="kw">mod</span> <span class="ident">macros</span>;
 <span class="kw">mod</span> <span class="ident">class</span>;
@@ -167,7 +181,7 @@
 <span class="kw">mod</span> <span class="ident">stmt</span>;
 
 <span class="doccomment">/// Ident with span.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">AstNode</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">AstNode</span>, <span class="ident">Fold</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Ident</span> {
     <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="attribute">#[<span class="ident">fold</span>(<span class="ident">ignore</span>)]</span>

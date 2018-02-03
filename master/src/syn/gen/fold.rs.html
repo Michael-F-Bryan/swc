@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/syn-0.12.10/src/gen/fold.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/syn-0.12.11/src/gen/fold.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>fold.rs.html -- source</title>
@@ -3128,7 +3128,7 @@
 <span class="kw">fn</span> <span class="ident">fold_expr_match</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">i</span>: <span class="ident">ExprMatch</span>) <span class="op">-&gt;</span> <span class="ident">ExprMatch</span> { <span class="ident">fold_expr_match</span>(<span class="self">self</span>, <span class="ident">i</span>) }
 # [ <span class="ident">cfg</span> ( <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;full&quot;</span> ) ] # [ <span class="ident">cfg</span> ( <span class="ident">any</span> ( <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;full&quot;</span> , <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;derive&quot;</span> ) ) ]
 <span class="kw">fn</span> <span class="ident">fold_expr_method_call</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">i</span>: <span class="ident">ExprMethodCall</span>) <span class="op">-&gt;</span> <span class="ident">ExprMethodCall</span> { <span class="ident">fold_expr_method_call</span>(<span class="self">self</span>, <span class="ident">i</span>) }
-# [ <span class="ident">cfg</span> ( <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;full&quot;</span> ) ] # [ <span class="ident">cfg</span> ( <span class="ident">any</span> ( <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;full&quot;</span> , <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;derive&quot;</span> ) ) ]
+# [ <span class="ident">cfg</span> ( <span class="ident">any</span> ( <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;full&quot;</span> , <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;derive&quot;</span> ) ) ]
 <span class="kw">fn</span> <span class="ident">fold_expr_paren</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">i</span>: <span class="ident">ExprParen</span>) <span class="op">-&gt;</span> <span class="ident">ExprParen</span> { <span class="ident">fold_expr_paren</span>(<span class="self">self</span>, <span class="ident">i</span>) }
 # [ <span class="ident">cfg</span> ( <span class="ident">any</span> ( <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;full&quot;</span> , <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;derive&quot;</span> ) ) ]
 <span class="kw">fn</span> <span class="ident">fold_expr_path</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">i</span>: <span class="ident">ExprPath</span>) <span class="op">-&gt;</span> <span class="ident">ExprPath</span> { <span class="ident">fold_expr_path</span>(<span class="self">self</span>, <span class="ident">i</span>) }
@@ -3954,7 +3954,7 @@
         }
         <span class="ident">Expr</span>::<span class="ident">Paren</span>(<span class="ident">_binding_0</span>, ) <span class="op">=&gt;</span> {
             <span class="ident">Expr</span>::<span class="ident">Paren</span> (
-                <span class="macro">full</span><span class="macro">!</span>(<span class="ident">_visitor</span>.<span class="ident">fold_expr_paren</span>(<span class="ident">_binding_0</span>)),
+                <span class="ident">_visitor</span>.<span class="ident">fold_expr_paren</span>(<span class="ident">_binding_0</span>),
             )
         }
         <span class="ident">Expr</span>::<span class="ident">Group</span>(<span class="ident">_binding_0</span>, ) <span class="op">=&gt;</span> {
@@ -4220,7 +4220,7 @@
         <span class="ident">args</span>: <span class="ident">FoldHelper</span>::<span class="ident">lift</span>(<span class="ident">_i</span> . <span class="ident">args</span>, <span class="op">|</span><span class="ident">it</span><span class="op">|</span> { <span class="ident">_visitor</span>.<span class="ident">fold_expr</span>(<span class="ident">it</span>) }),
     }
 }
-# [ <span class="ident">cfg</span> ( <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;full&quot;</span> ) ] # [ <span class="ident">cfg</span> ( <span class="ident">any</span> ( <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;full&quot;</span> , <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;derive&quot;</span> ) ) ]
+# [ <span class="ident">cfg</span> ( <span class="ident">any</span> ( <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;full&quot;</span> , <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;derive&quot;</span> ) ) ]
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">fold_expr_paren</span><span class="op">&lt;</span><span class="ident">V</span>: <span class="ident">Fold</span> <span class="op">+</span> <span class="question-mark">?</span><span class="ident">Sized</span><span class="op">&gt;</span>(<span class="ident">_visitor</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">V</span>, <span class="ident">_i</span>: <span class="ident">ExprParen</span>) <span class="op">-&gt;</span> <span class="ident">ExprParen</span> {
     <span class="ident">ExprParen</span> {
         <span class="ident">attrs</span>: <span class="ident">FoldHelper</span>::<span class="ident">lift</span>(<span class="ident">_i</span> . <span class="ident">attrs</span>, <span class="op">|</span><span class="ident">it</span><span class="op">|</span> { <span class="ident">_visitor</span>.<span class="ident">fold_attribute</span>(<span class="ident">it</span>) }),

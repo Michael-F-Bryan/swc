@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/syn-0.12.10/src/item.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/syn-0.12.11/src/item.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>item.rs.html -- source</title>
@@ -2786,7 +2786,7 @@
 
     <span class="macro">impl_synom</span><span class="macro">!</span>(<span class="ident">ItemMacro</span> <span class="string">&quot;macro item&quot;</span> <span class="macro">do_parse</span><span class="macro">!</span>(
         <span class="ident">attrs</span>: <span class="macro">many0</span><span class="macro">!</span>(<span class="ident">Attribute</span>::<span class="ident">parse_outer</span>) <span class="op">&gt;&gt;</span>
-        <span class="ident">what</span>: <span class="macro">syn</span><span class="macro">!</span>(<span class="ident">Path</span>) <span class="op">&gt;&gt;</span>
+        <span class="ident">what</span>: <span class="macro">call</span><span class="macro">!</span>(<span class="ident">Path</span>::<span class="ident">parse_mod_style</span>) <span class="op">&gt;&gt;</span>
         <span class="ident">bang</span>: <span class="macro">punct</span><span class="macro">!</span>(<span class="op">!</span>) <span class="op">&gt;&gt;</span>
         <span class="ident">ident</span>: <span class="macro">option</span><span class="macro">!</span>(<span class="macro">syn</span><span class="macro">!</span>(<span class="ident">Ident</span>)) <span class="op">&gt;&gt;</span>
         <span class="ident">body</span>: <span class="macro">call</span><span class="macro">!</span>(<span class="ident">tt</span>::<span class="ident">delimited</span>) <span class="op">&gt;&gt;</span>

@@ -196,9 +196,9 @@
 <span id="140">140</span>
 <span id="141">141</span>
 </pre><pre class="rust ">
-<span class="kw">use</span> <span class="ident">swc_macros</span>::{<span class="ident">AstNode</span>, <span class="ident">Kind</span>};
+<span class="kw">use</span> <span class="ident">swc_macros</span>::{<span class="ident">AstNode</span>, <span class="ident">Fold</span>, <span class="ident">Kind</span>};
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Kind</span>, <span class="ident">AstNode</span>, <span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Kind</span>, <span class="ident">AstNode</span>, <span class="ident">Fold</span>, <span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
 <span class="attribute">#[<span class="ident">kind</span>(<span class="ident">function</span>(<span class="ident">precedence</span> <span class="op">=</span> <span class="string">&quot;u8&quot;</span>))]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">BinaryOp</span> {
     <span class="doccomment">/// `==`</span>
@@ -281,7 +281,7 @@
     <span class="ident">Exp</span>,
 }
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">AstNode</span>, <span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">AstNode</span>, <span class="ident">Fold</span>, <span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">AssignOp</span> {
     <span class="doccomment">/// `=`</span>
     <span class="ident">Assign</span>,
@@ -312,7 +312,7 @@
     <span class="ident">ExpAssign</span>,
 }
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">AstNode</span>, <span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">AstNode</span>, <span class="ident">Fold</span>, <span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">UpdateOp</span> {
     <span class="doccomment">/// `++`</span>
     <span class="ident">PlusPlus</span>,
@@ -320,7 +320,7 @@
     <span class="ident">MinusMinus</span>,
 }
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">AstNode</span>, <span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">AstNode</span>, <span class="ident">Fold</span>, <span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">UnaryOp</span> {
     <span class="doccomment">/// `-`</span>
     <span class="ident">Minus</span>,

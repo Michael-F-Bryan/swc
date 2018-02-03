@@ -261,8 +261,8 @@
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">common</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
 
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">derive_fold</span>(<span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">DeriveInput</span>) <span class="op">-&gt;</span> <span class="ident">ItemImpl</span> {
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">derive_generics</span> <span class="op">=</span> <span class="ident">Derive</span>::<span class="ident">new</span>(<span class="ident">input</span>);
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">derive</span>(<span class="ident">input</span>: <span class="ident">DeriveInput</span>) <span class="op">-&gt;</span> <span class="ident">ItemImpl</span> {
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">derive_generics</span> <span class="op">=</span> <span class="ident">Derive</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">input</span>);
 
     <span class="kw">let</span> <span class="ident">preds</span> <span class="op">=</span> <span class="ident">derive_generics</span>
         .<span class="ident">all_generic_fields</span>()
@@ -278,13 +278,13 @@
             <span class="ident">Quote</span>::<span class="ident">new_call_site</span>()
                 .<span class="ident">quote_with</span>(<span class="macro">smart_quote</span><span class="macro">!</span>(
                     <span class="ident">Vars</span> { <span class="ident">Type</span>: <span class="kw-2">&amp;</span><span class="ident">ty</span> },
-                    (<span class="ident">Type</span>: ::<span class="ident">swc_common</span>::<span class="ident">FoldWith</span><span class="op">&lt;</span><span class="ident">__Folder</span><span class="op">&gt;</span>)
+                    (<span class="ident">Type</span>: <span class="ident">swc_common</span>::<span class="ident">FoldWith</span><span class="op">&lt;</span><span class="ident">__Folder</span><span class="op">&gt;</span>)
                 ))
                 .<span class="ident">parse</span>()
         });
     <span class="ident">derive_generics</span>.<span class="ident">add_where_predicates</span>(<span class="ident">preds</span>);
 
-    <span class="kw">let</span> <span class="ident">arms</span> <span class="op">=</span> <span class="ident">Binder</span>::<span class="ident">new_from</span>(<span class="ident">input</span>)
+    <span class="kw">let</span> <span class="ident">arms</span> <span class="op">=</span> <span class="ident">Binder</span>::<span class="ident">new_from</span>(<span class="kw-2">&amp;</span><span class="ident">input</span>)
         .<span class="ident">variants</span>()
         .<span class="ident">into_iter</span>()
         .<span class="ident">map</span>(<span class="op">|</span><span class="ident">v</span><span class="op">|</span> {
@@ -322,7 +322,7 @@
                                 <span class="ident">FieldType</span>: <span class="kw-2">&amp;</span><span class="ident">binding</span>.<span class="ident">field</span>().<span class="ident">ty</span>,
                                 <span class="ident">binded_field</span>: <span class="ident">binding</span>.<span class="ident">name</span>(),
                             },
-                            { ::<span class="ident">swc_common</span>::<span class="ident">Folder</span>::<span class="op">&lt;</span><span class="ident">FieldType</span><span class="op">&gt;</span>::<span class="ident">fold</span>(<span class="ident">__folder</span>, <span class="ident">binded_field</span>,) }
+                            { <span class="ident">swc_common</span>::<span class="ident">Folder</span>::<span class="op">&lt;</span><span class="ident">FieldType</span><span class="op">&gt;</span>::<span class="ident">fold</span>(<span class="ident">__folder</span>, <span class="ident">binded_field</span>,) }
                         )),
                     };
 
@@ -402,7 +402,7 @@
                 <span class="ident">body</span>,
             },
             {
-                <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">__Folder</span><span class="op">&gt;</span> ::<span class="ident">swc_common</span>::<span class="ident">FoldWith</span><span class="op">&lt;</span><span class="ident">__Folder</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Type</span> {
+                <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">__Folder</span><span class="op">&gt;</span> <span class="ident">swc_common</span>::<span class="ident">FoldWith</span><span class="op">&lt;</span><span class="ident">__Folder</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Type</span> {
                     <span class="kw">fn</span> <span class="ident">fold_children</span>(<span class="self">self</span>, <span class="ident">__folder</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">__Folder</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
                         <span class="ident">body</span>
                     }

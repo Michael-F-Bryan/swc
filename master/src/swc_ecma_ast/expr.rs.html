@@ -309,6 +309,7 @@
 <span id="253">253</span>
 <span id="254">254</span>
 <span id="255">255</span>
+<span id="256">256</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">AssignOp</span>, <span class="ident">BinaryOp</span>, <span class="ident">BlockStmt</span>, <span class="ident">Class</span>, <span class="ident">Function</span>, <span class="ident">Ident</span>, <span class="ident">Lit</span>, <span class="ident">Pat</span>, <span class="ident">Prop</span>, <span class="ident">UnaryOp</span>,
             <span class="ident">UpdateOp</span>};
@@ -391,7 +392,7 @@
 <span class="doccomment">/// Array literal.</span>
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ArrayLit</span> {
-    <span class="kw">pub</span> <span class="ident">elems</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">ExprOrSpread</span><span class="op">&gt;&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">elems</span>: <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">ExprOrSpread</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 }
 
 <span class="doccomment">/// Object literal.</span>
@@ -468,11 +469,12 @@
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">NewExpr</span> {
     <span class="kw">pub</span> <span class="ident">callee</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span> <span class="ident">args</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ExprOrSpread</span><span class="op">&gt;&gt;</span>,
+    <span class="comment">// #[code = &quot;$( $( $args ),* )?&quot;]</span>
+    <span class="kw">pub</span> <span class="ident">args</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ExprOrSpread</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SeqExpr</span> {
-    <span class="kw">pub</span> <span class="ident">exprs</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">exprs</span>: <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ArrowExpr</span> {
@@ -485,7 +487,7 @@
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">YieldExpr</span> {
-    <span class="kw">pub</span> <span class="ident">arg</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">arg</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">delegate</span>: <span class="ident">bool</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
@@ -500,9 +502,9 @@
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">TplLit</span> {
-    <span class="kw">pub</span> <span class="ident">tag</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">tag</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 
-    <span class="kw">pub</span> <span class="ident">exprs</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">exprs</span>: <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 
     <span class="kw">pub</span> <span class="ident">quasis</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">TplElement</span><span class="op">&gt;</span>,
 }

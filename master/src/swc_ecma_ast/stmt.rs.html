@@ -239,6 +239,15 @@
 <span id="183">183</span>
 <span id="184">184</span>
 <span id="185">185</span>
+<span id="186">186</span>
+<span id="187">187</span>
+<span id="188">188</span>
+<span id="189">189</span>
+<span id="190">190</span>
+<span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
+<span id="194">194</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">Decl</span>, <span class="ident">Expr</span>, <span class="ident">Ident</span>, <span class="ident">Pat</span>, <span class="ident">VarDecl</span>};
 <span class="kw">use</span> <span class="ident">swc_common</span>::{<span class="ident">Span</span>, <span class="ident">Spanned</span>};
@@ -249,6 +258,15 @@
     <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
 
     <span class="kw">pub</span> <span class="ident">node</span>: <span class="ident">StmtKind</span>,
+}
+
+<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Stmt</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">t</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
+        <span class="ident">Stmt</span> {
+            <span class="ident">span</span>: <span class="ident">t</span>.<span class="ident">span</span>,
+            <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">Expr</span>(<span class="ident">t</span>),
+        }
+    }
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Decl</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Stmt</span> {
@@ -267,7 +285,7 @@
 }
 
 <span class="doccomment">/// Use when only block statements are allowed.</span>
-<span class="attribute">#[<span class="ident">ast_node</span>]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">AstNode</span>, <span class="ident">Fold</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>, <span class="ident">PartialEq</span>, <span class="ident">Default</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BlockStmt</span> {
     <span class="doccomment">/// Span of brace.</span>
     <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
@@ -331,7 +349,7 @@
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ReturnStmt</span> {
-    <span class="kw">pub</span> <span class="ident">arg</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">arg</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 }
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
@@ -351,7 +369,7 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">IfStmt</span> {
     <span class="kw">pub</span> <span class="ident">test</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">cons</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span> <span class="ident">alt</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">alt</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SwitchStmt</span> {
@@ -381,8 +399,8 @@
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ForStmt</span> {
     <span class="kw">pub</span> <span class="ident">init</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">VarDeclOrExpr</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span> <span class="ident">test</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span>,
-    <span class="kw">pub</span> <span class="ident">update</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">test</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">update</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">body</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
@@ -402,7 +420,7 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SwitchCase</span> {
     <span class="comment">// pub span: Span,</span>
     <span class="doccomment">/// None for `default:`</span>
-    <span class="kw">pub</span> <span class="ident">test</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">test</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 
     <span class="kw">pub</span> <span class="ident">cons</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
 }
