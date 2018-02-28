@@ -186,6 +186,12 @@
 <span id="130">130</span>
 <span id="131">131</span>
 <span id="132">132</span>
+<span id="133">133</span>
+<span id="134">134</span>
+<span id="135">135</span>
+<span id="136">136</span>
+<span id="137">137</span>
+<span id="138">138</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">util</span>::<span class="ident">CharExt</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">str</span>;
@@ -201,9 +207,9 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">LexerInput</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span> {
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">input</span>: <span class="ident">I</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">i</span> <span class="op">=</span> <span class="ident">LexerInput</span> {
-            <span class="ident">input</span>,
-            <span class="ident">last_pos</span>: <span class="ident">BytePos</span>(<span class="number">0</span>),
+            <span class="ident">last_pos</span>: <span class="ident">input</span>.<span class="ident">start_pos</span>(),
             <span class="ident">cur</span>: <span class="prelude-val">None</span>,
+            <span class="ident">input</span>,
         };
         <span class="ident">i</span>.<span class="ident">input</span>.<span class="ident">record_new_line</span>(<span class="ident">i</span>.<span class="ident">last_pos</span>);
         <span class="ident">i</span>
@@ -217,6 +223,7 @@
             }
             <span class="prelude-val">None</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;bump is called without knowing current character&quot;</span>),
         };
+        <span class="comment">// TODO: Handle \r\n</span>
 
         <span class="self">self</span>.<span class="ident">cur</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">input</span>.<span class="ident">next</span>();
         <span class="kw">if</span> <span class="ident">is_new_line</span> {
@@ -305,6 +312,9 @@
     <span class="kw">fn</span> <span class="ident">record_new_line</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">pos</span>: <span class="ident">BytePos</span>) {
         <span class="self">self</span>.<span class="ident">fm</span>.<span class="ident">next_line</span>(<span class="ident">pos</span>)
     }
+    <span class="kw">fn</span> <span class="ident">start_pos</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">BytePos</span> {
+        <span class="self">self</span>.<span class="ident">fm</span>.<span class="ident">start_pos</span>
+    }
 }
 
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Input</span>: <span class="ident">Iterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> (<span class="ident">BytePos</span>, <span class="ident">char</span>)<span class="op">&gt;</span> {
@@ -312,6 +322,8 @@
 
     <span class="kw">fn</span> <span class="ident">peek_ahead</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">BytePos</span>, <span class="ident">char</span>)<span class="op">&gt;</span>;
     <span class="kw">fn</span> <span class="ident">record_new_line</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">_pos</span>: <span class="ident">BytePos</span>) {}
+
+    <span class="kw">fn</span> <span class="ident">start_pos</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">BytePos</span>;
 
     <span class="doccomment">///Takes items from stream, testing each one with predicate. returns the</span>
     <span class="doccomment">/// range of items which passed predicate.</span>

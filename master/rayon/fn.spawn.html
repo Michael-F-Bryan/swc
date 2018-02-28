@@ -60,7 +60,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/rayon_core/spawn/mod.rs.html#50-55' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn spawn&lt;F&gt;(func: F) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>() -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'static,&nbsp;</span></pre><div class='docblock'><p>Fires off a task into the Rayon threadpool in the &quot;static&quot; or
+<pre class='rust fn'>pub fn spawn&lt;F&gt;(func: F) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>() + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'static,&nbsp;</span></pre><div class='docblock'><p>Fires off a task into the Rayon threadpool in the &quot;static&quot; or
 &quot;global&quot; scope.  Just like a standard thread, this task is not
 tied to the current stack frame, and hence it cannot hold any
 references other than those with <code>'static</code> lifetime. If you want
@@ -77,8 +77,8 @@ by a mutex, or some such thing). If you want to compute a result,
 consider <code>spawn_future()</code>.</p>
 <h1 id="panic-handling" class="section-header"><a href="#panic-handling">Panic handling</a></h1>
 <p>If this closure should panic, the resulting panic will be
-propagated to the panic handler registered in the <code>Configuration</code>,
-if any.  See <a href="struct.Configuration.html#method.panic_handler"><code>Configuration::panic_handler()</code></a> for more
+propagated to the panic handler registered in the <code>ThreadPoolBuilder</code>,
+if any.  See <a href="struct.ThreadPoolBuilder.html#method.panic_handler"><code>ThreadPoolBuilder::panic_handler()</code></a> for more
 details.</p>
 <h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
 <p>This code creates a Rayon task that increments a global counter.</p>

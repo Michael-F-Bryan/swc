@@ -119,15 +119,29 @@
 <span id="63">63</span>
 <span id="64">64</span>
 <span id="65">65</span>
+<span id="66">66</span>
+<span id="67">67</span>
+<span id="68">68</span>
+<span id="69">69</span>
+<span id="70">70</span>
+<span id="71">71</span>
+<span id="72">72</span>
+<span id="73">73</span>
+<span id="74">74</span>
+<span id="75">75</span>
+<span id="76">76</span>
+<span id="77">77</span>
 </pre><pre class="rust ">
-<span class="kw">use</span> <span class="kw">super</span>::<span class="ident">Diagnostic</span>;
-<span class="kw">use</span> <span class="ident">rustc_errors</span>::{<span class="ident">CodeMapper</span>, <span class="ident">ColorConfig</span>, <span class="ident">Diagnostic</span> <span class="kw">as</span> <span class="ident">RustcDiagnostic</span>,
-                   <span class="ident">Handler</span> <span class="kw">as</span> <span class="ident">RustcHandler</span>, <span class="ident">HandlerFlags</span>, <span class="ident">Level</span>};
+<span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">Diagnostic</span>, <span class="ident">DiagnosticBuilder</span>};
+<span class="kw">use</span> <span class="ident">rustc_errors</span>::{<span class="ident">CodeMapper</span>, <span class="ident">ColorConfig</span>, <span class="ident">DiagnosticBuilder</span> <span class="kw">as</span> <span class="ident">RustcDiagnosticBuilder</span>,
+                   <span class="ident">Handler</span> <span class="kw">as</span> <span class="ident">RustcHandler</span>, <span class="ident">Level</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">rustc_errors</span>::<span class="ident">HandlerFlags</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">rustc_errors</span>::<span class="ident">emitter</span>::{<span class="ident">Emitter</span>, <span class="ident">EmitterWriter</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">rc</span>::<span class="ident">Rc</span>;
 
 <span class="doccomment">/// A handler deals with errors.</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Handler</span> {
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">inner</span>: <span class="ident">RustcHandler</span>,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">inner</span>: <span class="ident">RustcHandler</span>,
 }
 
 <span class="kw">impl</span> <span class="ident">Handler</span> {
@@ -148,20 +162,28 @@
         <span class="ident">RustcHandler</span>::<span class="ident">with_tty_emitter_and_flags</span>(<span class="ident">color_config</span>, <span class="ident">cm</span>, <span class="ident">flags</span>).<span class="ident">into</span>()
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">note</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>, <span class="ident">msg</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">Diagnostic</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-        <span class="ident">Diagnostic</span>::<span class="ident">new</span>(<span class="self">self</span>, <span class="ident">Level</span>::<span class="ident">Note</span>, <span class="ident">msg</span>)
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_emitter</span>(<span class="ident">e</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Emitter</span><span class="op">&gt;</span>, <span class="ident">flags</span>: <span class="ident">HandlerFlags</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
+        <span class="ident">RustcHandler</span>::<span class="ident">with_emitter_and_flags</span>(<span class="ident">e</span>, <span class="ident">flags</span>).<span class="ident">into</span>()
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">warn</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>, <span class="ident">msg</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">Diagnostic</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">emit</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">d</span>: <span class="ident">Diagnostic</span>) {
+        <span class="ident">RustcDiagnosticBuilder</span>::<span class="ident">new_diagnostic</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">inner</span>, <span class="kw-2">*</span><span class="ident">d</span>.<span class="ident">inner</span>).<span class="ident">emit</span>()
+    }
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">note</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>, <span class="ident">msg</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">DiagnosticBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+        <span class="ident">DiagnosticBuilder</span>::<span class="ident">new</span>(<span class="self">self</span>, <span class="ident">Level</span>::<span class="ident">Note</span>, <span class="ident">msg</span>)
+    }
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">warn</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>, <span class="ident">msg</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">DiagnosticBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">struct_warn</span>(<span class="ident">msg</span>).<span class="ident">into</span>()
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">error</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>, <span class="ident">msg</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">Diagnostic</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-        <span class="ident">Diagnostic</span>::<span class="ident">new</span>(<span class="self">self</span>, <span class="ident">Level</span>::<span class="ident">Error</span>, <span class="ident">msg</span>)
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">error</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>, <span class="ident">msg</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">DiagnosticBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+        <span class="ident">DiagnosticBuilder</span>::<span class="ident">new</span>(<span class="self">self</span>, <span class="ident">Level</span>::<span class="ident">Error</span>, <span class="ident">msg</span>)
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">fatal</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>, <span class="ident">msg</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">Diagnostic</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-        <span class="ident">Diagnostic</span>::<span class="ident">new</span>(<span class="self">self</span>, <span class="ident">Level</span>::<span class="ident">Fatal</span>, <span class="ident">msg</span>)
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">fatal</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>, <span class="ident">msg</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">DiagnosticBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+        <span class="ident">DiagnosticBuilder</span>::<span class="ident">new</span>(<span class="self">self</span>, <span class="ident">Level</span>::<span class="ident">Fatal</span>, <span class="ident">msg</span>)
     }
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">has_errors</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
@@ -172,11 +194,13 @@
         <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">abort_if_errors</span>()
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">track_diagnostics</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">R</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-&gt;</span> (<span class="ident">R</span>, <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">RustcDiagnostic</span><span class="op">&gt;</span>)
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">track_diagnostics</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">R</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-&gt;</span> (<span class="ident">R</span>, <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Diagnostic</span><span class="op">&gt;</span>)
     <span class="kw">where</span>
         <span class="ident">F</span>: <span class="ident">FnOnce</span>() <span class="op">-&gt;</span> <span class="ident">R</span>,
     {
-        <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">track_diagnostics</span>(<span class="ident">f</span>)
+        <span class="kw">let</span> (<span class="ident">result</span>, <span class="ident">errors</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">track_diagnostics</span>(<span class="ident">f</span>);
+
+        (<span class="ident">result</span>, <span class="ident">errors</span>.<span class="ident">into_iter</span>().<span class="ident">map</span>(<span class="ident">From</span>::<span class="ident">from</span>).<span class="ident">collect</span>())
     }
 }
 

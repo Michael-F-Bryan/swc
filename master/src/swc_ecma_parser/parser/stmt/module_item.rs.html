@@ -332,10 +332,6 @@
 <span id="276">276</span>
 <span id="277">277</span>
 <span id="278">278</span>
-<span id="279">279</span>
-<span id="280">280</span>
-<span id="281">281</span>
-<span id="282">282</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
 
@@ -595,10 +591,6 @@
 
 <span class="attribute">#[<span class="ident">parser</span>]</span>
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">StmtLikeParser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">ModuleItem</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">accept_import_export</span>() <span class="op">-&gt;</span> <span class="ident">bool</span> {
-        <span class="bool-val">true</span>
-    }
-
     <span class="kw">fn</span> <span class="ident">handle_import_export</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">top_level</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="ident">PResult</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">ModuleItem</span><span class="op">&gt;</span> {
         <span class="kw">if</span> <span class="op">!</span><span class="ident">top_level</span> {
             <span class="macro">syntax_error</span><span class="macro">!</span>(<span class="ident">SyntaxError</span>::<span class="ident">NonTopLevelImportExport</span>);

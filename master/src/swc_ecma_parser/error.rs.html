@@ -265,13 +265,31 @@
 <span id="209">209</span>
 <span id="210">210</span>
 <span id="211">211</span>
+<span id="212">212</span>
+<span id="213">213</span>
+<span id="214">214</span>
+<span id="215">215</span>
+<span id="216">216</span>
+<span id="217">217</span>
+<span id="218">218</span>
+<span id="219">219</span>
+<span id="220">220</span>
+<span id="221">221</span>
+<span id="222">222</span>
+<span id="223">223</span>
+<span id="224">224</span>
+<span id="225">225</span>
+<span id="226">226</span>
+<span id="227">227</span>
+<span id="228">228</span>
+<span id="229">229</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="self">self</span>::<span class="ident">SyntaxError</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">borrow</span>::<span class="ident">Cow</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fmt</span>::{<span class="self">self</span>, <span class="ident">Debug</span>, <span class="ident">Formatter</span>};
 <span class="kw">use</span> <span class="ident">swc_atoms</span>::<span class="ident">JsWord</span>;
 <span class="kw">use</span> <span class="ident">swc_common</span>::<span class="ident">Span</span>;
-<span class="kw">use</span> <span class="ident">swc_common</span>::<span class="ident">errors</span>::{<span class="ident">Diagnostic</span>, <span class="ident">Handler</span>};
+<span class="kw">use</span> <span class="ident">swc_common</span>::<span class="ident">errors</span>::{<span class="ident">DiagnosticBuilder</span>, <span class="ident">Handler</span>};
 <span class="kw">use</span> <span class="ident">token</span>::<span class="ident">Token</span>;
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>)]</span>
@@ -280,7 +298,7 @@
     <span class="kw">pub</span> <span class="ident">handler</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">Handler</span>,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Eof</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">Diagnostic</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Eof</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">DiagnosticBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">Eof</span> { <span class="ident">handler</span>, <span class="ident">last</span> }: <span class="ident">Eof</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="ident">handler</span>.<span class="ident">error</span>(<span class="string">&quot;Unexpected eof&quot;</span>).<span class="ident">span</span>(<span class="ident">last</span>)
     }
@@ -317,20 +335,14 @@
     },
 
     <span class="ident">UnterminatedBlockComment</span>,
-    <span class="comment">// #[fail(display = &quot;unterminated string constant: {:?}&quot;, start)]</span>
     <span class="ident">UnterminatedStrLit</span>,
-    <span class="comment">// #[fail(display = &quot;expected unicode escape sequence: {:?}&quot;, pos)]</span>
     <span class="ident">ExpectedUnicodeEscape</span>,
-    <span class="comment">// #[fail(display = &quot;unexpected escape sequence in reserved word: {:?}&quot;, word)]</span>
     <span class="ident">EscapeInReservedWord</span> {
         <span class="ident">word</span>: <span class="ident">JsWord</span>,
     },
-    <span class="comment">// #[fail(display = &quot;unterminated regexp (regexp started at {:?})&quot;, start)]</span>
     <span class="ident">UnterminatedRegxp</span>,
     <span class="ident">UnterminatedTpl</span>,
-    <span class="comment">// #[fail(display = &quot;identifier directly after number at {:?}&quot;, pos)]</span>
     <span class="ident">IdentAfterNum</span>,
-    <span class="comment">// #[fail(display = &quot;Unexpected character &#39;{}&#39; at {:?}&quot;, c, pos)]</span>
     <span class="ident">UnexpectedChar</span> {
         <span class="ident">c</span>: <span class="ident">char</span>,
     },
@@ -359,11 +371,17 @@
     <span class="doccomment">/// Unexpected token</span>
     <span class="ident">Unexpected</span>,
     <span class="ident">Expected</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">Token</span>),
+    <span class="ident">ExpectedSemiForExprStmt</span> {
+        <span class="ident">expr</span>: <span class="ident">Span</span>,
+    },
 
     <span class="ident">AwaitStar</span>,
     <span class="ident">ReservedWordInObjShorthandOrPat</span>,
 
-    <span class="ident">MultipleDefault</span>,
+    <span class="ident">MultipleDefault</span> {
+        <span class="doccomment">/// Span of the previous default case</span>
+        <span class="ident">previous</span>: <span class="ident">Span</span>,
+    },
     <span class="ident">CommaAfterRestElement</span>,
     <span class="ident">NonLastRestParam</span>,
     <span class="ident">SpreadInParenExpr</span>,
@@ -376,6 +394,7 @@
     <span class="ident">DuplicateLabel</span>(<span class="ident">JsWord</span>),
     <span class="ident">AsyncGenerator</span>,
     <span class="ident">NonTopLevelImportExport</span>,
+    <span class="ident">ImportExportInScript</span>,
     <span class="ident">PatVarWithoutInit</span>,
     <span class="ident">WithInStrict</span>,
     <span class="ident">ReturnNotAllowed</span>,
@@ -395,7 +414,7 @@
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">ErrorToDiag</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">Diagnostic</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">ErrorToDiag</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">DiagnosticBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
     <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">e</span>: <span class="ident">ErrorToDiag</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">msg</span>: <span class="ident">Cow</span><span class="op">&lt;</span><span class="lifetime">&#39;static</span>, _<span class="op">&gt;</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">e</span>.<span class="ident">error</span> {
@@ -416,13 +435,13 @@
             <span class="ident">UnterminatedBlockComment</span> <span class="op">=&gt;</span> <span class="string">&quot;Unterminated block comment&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">UnterminatedStrLit</span> <span class="op">=&gt;</span> <span class="string">&quot;Unterminated string constant&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">ExpectedUnicodeEscape</span> <span class="op">=&gt;</span> <span class="string">&quot;Expected unicode escape&quot;</span>.<span class="ident">into</span>(),
-            <span class="ident">EscapeInReservedWord</span> { <span class="ident">word</span> } <span class="op">=&gt;</span> {
+            <span class="ident">EscapeInReservedWord</span> { <span class="kw-2">ref</span> <span class="ident">word</span> } <span class="op">=&gt;</span> {
                 <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Unexpected escape sequence in reserved word: {}&quot;</span>, <span class="ident">word</span>).<span class="ident">into</span>()
             }
             <span class="ident">UnterminatedRegxp</span> <span class="op">=&gt;</span> <span class="string">&quot;Unterminated regexp literal&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">UnterminatedTpl</span> <span class="op">=&gt;</span> <span class="string">&quot;Unterminated template&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">IdentAfterNum</span> <span class="op">=&gt;</span> <span class="string">&quot;Identifier cannot follow number&quot;</span>.<span class="ident">into</span>(),
-            <span class="ident">UnexpectedChar</span> { <span class="ident">c</span> } <span class="op">=&gt;</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Unexpected character &#39;{}&#39;&quot;</span>, <span class="ident">c</span>).<span class="ident">into</span>(),
+            <span class="ident">UnexpectedChar</span> { <span class="ident">c</span> } <span class="op">=&gt;</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Unexpected character {:?}&quot;</span>, <span class="ident">c</span>).<span class="ident">into</span>(),
             <span class="ident">InvalidStrEscape</span> <span class="op">=&gt;</span> <span class="string">&quot;Invalid string escape&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">InvalidUnicodeEscape</span> <span class="op">=&gt;</span> <span class="string">&quot;Invalid unciode escape&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">InvalidCodePoint</span> <span class="op">=&gt;</span> <span class="string">&quot;Invalid unciode code point&quot;</span>.<span class="ident">into</span>(),
@@ -434,14 +453,15 @@
                                      &#39;protected&#39;,  &#39;public&#39;, &#39;static&#39;, or &#39;yield&#39; cannot be used \
                                      as an identifier in strict mode&quot;</span>
                 .<span class="ident">into</span>(),
-            <span class="ident">EvalAndArgumentsInStrict</span> <span class="op">=&gt;</span> {
-                <span class="string">r#&quot;&#39;eval&#39; and &#39;arguments&#39; cannot be used as a binding identifier in string mode&quot;#</span>.<span class="ident">into</span>()
-            }
+            <span class="ident">EvalAndArgumentsInStrict</span> <span class="op">=&gt;</span> <span class="string">&quot;&#39;eval&#39; and &#39;arguments&#39; cannot be used as a binding \
+                                         identifier in string mode&quot;</span>
+                .<span class="ident">into</span>(),
             <span class="ident">UnaryInExp</span> { .. } <span class="op">=&gt;</span> <span class="string">&quot;** cannot be applied to unary expression&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">LineBreakInThrow</span> <span class="op">=&gt;</span> <span class="string">&quot;LineBreak cannot follow &#39;throw&#39;&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">LineBreakBeforeArrow</span> <span class="op">=&gt;</span> <span class="string">&quot;Unexpected line break between arrow head and arrow&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">Unexpected</span> <span class="op">=&gt;</span> <span class="string">&quot;Unexpected token&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">Expected</span>(<span class="ident">token</span>) <span class="op">=&gt;</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Expected {:?}&quot;</span>, <span class="ident">token</span>).<span class="ident">into</span>(),
+            <span class="ident">ExpectedSemiForExprStmt</span> { .. } <span class="op">=&gt;</span> <span class="string">&quot;Expected &#39;;&#39;, &#39;}&#39; or &lt;eof&gt;&quot;</span>.<span class="ident">into</span>(),
 
             <span class="ident">AwaitStar</span> <span class="op">=&gt;</span> <span class="string">&quot;await* has been removed from the async functions proposal. Use \
                           Promise.all() instead.&quot;</span>
@@ -451,7 +471,7 @@
                 <span class="string">&quot;Cannot use a reserved word as a shorthand property&quot;</span>.<span class="ident">into</span>()
             }
 
-            <span class="ident">MultipleDefault</span> <span class="op">=&gt;</span> <span class="string">&quot;A switch block cannot have multiple defaults&quot;</span>.<span class="ident">into</span>(),
+            <span class="ident">MultipleDefault</span> { .. } <span class="op">=&gt;</span> <span class="string">&quot;A switch block cannot have multiple defaults&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">CommaAfterRestElement</span> <span class="op">=&gt;</span> <span class="string">&quot;Trailing comma isn&#39;t permitted after a rest element&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">NonLastRestParam</span> <span class="op">=&gt;</span> <span class="string">&quot;Rest element must be final element&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">SpreadInParenExpr</span> <span class="op">=&gt;</span> <span class="string">&quot;Parenthesized expression cannot contain spread operator&quot;</span>.<span class="ident">into</span>(),
@@ -461,9 +481,12 @@
             <span class="ident">NotSimpleAssign</span> <span class="op">=&gt;</span> <span class="string">&quot;Cannot assign to this&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">ExpectedIdent</span> <span class="op">=&gt;</span> <span class="string">&quot;Expected ident&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">ExpctedSemi</span> <span class="op">=&gt;</span> <span class="string">&quot;Expected &#39;;&#39; or line break&quot;</span>.<span class="ident">into</span>(),
-            <span class="ident">DuplicateLabel</span>(<span class="ident">label</span>) <span class="op">=&gt;</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Label {} is already declared&quot;</span>, <span class="ident">label</span>).<span class="ident">into</span>(),
+            <span class="ident">DuplicateLabel</span>(<span class="kw-2">ref</span> <span class="ident">label</span>) <span class="op">=&gt;</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Label {} is already declared&quot;</span>, <span class="ident">label</span>).<span class="ident">into</span>(),
             <span class="ident">AsyncGenerator</span> <span class="op">=&gt;</span> <span class="string">&quot;An async function cannot be generator&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">NonTopLevelImportExport</span> <span class="op">=&gt;</span> <span class="string">&quot;&#39;import&#39;, and &#39;export&#39; are not permitted here&quot;</span>.<span class="ident">into</span>(),
+            <span class="ident">ImportExportInScript</span> <span class="op">=&gt;</span> {
+                <span class="string">&quot;&#39;import&#39;, and &#39;export&#39; cannot be used outside of module code&quot;</span>.<span class="ident">into</span>()
+            }
 
             <span class="ident">PatVarWithoutInit</span> <span class="op">=&gt;</span> <span class="string">&quot;Destructuring bindings require initializers&quot;</span>.<span class="ident">into</span>(),
             <span class="ident">WithInStrict</span> <span class="op">=&gt;</span> <span class="string">&quot;With statement are not allowed in strict mode&quot;</span>.<span class="ident">into</span>(),
@@ -474,7 +497,20 @@
             <span class="ident">YieldParamInGen</span> <span class="op">=&gt;</span> <span class="string">&quot;&#39;yield&#39; cannot be used as a parameter within generator&quot;</span>.<span class="ident">into</span>(),
         };
 
-        <span class="ident">e</span>.<span class="ident">handler</span>.<span class="ident">error</span>(<span class="kw-2">&amp;</span><span class="ident">msg</span>).<span class="ident">span</span>(<span class="ident">e</span>.<span class="ident">span</span>)
+        <span class="kw">let</span> <span class="ident">d</span> <span class="op">=</span> <span class="ident">e</span>.<span class="ident">handler</span>.<span class="ident">error</span>(<span class="kw-2">&amp;</span><span class="ident">msg</span>).<span class="ident">span</span>(<span class="ident">e</span>.<span class="ident">span</span>);
+
+        <span class="kw">let</span> <span class="ident">d</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">e</span>.<span class="ident">error</span> {
+            <span class="ident">ExpectedSemiForExprStmt</span> { <span class="ident">expr</span> } <span class="op">=&gt;</span> <span class="ident">d</span>.<span class="ident">span_note</span>(
+                <span class="ident">expr</span>,
+                <span class="string">&quot;This is the expression part of an expression statement&quot;</span>,
+            ),
+            <span class="ident">MultipleDefault</span> { <span class="ident">previous</span> } <span class="op">=&gt;</span> {
+                <span class="ident">d</span>.<span class="ident">span_note</span>(<span class="ident">previous</span>, <span class="string">&quot;previous default case is declared at here&quot;</span>)
+            }
+            _ <span class="op">=&gt;</span> <span class="ident">d</span>,
+        };
+
+        <span class="ident">d</span>
     }
 }
 </pre>

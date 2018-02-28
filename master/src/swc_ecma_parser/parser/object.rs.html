@@ -284,6 +284,12 @@
 <span id="228">228</span>
 <span id="229">229</span>
 <span id="230">230</span>
+<span id="231">231</span>
+<span id="232">232</span>
+<span id="233">233</span>
+<span id="234">234</span>
+<span id="235">235</span>
+<span id="236">236</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Parser for object literal.</span>
 
@@ -356,7 +362,7 @@
 }
 
 <span class="attribute">#[<span class="ident">parser</span>]</span>
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">ParseObject</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span>: <span class="ident">Input</span><span class="op">&gt;</span> <span class="ident">ParseObject</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, (<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">I</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">Prop</span> <span class="op">=</span> <span class="ident">Prop</span>;
 
     <span class="kw">fn</span> <span class="ident">make_object</span>(<span class="ident">span</span>: <span class="ident">Span</span>, <span class="ident">props</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Prop</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span> {
@@ -372,15 +378,21 @@
         <span class="comment">// Parse as &#39;MethodDefinition&#39;</span>
 
         <span class="kw">if</span> <span class="macro">eat</span><span class="macro">!</span>(<span class="string">&#39;*&#39;</span>) {
+            <span class="kw">let</span> <span class="ident">span_of_gen</span> <span class="op">=</span> <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>);
+
             <span class="kw">let</span> <span class="ident">name</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_prop_name</span>()<span class="question-mark">?</span>;
-            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_fn_args_body</span>(<span class="ident">start</span>, <span class="ident">Parser</span>::<span class="ident">parse_unique_formal_params</span>, <span class="bool-val">false</span>, <span class="bool-val">true</span>)
-                .<span class="ident">map</span>(<span class="op">|</span><span class="ident">function</span><span class="op">|</span> <span class="ident">Prop</span> {
-                    <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
-                    <span class="ident">node</span>: <span class="ident">PropKind</span>::<span class="ident">Method</span> {
-                        <span class="ident">key</span>: <span class="ident">name</span>,
-                        <span class="ident">function</span>,
-                    },
-                });
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_fn_args_body</span>(
+                <span class="ident">start</span>,
+                <span class="ident">Parser</span>::<span class="ident">parse_unique_formal_params</span>,
+                <span class="prelude-val">None</span>,
+                <span class="prelude-val">Some</span>(<span class="ident">span_of_gen</span>),
+            ).<span class="ident">map</span>(<span class="op">|</span><span class="ident">function</span><span class="op">|</span> <span class="ident">Prop</span> {
+                <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
+                <span class="ident">node</span>: <span class="ident">PropKind</span>::<span class="ident">Method</span> {
+                    <span class="ident">key</span>: <span class="ident">name</span>,
+                    <span class="ident">function</span>,
+                },
+            });
         }
 
         <span class="kw">let</span> <span class="ident">key</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_prop_name</span>()<span class="question-mark">?</span>;
@@ -399,7 +411,7 @@
 
         <span class="comment">// Handle `a(){}` (and async(){} / get(){} / set(){})</span>
         <span class="kw">if</span> <span class="macro">is</span><span class="macro">!</span>(<span class="string">&#39;(&#39;</span>) {
-            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_fn_args_body</span>(<span class="ident">start</span>, <span class="ident">Parser</span>::<span class="ident">parse_unique_formal_params</span>, <span class="bool-val">false</span>, <span class="bool-val">false</span>)
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">parse_fn_args_body</span>(<span class="ident">start</span>, <span class="ident">Parser</span>::<span class="ident">parse_unique_formal_params</span>, <span class="prelude-val">None</span>, <span class="prelude-val">None</span>)
                 .<span class="ident">map</span>(<span class="op">|</span><span class="ident">function</span><span class="op">|</span> <span class="ident">Prop</span> {
                     <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
                     <span class="ident">node</span>: <span class="ident">PropKind</span>::<span class="ident">Method</span> { <span class="ident">key</span>, <span class="ident">function</span> },
@@ -438,7 +450,7 @@
                 <span class="kw">let</span> <span class="ident">key</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parse_prop_name</span>()<span class="question-mark">?</span>;
 
                 <span class="kw">return</span> <span class="kw">match</span> <span class="ident">ident</span>.<span class="ident">sym</span> {
-                    <span class="macro">js_word</span><span class="macro">!</span>(<span class="string">&quot;get&quot;</span>) <span class="op">=&gt;</span> <span class="self">self</span>.<span class="ident">parse_fn_args_body</span>(<span class="ident">start</span>, <span class="op">|</span>_<span class="op">|</span> <span class="prelude-val">Ok</span>(<span class="macro">vec</span><span class="macro">!</span>[]), <span class="bool-val">false</span>, <span class="bool-val">false</span>)
+                    <span class="macro">js_word</span><span class="macro">!</span>(<span class="string">&quot;get&quot;</span>) <span class="op">=&gt;</span> <span class="self">self</span>.<span class="ident">parse_fn_args_body</span>(<span class="ident">start</span>, <span class="op">|</span>_<span class="op">|</span> <span class="prelude-val">Ok</span>(<span class="macro">vec</span><span class="macro">!</span>[]), <span class="prelude-val">None</span>, <span class="prelude-val">None</span>)
                         .<span class="ident">map</span>(<span class="op">|</span><span class="ident">Function</span> { <span class="ident">body</span>, .. }<span class="op">|</span> <span class="ident">Prop</span> {
                             <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
                             <span class="ident">node</span>: <span class="ident">PropKind</span>::<span class="ident">Getter</span> { <span class="ident">key</span>, <span class="ident">body</span> },
@@ -446,8 +458,8 @@
                     <span class="macro">js_word</span><span class="macro">!</span>(<span class="string">&quot;set&quot;</span>) <span class="op">=&gt;</span> <span class="self">self</span>.<span class="ident">parse_fn_args_body</span>(
                         <span class="ident">start</span>,
                         <span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">parse_formal_param</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">pat</span><span class="op">|</span> <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">pat</span>]),
-                        <span class="bool-val">false</span>,
-                        <span class="bool-val">false</span>,
+                        <span class="prelude-val">None</span>,
+                        <span class="prelude-val">None</span>,
                     ).<span class="ident">map</span>(<span class="op">|</span><span class="ident">Function</span> { <span class="ident">params</span>, <span class="ident">body</span>, .. }<span class="op">|</span> {
                         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">params</span>.<span class="ident">len</span>(), <span class="number">1</span>);
                         <span class="ident">Prop</span> {
@@ -462,8 +474,8 @@
                     <span class="macro">js_word</span><span class="macro">!</span>(<span class="string">&quot;async&quot;</span>) <span class="op">=&gt;</span> <span class="self">self</span>.<span class="ident">parse_fn_args_body</span>(
                         <span class="ident">start</span>,
                         <span class="ident">Parser</span>::<span class="ident">parse_unique_formal_params</span>,
-                        <span class="bool-val">true</span>,
-                        <span class="bool-val">false</span>,
+                        <span class="prelude-val">Some</span>(<span class="ident">ident</span>.<span class="ident">span</span>),
+                        <span class="prelude-val">None</span>,
                     ).<span class="ident">map</span>(<span class="op">|</span><span class="ident">function</span><span class="op">|</span> <span class="ident">Prop</span> {
                         <span class="ident">span</span>: <span class="macro">span</span><span class="macro">!</span>(<span class="ident">start</span>),
                         <span class="ident">node</span>: <span class="ident">PropKind</span>::<span class="ident">Method</span> { <span class="ident">key</span>, <span class="ident">function</span> },

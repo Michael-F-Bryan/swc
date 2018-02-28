@@ -70,6 +70,8 @@
 <span id="14">14</span>
 <span id="15">15</span>
 <span id="16">16</span>
+<span id="17">17</span>
+<span id="18">18</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">BlockStmt</span>, <span class="ident">Pat</span>};
 <span class="kw">use</span> <span class="ident">swc_common</span>::<span class="ident">Span</span>;
@@ -83,9 +85,11 @@
 
     <span class="kw">pub</span> <span class="ident">body</span>: <span class="ident">BlockStmt</span>,
 
-    <span class="kw">pub</span> <span class="ident">is_generator</span>: <span class="ident">bool</span>,
+    <span class="doccomment">/// `Some` if it&#39;s a generator.</span>
+    <span class="kw">pub</span> <span class="ident">generator</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Span</span><span class="op">&gt;</span>,
 
-    <span class="kw">pub</span> <span class="ident">is_async</span>: <span class="ident">bool</span>,
+    <span class="doccomment">/// `Some` if it&#39;s an async function.</span>
+    <span class="kw">pub</span> <span class="ident">async</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Span</span><span class="op">&gt;</span>,
 }
 </pre>
 </section>

@@ -72,6 +72,8 @@
 <span id="16">16</span>
 <span id="17">17</span>
 <span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Error reporting for the swc project.</span>
 <span class="doccomment">//!</span>
@@ -82,12 +84,14 @@
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">codemap</span>::{<span class="ident">CodeMap</span>, <span class="ident">FileLoader</span>, <span class="ident">FilePathMapping</span>, <span class="ident">RealFileLoader</span>};
 <span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">diagnostic</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">diagnostic_builder</span>::<span class="ident">DiagnosticBuilder</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">handler</span>::<span class="kw-2">*</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">rustc_errors</span>::{<span class="ident">ColorConfig</span>, <span class="ident">Level</span>};
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">rustc_errors</span>::<span class="ident">Level</span>::<span class="kw-2">*</span>;
 
 <span class="kw">mod</span> <span class="ident">codemap</span>;
 <span class="kw">mod</span> <span class="ident">diagnostic</span>;
+<span class="kw">mod</span> <span class="ident">diagnostic_builder</span>;
 <span class="kw">mod</span> <span class="ident">handler</span>;
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">mod</span> <span class="ident">tests</span>;

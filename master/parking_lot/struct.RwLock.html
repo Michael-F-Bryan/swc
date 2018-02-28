@@ -141,7 +141,7 @@ dropping the guard.</p>
 <span class="kw">let</span> <span class="ident">lock</span> <span class="op">=</span> <span class="ident">RwLock</span>::<span class="ident">new</span>(<span class="number">5</span>);</pre>
 </div><h4 id='method.into_inner' class="method"><span id='into_inner.v' class='invisible'><code>pub fn <a href='#method.into_inner' class='fnname'>into_inner</a>(self) -&gt; T</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#177-179' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Consumes this <code>RwLock</code>, returning the underlying data.</p>
-</div></div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt; <a class="struct" href="../parking_lot/struct.RwLock.html" title="struct parking_lot::RwLock">RwLock</a>&lt;T&gt;</code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#182-603' title='goto source code'>[src]</a></span></h3>
+</div></div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt; <a class="struct" href="../parking_lot/struct.RwLock.html" title="struct parking_lot::RwLock">RwLock</a>&lt;T&gt;</code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#182-602' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.read' class="method"><span id='read.v' class='invisible'><code>pub fn <a href='#method.read' class='fnname'>read</a>(&amp;self) -&gt; <a class="struct" href="../parking_lot/struct.RwLockReadGuard.html" title="struct parking_lot::RwLockReadGuard">RwLockReadGuard</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#223-226' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Locks this rwlock with shared read access, blocking the current thread
 until it can be acquired.</p>
@@ -261,28 +261,28 @@ release the shared access when it is dropped.</p>
 <div class='docblock'><p>Returns a mutable reference to the underlying data.</p>
 <p>Since this call borrows the <code>RwLock</code> mutably, no actual locking needs to
 take place---the mutable borrow statically guarantees no locks exist.</p>
-</div><h4 id='method.raw_unlock_read' class="method"><span id='raw_unlock_read.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_unlock_read' class='fnname'>raw_unlock_read</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#494-496' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_unlock_read' class="method"><span id='raw_unlock_read.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_unlock_read' class='fnname'>raw_unlock_read</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#493-495' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Releases shared read access of the rwlock.</p>
 <h1 id="safety" class="section-header"><a href="#safety">Safety</a></h1>
 <p>This function must only be called if the rwlock was locked using
 <code>raw_read</code> or <code>raw_try_read</code>, or if an <code>RwLockReadGuard</code> from this
 rwlock was leaked (e.g. with <code>mem::forget</code>). The rwlock must be locked
 with shared read access.</p>
-</div><h4 id='method.raw_unlock_write' class="method"><span id='raw_unlock_write.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_unlock_write' class='fnname'>raw_unlock_write</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#507-509' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_unlock_write' class="method"><span id='raw_unlock_write.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_unlock_write' class='fnname'>raw_unlock_write</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#506-508' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Releases exclusive write access of the rwlock.</p>
 <h1 id="safety-1" class="section-header"><a href="#safety-1">Safety</a></h1>
 <p>This function must only be called if the rwlock was locked using
 <code>raw_write</code> or <code>raw_try_write</code>, or if an <code>RwLockWriteGuard</code> from this
 rwlock was leaked (e.g. with <code>mem::forget</code>). The rwlock must be locked
 with exclusive write access.</p>
-</div><h4 id='method.raw_unlock_upgradable_read' class="method"><span id='raw_unlock_upgradable_read.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_unlock_upgradable_read' class='fnname'>raw_unlock_upgradable_read</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#520-522' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_unlock_upgradable_read' class="method"><span id='raw_unlock_upgradable_read.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_unlock_upgradable_read' class='fnname'>raw_unlock_upgradable_read</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#519-521' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Releases upgradable read access of the rwlock.</p>
 <h1 id="safety-2" class="section-header"><a href="#safety-2">Safety</a></h1>
 <p>This function must only be called if the rwlock was locked using
 <code>raw_upgradable_read</code> or <code>raw_try_upgradable_read</code>, or if an
 <code>RwLockUpgradableReadGuard</code> from this rwlock was leaked (e.g. with
 <code>mem::forget</code>). The rwlock must be locked with upgradable read access.</p>
-</div><h4 id='method.raw_unlock_read_fair' class="method"><span id='raw_unlock_read_fair.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_unlock_read_fair' class='fnname'>raw_unlock_read_fair</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#536-538' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_unlock_read_fair' class="method"><span id='raw_unlock_read_fair.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_unlock_read_fair' class='fnname'>raw_unlock_read_fair</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#535-537' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Releases shared read access of the rwlock using a fair unlock protocol.</p>
 <p>See <code>RwLockReadGuard::unlock_fair</code>.</p>
 <h1 id="safety-3" class="section-header"><a href="#safety-3">Safety</a></h1>
@@ -291,7 +291,7 @@ with exclusive write access.</p>
 using <code>raw_upgrade</code> or <code>raw_try_upgrade</code>, or if an <code>RwLockWriteGuard</code>
 from this rwlock was leaked (e.g. with <code>mem::forget</code>). The rwlock must
 be locked with exclusive write access.</p>
-</div><h4 id='method.raw_unlock_write_fair' class="method"><span id='raw_unlock_write_fair.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_unlock_write_fair' class='fnname'>raw_unlock_write_fair</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#553-555' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_unlock_write_fair' class="method"><span id='raw_unlock_write_fair.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_unlock_write_fair' class='fnname'>raw_unlock_write_fair</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#552-554' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Releases exclusive write access of the rwlock using a fair unlock
 protocol.</p>
 <p>See <code>RwLockWriteGuard::unlock_fair</code>.</p>
@@ -301,7 +301,7 @@ protocol.</p>
 using <code>raw_upgrade</code> or <code>raw_try_upgrade</code>, or if an <code>RwLockWriteGuard</code>
 from this rwlock was leaked (e.g. with <code>mem::forget</code>). The rwlock must
 be locked with exclusive write access.</p>
-</div><h4 id='method.raw_unlock_upgradable_read_fair' class="method"><span id='raw_unlock_upgradable_read_fair.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_unlock_upgradable_read_fair' class='fnname'>raw_unlock_upgradable_read_fair</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#567-569' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_unlock_upgradable_read_fair' class="method"><span id='raw_unlock_upgradable_read_fair.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_unlock_upgradable_read_fair' class='fnname'>raw_unlock_upgradable_read_fair</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#566-568' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Releases upgradable read access of the rwlock using a fair unlock
 protocol.</p>
 <h1 id="safety-5" class="section-header"><a href="#safety-5">Safety</a></h1>
@@ -309,7 +309,7 @@ protocol.</p>
 <code>raw_upgradable_read</code> or <code>raw_try_upgradable_read</code>, or if an
 <code>RwLockUpgradableReadGuard</code> from this rwlock was leaked (e.g. with
 <code>mem::forget</code>). The rwlock must be locked with upgradable read access.</p>
-</div><h4 id='method.raw_downgrade' class="method"><span id='raw_downgrade.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_downgrade' class='fnname'>raw_downgrade</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#583-585' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_downgrade' class="method"><span id='raw_downgrade.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_downgrade' class='fnname'>raw_downgrade</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#582-584' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Atomically downgrades a write lock into a shared read lock without
 allowing any writers to take exclusive access of the lock in the meantime.</p>
 <p>See <code>RwLockWriteGuard::downgrade</code>.</p>
@@ -318,7 +318,7 @@ allowing any writers to take exclusive access of the lock in the meantime.</p>
 <code>raw_write</code> or <code>raw_try_write</code>, or if an <code>RwLockWriteGuard</code> from this
 rwlock was leaked (e.g. with <code>mem::forget</code>). The rwlock must be locked
 with exclusive write access.</p>
-</div><h4 id='method.raw_downgrade_upgradable_read' class="method"><span id='raw_downgrade_upgradable_read.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_downgrade_upgradable_read' class='fnname'>raw_downgrade_upgradable_read</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#600-602' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_downgrade_upgradable_read' class="method"><span id='raw_downgrade_upgradable_read.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_downgrade_upgradable_read' class='fnname'>raw_downgrade_upgradable_read</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#599-601' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Atomically downgrades an upgradable read lock into a shared read lock
 without allowing any writers to take exclusive access of the lock in
 the meantime.</p>
@@ -328,52 +328,52 @@ the meantime.</p>
 <code>raw_upgradable_read</code> or <code>raw_try_upgradable_read</code>, or if an
 <code>RwLockUpgradableReadGuard</code> from this rwlock was leaked (e.g. with
 <code>mem::forget</code>). The rwlock must be locked with upgradable read access.</p>
-</div></div><h3 id='impl-2' class='impl'><span class='in-band'><code>impl <a class="struct" href="../parking_lot/struct.RwLock.html" title="struct parking_lot::RwLock">RwLock</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code><a href='#impl-2' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#605-721' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.raw_read' class="method"><span id='raw_read.v' class='invisible'><code>pub fn <a href='#method.raw_read' class='fnname'>raw_read</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#613-615' title='goto source code'>[src]</a></span></h4>
+</div></div><h3 id='impl-2' class='impl'><span class='in-band'><code>impl <a class="struct" href="../parking_lot/struct.RwLock.html" title="struct parking_lot::RwLock">RwLock</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code><a href='#impl-2' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#604-720' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.raw_read' class="method"><span id='raw_read.v' class='invisible'><code>pub fn <a href='#method.raw_read' class='fnname'>raw_read</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#612-614' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Locks this rwlock with shared read access, blocking the current thread
 until it can be acquired.</p>
 <p>This is similar to <code>read</code>, except that a <code>RwLockReadGuard</code> is not
 returned. Instead you will need to call <code>raw_unlock</code> to release the
 rwlock.</p>
-</div><h4 id='method.raw_try_read' class="method"><span id='raw_try_read.v' class='invisible'><code>pub fn <a href='#method.raw_try_read' class='fnname'>raw_try_read</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#623-625' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_try_read' class="method"><span id='raw_try_read.v' class='invisible'><code>pub fn <a href='#method.raw_try_read' class='fnname'>raw_try_read</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#622-624' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Attempts to acquire this rwlock with shared read access.</p>
 <p>This is similar to <code>try_read</code>, except that a <code>RwLockReadGuard</code> is not
 returned. Instead you will need to call <code>raw_unlock</code> to release the
 rwlock.</p>
-</div><h4 id='method.raw_read_recursive' class="method"><span id='raw_read_recursive.v' class='invisible'><code>pub fn <a href='#method.raw_read_recursive' class='fnname'>raw_read_recursive</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#634-636' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_read_recursive' class="method"><span id='raw_read_recursive.v' class='invisible'><code>pub fn <a href='#method.raw_read_recursive' class='fnname'>raw_read_recursive</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#633-635' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Locks this rwlock with shared read access, blocking the current thread
 until it can be acquired.</p>
 <p>This is similar to <code>read_recursive</code>, except that a <code>RwLockReadGuard</code> is
 not returned. Instead you will need to call <code>raw_unlock</code> to release the
 rwlock.</p>
-</div><h4 id='method.raw_try_read_recursive' class="method"><span id='raw_try_read_recursive.v' class='invisible'><code>pub fn <a href='#method.raw_try_read_recursive' class='fnname'>raw_try_read_recursive</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#644-646' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_try_read_recursive' class="method"><span id='raw_try_read_recursive.v' class='invisible'><code>pub fn <a href='#method.raw_try_read_recursive' class='fnname'>raw_try_read_recursive</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#643-645' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Attempts to acquire this rwlock with shared read access.</p>
 <p>This is similar to <code>try_read_recursive</code>, except that a <code>RwLockReadGuard</code> is not
 returned. Instead you will need to call <code>raw_unlock</code> to release the
 rwlock.</p>
-</div><h4 id='method.raw_write' class="method"><span id='raw_write.v' class='invisible'><code>pub fn <a href='#method.raw_write' class='fnname'>raw_write</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#655-657' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_write' class="method"><span id='raw_write.v' class='invisible'><code>pub fn <a href='#method.raw_write' class='fnname'>raw_write</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#654-656' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Locks this rwlock with exclusive write access, blocking the current
 thread until it can be acquired.</p>
 <p>This is similar to <code>write</code>, except that a <code>RwLockReadGuard</code> is not
 returned. Instead you will need to call <code>raw_unlock</code> to release the
 rwlock.</p>
-</div><h4 id='method.raw_try_write' class="method"><span id='raw_try_write.v' class='invisible'><code>pub fn <a href='#method.raw_try_write' class='fnname'>raw_try_write</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#665-667' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_try_write' class="method"><span id='raw_try_write.v' class='invisible'><code>pub fn <a href='#method.raw_try_write' class='fnname'>raw_try_write</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#664-666' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Attempts to lock this rwlock with exclusive write access.</p>
 <p>This is similar to <code>try_write</code>, except that a <code>RwLockReadGuard</code> is not
 returned. Instead you will need to call <code>raw_unlock</code> to release the
 rwlock.</p>
-</div><h4 id='method.raw_upgradable_read' class="method"><span id='raw_upgradable_read.v' class='invisible'><code>pub fn <a href='#method.raw_upgradable_read' class='fnname'>raw_upgradable_read</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#676-678' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_upgradable_read' class="method"><span id='raw_upgradable_read.v' class='invisible'><code>pub fn <a href='#method.raw_upgradable_read' class='fnname'>raw_upgradable_read</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#675-677' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Locks this rwlock with upgradable read access, blocking the current thread
 until it can be acquired.</p>
 <p>This is similar to <code>upgradable_read</code>, except that a
 <code>RwLockUpgradableReadGuard</code> is not returned. Instead you will need to call
 <code>raw_unlock</code> to release the rwlock.</p>
-</div><h4 id='method.raw_try_upgradable_read' class="method"><span id='raw_try_upgradable_read.v' class='invisible'><code>pub fn <a href='#method.raw_try_upgradable_read' class='fnname'>raw_try_upgradable_read</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#686-688' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_try_upgradable_read' class="method"><span id='raw_try_upgradable_read.v' class='invisible'><code>pub fn <a href='#method.raw_try_upgradable_read' class='fnname'>raw_try_upgradable_read</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#685-687' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Attempts to acquire this rwlock with upgradable read access.</p>
 <p>This is similar to <code>try_upgradable_read</code>, except that a
 <code>RwLockUpgradableReadGuard</code> is not returned. Instead you will need to call
 <code>raw_unlock</code> to release the rwlock.</p>
-</div><h4 id='method.raw_upgrade' class="method"><span id='raw_upgrade.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_upgrade' class='fnname'>raw_upgrade</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#702-704' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_upgrade' class="method"><span id='raw_upgrade.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_upgrade' class='fnname'>raw_upgrade</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#701-703' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Upgrades this rwlock from upgradable read access to exclusive write access,
 blocking the current thread until it can be acquired.</p>
 <p>See <code>RwLockUpgradableReadGuard::upgrade</code>.</p>
@@ -382,7 +382,7 @@ blocking the current thread until it can be acquired.</p>
 <code>raw_upgradable_read</code> or <code>raw_try_upgradable_read</code>, or if an
 <code>RwLockUpgradableReadGuard</code> from this rwlock was leaked (e.g. with
 <code>mem::forget</code>). The rwlock must be locked with upgradable read access.</p>
-</div><h4 id='method.raw_try_upgrade' class="method"><span id='raw_try_upgrade.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_try_upgrade' class='fnname'>raw_try_upgrade</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#718-720' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.raw_try_upgrade' class="method"><span id='raw_try_upgrade.v' class='invisible'><code>pub unsafe fn <a href='#method.raw_try_upgrade' class='fnname'>raw_try_upgrade</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#717-719' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Attempts to upgrade this rwlock from upgradable read access to exclusive
 write access.</p>
 <p>See <code>RwLockUpgradableReadGuard::try_upgrade</code>.</p>
@@ -395,15 +395,21 @@ write access.</p>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>
+            <div id='implementations-list'>
         <h3 id='impl-Send' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="struct" href="../parking_lot/struct.RwLock.html" title="struct parking_lot::RwLock">RwLock</a>&lt;T&gt;</code><a href='#impl-Send' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#102' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'></div><h3 id='impl-Sync' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="../parking_lot/struct.RwLock.html" title="struct parking_lot::RwLock">RwLock</a>&lt;T&gt;</code><a href='#impl-Sync' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#103' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'></div><h3 id='impl-Default' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> for <a class="struct" href="../parking_lot/struct.RwLock.html" title="struct parking_lot::RwLock">RwLock</a>&lt;T&gt;</code><a href='#impl-Default' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#723-728' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.default' class="method"><span id='default.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class="struct" href="../parking_lot/struct.RwLock.html" title="struct parking_lot::RwLock">RwLock</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#725-727' title='goto source code'>[src]</a></span></h4>
+<div class='impl-items'></div><h3 id='impl-Default' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> for <a class="struct" href="../parking_lot/struct.RwLock.html" title="struct parking_lot::RwLock">RwLock</a>&lt;T&gt;</code><a href='#impl-Default' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#722-727' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.default' class="method"><span id='default.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class="struct" href="../parking_lot/struct.RwLock.html" title="struct parking_lot::RwLock">RwLock</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#724-726' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Returns the &quot;default value&quot; for a type. <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default">Read more</a></p>
-</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../parking_lot/struct.RwLock.html" title="struct parking_lot::RwLock">RwLock</a>&lt;T&gt;</code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#730-737' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#731-736' title='goto source code'>[src]</a></span></h4>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../parking_lot/struct.RwLock.html" title="struct parking_lot::RwLock">RwLock</a>&lt;T&gt;</code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#729-736' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/parking_lot/rwlock.rs.html#730-735' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
-</div></div></section>
+</div></div></div>
+            <h2 id='synthetic-implementations' class='small-section-header'>
+              Auto Trait Implementations<a href='#synthetic-implementations' class='anchor'></a>
+            </h2>
+            <div id='synthetic-implementations-list'>
+        </div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

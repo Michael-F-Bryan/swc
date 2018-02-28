@@ -214,7 +214,7 @@ unless you have need to name one of those types.</p>
                            <td><a class="struct" href="struct.Configuration.html"
                                   title='struct rayon::Configuration'>Configuration</a></td>
                            <td class='docblock-short'>
-                                <p>Contains the rayon thread pool configuration.</p>
+                               [<div class='stab deprecated'>Deprecated</div>] <p>Contains the rayon thread pool configuration. Use <a href="struct.ThreadPoolBuilder.html"><code>ThreadPoolBuilder</code></a> instead.</p>
 
                            </td>
                        </tr>
@@ -238,7 +238,7 @@ unless you have need to name one of those types.</p>
                            <td><a class="struct" href="struct.ThreadPool.html"
                                   title='struct rayon::ThreadPool'>ThreadPool</a></td>
                            <td class='docblock-short'>
-                                <h1>ThreadPool</h1>
+                                <p>Represents a user created <a href="https://en.wikipedia.org/wiki/Thread_pool">thread-pool</a>.</p>
 
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
@@ -259,11 +259,7 @@ thread-pool.</p>
                            <td><a class="fn" href="fn.initialize.html"
                                   title='fn rayon::initialize'>initialize</a></td>
                            <td class='docblock-short'>
-                                <p>Initializes the global thread pool. This initialization is
-<strong>optional</strong>.  If you do not call this function, the thread pool
-will be automatically initialized with the default
-configuration. In fact, calling <code>initialize</code> is not recommended,
-except for in two scenarios:</p>
+                               [<div class='stab deprecated'>Deprecated</div>] <p>Deprecated in favor of <code>ThreadPoolBuilder::build_global</code>.</p>
 
                            </td>
                        </tr>
@@ -271,8 +267,8 @@ except for in two scenarios:</p>
                            <td><a class="fn" href="fn.join.html"
                                   title='fn rayon::join'>join</a></td>
                            <td class='docblock-short'>
-                                <p>The <code>join</code> function takes two closures and <em>potentially</em> runs them
-in parallel. It returns a pair of the results from those closures.</p>
+                                <p>Takes two closures and <em>potentially</em> runs them in parallel. It
+returns a pair of the results from those closures.</p>
 
                            </td>
                        </tr>
@@ -280,12 +276,13 @@ in parallel. It returns a pair of the results from those closures.</p>
                            <td><a class="fn" href="fn.join_context.html"
                                   title='fn rayon::join_context'>join_context</a></td>
                            <td class='docblock-short'>
-                                <p>The <code>join_context</code> function is identical to <code>join</code>, except the closures
-have a parameter that provides context for the way the closure has been
-called, especially indicating whether they're executing on a different
-thread than where <code>join_context</code> was called.  This will occur if the second
-job is stolen by a different thread, or if <code>join_context</code> was called from
-outside the thread pool to begin with.</p>
+                                <p>Identical to <code>join</code>, except that the closures have a parameter
+that provides context for the way the closure has been called,
+especially indicating whether they're executing on a different
+thread than where <code>join_context</code> was called.  This will occur if
+the second job is stolen by a different thread, or if
+<code>join_context</code> was called from outside the thread pool to begin
+with.</p>
 
                            </td>
                        </tr>

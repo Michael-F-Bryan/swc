@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct Scope</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.take_or_recover">take_or_recover</a><a href="#method.take">take</a></div></div><p class='location'><a href='../index.html'>take_mut</a>::<wbr><a href='index.html'>scoped</a></p><script>window.sidebarCurrent = {name: 'Scope', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct Scope</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.take_or_recover">take_or_recover</a><a href="#method.take">take</a></div><a class="sidebar-title" href="#synthetic-implementations">Auto Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">!Sync</a></div></div><p class='location'><a href='../index.html'>take_mut</a>::<wbr><a href='index.html'>scoped</a></p><script>window.sidebarCurrent = {name: 'Scope', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -71,7 +71,19 @@
 <p>If the <code>Hole</code> is dropped without being filled, either due to panic or forgetting to fill, will run the <code>recovery</code> function to obtain a <code>T</code> to fill itself with.</p>
 </div><h4 id='method.take' class="method"><span id='take.v' class='invisible'><code>pub fn <a href='#method.take' class='fnname'>take</a>&lt;'c, 'm: 's, T:&nbsp;'m&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;'c self, <br>&nbsp;&nbsp;&nbsp;&nbsp;mut_ref: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;'m mut </a>T<br>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a>T, <a class="struct" href="../../take_mut/scoped/struct.Hole.html" title="struct take_mut::scoped::Hole">Hole</a>&lt;'c, 'm, T, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>() -&gt; T&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/take_mut/scoped.rs.html#72-78' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Takes a <code>(T, Hole&lt;'c, 'm, T, F&gt;)</code> from an <code>&amp;'m mut T</code>.</p>
-</div></div></section>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+            <div id='implementations-list'>
+        </div>
+            <h2 id='synthetic-implementations' class='small-section-header'>
+              Auto Trait Implementations<a href='#synthetic-implementations' class='anchor'></a>
+            </h2>
+            <div id='synthetic-implementations-list'>
+        <h3 id='impl-Send' class='impl'><span class='in-band'><code>impl&lt;'s&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="struct" href="../../take_mut/scoped/struct.Scope.html" title="struct take_mut::scoped::Scope">Scope</a>&lt;'s&gt;</code><a href='#impl-Send' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'></div><h3 id='impl-Sync' class='impl'><span class='in-band'><code>impl&lt;'s&gt; !<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="../../take_mut/scoped/struct.Scope.html" title="struct take_mut::scoped::Scope">Scope</a>&lt;'s&gt;</code><a href='#impl-Sync' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'></div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

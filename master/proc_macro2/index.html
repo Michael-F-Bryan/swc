@@ -59,22 +59,23 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/proc_macro2/lib.rs.html#1-337' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>A &quot;shim crate&quot; intended to multiplex the <code>proc_macro</code> API on to stable Rust.</p>
+               </span><a class='srclink' href='../src/proc_macro2/lib.rs.html#1-344' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>A &quot;shim crate&quot; intended to multiplex the <a href="https://doc.rust-lang.org/proc_macro/"><code>proc_macro</code></a> API on to stable
+Rust.</p>
 <p>Procedural macros in Rust operate over the upstream
-<code>proc_macro::TokenStream</code> type. This type currently is quite conservative
-and exposed no internal implementation details. Nightly compilers, however,
-contain a much richer interface. This richer interface allows fine-grained
-inspection of the token stream which avoids stringification/re-lexing and
-also preserves span information.</p>
-<p>The upcoming APIs added to <code>proc_macro</code> upstream are the foundation for
+<a href="https://doc.rust-lang.org/proc_macro/struct.TokenStream.html"><code>proc_macro::TokenStream</code></a> type. This type currently is quite
+conservative and exposed no internal implementation details. Nightly
+compilers, however, contain a much richer interface. This richer interface
+allows fine-grained inspection of the token stream which avoids
+stringification/re-lexing and also preserves span information.</p>
+<p>The upcoming APIs added to <a href="https://doc.rust-lang.org/proc_macro/"><code>proc_macro</code></a> upstream are the foundation for
 productive procedural macros in the ecosystem. To help prepare the ecosystem
 for using them this crate serves to both compile on stable and nightly and
 mirrors the API-to-be. The intention is that procedural macros which switch
 to use this crate will be trivially able to switch to the upstream
 <code>proc_macro</code> crate once its API stabilizes.</p>
 <p>In the meantime this crate also has a <code>nightly</code> Cargo feature which
-enables it to reimplement itself with the unstable API of <code>proc_macro</code>.
+enables it to reimplement itself with the unstable API of <a href="https://doc.rust-lang.org/proc_macro/"><code>proc_macro</code></a>.
 This'll allow immediate usage of the beneficial upstream API, particularly
 around preserving span information.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
