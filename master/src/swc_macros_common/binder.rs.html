@@ -466,7 +466,7 @@
     <span class="doccomment">/// `EnumName::VariantName` for enum, and `StructName` for struct.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">qual_path</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Path</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">enum_name</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">enum_name</span>) <span class="op">=&gt;</span> <span class="ident">Quote</span>::<span class="ident">new_call_site</span>()
+            <span class="prelude-val">Some</span>(<span class="ident">enum_name</span>) <span class="op">=&gt;</span> <span class="ident">Quote</span>::<span class="ident">new</span>(<span class="ident">Span</span>::<span class="ident">def_site</span>())
                 .<span class="ident">quote_with</span>(<span class="macro">smart_quote</span><span class="macro">!</span>(
                     <span class="ident">Vars</span> {
                         <span class="ident">EnumName</span>: <span class="ident">enum_name</span>,
@@ -564,7 +564,7 @@
                     .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">idx</span>, <span class="ident">f</span>)<span class="op">|</span> {
                         <span class="ident">f</span>.<span class="ident">map_item</span>(<span class="op">|</span><span class="ident">f</span><span class="op">|</span> {
                             <span class="kw">let</span> <span class="ident">binded_ident</span> <span class="op">=</span>
-                                <span class="ident">Span</span>::<span class="ident">call_site</span>().<span class="ident">new_ident</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}{}&quot;</span>, <span class="ident">prefix</span>, <span class="ident">idx</span>));
+                                <span class="ident">Span</span>::<span class="ident">def_site</span>().<span class="ident">new_ident</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}{}&quot;</span>, <span class="ident">prefix</span>, <span class="ident">idx</span>));
                             <span class="ident">bindings</span>.<span class="ident">push</span>(<span class="ident">BindedField</span> {
                                 <span class="ident">idx</span>,
                                 <span class="ident">binded_ident</span>: <span class="ident">binded_ident</span>.<span class="ident">clone</span>(),

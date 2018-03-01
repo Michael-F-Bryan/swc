@@ -175,7 +175,7 @@
 <span id="119">119</span>
 <span id="120">120</span>
 </pre><pre class="rust ">
-<span class="kw">use</span> <span class="ident">call_site</span>;
+<span class="kw">use</span> <span class="ident">def_site</span>;
 <span class="kw">use</span> <span class="ident">pmutil</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">syn</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">syn</span>::<span class="ident">punctuated</span>::<span class="ident">Pair</span>;
@@ -187,7 +187,7 @@
     <span class="doccomment">/// ```rust,ignore</span>
     <span class="doccomment">/// let (impl_generics, ty_generics, where_clause) = input.generics.split_for_impl();</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// let item: Item = Quote::new_call_site()</span>
+    <span class="doccomment">/// let item: Item = Quote::new(Span::def_site())</span>
     <span class="doccomment">///     .quote_with(smart_quote!(</span>
     <span class="doccomment">/// Vars {</span>
     <span class="doccomment">/// Type: type_name,</span>
@@ -206,7 +206,7 @@
     <span class="doccomment">/// You can use this like</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ```rust,ignore</span>
-    <span class="comment">// let item = Quote::new_call_site()</span>
+    <span class="comment">// let item = Quote::new(Span::def_site())</span>
     <span class="doccomment">///     .quote_with(smart_quote!(Vars { Type: type_name }, {</span>
     <span class="doccomment">///         impl ::swc_common::AstNode for Type {}</span>
     <span class="doccomment">///     }))</span>
@@ -222,7 +222,7 @@
 
         <span class="kw">let</span> <span class="ident">need_new_punct</span> <span class="op">=</span> <span class="op">!</span><span class="ident">generics</span>.<span class="ident">params</span>.<span class="ident">empty_or_trailing</span>();
         <span class="kw">if</span> <span class="ident">need_new_punct</span> {
-            <span class="ident">generics</span>.<span class="ident">params</span>.<span class="ident">push_punct</span>(<span class="ident">call_site</span>());
+            <span class="ident">generics</span>.<span class="ident">params</span>.<span class="ident">push_punct</span>(<span class="ident">def_site</span>());
         }
 
         <span class="comment">// Respan</span>

@@ -139,6 +139,10 @@
 <span id="83">83</span>
 <span id="84">84</span>
 <span id="85">85</span>
+<span id="86">86</span>
+<span id="87">87</span>
+<span id="88">88</span>
+<span id="89">89</span>
 </pre><pre class="rust ">
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">box_patterns</span>)]</span>
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">box_syntax</span>)]</span>
@@ -163,6 +167,10 @@
 
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">call_site</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">FromSpan</span><span class="op">&gt;</span>() <span class="op">-&gt;</span> <span class="ident">T</span> {
     <span class="ident">Span</span>::<span class="ident">call_site</span>().<span class="ident">as_token</span>()
+}
+
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">def_site</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">FromSpan</span><span class="op">&gt;</span>() <span class="op">-&gt;</span> <span class="ident">T</span> {
+    <span class="ident">Span</span>::<span class="ident">def_site</span>().<span class="ident">as_token</span>()
 }
 
 <span class="doccomment">/// `attr` - tokens inside `#[]`. e.g. `derive(EqIgnoreSpan)`, ast_node</span>

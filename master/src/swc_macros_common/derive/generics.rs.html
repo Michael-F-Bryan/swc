@@ -245,21 +245,21 @@
     <span class="kw">where</span>
         <span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">WherePredicate</span><span class="op">&gt;</span>,
     {
-        <span class="kw">let</span> <span class="ident">preds</span> <span class="op">=</span> <span class="ident">preds</span>.<span class="ident">into_iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">t</span><span class="op">|</span> <span class="ident">Pair</span>::<span class="ident">Punctuated</span>(<span class="ident">t</span>, <span class="ident">call_site</span>()));
+        <span class="kw">let</span> <span class="ident">preds</span> <span class="op">=</span> <span class="ident">preds</span>.<span class="ident">into_iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">t</span><span class="op">|</span> <span class="ident">Pair</span>::<span class="ident">Punctuated</span>(<span class="ident">t</span>, <span class="ident">def_site</span>()));
 
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">out</span>.<span class="ident">generics</span>.<span class="ident">where_clause</span> {
             <span class="prelude-val">Some</span>(<span class="ident">WhereClause</span> {
                 <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">predicates</span>, ..
             }) <span class="op">=&gt;</span> {
                 <span class="kw">if</span> <span class="op">!</span><span class="ident">predicates</span>.<span class="ident">empty_or_trailing</span>() {
-                    <span class="ident">predicates</span>.<span class="ident">push_punct</span>(<span class="ident">call_site</span>());
+                    <span class="ident">predicates</span>.<span class="ident">push_punct</span>(<span class="ident">def_site</span>());
                 }
 
                 <span class="ident">predicates</span>.<span class="ident">extend</span>(<span class="ident">preds</span>)
             }
             <span class="prelude-val">None</span> <span class="op">=&gt;</span> {
                 <span class="self">self</span>.<span class="ident">out</span>.<span class="ident">generics</span>.<span class="ident">where_clause</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">WhereClause</span> {
-                    <span class="ident">where_token</span>: <span class="ident">call_site</span>(),
+                    <span class="ident">where_token</span>: <span class="ident">def_site</span>(),
                     <span class="ident">predicates</span>: <span class="ident">preds</span>.<span class="ident">collect</span>(),
                 })
             }
