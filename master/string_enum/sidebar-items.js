@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["derive_string_enum","Creates `.as_str()` and then implements `Debug` and `Display` using it."]]});
