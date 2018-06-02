@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["INCOMING",""],["INVALID_EDGE_INDEX",""],["OUTGOING",""]],"struct":[["AdjacentEdges",""],["AdjacentSources",""],["AdjacentTargets",""],["DepthFirstTraversal",""],["Direction",""],["Edge",""],["EdgeIndex",""],["EnumeratedEdges",""],["EnumeratedNodes",""],["Graph",""],["Node",""],["NodeIndex",""]]});
+initSidebarItems({"constant":[["INCOMING",""],["INVALID_EDGE_INDEX",""],["OUTGOING",""]],"struct":[["AdjacentEdges",""],["DepthFirstTraversal",""],["Direction",""],["Edge",""],["EdgeIndex",""],["Graph",""],["Node",""],["NodeIndex",""]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["derive_kind",""]]});
+initSidebarItems({"fn":[["derive_kind","Atributes on enum ## functions `#[kind(functions(name = \"return_type\"))]`"]]});

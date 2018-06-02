@@ -1,60 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/slog-2.1.1/src/lib.rs`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang">
-
-    <title>lib.rs.html -- source</title>
-
-    <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
-    <script src="../../storage.js"></script>
-    
-
-    
-    
-</head>
-<body class="rustdoc source">
-    <!--[if lte IE 8]>
-    <div class="warning">
-        This old browser is unsupported and will most likely display funky
-        things.
-    </div>
-    <![endif]-->
-
-    
-
-    <nav class="sidebar">
-        <div class="sidebar-menu">&#9776;</div>
-        
-        
-    </nav>
-
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../theme.js"></script>
-    <nav class="sub">
-        <form class="search-form js-only">
-            <div class="search-container">
-                <input class="search-input" name="search"
-                       autocomplete="off"
-                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
-                       type="search">
-            </div>
-        </form>
-    </nav>
-
-    <section id='main' class="content"><pre class="line-numbers"><span id="1">   1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/slog-2.2.3/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -3209,6 +3153,284 @@
 <span id="3153">3153</span>
 <span id="3154">3154</span>
 <span id="3155">3155</span>
+<span id="3156">3156</span>
+<span id="3157">3157</span>
+<span id="3158">3158</span>
+<span id="3159">3159</span>
+<span id="3160">3160</span>
+<span id="3161">3161</span>
+<span id="3162">3162</span>
+<span id="3163">3163</span>
+<span id="3164">3164</span>
+<span id="3165">3165</span>
+<span id="3166">3166</span>
+<span id="3167">3167</span>
+<span id="3168">3168</span>
+<span id="3169">3169</span>
+<span id="3170">3170</span>
+<span id="3171">3171</span>
+<span id="3172">3172</span>
+<span id="3173">3173</span>
+<span id="3174">3174</span>
+<span id="3175">3175</span>
+<span id="3176">3176</span>
+<span id="3177">3177</span>
+<span id="3178">3178</span>
+<span id="3179">3179</span>
+<span id="3180">3180</span>
+<span id="3181">3181</span>
+<span id="3182">3182</span>
+<span id="3183">3183</span>
+<span id="3184">3184</span>
+<span id="3185">3185</span>
+<span id="3186">3186</span>
+<span id="3187">3187</span>
+<span id="3188">3188</span>
+<span id="3189">3189</span>
+<span id="3190">3190</span>
+<span id="3191">3191</span>
+<span id="3192">3192</span>
+<span id="3193">3193</span>
+<span id="3194">3194</span>
+<span id="3195">3195</span>
+<span id="3196">3196</span>
+<span id="3197">3197</span>
+<span id="3198">3198</span>
+<span id="3199">3199</span>
+<span id="3200">3200</span>
+<span id="3201">3201</span>
+<span id="3202">3202</span>
+<span id="3203">3203</span>
+<span id="3204">3204</span>
+<span id="3205">3205</span>
+<span id="3206">3206</span>
+<span id="3207">3207</span>
+<span id="3208">3208</span>
+<span id="3209">3209</span>
+<span id="3210">3210</span>
+<span id="3211">3211</span>
+<span id="3212">3212</span>
+<span id="3213">3213</span>
+<span id="3214">3214</span>
+<span id="3215">3215</span>
+<span id="3216">3216</span>
+<span id="3217">3217</span>
+<span id="3218">3218</span>
+<span id="3219">3219</span>
+<span id="3220">3220</span>
+<span id="3221">3221</span>
+<span id="3222">3222</span>
+<span id="3223">3223</span>
+<span id="3224">3224</span>
+<span id="3225">3225</span>
+<span id="3226">3226</span>
+<span id="3227">3227</span>
+<span id="3228">3228</span>
+<span id="3229">3229</span>
+<span id="3230">3230</span>
+<span id="3231">3231</span>
+<span id="3232">3232</span>
+<span id="3233">3233</span>
+<span id="3234">3234</span>
+<span id="3235">3235</span>
+<span id="3236">3236</span>
+<span id="3237">3237</span>
+<span id="3238">3238</span>
+<span id="3239">3239</span>
+<span id="3240">3240</span>
+<span id="3241">3241</span>
+<span id="3242">3242</span>
+<span id="3243">3243</span>
+<span id="3244">3244</span>
+<span id="3245">3245</span>
+<span id="3246">3246</span>
+<span id="3247">3247</span>
+<span id="3248">3248</span>
+<span id="3249">3249</span>
+<span id="3250">3250</span>
+<span id="3251">3251</span>
+<span id="3252">3252</span>
+<span id="3253">3253</span>
+<span id="3254">3254</span>
+<span id="3255">3255</span>
+<span id="3256">3256</span>
+<span id="3257">3257</span>
+<span id="3258">3258</span>
+<span id="3259">3259</span>
+<span id="3260">3260</span>
+<span id="3261">3261</span>
+<span id="3262">3262</span>
+<span id="3263">3263</span>
+<span id="3264">3264</span>
+<span id="3265">3265</span>
+<span id="3266">3266</span>
+<span id="3267">3267</span>
+<span id="3268">3268</span>
+<span id="3269">3269</span>
+<span id="3270">3270</span>
+<span id="3271">3271</span>
+<span id="3272">3272</span>
+<span id="3273">3273</span>
+<span id="3274">3274</span>
+<span id="3275">3275</span>
+<span id="3276">3276</span>
+<span id="3277">3277</span>
+<span id="3278">3278</span>
+<span id="3279">3279</span>
+<span id="3280">3280</span>
+<span id="3281">3281</span>
+<span id="3282">3282</span>
+<span id="3283">3283</span>
+<span id="3284">3284</span>
+<span id="3285">3285</span>
+<span id="3286">3286</span>
+<span id="3287">3287</span>
+<span id="3288">3288</span>
+<span id="3289">3289</span>
+<span id="3290">3290</span>
+<span id="3291">3291</span>
+<span id="3292">3292</span>
+<span id="3293">3293</span>
+<span id="3294">3294</span>
+<span id="3295">3295</span>
+<span id="3296">3296</span>
+<span id="3297">3297</span>
+<span id="3298">3298</span>
+<span id="3299">3299</span>
+<span id="3300">3300</span>
+<span id="3301">3301</span>
+<span id="3302">3302</span>
+<span id="3303">3303</span>
+<span id="3304">3304</span>
+<span id="3305">3305</span>
+<span id="3306">3306</span>
+<span id="3307">3307</span>
+<span id="3308">3308</span>
+<span id="3309">3309</span>
+<span id="3310">3310</span>
+<span id="3311">3311</span>
+<span id="3312">3312</span>
+<span id="3313">3313</span>
+<span id="3314">3314</span>
+<span id="3315">3315</span>
+<span id="3316">3316</span>
+<span id="3317">3317</span>
+<span id="3318">3318</span>
+<span id="3319">3319</span>
+<span id="3320">3320</span>
+<span id="3321">3321</span>
+<span id="3322">3322</span>
+<span id="3323">3323</span>
+<span id="3324">3324</span>
+<span id="3325">3325</span>
+<span id="3326">3326</span>
+<span id="3327">3327</span>
+<span id="3328">3328</span>
+<span id="3329">3329</span>
+<span id="3330">3330</span>
+<span id="3331">3331</span>
+<span id="3332">3332</span>
+<span id="3333">3333</span>
+<span id="3334">3334</span>
+<span id="3335">3335</span>
+<span id="3336">3336</span>
+<span id="3337">3337</span>
+<span id="3338">3338</span>
+<span id="3339">3339</span>
+<span id="3340">3340</span>
+<span id="3341">3341</span>
+<span id="3342">3342</span>
+<span id="3343">3343</span>
+<span id="3344">3344</span>
+<span id="3345">3345</span>
+<span id="3346">3346</span>
+<span id="3347">3347</span>
+<span id="3348">3348</span>
+<span id="3349">3349</span>
+<span id="3350">3350</span>
+<span id="3351">3351</span>
+<span id="3352">3352</span>
+<span id="3353">3353</span>
+<span id="3354">3354</span>
+<span id="3355">3355</span>
+<span id="3356">3356</span>
+<span id="3357">3357</span>
+<span id="3358">3358</span>
+<span id="3359">3359</span>
+<span id="3360">3360</span>
+<span id="3361">3361</span>
+<span id="3362">3362</span>
+<span id="3363">3363</span>
+<span id="3364">3364</span>
+<span id="3365">3365</span>
+<span id="3366">3366</span>
+<span id="3367">3367</span>
+<span id="3368">3368</span>
+<span id="3369">3369</span>
+<span id="3370">3370</span>
+<span id="3371">3371</span>
+<span id="3372">3372</span>
+<span id="3373">3373</span>
+<span id="3374">3374</span>
+<span id="3375">3375</span>
+<span id="3376">3376</span>
+<span id="3377">3377</span>
+<span id="3378">3378</span>
+<span id="3379">3379</span>
+<span id="3380">3380</span>
+<span id="3381">3381</span>
+<span id="3382">3382</span>
+<span id="3383">3383</span>
+<span id="3384">3384</span>
+<span id="3385">3385</span>
+<span id="3386">3386</span>
+<span id="3387">3387</span>
+<span id="3388">3388</span>
+<span id="3389">3389</span>
+<span id="3390">3390</span>
+<span id="3391">3391</span>
+<span id="3392">3392</span>
+<span id="3393">3393</span>
+<span id="3394">3394</span>
+<span id="3395">3395</span>
+<span id="3396">3396</span>
+<span id="3397">3397</span>
+<span id="3398">3398</span>
+<span id="3399">3399</span>
+<span id="3400">3400</span>
+<span id="3401">3401</span>
+<span id="3402">3402</span>
+<span id="3403">3403</span>
+<span id="3404">3404</span>
+<span id="3405">3405</span>
+<span id="3406">3406</span>
+<span id="3407">3407</span>
+<span id="3408">3408</span>
+<span id="3409">3409</span>
+<span id="3410">3410</span>
+<span id="3411">3411</span>
+<span id="3412">3412</span>
+<span id="3413">3413</span>
+<span id="3414">3414</span>
+<span id="3415">3415</span>
+<span id="3416">3416</span>
+<span id="3417">3417</span>
+<span id="3418">3418</span>
+<span id="3419">3419</span>
+<span id="3420">3420</span>
+<span id="3421">3421</span>
+<span id="3422">3422</span>
+<span id="3423">3423</span>
+<span id="3424">3424</span>
+<span id="3425">3425</span>
+<span id="3426">3426</span>
+<span id="3427">3427</span>
+<span id="3428">3428</span>
+<span id="3429">3429</span>
+<span id="3430">3430</span>
+<span id="3431">3431</span>
+<span id="3432">3432</span>
+<span id="3433">3433</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! # Slog -  Structured, extensible, composable logging for Rust</span>
 <span class="doccomment">//!</span>
@@ -3254,6 +3476,8 @@
 <span class="doccomment">//!   * async IO support included: see [`slog-async`</span>
 <span class="doccomment">//!     crate](https://docs.rs/slog-async)</span>
 <span class="doccomment">//! * `#![no_std]` support (with opt-out `std` cargo feature flag)</span>
+<span class="doccomment">//! * support for named format arguments (eg. `info!(logger, &quot;printed {line_count} lines&quot;, line_count = 2);`)</span>
+<span class="doccomment">//!   for easy bridging the human readable and machine-readable output</span>
 <span class="doccomment">//! * tree-structured loggers</span>
 <span class="doccomment">//! * modular, lightweight and very extensible</span>
 <span class="doccomment">//!   * tiny core crate that does not pull any dependencies</span>
@@ -3275,7 +3499,7 @@
 <span class="doccomment">//!       * [`slog-envlogger`](https://github.com/slog-rs/envlogger) - port of</span>
 <span class="doccomment">//!         `env_logger`</span>
 <span class="doccomment">//!       * terminal output, with color support: see [`slog-term`</span>
-<span class="doccomment">//!         crate](docs.r/slog-term)</span>
+<span class="doccomment">//!         crate](https://docs.rs/slog-term)</span>
 <span class="doccomment">//!  * [json](https://docs.rs/slog-json)</span>
 <span class="doccomment">//!      * [bunyan](https://docs.rs/slog-bunyan)</span>
 <span class="doccomment">//!  * [syslog](https://docs.rs/slog-syslog)</span>
@@ -3792,7 +4016,7 @@
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### `fmt::Arguments` support:</span>
+<span class="doccomment">/// ### Formatting support:</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ```</span>
 <span class="doccomment">/// #[macro_use]</span>
@@ -3803,13 +4027,17 @@
 <span class="doccomment">///     let root = slog::Logger::root(drain,</span>
 <span class="doccomment">///         o!(&quot;key1&quot; =&gt; &quot;value1&quot;, &quot;key2&quot; =&gt; &quot;value2&quot;)</span>
 <span class="doccomment">///     );</span>
-<span class="doccomment">///     info!(root, &quot;formatted: {}&quot;, 1; &quot;log-key&quot; =&gt; true);</span>
+<span class="doccomment">///     info!(root, &quot;formatted {num_entries} entries of {}&quot;, &quot;something&quot;, num_entries = 2; &quot;log-key&quot; =&gt; true);</span>
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// Note that that `;` separates formatting string from key value pairs.</span>
+<span class="doccomment">/// Note:</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// Again, `&quot;key&quot; =&gt; value` part is optional:</span>
+<span class="doccomment">/// * `;` is used to separate message arguments and key value pairs.</span>
+<span class="doccomment">/// * message behaves like `format!`/`format_args!`</span>
+<span class="doccomment">/// * Named arguments to messages will be added to key-value pairs as well!</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// `&quot;key&quot; =&gt; value` part is optional:</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ```</span>
 <span class="doccomment">/// #[macro_use]</span>
@@ -3824,10 +4052,8 @@
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// Note: use formatting support only when it really makes sense. Eg. logging</span>
-<span class="doccomment">/// message like `&quot;found {} keys&quot;` is against structured logging. It should be</span>
-<span class="doccomment">/// `&quot;found keys&quot;, &quot;count&quot; =&gt; keys_num` instead, so that data is clearly named,</span>
-<span class="doccomment">/// typed and separated from the message.</span>
+<span class="doccomment">/// Use formatting support wisely. Prefer named arguments, so the associated</span>
+<span class="doccomment">/// data is not &quot;lost&quot; by becoming an untyped string in the message.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ### Tags</span>
 <span class="doccomment">///</span>
@@ -3929,27 +4155,56 @@
 <span class="doccomment">/// ```</span>
 <span class="attribute">#[<span class="ident">macro_export</span>]</span>
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">log</span>(
-   (<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> },  <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
-      <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>.<span class="ident">log</span>(<span class="kw-2">&amp;</span><span class="macro">record</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="kw-2">&amp;</span><span class="macro">format_args</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="kw-2">*</span>), <span class="macro">b</span><span class="macro">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)))
+    <span class="comment">// `2` means that `;` was already found</span>
+   (<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> },  <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> {
+      <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>.<span class="ident">log</span>(<span class="kw-2">&amp;</span><span class="macro">record</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="kw-2">&amp;</span><span class="macro">format_args</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="kw-2">*</span>), <span class="macro">b</span><span class="macro">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="kw-2">*</span>)))
    };
-   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, ; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
-       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   (<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>,) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
    };
-   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span>:<span class="ident">tt</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
-       <span class="macro">log</span><span class="macro">!</span>(<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   (<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>;) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
    };
-   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
-       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   (<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>}, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
    };
-   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>,) <span class="op">=&gt;</span> {
-       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>,)
+    <span class="comment">// `1` means that we are still looking for `;`</span>
+    <span class="comment">// -- handle named arguments to format string</span>
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>:<span class="ident">ident</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> <span class="macro">stringify</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>, }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
    };
-   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> {
-       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>,)
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>:<span class="ident">ident</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>:<span class="ident">expr</span>;) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> <span class="macro">stringify</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>, }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
+   };
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>:<span class="ident">ident</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>:<span class="ident">expr</span>,) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> <span class="macro">stringify</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>, }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
+   };
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>:<span class="ident">ident</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>:<span class="ident">expr</span>; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> <span class="macro">stringify</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>, }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   };
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>:<span class="ident">ident</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>:<span class="ident">expr</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>, }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> <span class="macro">stringify</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>, }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   };
+    <span class="comment">// -- look for `;` termination</span>
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>,) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
+   };
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
+   };
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, ; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   };
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   };
+    <span class="comment">// -- must be normal argument to format string</span>
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span>:<span class="ident">tt</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
+       <span class="macro">log</span><span class="macro">!</span>(<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
    };
    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
        <span class="kw">if</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>.<span class="ident">as_usize</span>() <span class="op">&lt;=</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">__slog_static_max_level</span>().<span class="ident">as_usize</span>() {
-           <span class="macro">log</span><span class="macro">!</span>(<span class="number">1</span> @ { }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+           <span class="macro">log</span><span class="macro">!</span>(<span class="number">1</span> @ { }, { }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
        }
    };
 );
@@ -3973,31 +4228,59 @@
 <span class="doccomment">/// ```</span>
 <span class="attribute">#[<span class="ident">macro_export</span>]</span>
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">slog_log</span>(
-   (<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> },  <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
-      <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>.<span class="ident">log</span>(<span class="kw-2">&amp;</span><span class="macro">slog_record</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="kw-2">&amp;</span><span class="macro">format_args</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="kw-2">*</span>), <span class="macro">slog_b</span><span class="macro">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)))
+    <span class="comment">// `2` means that `;` was already found</span>
+   (<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> },  <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> {
+      <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>.<span class="ident">log</span>(<span class="kw-2">&amp;</span><span class="macro">slog_record</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="kw-2">&amp;</span><span class="macro">format_args</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="kw-2">*</span>), <span class="macro">slog_b</span><span class="macro">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="kw-2">*</span>)))
    };
-   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, ; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
-       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   (<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>,) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
    };
-   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span>:<span class="ident">tt</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
-       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   (<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>;) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
    };
-   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
-       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   (<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>}, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
    };
-   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>,) <span class="op">=&gt;</span> {
-       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>,)
+    <span class="comment">// `1` means that we are still looking for `;`</span>
+    <span class="comment">// -- handle named arguments to format string</span>
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>:<span class="ident">ident</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> <span class="macro">stringify</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>, }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
    };
-   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> {
-       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>,)
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>:<span class="ident">ident</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>:<span class="ident">expr</span>;) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> <span class="macro">stringify</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>, }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
+   };
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>:<span class="ident">ident</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>:<span class="ident">expr</span>,) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> <span class="macro">stringify</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>, }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
+   };
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>:<span class="ident">ident</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>:<span class="ident">expr</span>; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> <span class="macro">stringify</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>, }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   };
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>:<span class="ident">ident</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>:<span class="ident">expr</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>, }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> <span class="macro">stringify</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">k</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">v</span>, }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   };
+    <span class="comment">// -- look for `;` termination</span>
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>,) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
+   };
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>)
+   };
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, ; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   };
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">2</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+   };
+    <span class="comment">// -- must be normal argument to format string</span>
+   (<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>:<span class="ident">tt</span>)<span class="op">*</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>:<span class="ident">tt</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span>:<span class="ident">tt</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
+       <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">1</span> @ { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">fmt</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span> }, { $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">kv</span>)<span class="op">*</span> }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">msg_fmt</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
    };
    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>:<span class="ident">expr</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> {
        <span class="kw">if</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>.<span class="ident">as_usize</span>() <span class="op">&lt;=</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">__slog_static_max_level</span>().<span class="ident">as_usize</span>() {
-           <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">1</span> @ { }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+           <span class="macro">slog_log</span><span class="macro">!</span>(<span class="number">1</span> @ { }, { }, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">l</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lvl</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
        }
    };
 );
-
 <span class="doccomment">/// Log critical level record</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// See `log` for documentation.</span>
@@ -4337,7 +4620,7 @@
     <span class="doccomment">/// documentation.</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">log</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">record</span>: <span class="kw-2">&amp;</span><span class="ident">Record</span>) {
-        <span class="kw">let</span> _ <span class="op">=</span> <span class="self">self</span>.<span class="ident">drain</span>.<span class="ident">log</span>(<span class="ident">record</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">list</span>);
+        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">drain</span>.<span class="ident">log</span>(<span class="ident">record</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">list</span>);
     }
 
     <span class="doccomment">/// Get list of key-value pairs assigned to this `Logger`</span>
@@ -4410,8 +4693,12 @@
         };
         <span class="self">self</span>.<span class="ident">drain</span>.<span class="ident">log</span>(<span class="ident">record</span>, <span class="kw-2">&amp;</span><span class="ident">chained</span>)
     }
+
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">drain</span>.<span class="ident">is_enabled</span>(<span class="ident">level</span>)
+    }
 }
-<span class="comment">// }}}</span>
 
 <span class="comment">// {{{ Drain</span>
 <span class="doccomment">/// Logging drain</span>
@@ -4454,6 +4741,79 @@
         <span class="ident">record</span>: <span class="kw-2">&amp;</span><span class="ident">Record</span>,
         <span class="ident">values</span>: <span class="kw-2">&amp;</span><span class="ident">OwnedKVList</span>,
     ) <span class="op">-&gt;</span> <span class="ident">result</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="prelude-val">Ok</span>, <span class="self">Self</span>::<span class="prelude-val">Err</span><span class="op">&gt;</span>;
+
+    <span class="doccomment">/// **Avoid**: Check if messages at the specified log level are **maybe**</span>
+    <span class="doccomment">/// enabled for this logger.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The purpose of it so to allow **imprecise** detection if a given logging</span>
+    <span class="doccomment">/// level has any chance of actually being logged. This might be used</span>
+    <span class="doccomment">/// to explicitly skip needless computation.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// **It is best effort, can return false positives, but not false negatives.**</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The logger is still free to ignore records even if the level is enabled,</span>
+    <span class="doccomment">/// so an enabled level doesn&#39;t necessarily guarantee that the record will</span>
+    <span class="doccomment">/// actually be logged.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This function is somewhat needless, and is better expressed by using</span>
+    <span class="doccomment">/// lazy values (see `FnValue`).  A `FnValue` is more precise and does not</span>
+    <span class="doccomment">/// require additional (potentially recursive) calls to do something that</span>
+    <span class="doccomment">/// `log` will already do anyways (making decision if something should be</span>
+    <span class="doccomment">/// logged or not).</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">/// # #[macro_use]</span>
+    <span class="doccomment">/// # extern crate slog;</span>
+    <span class="doccomment">/// # use slog::*;</span>
+    <span class="doccomment">/// # fn main() {</span>
+    <span class="doccomment">/// let logger = Logger::root(Discard, o!());</span>
+    <span class="doccomment">/// if logger.is_enabled(Level::Debug) {</span>
+    <span class="doccomment">///     let num = 5.0f64;</span>
+    <span class="doccomment">///     let sqrt = num.sqrt();</span>
+    <span class="doccomment">///     debug!(logger, &quot;Sqrt&quot;; &quot;num&quot; =&gt; num, &quot;sqrt&quot; =&gt; sqrt);</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">/// # }</span>
+    <span class="doccomment">/// ```</span>
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="ident">level</span>.<span class="ident">as_usize</span>() <span class="op">&lt;=</span> ::<span class="ident">__slog_static_max_level</span>().<span class="ident">as_usize</span>()
+    }
+
+    <span class="doccomment">/// **Avoid**: See `is_enabled`</span>
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_critical_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">is_enabled</span>(<span class="ident">Level</span>::<span class="ident">Critical</span>)
+    }
+
+    <span class="doccomment">/// **Avoid**: See `is_enabled`</span>
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_error_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">is_enabled</span>(<span class="ident">Level</span>::<span class="ident">Error</span>)
+    }
+
+    <span class="doccomment">/// **Avoid**: See `is_enabled`</span>
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_warning_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">is_enabled</span>(<span class="ident">Level</span>::<span class="ident">Warning</span>)
+    }
+
+    <span class="doccomment">/// **Avoid**: See `is_enabled`</span>
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_info_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">is_enabled</span>(<span class="ident">Level</span>::<span class="ident">Info</span>)
+    }
+
+    <span class="doccomment">/// **Avoid**: See `is_enabled`</span>
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_debug_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">is_enabled</span>(<span class="ident">Level</span>::<span class="ident">Debug</span>)
+    }
+
+    <span class="doccomment">/// **Avoid**: See `is_enabled`</span>
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_trace_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">is_enabled</span>(<span class="ident">Level</span>::<span class="ident">Trace</span>)
+    }
 
     <span class="doccomment">/// Pass `Drain` through a closure, eg. to wrap</span>
     <span class="doccomment">/// into another `Drain`.</span>
@@ -4533,6 +4893,40 @@
         <span class="self">Self</span>: <span class="ident">Sized</span>,
     {
         <span class="self">self</span>.<span class="ident">map</span>(<span class="ident">Fuse</span>)
+    }
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span>: <span class="ident">Drain</span> <span class="op">+</span> <span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Drain</span> <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">D</span> {
+    <span class="kw">type</span> <span class="prelude-val">Ok</span> <span class="op">=</span> <span class="ident">D</span>::<span class="prelude-val">Ok</span>;
+    <span class="kw">type</span> <span class="prelude-val">Err</span> <span class="op">=</span> <span class="ident">D</span>::<span class="prelude-val">Err</span>;
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">log</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">record</span>: <span class="kw-2">&amp;</span><span class="ident">Record</span>,
+        <span class="ident">values</span>: <span class="kw-2">&amp;</span><span class="ident">OwnedKVList</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">result</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="prelude-val">Ok</span>, <span class="self">Self</span>::<span class="prelude-val">Err</span><span class="op">&gt;</span> {
+        (<span class="kw-2">*</span><span class="kw-2">*</span><span class="self">self</span>).<span class="ident">log</span>(<span class="ident">record</span>, <span class="ident">values</span>)
+    }
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        (<span class="kw-2">*</span><span class="kw-2">*</span><span class="self">self</span>).<span class="ident">is_enabled</span>(<span class="ident">level</span>)
+    }
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span>: <span class="ident">Drain</span> <span class="op">+</span> <span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Drain</span> <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="ident">D</span> {
+    <span class="kw">type</span> <span class="prelude-val">Ok</span> <span class="op">=</span> <span class="ident">D</span>::<span class="prelude-val">Ok</span>;
+    <span class="kw">type</span> <span class="prelude-val">Err</span> <span class="op">=</span> <span class="ident">D</span>::<span class="prelude-val">Err</span>;
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">log</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">record</span>: <span class="kw-2">&amp;</span><span class="ident">Record</span>,
+        <span class="ident">values</span>: <span class="kw-2">&amp;</span><span class="ident">OwnedKVList</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">result</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="prelude-val">Ok</span>, <span class="self">Self</span>::<span class="prelude-val">Err</span><span class="op">&gt;</span> {
+        (<span class="kw-2">*</span><span class="kw-2">*</span><span class="self">self</span>).<span class="ident">log</span>(<span class="ident">record</span>, <span class="ident">values</span>)
+    }
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        (<span class="kw-2">*</span><span class="kw-2">*</span><span class="self">self</span>).<span class="ident">is_enabled</span>(<span class="ident">level</span>)
     }
 }
 
@@ -4698,6 +5092,10 @@
     ) <span class="op">-&gt;</span> <span class="ident">result</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="prelude-val">Ok</span>, <span class="ident">D</span>::<span class="prelude-val">Err</span><span class="op">&gt;</span> {
         (<span class="kw-2">*</span><span class="kw-2">*</span><span class="self">self</span>).<span class="ident">log</span>(<span class="ident">record</span>, <span class="ident">o</span>)
     }
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        (<span class="kw-2">*</span><span class="kw-2">*</span><span class="self">self</span>).<span class="ident">is_enabled</span>(<span class="ident">level</span>)
+    }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">D</span>: <span class="ident">Drain</span> <span class="op">+</span> <span class="question-mark">?</span><span class="ident">Sized</span><span class="op">&gt;</span> <span class="ident">Drain</span> <span class="kw">for</span> <span class="ident">Arc</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span> {
@@ -4710,6 +5108,10 @@
     ) <span class="op">-&gt;</span> <span class="ident">result</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="prelude-val">Ok</span>, <span class="ident">D</span>::<span class="prelude-val">Err</span><span class="op">&gt;</span> {
         (<span class="kw-2">*</span><span class="kw-2">*</span><span class="self">self</span>).<span class="ident">log</span>(<span class="ident">record</span>, <span class="ident">o</span>)
     }
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        (<span class="kw-2">*</span><span class="kw-2">*</span><span class="self">self</span>).<span class="ident">is_enabled</span>(<span class="ident">level</span>)
+    }
 }
 
 <span class="doccomment">/// `Drain` discarding everything</span>
@@ -4721,8 +5123,12 @@
 <span class="kw">impl</span> <span class="ident">Drain</span> <span class="kw">for</span> <span class="ident">Discard</span> {
     <span class="kw">type</span> <span class="prelude-val">Ok</span> <span class="op">=</span> ();
     <span class="kw">type</span> <span class="prelude-val">Err</span> <span class="op">=</span> <span class="ident">Never</span>;
-    <span class="kw">fn</span> <span class="ident">log</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, _: <span class="kw-2">&amp;</span><span class="ident">Record</span>, _: <span class="kw-2">&amp;</span><span class="ident">OwnedKVList</span>) <span class="op">-&gt;</span> <span class="ident">result</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Never</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">log</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: <span class="kw-2">&amp;</span><span class="ident">Record</span>, <span class="kw">_</span>: <span class="kw-2">&amp;</span><span class="ident">OwnedKVList</span>) <span class="op">-&gt;</span> <span class="ident">result</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Never</span><span class="op">&gt;</span> {
         <span class="prelude-val">Ok</span>(())
+    }
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">_1</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="bool-val">false</span>
     }
 }
 
@@ -4762,6 +5168,15 @@
             <span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>)
         }
     }
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="comment">/*
+         * This is one of the reasons we can&#39;t guarantee the value is actually logged.
+         * The filter function is given dynamic control over whether or not the record is logged
+         * and could filter stuff out even if the log level is supposed to be enabled
+         */</span>
+        <span class="self">self</span>.<span class="number">0</span>.<span class="ident">is_enabled</span>(<span class="ident">level</span>)
+    }
 }
 
 <span class="doccomment">/// `Drain` filtering records by `Record` logging level</span>
@@ -4796,6 +5211,10 @@
         } <span class="kw">else</span> {
             <span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>)
         }
+    }
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="ident">level</span>.<span class="ident">is_at_least</span>(<span class="self">self</span>.<span class="number">1</span>) <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">is_enabled</span>(<span class="ident">level</span>)
     }
 }
 
@@ -4833,6 +5252,10 @@
             .<span class="ident">log</span>(<span class="ident">record</span>, <span class="ident">logger_values</span>)
             .<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> (<span class="self">self</span>.<span class="ident">map_fn</span>)(<span class="ident">e</span>))
     }
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">drain</span>.<span class="ident">is_enabled</span>(<span class="ident">level</span>)
+    }
 }
 
 <span class="doccomment">/// `Drain` duplicating records into two other `Drain`s</span>
@@ -4866,6 +5289,10 @@
             (<span class="prelude-val">Ok</span>(<span class="ident">o1</span>), <span class="prelude-val">Ok</span>(<span class="ident">o2</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="ident">o1</span>, <span class="ident">o2</span>)),
             (<span class="ident">r1</span>, <span class="ident">r2</span>) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>((<span class="ident">r1</span>, <span class="ident">r2</span>)),
         }
+    }
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="number">0</span>.<span class="ident">is_enabled</span>(<span class="ident">level</span>) <span class="op">||</span> <span class="self">self</span>.<span class="number">1</span>.<span class="ident">is_enabled</span>(<span class="ident">level</span>)
     }
 }
 
@@ -4902,10 +5329,14 @@
         <span class="ident">record</span>: <span class="kw-2">&amp;</span><span class="ident">Record</span>,
         <span class="ident">logger_values</span>: <span class="kw-2">&amp;</span><span class="ident">OwnedKVList</span>,
     ) <span class="op">-&gt;</span> <span class="ident">result</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="prelude-val">Ok</span>, <span class="ident">Never</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> _ <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>
+        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>
             .<span class="ident">log</span>(<span class="ident">record</span>, <span class="ident">logger_values</span>)
             .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;slog::Fuse Drain: {:?}&quot;</span>, <span class="ident">e</span>));
         <span class="prelude-val">Ok</span>(())
+    }
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="number">0</span>.<span class="ident">is_enabled</span>(<span class="ident">level</span>)
     }
 }
 
@@ -4934,8 +5365,13 @@
         <span class="ident">record</span>: <span class="kw-2">&amp;</span><span class="ident">Record</span>,
         <span class="ident">logger_values</span>: <span class="kw-2">&amp;</span><span class="ident">OwnedKVList</span>,
     ) <span class="op">-&gt;</span> <span class="ident">result</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Never</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> _ <span class="op">=</span> <span class="self">self</span>.<span class="ident">drain</span>.<span class="ident">log</span>(<span class="ident">record</span>, <span class="ident">logger_values</span>);
+        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">drain</span>.<span class="ident">log</span>(<span class="ident">record</span>, <span class="ident">logger_values</span>);
         <span class="prelude-val">Ok</span>(())
+    }
+
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">drain</span>.<span class="ident">is_enabled</span>(<span class="ident">level</span>)
     }
 }
 
@@ -4988,7 +5424,7 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span>: <span class="ident">Drain</span><span class="op">&gt;</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">std</span>::<span class="ident">sync</span>::<span class="ident">PoisonError</span><span class="op">&lt;</span><span class="ident">std</span>::<span class="ident">sync</span>::<span class="ident">MutexGuard</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span><span class="op">&gt;&gt;</span><span class="op">&gt;</span>
     <span class="kw">for</span> <span class="ident">MutexDrainError</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">from</span>(
-        _: <span class="ident">std</span>::<span class="ident">sync</span>::<span class="ident">PoisonError</span><span class="op">&lt;</span><span class="ident">std</span>::<span class="ident">sync</span>::<span class="ident">MutexGuard</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span><span class="op">&gt;&gt;</span>,
+        <span class="kw">_</span>: <span class="ident">std</span>::<span class="ident">sync</span>::<span class="ident">PoisonError</span><span class="op">&lt;</span><span class="ident">std</span>::<span class="ident">sync</span>::<span class="ident">MutexGuard</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span><span class="op">&gt;&gt;</span>,
     ) <span class="op">-&gt;</span> <span class="ident">MutexDrainError</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span> {
         <span class="ident">MutexDrainError</span>::<span class="ident">Mutex</span>
     }
@@ -5018,6 +5454,10 @@
     ) <span class="op">-&gt;</span> <span class="ident">result</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="prelude-val">Ok</span>, <span class="self">Self</span>::<span class="prelude-val">Err</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">d</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">lock</span>()<span class="question-mark">?</span>;
         <span class="ident">d</span>.<span class="ident">log</span>(<span class="ident">record</span>, <span class="ident">logger_values</span>).<span class="ident">map_err</span>(<span class="ident">MutexDrainError</span>::<span class="ident">Drain</span>)
+    }
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">is_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">level</span>: <span class="ident">Level</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">lock</span>().<span class="ident">ok</span>().<span class="ident">map_or</span>(<span class="bool-val">true</span>, <span class="op">|</span><span class="ident">lock</span><span class="op">|</span> <span class="ident">lock</span>.<span class="ident">is_enabled</span>(<span class="ident">level</span>))
     }
 }
 <span class="comment">// }}}</span>
@@ -5109,7 +5549,7 @@
             <span class="number">4</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">Level</span>::<span class="ident">Info</span>),
             <span class="number">5</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">Level</span>::<span class="ident">Debug</span>),
             <span class="number">6</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">Level</span>::<span class="ident">Trace</span>),
-            _ <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
         }
     }
 }
@@ -5144,7 +5584,7 @@
             <span class="number">4</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">FilterLevel</span>::<span class="ident">Info</span>),
             <span class="number">5</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">FilterLevel</span>::<span class="ident">Debug</span>),
             <span class="number">6</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">FilterLevel</span>::<span class="ident">Trace</span>),
-            _ <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
         }
     }
 
@@ -5535,7 +5975,28 @@
 <span class="comment">// }}}</span>
 
 <span class="comment">// {{{ Value</span>
-<span class="doccomment">/// Value that can be serialized</span>
+<span class="doccomment">/// # Value that can be serialized</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Types that implement this type implement custome serialization in the</span>
+<span class="doccomment">/// structured part of the log macros. Without an implementation of `Value` for</span>
+<span class="doccomment">/// your type you must emit using either the `?` &quot;debug&quot;, `%` &quot;display&quot; or</span>
+<span class="doccomment">/// [`SerdeValue`](trait.SerdeValue.html) (if you have the `nested-values`</span>
+<span class="doccomment">/// feature enabled) formatters.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Example</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```</span>
+<span class="doccomment">/// use slog::{Key, Value, Record, Result, Serializer};</span>
+<span class="doccomment">/// struct MyNewType(i64);</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// impl Value for MyNewType {</span>
+<span class="doccomment">///     fn serialize(&amp;self, _rec: &amp;Record, key: Key, serializer: &amp;mut Serializer) -&gt; Result {</span>
+<span class="doccomment">///         serializer.emit_i64(key, self.0)</span>
+<span class="doccomment">///     }</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// ```</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// See also [`KV`](trait.KV.html) for formatting both the key and value.</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Value</span> {
     <span class="doccomment">/// Serialize self into `Serializer`</span>
     <span class="doccomment">///</span>
@@ -5770,7 +6231,7 @@
     <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
         <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">done</span> {
             <span class="comment">// unfortunately this gives no change to return serialization errors</span>
-            <span class="kw">let</span> _ <span class="op">=</span> <span class="self">self</span>.<span class="ident">serializer</span>.<span class="ident">emit_unit</span>(<span class="self">self</span>.<span class="ident">key</span>.<span class="ident">clone</span>());
+            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">serializer</span>.<span class="ident">emit_unit</span>(<span class="self">self</span>.<span class="ident">key</span>.<span class="ident">clone</span>());
         }
     }
 }
@@ -5838,17 +6299,56 @@
 <span class="comment">// }}}</span>
 
 <span class="comment">// {{{ KV</span>
-<span class="doccomment">/// Key-value pair(s)</span>
+<span class="doccomment">/// # Key-value pair(s) for log events</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Zero, one or more key value pairs chained together</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// Any logging data must implement this trait for</span>
-<span class="doccomment">/// slog to be able to use it.</span>
+<span class="doccomment">/// Any logging data must implement this trait for slog to be able to use it,</span>
+<span class="doccomment">/// although slog comes with default implementations within its macros (the</span>
+<span class="doccomment">/// `=&gt;` and `kv!` portions of the log macros).</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// Types implementing this trait can emit multiple key-value pairs. The order</span>
-<span class="doccomment">/// of emitting them should be consistent with the way key-value pair hierarchy</span>
-<span class="doccomment">/// is traversed: from data most specific to the logging context to the most</span>
-<span class="doccomment">/// general one. Or in other words: from newest to oldest.</span>
+<span class="doccomment">/// If you don&#39;t use this trait, you must emit your structured data by</span>
+<span class="doccomment">/// specifying both key and value in each log event:</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```ignore</span>
+<span class="doccomment">/// info!(logger, &quot;my event&quot;; &quot;type_key&quot; =&gt; %my_val);</span>
+<span class="doccomment">/// ```</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// If you implement this trait, that can become:</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```ignore</span>
+<span class="doccomment">/// info!(logger, &quot;my event&quot;; my_val);</span>
+<span class="doccomment">/// ```</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Types implementing this trait can emit multiple key-value pairs, and can</span>
+<span class="doccomment">/// customize their structured representation. The order of emitting them</span>
+<span class="doccomment">/// should be consistent with the way key-value pair hierarchy is traversed:</span>
+<span class="doccomment">/// from data most specific to the logging context to the most general one. Or</span>
+<span class="doccomment">/// in other words: from newest to oldest.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Implementers are are responsible for calling the `emit_*` methods on the</span>
+<span class="doccomment">/// `Serializer` passed in, the `Record` can be used to make display decisions</span>
+<span class="doccomment">/// based on context, but for most plain-value structs you will just call</span>
+<span class="doccomment">/// `emit_*`.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Example</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```</span>
+<span class="doccomment">/// use slog::{KV, Record, Result, Serializer};</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// struct MyNewType(i64);</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// impl KV for MyNewType {</span>
+<span class="doccomment">///    fn serialize(&amp;self, _rec: &amp;Record, serializer: &amp;mut Serializer) -&gt; Result {</span>
+<span class="doccomment">///        serializer.emit_i64(&quot;my_new_type&quot;, self.0)</span>
+<span class="doccomment">///    }</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// ```</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// See also [`Value`](trait.Value.html), which allows you to customize just</span>
+<span class="doccomment">/// the right hand side of the `=&gt;` structure macro, and (if you have the</span>
+<span class="doccomment">/// `nested-values` feature enabled) [`SerdeValue`](trait.SerdeValue.html)</span>
+<span class="doccomment">/// which allows emitting anything serde can emit.</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">KV</span> {
     <span class="doccomment">/// Serialize self into `Serializer`</span>
     <span class="doccomment">///</span>
@@ -6131,7 +6631,7 @@
                         ),
                         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">as_str_ser</span>
                     )
-                    .<span class="ident">map_err</span>(<span class="op">|</span>_<span class="op">|</span> <span class="ident">fmt</span>::<span class="ident">Error</span>)
+                    .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">fmt</span>::<span class="ident">Error</span>)
             );
         }
 
@@ -6215,7 +6715,7 @@
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">core</span>::<span class="ident">fmt</span>::<span class="ident">Error</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Error</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(_: <span class="ident">core</span>::<span class="ident">fmt</span>::<span class="ident">Error</span>) <span class="op">-&gt;</span> <span class="ident">Error</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="kw">_</span>: <span class="ident">core</span>::<span class="ident">fmt</span>::<span class="ident">Error</span>) <span class="op">-&gt;</span> <span class="ident">Error</span> {
         <span class="ident">Error</span>::<span class="ident">Other</span>
     }
 }
@@ -6225,7 +6725,7 @@
     <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">e</span>: <span class="ident">Error</span>) <span class="op">-&gt;</span> <span class="ident">std</span>::<span class="ident">io</span>::<span class="ident">Error</span> {
         <span class="kw">match</span> <span class="ident">e</span> {
             <span class="ident">Error</span>::<span class="ident">Io</span>(<span class="ident">e</span>) <span class="op">=&gt;</span> <span class="ident">e</span>,
-            <span class="ident">Error</span>::<span class="ident">Fmt</span>(_) <span class="op">=&gt;</span> <span class="ident">std</span>::<span class="ident">io</span>::<span class="ident">Error</span>::<span class="ident">new</span>(
+            <span class="ident">Error</span>::<span class="ident">Fmt</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">std</span>::<span class="ident">io</span>::<span class="ident">Error</span>::<span class="ident">new</span>(
                 <span class="ident">std</span>::<span class="ident">io</span>::<span class="ident">ErrorKind</span>::<span class="ident">Other</span>,
                 <span class="string">&quot;formatting error&quot;</span>,
             ),
@@ -6241,7 +6741,7 @@
     <span class="kw">fn</span> <span class="ident">description</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">str</span> {
         <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
             <span class="ident">Error</span>::<span class="ident">Io</span>(<span class="kw-2">ref</span> <span class="ident">e</span>) <span class="op">=&gt;</span> <span class="ident">e</span>.<span class="ident">description</span>(),
-            <span class="ident">Error</span>::<span class="ident">Fmt</span>(_) <span class="op">=&gt;</span> <span class="string">&quot;formatting error&quot;</span>,
+            <span class="ident">Error</span>::<span class="ident">Fmt</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="string">&quot;formatting error&quot;</span>,
             <span class="ident">Error</span>::<span class="ident">Other</span> <span class="op">=&gt;</span> <span class="string">&quot;serialization error&quot;</span>,
         }
     }
@@ -6366,68 +6866,4 @@
 
 <span class="comment">// vim: foldmethod=marker foldmarker={{{,}}}</span>
 </pre>
-</section>
-    <section id='search' class="content hidden"></section>
-
-    <section class="footer"></section>
-
-    <aside id="help" class="hidden">
-        <div>
-            <h1 class="hidden">Help</h1>
-
-            <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
-
-                <dl>
-                    <dt><kbd>?</kbd></dt>
-                    <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
-                    <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
-                    <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
-                    <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
-                    <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
-                    <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
-                </dl>
-            </div>
-
-            <div class="infos">
-                <h2>Search Tricks</h2>
-
-                <p>
-                    Prefix searches with a type followed by a colon (e.g.
-                    <code>fn:</code>) to restrict the search to a given type.
-                </p>
-
-                <p>
-                    Accepted types are: <code>fn</code>, <code>mod</code>,
-                    <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
-                </p>
-
-                <p>
-                    Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
-                </p>
-            </div>
-        </div>
-    </aside>
-
-    
-
-    <script>
-        window.rootPath = "../../";
-        window.currentCrate = "slog";
-    </script>
-    <script src="../../main.js"></script>
-    <script defer src="../../search-index.js"></script>
-</body>
-</html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../";window.currentCrate = "slog";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>

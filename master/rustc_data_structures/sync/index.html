@@ -1,66 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `sync` mod in crate `rustc_data_structures`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, sync">
-
-    <title>rustc_data_structures::sync - Rust</title>
-
-    <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
-    <script src="../../storage.js"></script>
-    
-
-    <link rel="shortcut icon" href="https://www.rust-lang.org/favicon.ico">
-    
-</head>
-<body class="rustdoc mod">
-    <!--[if lte IE 8]>
-    <div class="warning">
-        This old browser is unsupported and will most likely display funky
-        things.
-    </div>
-    <![endif]-->
-
-    
-
-    <nav class="sidebar">
-        <div class="sidebar-menu">&#9776;</div>
-        <a href='../../rustc_data_structures/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Module sync</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../index.html'>rustc_data_structures</a></p><script>window.sidebarCurrent = {name: 'sync', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
-    </nav>
-
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../theme.js"></script>
-    <nav class="sub">
-        <form class="search-form js-only">
-            <div class="search-container">
-                <input class="search-input" name="search"
-                       autocomplete="off"
-                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
-                       type="search">
-            </div>
-        </form>
-    </nav>
-
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>rustc_data_structures</a>::<wbr><a class="mod" href=''>sync</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../src/rustc_data_structures/sync.rs.html#11-403' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>This mdoule defines types which are thread safe if cfg!(parallel_queries) is true.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `sync` mod in crate `rustc_data_structures`."><meta name="keywords" content="rust, rustlang, rust-lang, sync"><title>rustc_data_structures::sync - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><link rel="shortcut icon" href="https://www.rust-lang.org/favicon.ico"></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../rustc_data_structures/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a><p class='location'>Module sync</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../index.html'>rustc_data_structures</a></p><script>window.sidebarCurrent = {name: 'sync', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>rustc_data_structures</a>::<wbr><a class="mod" href=''>sync</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/rustc_data_structures/sync.rs.html#11-681' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>This module defines types which are thread safe if cfg!(parallel_queries) is true.</p>
 <p><code>Lrc</code> is an alias of either Rc or Arc.</p>
 <p><code>Lock</code> is a mutex.
 It internally uses <code>parking_lot::Mutex</code> if cfg!(parallel_queries) is true,
@@ -72,13 +10,10 @@ It internally uses <code>parking_lot::RwLock</code> if cfg!(parallel_queries) is
 It can never deadlock. It uses <code>Cell</code> when
 cfg!(parallel_queries) is false, otherwise it is a <code>Lock</code>.</p>
 <p><code>MTLock</code> is a mutex which disappears if cfg!(parallel_queries) is false.</p>
-<p><code>rustc_global!</code> gives us a way to declare variables which are intended to be
-global for the current rustc session. This currently maps to thread-locals,
-since rustdoc uses the rustc libraries in multiple threads.
-These globals should eventually be moved into the <code>Session</code> structure.</p>
 <p><code>rustc_erase_owner!</code> erases a OwningRef owner into Erased or Erased + Send + Sync
 depending on the value of cfg!(parallel_queries).</p>
-</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Re-exports</a></h2>
+<table><tr><td><code>pub use self::<a class="fn" href="../../rustc_data_structures/sync/fn.serial_join.html" title="fn rustc_data_structures::sync::serial_join">serial_join</a> as join;</code></td></tr><tr><td><code>pub use self::<a class="fn" href="../../rustc_data_structures/sync/fn.serial_scope.html" title="fn rustc_data_structures::sync::serial_scope">serial_scope</a> as scope;</code></td></tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="struct" href="struct.Lock.html"
@@ -119,6 +54,23 @@ Counted'.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Once.html"
+                                  title='struct rustc_data_structures::sync::Once'>Once</a></td>
+                           <td class='docblock-short'>
+                                <p>A type whose inner value can be written once and then will stay read-only</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.OneThread.html"
+                                  title='struct rustc_data_structures::sync::OneThread'>OneThread</a></td>
+                           <td class='docblock-short'>
+                                <p>A type which only allows its inner value to be used in one thread.
+It will panic if it is used on multiple threads.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
                            <td><a class="struct" href="struct.ReadGuard.html"
                                   title='struct rustc_data_structures::sync::ReadGuard'>ReadGuard</a></td>
                            <td class='docblock-short'>
@@ -131,7 +83,23 @@ A wrapper type for an immutably borrowed value from a <code>RefCell&lt;T&gt;</co
                            <td><a class="struct" href="struct.RwLock.html"
                                   title='struct rustc_data_structures::sync::RwLock'>RwLock</a></td>
                            <td class='docblock-short'>
-                                <p>A mutable memory location with dynamically checked borrow rules</p>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.SerialScope.html"
+                                  title='struct rustc_data_structures::sync::SerialScope'>SerialScope</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Weak.html"
+                                  title='struct rustc_data_structures::sync::Weak'>Weak</a></td>
+                           <td class='docblock-short'>
+                                <p><code>Weak</code> is a version of <a href="struct.Rc.html"><code>Rc</code></a> that holds a non-owning reference to the
+managed value. The value is accessed by calling <a href="struct.Weak.html#method.upgrade"><code>upgrade</code></a> on the <code>Weak</code>
+pointer, which returns an <a href="../../std/option/enum.Option.html"><code>Option</code></a><code>&lt;</code><a href="struct.Rc.html"><code>Rc</code></a><code>&lt;T&gt;&gt;</code>.</p>
 
                            </td>
                        </tr>
@@ -144,6 +112,21 @@ A wrapper type for an immutably borrowed value from a <code>RefCell&lt;T&gt;</co
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.HashMapExt.html"
+                                  title='trait rustc_data_structures::sync::HashMapExt'>HashMapExt</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.ParallelIterator.html"
+                                  title='trait rustc_data_structures::sync::ParallelIterator'>ParallelIterator</a></td>
+                           <td class='docblock-short'>
+                                <p>An interface for dealing with iterators.</p>
+
+                           </td>
+                       </tr>
                        <tr class=' module-item'>
                            <td><a class="trait" href="trait.Send.html"
                                   title='trait rustc_data_structures::sync::Send'>Send</a></td>
@@ -167,8 +150,36 @@ A wrapper type for an immutably borrowed value from a <code>RefCell&lt;T&gt;</co
                            </td>
                        </tr>
                        <tr class=' module-item'>
+                           <td><a class="fn" href="fn.assert_send_val.html"
+                                  title='fn rustc_data_structures::sync::assert_send_val'>assert_send_val</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
                            <td><a class="fn" href="fn.assert_sync.html"
                                   title='fn rustc_data_structures::sync::assert_sync'>assert_sync</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.par_iter.html"
+                                  title='fn rustc_data_structures::sync::par_iter'>par_iter</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.serial_join.html"
+                                  title='fn rustc_data_structures::sync::serial_join'>serial_join</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.serial_scope.html"
+                                  title='fn rustc_data_structures::sync::serial_scope'>serial_scope</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
@@ -180,68 +191,4 @@ A wrapper type for an immutably borrowed value from a <code>RefCell&lt;T&gt;</co
                            <td class='docblock-short'>
                                 
                            </td>
-                       </tr></table></section>
-    <section id='search' class="content hidden"></section>
-
-    <section class="footer"></section>
-
-    <aside id="help" class="hidden">
-        <div>
-            <h1 class="hidden">Help</h1>
-
-            <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
-
-                <dl>
-                    <dt><kbd>?</kbd></dt>
-                    <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
-                    <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
-                    <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
-                    <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
-                    <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
-                    <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
-                </dl>
-            </div>
-
-            <div class="infos">
-                <h2>Search Tricks</h2>
-
-                <p>
-                    Prefix searches with a type followed by a colon (e.g.
-                    <code>fn:</code>) to restrict the search to a given type.
-                </p>
-
-                <p>
-                    Accepted types are: <code>fn</code>, <code>mod</code>,
-                    <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
-                </p>
-
-                <p>
-                    Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
-                </p>
-            </div>
-        </div>
-    </aside>
-
-    
-
-    <script>
-        window.rootPath = "../../";
-        window.currentCrate = "rustc_data_structures";
-    </script>
-    <script src="../../main.js"></script>
-    <script defer src="../../search-index.js"></script>
-</body>
-</html>
+                       </tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../";window.currentCrate = "rustc_data_structures";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>

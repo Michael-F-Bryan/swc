@@ -1,60 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `macros/enum_kind/src/lib.rs`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang">
-
-    <title>lib.rs.html -- source</title>
-
-    <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
-    <script src="../../storage.js"></script>
-    
-
-    
-    
-</head>
-<body class="rustdoc source">
-    <!--[if lte IE 8]>
-    <div class="warning">
-        This old browser is unsupported and will most likely display funky
-        things.
-    </div>
-    <![endif]-->
-
-    
-
-    <nav class="sidebar">
-        <div class="sidebar-menu">&#9776;</div>
-        
-        
-    </nav>
-
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../theme.js"></script>
-    <nav class="sub">
-        <form class="search-form js-only">
-            <div class="search-container">
-                <input class="search-input" name="search"
-                       autocomplete="off"
-                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
-                       type="search">
-            </div>
-        </form>
-    </nav>
-
-    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `macros/enum_kind/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -219,237 +163,171 @@
 <span id="163">163</span>
 <span id="164">164</span>
 <span id="165">165</span>
-<span id="166">166</span>
 </pre><pre class="rust ">
-<span class="doccomment">//! # Atributes on enum</span>
-<span class="doccomment">//! ## functions</span>
-<span class="doccomment">//! `#[kind(functions(name = &quot;return_type&quot;))]`</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! #[macro_use]</span>
-<span class="doccomment">//! extern crate enum_kind;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! /// You can split attributes if you want.</span>
-<span class="doccomment">//! #[derive(Kind)]</span>
-<span class="doccomment">//! #[kind(functions(is_a = &quot;bool&quot;, is_b = &quot;bool&quot;))]</span>
-<span class="doccomment">//! #[kind(functions(is_a_or_b = &quot;bool&quot;, num = &quot;u8&quot;))]</span>
-<span class="doccomment">//! pub enum E {</span>
-<span class="doccomment">//!     #[kind(is_a, is_a_or_b, num = &quot;1&quot;)]</span>
-<span class="doccomment">//!     A,</span>
-<span class="doccomment">//!     /// You can split attributes if you want.</span>
-<span class="doccomment">//!     #[kind(is_b)]</span>
-<span class="doccomment">//!     #[kind(is_a_or_b)]</span>
-<span class="doccomment">//!     #[kind(num = &quot;2&quot;)]</span>
-<span class="doccomment">//!     B(u8),</span>
-<span class="doccomment">//!     /// Default value of bool is false if not specified and true if specified.</span>
-<span class="doccomment">//!     ///</span>
-<span class="doccomment">//!     /// Both struct like variant and tuple like variant are supported.</span>
-<span class="doccomment">//!     #[kind(num = &quot;3&quot;)]</span>
-<span class="doccomment">//!     C {},</span>
-<span class="doccomment">//! }</span>
-<span class="doccomment">//! # fn main() {</span>
-<span class="doccomment">//! assert!(E::A.is_a() &amp;&amp; E::A.is_a_or_b() &amp;&amp; !E::A.is_b());</span>
-<span class="doccomment">//! assert_eq!(E::A.num(), 1);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! assert!(!E::B(0).is_a() &amp;&amp; E::B(0).is_a_or_b() &amp;&amp; E::B(0).is_b());</span>
-<span class="doccomment">//! assert_eq!(E::B(0).num(), 2);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! assert!(!E::C{}.is_a() &amp;&amp; !E::C{}.is_a_or_b() &amp;&amp; !E::C{}.is_b());</span>
-<span class="doccomment">//! assert_eq!(E::C{}.num(), 3);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # }</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! -----</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Real usecase</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! #[macro_use]</span>
-<span class="doccomment">//! extern crate enum_kind;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! #[derive(Kind, Debug, Clone, Eq, PartialEq, Hash)]</span>
-<span class="doccomment">//! #[kind(function(precedence = &quot;u8&quot;))]</span>
-<span class="doccomment">//! pub enum BinOpToken {</span>
-<span class="doccomment">//!     /// `==`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;6&quot;)]</span>
-<span class="doccomment">//!     EqEq,</span>
-<span class="doccomment">//!     /// `!=`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;6&quot;)]</span>
-<span class="doccomment">//!     NotEq,</span>
-<span class="doccomment">//!     /// `===`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;6&quot;)]</span>
-<span class="doccomment">//!     EqEqEq,</span>
-<span class="doccomment">//!     /// `!==`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;6&quot;)]</span>
-<span class="doccomment">//!     NotEqEq,</span>
-<span class="doccomment">//!     /// `&lt;`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;7&quot;)]</span>
-<span class="doccomment">//!     Lt,</span>
-<span class="doccomment">//!     /// `&lt;=`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;7&quot;)]</span>
-<span class="doccomment">//!     LtEq,</span>
-<span class="doccomment">//!     /// `&gt;`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;7&quot;)]</span>
-<span class="doccomment">//!     Gt,</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;7&quot;)]</span>
-<span class="doccomment">//!     /// `&gt;=`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;7&quot;)]</span>
-<span class="doccomment">//!     GtEq,</span>
-<span class="doccomment">//!     /// `&lt;&lt;`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;8&quot;)]</span>
-<span class="doccomment">//!     LShift,</span>
-<span class="doccomment">//!     /// `&gt;&gt;`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;8&quot;)]</span>
-<span class="doccomment">//!     RShift,</span>
-<span class="doccomment">//!     /// `&gt;&gt;&gt;`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;8&quot;)]</span>
-<span class="doccomment">//!     ZeroFillRShift,</span>
-<span class="doccomment">//!     /// `+`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;9&quot;)]</span>
-<span class="doccomment">//!     Plus,</span>
-<span class="doccomment">//!     /// `-`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;9&quot;)]</span>
-<span class="doccomment">//!     Minus,</span>
-<span class="doccomment">//!     /// `*`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;10&quot;)]</span>
-<span class="doccomment">//!     Mul,</span>
-<span class="doccomment">//!     /// `/`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;10&quot;)]</span>
-<span class="doccomment">//!     Div,</span>
-<span class="doccomment">//!     /// `%`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;10&quot;)]</span>
-<span class="doccomment">//!     Mod,</span>
-<span class="doccomment">//!     /// `|`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;3&quot;)]</span>
-<span class="doccomment">//!     BitOr,</span>
-<span class="doccomment">//!     /// `^`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;4&quot;)]</span>
-<span class="doccomment">//!     BitXor,</span>
-<span class="doccomment">//!     /// `&amp;`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;5&quot;)]</span>
-<span class="doccomment">//!     BitAnd,</span>
-<span class="doccomment">//!     /// `in`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;7&quot;)]</span>
-<span class="doccomment">//!     In,</span>
-<span class="doccomment">//!     /// `instanceof`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;7&quot;)]</span>
-<span class="doccomment">//!     InstanceOf,</span>
-<span class="doccomment">//!     /// `**`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;10&quot;)]</span>
-<span class="doccomment">//!     Exp,</span>
-<span class="doccomment">//!     /// `||`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;1&quot;)]</span>
-<span class="doccomment">//!     LogicalOr,</span>
-<span class="doccomment">//!     /// `&amp;&amp;`</span>
-<span class="doccomment">//!     #[kind(precedence = &quot;2&quot;)]</span>
-<span class="doccomment">//!     LogicalAnd,</span>
-<span class="doccomment">//! }</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # fn main() {</span>
-<span class="doccomment">//! # }</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!</span>
 <span class="attribute">#![<span class="ident">feature</span>(<span class="ident">box_syntax</span>)]</span>
 
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">pmutil</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">proc_macro</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">proc_macro2</span>;
-<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">swc_macros_common</span> <span class="kw">as</span> <span class="ident">common</span>;
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">swc_macros_common</span>;
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">syn</span>;
 
-<span class="kw">use</span> <span class="ident">common</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident">swc_macros_common</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
 
 <span class="kw">mod</span> <span class="ident">expand</span>;
 <span class="kw">mod</span> <span class="ident">input</span>;
 <span class="kw">mod</span> <span class="ident">parse</span>;
 <span class="kw">mod</span> <span class="ident">util</span>;
 
+<span class="doccomment">/// # Atributes on enum</span>
+<span class="doccomment">/// ## functions</span>
+<span class="doccomment">/// `#[kind(functions(name = &quot;return_type&quot;))]`</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust,ignore</span>
+<span class="doccomment">/// #[macro_use]</span>
+<span class="doccomment">/// extern crate enum_kind;</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// /// You can split attributes if you want.</span>
+<span class="doccomment">/// #[derive(Kind)]</span>
+<span class="doccomment">/// #[kind(functions(is_a = &quot;bool&quot;, is_b = &quot;bool&quot;))]</span>
+<span class="doccomment">/// #[kind(functions(is_a_or_b = &quot;bool&quot;, num = &quot;u8&quot;))]</span>
+<span class="doccomment">/// pub enum E {</span>
+<span class="doccomment">///     //####     #[kind(is_a, is_a_or_b, num = &quot;1&quot;)]</span>
+<span class="doccomment">///     A,</span>
+<span class="doccomment">///     /// You can split attributes if you want.</span>
+<span class="doccomment">///     //####     #[kind(is_b)]</span>
+<span class="doccomment">///     //####     #[kind(is_a_or_b)]</span>
+<span class="doccomment">///     //####     #[kind(num = &quot;2&quot;)]</span>
+<span class="doccomment">///     B(u8),</span>
+<span class="doccomment">///     /// Default value of bool is false if not specified and true if specified.</span>
+<span class="doccomment">///     ///</span>
+<span class="doccomment">///     /// Both struct like variant and tuple like variant are supported.</span>
+<span class="doccomment">///     //####     #[kind(num = &quot;3&quot;)]</span>
+<span class="doccomment">///     C {},</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// # fn main() {</span>
+<span class="doccomment">/// assert!(E::A.is_a() &amp;&amp; E::A.is_a_or_b() &amp;&amp; !E::A.is_b());</span>
+<span class="doccomment">/// assert_eq!(E::A.num(), 1);</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// assert!(!E::B(0).is_a() &amp;&amp; E::B(0).is_a_or_b() &amp;&amp; E::B(0).is_b());</span>
+<span class="doccomment">/// assert_eq!(E::B(0).num(), 2);</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// assert!(!E::C {}.is_a() &amp;&amp; !E::C {}.is_a_or_b() &amp;&amp; !E::C {}.is_b());</span>
+<span class="doccomment">/// assert_eq!(E::C {}.num(), 3);</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # }</span>
+<span class="doccomment">/// ```</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// -----</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Real usecase</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust,ignore</span>
+<span class="doccomment">/// #[macro_use]</span>
+<span class="doccomment">/// extern crate enum_kind;</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// #[derive(Kind, Debug, Clone, Eq, PartialEq, Hash)]</span>
+<span class="doccomment">/// #[kind(function(precedence = &quot;u8&quot;))]</span>
+<span class="doccomment">/// pub enum BinOpToken {</span>
+<span class="doccomment">///     /// `==`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;6&quot;)]</span>
+<span class="doccomment">///     EqEq,</span>
+<span class="doccomment">///     /// `!=`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;6&quot;)]</span>
+<span class="doccomment">///     NotEq,</span>
+<span class="doccomment">///     /// `===`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;6&quot;)]</span>
+<span class="doccomment">///     EqEqEq,</span>
+<span class="doccomment">///     /// `!==`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;6&quot;)]</span>
+<span class="doccomment">///     NotEqEq,</span>
+<span class="doccomment">///     /// `&lt;`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;7&quot;)]</span>
+<span class="doccomment">///     Lt,</span>
+<span class="doccomment">///     /// `&lt;=`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;7&quot;)]</span>
+<span class="doccomment">///     LtEq,</span>
+<span class="doccomment">///     /// `&gt;`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;7&quot;)]</span>
+<span class="doccomment">///     Gt,</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;7&quot;)]</span>
+<span class="doccomment">///     /// `&gt;=`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;7&quot;)]</span>
+<span class="doccomment">///     GtEq,</span>
+<span class="doccomment">///     /// `&lt;&lt;`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;8&quot;)]</span>
+<span class="doccomment">///     LShift,</span>
+<span class="doccomment">///     /// `&gt;&gt;`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;8&quot;)]</span>
+<span class="doccomment">///     RShift,</span>
+<span class="doccomment">///     /// `&gt;&gt;&gt;`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;8&quot;)]</span>
+<span class="doccomment">///     ZeroFillRShift,</span>
+<span class="doccomment">///     /// `+`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;9&quot;)]</span>
+<span class="doccomment">///     Plus,</span>
+<span class="doccomment">///     /// `-`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;9&quot;)]</span>
+<span class="doccomment">///     Minus,</span>
+<span class="doccomment">///     /// `*`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;10&quot;)]</span>
+<span class="doccomment">///     Mul,</span>
+<span class="doccomment">///     /// `/`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;10&quot;)]</span>
+<span class="doccomment">///     Div,</span>
+<span class="doccomment">///     /// `%`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;10&quot;)]</span>
+<span class="doccomment">///     Mod,</span>
+<span class="doccomment">///     /// `|`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;3&quot;)]</span>
+<span class="doccomment">///     BitOr,</span>
+<span class="doccomment">///     /// `^`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;4&quot;)]</span>
+<span class="doccomment">///     BitXor,</span>
+<span class="doccomment">///     /// `&amp;`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;5&quot;)]</span>
+<span class="doccomment">///     BitAnd,</span>
+<span class="doccomment">///     /// `in`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;7&quot;)]</span>
+<span class="doccomment">///     In,</span>
+<span class="doccomment">///     /// `instanceof`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;7&quot;)]</span>
+<span class="doccomment">///     InstanceOf,</span>
+<span class="doccomment">///     /// `**`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;10&quot;)]</span>
+<span class="doccomment">///     Exp,</span>
+<span class="doccomment">///     /// `||`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;1&quot;)]</span>
+<span class="doccomment">///     LogicalOr,</span>
+<span class="doccomment">///     /// `&amp;&amp;`</span>
+<span class="doccomment">///     //####     #[kind(precedence = &quot;2&quot;)]</span>
+<span class="doccomment">///     LogicalAnd,</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # fn main() {</span>
+<span class="doccomment">/// # }</span>
+<span class="doccomment">/// ```</span>
+<span class="doccomment">///</span>
+<span class="doccomment">///</span>
+<span class="doccomment">///</span>
+<span class="doccomment">///</span>
+<span class="doccomment">///</span>
+<span class="doccomment">///</span>
+<span class="doccomment">///</span>
+<span class="doccomment">///</span>
 <span class="attribute">#[<span class="ident">proc_macro_derive</span>(<span class="ident">Kind</span>, <span class="ident">attributes</span>(<span class="ident">kind</span>))]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">derive_kind</span>(<span class="ident">input</span>: <span class="ident">proc_macro</span>::<span class="ident">TokenStream</span>) <span class="op">-&gt;</span> <span class="ident">proc_macro</span>::<span class="ident">TokenStream</span> {
     <span class="kw">let</span> <span class="ident">input</span> <span class="op">=</span> <span class="ident">syn</span>::<span class="ident">parse</span>::<span class="op">&lt;</span><span class="ident">syn</span>::<span class="ident">DeriveInput</span><span class="op">&gt;</span>(<span class="ident">input</span>)
         .<span class="ident">map</span>(<span class="ident">From</span>::<span class="ident">from</span>)
         .<span class="ident">expect</span>(<span class="string">&quot;failed to parse derive input&quot;</span>);
     <span class="kw">let</span> <span class="ident">item</span> <span class="op">=</span> <span class="ident">expand</span>::<span class="ident">expand</span>(<span class="ident">input</span>);
-    <span class="kw">let</span> <span class="ident">tokens</span> <span class="op">=</span> <span class="ident">item</span>.<span class="ident">into_tokens</span>();
+    <span class="kw">let</span> <span class="ident">tokens</span> <span class="op">=</span> <span class="ident">item</span>.<span class="ident">into_token_stream</span>();
 
     <span class="comment">// println!(&quot;Expanded:{}&quot;, tokens);</span>
 
     <span class="ident">tokens</span>.<span class="ident">into</span>()
 }
 </pre>
-</section>
-    <section id='search' class="content hidden"></section>
-
-    <section class="footer"></section>
-
-    <aside id="help" class="hidden">
-        <div>
-            <h1 class="hidden">Help</h1>
-
-            <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
-
-                <dl>
-                    <dt><kbd>?</kbd></dt>
-                    <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
-                    <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
-                    <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
-                    <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
-                    <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
-                    <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
-                </dl>
-            </div>
-
-            <div class="infos">
-                <h2>Search Tricks</h2>
-
-                <p>
-                    Prefix searches with a type followed by a colon (e.g.
-                    <code>fn:</code>) to restrict the search to a given type.
-                </p>
-
-                <p>
-                    Accepted types are: <code>fn</code>, <code>mod</code>,
-                    <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
-                </p>
-
-                <p>
-                    Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
-                </p>
-            </div>
-        </div>
-    </aside>
-
-    
-
-    <script>
-        window.rootPath = "../../";
-        window.currentCrate = "enum_kind";
-    </script>
-    <script src="../../main.js"></script>
-    <script defer src="../../search-index.js"></script>
-</body>
-</html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../";window.currentCrate = "enum_kind";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>

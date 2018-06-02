@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["ast_node","Alias for `#[derive(Clone, Debug, PartialEq, AstNode)]`"],["derive_ast_node",""],["derive_fold",""]]});
+initSidebarItems({"fn":[["ast_node","Alias for `#[derive(Spanned, Fold, Clone, Debug, PartialEq)]` for a struct and `#[derive(Spanned, Fold, Clone, Debug, PartialEq, FromVariant)]` for an enum."],["derive_fold",""],["derive_from_variant",""],["derive_spanned",""]]});

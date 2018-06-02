@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["errors","Error reporting for the swc project."],["pos",""]],"trait":[["AstNode","Currently just a marker trait."],["FoldWith","Trait implemented for types which know how to fold itself."],["Folder","Folder based on a type system."]]});
+initSidebarItems({"mod":[["errors","Error reporting for the swc project."],["pos",""]],"trait":[["AstNode","A marker trait for ast nodes."],["Fold","Folder based on a type system."],["FoldWith","Trait implemented for types which know how to fold itself."],["Folder","Folder based on a type system."]]});

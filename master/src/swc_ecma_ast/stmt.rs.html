@@ -1,60 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `ecmascript/ast/src/stmt.rs`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang">
-
-    <title>stmt.rs.html -- source</title>
-
-    <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
-    <script src="../../storage.js"></script>
-    
-
-    
-    
-</head>
-<body class="rustdoc source">
-    <!--[if lte IE 8]>
-    <div class="warning">
-        This old browser is unsupported and will most likely display funky
-        things.
-    </div>
-    <![endif]-->
-
-    
-
-    <nav class="sidebar">
-        <div class="sidebar-menu">&#9776;</div>
-        
-        
-    </nav>
-
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../theme.js"></script>
-    <nav class="sub">
-        <form class="search-form js-only">
-            <div class="search-container">
-                <input class="search-input" name="search"
-                       autocomplete="off"
-                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
-                       type="search">
-            </div>
-        </form>
-    </nav>
-
-    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `ecmascript/ast/src/stmt.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>stmt.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -240,74 +184,29 @@
 <span id="184">184</span>
 <span id="185">185</span>
 <span id="186">186</span>
-<span id="187">187</span>
-<span id="188">188</span>
-<span id="189">189</span>
-<span id="190">190</span>
-<span id="191">191</span>
-<span id="192">192</span>
-<span id="193">193</span>
-<span id="194">194</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">Decl</span>, <span class="ident">Expr</span>, <span class="ident">Ident</span>, <span class="ident">Pat</span>, <span class="ident">VarDecl</span>};
-<span class="kw">use</span> <span class="ident">swc_common</span>::{<span class="ident">Span</span>, <span class="ident">Spanned</span>};
+<span class="kw">use</span> <span class="ident">swc_common</span>::<span class="ident">Span</span>;
 <span class="kw">use</span> <span class="ident">swc_macros</span>::<span class="ident">ast_node</span>;
 
-<span class="attribute">#[<span class="ident">ast_node</span>]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Stmt</span> {
-    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
-
-    <span class="kw">pub</span> <span class="ident">node</span>: <span class="ident">StmtKind</span>,
-}
-
-<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Stmt</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">t</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
-        <span class="ident">Stmt</span> {
-            <span class="ident">span</span>: <span class="ident">t</span>.<span class="ident">span</span>,
-            <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">Expr</span>(<span class="ident">t</span>),
-        }
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Decl</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Stmt</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">decl</span>: <span class="ident">Decl</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
-        <span class="ident">Stmt</span> {
-            <span class="ident">span</span>: <span class="ident">decl</span>.<span class="ident">span</span>(),
-            <span class="ident">node</span>: <span class="ident">StmtKind</span>::<span class="ident">Decl</span>(<span class="ident">decl</span>),
-        }
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">Spanned</span><span class="op">&lt;</span><span class="ident">StmtKind</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Stmt</span> {
-    <span class="kw">fn</span> <span class="ident">from_unspanned</span>(<span class="ident">node</span>: <span class="ident">StmtKind</span>, <span class="ident">span</span>: <span class="ident">Span</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
-        <span class="ident">Stmt</span> { <span class="ident">span</span>, <span class="ident">node</span> }
-    }
-}
-
 <span class="doccomment">/// Use when only block statements are allowed.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">AstNode</span>, <span class="ident">Fold</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>, <span class="ident">PartialEq</span>, <span class="ident">Default</span>)]</span>
+<span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BlockStmt</span> {
-    <span class="doccomment">/// Span of brace.</span>
+    <span class="doccomment">/// Span including the braces.</span>
     <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
 
     <span class="kw">pub</span> <span class="ident">stmts</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
 }
 
-<span class="kw">impl</span> <span class="ident">Spanned</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">BlockStmt</span> {
-    <span class="kw">fn</span> <span class="ident">from_unspanned</span>(<span class="ident">stmts</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>, <span class="ident">span</span>: <span class="ident">Span</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
-        <span class="ident">BlockStmt</span> { <span class="ident">span</span>, <span class="ident">stmts</span> }
-    }
-}
-
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
-<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">StmtKind</span> {
+<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">Stmt</span> {
     <span class="ident">Expr</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>),
 
     <span class="ident">Block</span>(<span class="ident">BlockStmt</span>),
 
-    <span class="ident">Empty</span>,
+    <span class="ident">Empty</span>(<span class="ident">EmptyStmt</span>),
 
-    <span class="ident">Debugger</span>,
+    <span class="ident">Debugger</span>(<span class="ident">DebuggerStmt</span>),
 
     <span class="ident">With</span>(<span class="ident">WithStmt</span>),
 
@@ -342,62 +241,87 @@
 }
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">EmptyStmt</span> {
+    <span class="doccomment">/// Span of semicolon.</span>
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
+}
+
+<span class="attribute">#[<span class="ident">ast_node</span>]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">DebuggerStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
+}
+
+<span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">WithStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">obj</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">body</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
 }
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ReturnStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">arg</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 }
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LabeledStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">label</span>: <span class="ident">Ident</span>,
     <span class="kw">pub</span> <span class="ident">body</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BreakStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">label</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Ident</span><span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ContinueStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">label</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Ident</span><span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">IfStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">test</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">cons</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">alt</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SwitchStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">discriminant</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">cases</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">SwitchCase</span><span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ThrowStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">arg</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">TryStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">block</span>: <span class="ident">BlockStmt</span>,
     <span class="kw">pub</span> <span class="ident">handler</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CatchClause</span><span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">finalizer</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">BlockStmt</span><span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">WhileStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">test</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">body</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">DoWhileStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">test</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">body</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ForStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">init</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">VarDeclOrExpr</span><span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">test</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">update</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
@@ -405,12 +329,14 @@
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ForInStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">left</span>: <span class="ident">VarDeclOrPat</span>,
     <span class="kw">pub</span> <span class="ident">right</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">body</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
 }
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ForOfStmt</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">left</span>: <span class="ident">VarDeclOrPat</span>,
     <span class="kw">pub</span> <span class="ident">right</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">body</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Stmt</span><span class="op">&gt;</span>,
@@ -418,7 +344,7 @@
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SwitchCase</span> {
-    <span class="comment">// pub span: Span,</span>
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="doccomment">/// None for `default:`</span>
     <span class="kw">pub</span> <span class="ident">test</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 
@@ -427,6 +353,7 @@
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">CatchClause</span> {
+    <span class="kw">pub</span> <span class="ident">span</span>: <span class="ident">Span</span>,
     <span class="kw">pub</span> <span class="ident">param</span>: <span class="ident">Pat</span>,
 
     <span class="kw">pub</span> <span class="ident">body</span>: <span class="ident">BlockStmt</span>,
@@ -439,73 +366,10 @@
 }
 
 <span class="attribute">#[<span class="ident">ast_node</span>]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">variant_size_differences</span>)]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">VarDeclOrExpr</span> {
     <span class="ident">VarDecl</span>(<span class="ident">VarDecl</span>),
     <span class="ident">Expr</span>(<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>),
 }
 </pre>
-</section>
-    <section id='search' class="content hidden"></section>
-
-    <section class="footer"></section>
-
-    <aside id="help" class="hidden">
-        <div>
-            <h1 class="hidden">Help</h1>
-
-            <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
-
-                <dl>
-                    <dt><kbd>?</kbd></dt>
-                    <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
-                    <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
-                    <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
-                    <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
-                    <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
-                    <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
-                </dl>
-            </div>
-
-            <div class="infos">
-                <h2>Search Tricks</h2>
-
-                <p>
-                    Prefix searches with a type followed by a colon (e.g.
-                    <code>fn:</code>) to restrict the search to a given type.
-                </p>
-
-                <p>
-                    Accepted types are: <code>fn</code>, <code>mod</code>,
-                    <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
-                </p>
-
-                <p>
-                    Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
-                </p>
-            </div>
-        </div>
-    </aside>
-
-    
-
-    <script>
-        window.rootPath = "../../";
-        window.currentCrate = "swc_ecma_ast";
-    </script>
-    <script src="../../main.js"></script>
-    <script defer src="../../search-index.js"></script>
-</body>
-</html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../";window.currentCrate = "swc_ecma_ast";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>
