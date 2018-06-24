@@ -1,5 +1,5 @@
 (function() {var implementors = {};
-implementors["darling_core"] = [];
+implementors["num_integer"] = [];
 
             if (window.register_implementors) {
                 window.register_implementors(implementors);

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/rustc-rayon-core-0.1.0/src/sleep/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css"><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script src="../../../storage.js"></script></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/rustc-rayon-core-0.1.1/src/sleep/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css"><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script src="../../../storage.js"></script></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -265,19 +265,103 @@
 <span id="265">265</span>
 <span id="266">266</span>
 <span id="267">267</span>
+<span id="268">268</span>
+<span id="269">269</span>
+<span id="270">270</span>
+<span id="271">271</span>
+<span id="272">272</span>
+<span id="273">273</span>
+<span id="274">274</span>
+<span id="275">275</span>
+<span id="276">276</span>
+<span id="277">277</span>
+<span id="278">278</span>
+<span id="279">279</span>
+<span id="280">280</span>
+<span id="281">281</span>
+<span id="282">282</span>
+<span id="283">283</span>
+<span id="284">284</span>
+<span id="285">285</span>
+<span id="286">286</span>
+<span id="287">287</span>
+<span id="288">288</span>
+<span id="289">289</span>
+<span id="290">290</span>
+<span id="291">291</span>
+<span id="292">292</span>
+<span id="293">293</span>
+<span id="294">294</span>
+<span id="295">295</span>
+<span id="296">296</span>
+<span id="297">297</span>
+<span id="298">298</span>
+<span id="299">299</span>
+<span id="300">300</span>
+<span id="301">301</span>
+<span id="302">302</span>
+<span id="303">303</span>
+<span id="304">304</span>
+<span id="305">305</span>
+<span id="306">306</span>
+<span id="307">307</span>
+<span id="308">308</span>
+<span id="309">309</span>
+<span id="310">310</span>
+<span id="311">311</span>
+<span id="312">312</span>
+<span id="313">313</span>
+<span id="314">314</span>
+<span id="315">315</span>
+<span id="316">316</span>
+<span id="317">317</span>
+<span id="318">318</span>
+<span id="319">319</span>
+<span id="320">320</span>
+<span id="321">321</span>
+<span id="322">322</span>
+<span id="323">323</span>
+<span id="324">324</span>
+<span id="325">325</span>
+<span id="326">326</span>
+<span id="327">327</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Code that decides when workers should go to sleep. See README.md</span>
 <span class="doccomment">//! for an overview.</span>
 
+<span class="kw">use</span> <span class="ident">DeadlockHandler</span>;
 <span class="kw">use</span> <span class="ident">log</span>::<span class="ident">Event</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">sync</span>::<span class="ident">atomic</span>::{<span class="ident">AtomicUsize</span>, <span class="ident">Ordering</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">sync</span>::{<span class="ident">Condvar</span>, <span class="ident">Mutex</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">thread</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">usize</span>;
 
+<span class="kw">struct</span> <span class="ident">SleepData</span> {
+    <span class="doccomment">/// The number of threads in the thread pool.</span>
+    <span class="ident">worker_count</span>: <span class="ident">usize</span>,
+
+    <span class="doccomment">/// The number of threads in the thread pool which are running and</span>
+    <span class="doccomment">/// aren&#39;t blocked in user code or sleeping.</span>
+    <span class="ident">active_threads</span>: <span class="ident">usize</span>,
+
+    <span class="doccomment">/// The number of threads which are blocked in user code.</span>
+    <span class="doccomment">/// This doesn&#39;t include threads blocked by this module.</span>
+    <span class="ident">blocked_threads</span>: <span class="ident">usize</span>,
+}
+
+<span class="kw">impl</span> <span class="ident">SleepData</span> {
+    <span class="doccomment">/// Checks if the conditions for a deadlock holds and if so calls the deadlock handler</span>
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">deadlock_check</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">deadlock_handler</span>: <span class="kw-2">&amp;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">DeadlockHandler</span><span class="op">&gt;&gt;</span>) {
+        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">active_threads</span> <span class="op">==</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">blocked_threads</span> <span class="op">&gt;</span> <span class="number">0</span> {
+            (<span class="ident">deadlock_handler</span>.<span class="ident">as_ref</span>().<span class="ident">unwrap</span>())();
+        }
+    }
+}
+
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Sleep</span> {
     <span class="ident">state</span>: <span class="ident">AtomicUsize</span>,
-    <span class="ident">data</span>: <span class="ident">Mutex</span><span class="op">&lt;</span>()<span class="op">&gt;</span>,
+    <span class="ident">data</span>: <span class="ident">Mutex</span><span class="op">&lt;</span><span class="ident">SleepData</span><span class="op">&gt;</span>,
     <span class="ident">tickle</span>: <span class="ident">Condvar</span>,
 }
 
@@ -288,12 +372,40 @@
 <span class="kw">const</span> <span class="ident">ROUNDS_UNTIL_ASLEEP</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">64</span>;
 
 <span class="kw">impl</span> <span class="ident">Sleep</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-&gt;</span> <span class="ident">Sleep</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">worker_count</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="ident">Sleep</span> {
         <span class="ident">Sleep</span> {
             <span class="ident">state</span>: <span class="ident">AtomicUsize</span>::<span class="ident">new</span>(<span class="ident">AWAKE</span>),
-            <span class="ident">data</span>: <span class="ident">Mutex</span>::<span class="ident">new</span>(()),
+            <span class="ident">data</span>: <span class="ident">Mutex</span>::<span class="ident">new</span>(<span class="ident">SleepData</span> {
+                <span class="ident">worker_count</span>,
+                <span class="ident">active_threads</span>: <span class="ident">worker_count</span>,
+                <span class="ident">blocked_threads</span>: <span class="number">0</span>,
+            }),
             <span class="ident">tickle</span>: <span class="ident">Condvar</span>::<span class="ident">new</span>(),
         }
+    }
+
+    <span class="doccomment">/// Mark a Rayon worker thread as blocked. This triggers the deadlock handler</span>
+    <span class="doccomment">/// if no other worker thread is active</span>
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">mark_blocked</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">deadlock_handler</span>: <span class="kw-2">&amp;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">DeadlockHandler</span><span class="op">&gt;&gt;</span>) {
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">data</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
+        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">data</span>.<span class="ident">active_threads</span> <span class="op">&gt;</span> <span class="number">0</span>);
+        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">data</span>.<span class="ident">blocked_threads</span> <span class="op">&lt;</span> <span class="ident">data</span>.<span class="ident">worker_count</span>);
+        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">data</span>.<span class="ident">active_threads</span> <span class="op">&gt;</span> <span class="number">0</span>);
+        <span class="ident">data</span>.<span class="ident">active_threads</span> <span class="op">-=</span> <span class="number">1</span>;
+        <span class="ident">data</span>.<span class="ident">blocked_threads</span> <span class="op">+=</span> <span class="number">1</span>;
+
+        <span class="ident">data</span>.<span class="ident">deadlock_check</span>(<span class="ident">deadlock_handler</span>);
+    }
+
+    <span class="doccomment">/// Mark a previously blocked Rayon worker thread as unblocked</span>
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">mark_unblocked</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">data</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
+        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">data</span>.<span class="ident">active_threads</span> <span class="op">&lt;</span> <span class="ident">data</span>.<span class="ident">worker_count</span>);
+        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">data</span>.<span class="ident">blocked_threads</span> <span class="op">&gt;</span> <span class="number">0</span>);
+        <span class="ident">data</span>.<span class="ident">active_threads</span> <span class="op">+=</span> <span class="number">1</span>;
+        <span class="ident">data</span>.<span class="ident">blocked_threads</span> <span class="op">-=</span> <span class="number">1</span>;
     }
 
     <span class="kw">fn</span> <span class="ident">anyone_sleeping</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">state</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
@@ -329,7 +441,7 @@
     }
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">no_work_found</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">worker_index</span>: <span class="ident">usize</span>, <span class="ident">yields</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="ident">usize</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">no_work_found</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">worker_index</span>: <span class="ident">usize</span>, <span class="ident">yields</span>: <span class="ident">usize</span>, <span class="ident">deadlock_handler</span>: <span class="kw-2">&amp;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">DeadlockHandler</span><span class="op">&gt;&gt;</span>) <span class="op">-&gt;</span> <span class="ident">usize</span> {
         <span class="macro">log</span><span class="macro">!</span>(<span class="ident">DidNotFindWork</span> {
             <span class="ident">worker</span>: <span class="ident">worker_index</span>,
             <span class="ident">yields</span>: <span class="ident">yields</span>,
@@ -354,7 +466,7 @@
             }
         } <span class="kw">else</span> {
             <span class="macro">debug_assert_eq</span><span class="macro">!</span>(<span class="ident">yields</span>, <span class="ident">ROUNDS_UNTIL_ASLEEP</span>);
-            <span class="self">self</span>.<span class="ident">sleep</span>(<span class="ident">worker_index</span>);
+            <span class="self">self</span>.<span class="ident">sleep</span>(<span class="ident">worker_index</span>, <span class="ident">deadlock_handler</span>);
             <span class="number">0</span>
         }
     }
@@ -388,7 +500,10 @@
             <span class="ident">old_state</span>: <span class="ident">old_state</span>,
         });
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">anyone_sleeping</span>(<span class="ident">old_state</span>) {
-            <span class="kw">let</span> <span class="ident">_data</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">data</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
+            <span class="comment">// Set the active threads to the number of workers,</span>
+            <span class="comment">// excluding threads blocked by the user since we won&#39;t wake those up</span>
+            <span class="ident">data</span>.<span class="ident">active_threads</span> <span class="op">=</span> <span class="ident">data</span>.<span class="ident">worker_count</span> <span class="op">-</span> <span class="ident">data</span>.<span class="ident">blocked_threads</span>;
             <span class="self">self</span>.<span class="ident">tickle</span>.<span class="ident">notify_all</span>();
         }
     }
@@ -450,7 +565,7 @@
         <span class="self">self</span>.<span class="ident">worker_is_sleepy</span>(<span class="ident">state</span>, <span class="ident">worker_index</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">sleep</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">worker_index</span>: <span class="ident">usize</span>) {
+    <span class="kw">fn</span> <span class="ident">sleep</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">worker_index</span>: <span class="ident">usize</span>, <span class="ident">deadlock_handler</span>: <span class="kw-2">&amp;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">DeadlockHandler</span><span class="op">&gt;&gt;</span>) {
         <span class="kw">loop</span> {
             <span class="comment">// Acquire here suffices. If we observe that the current worker is still</span>
             <span class="comment">// sleepy, then in fact we know that no writes have occurred, and anyhow</span>
@@ -497,7 +612,7 @@
                 <span class="comment">// reason for the `compare_exchange` to fail is if an</span>
                 <span class="comment">// awaken comes, in which case the next cycle around</span>
                 <span class="comment">// the loop will just return.</span>
-                <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
+                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">data</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
 
                 <span class="comment">// This must be SeqCst on success because we want to</span>
                 <span class="comment">// ensure:</span>
@@ -522,6 +637,11 @@
                     <span class="comment">// problem for us, we&#39;ll just loop around and maybe get</span>
                     <span class="comment">// sleepy again.</span>
                     <span class="macro">log</span><span class="macro">!</span>(<span class="ident">FellAsleep</span> { <span class="ident">worker</span>: <span class="ident">worker_index</span> });
+
+                    <span class="comment">// Decrement the number of active threads and check for a deadlock</span>
+                    <span class="ident">data</span>.<span class="ident">active_threads</span> <span class="op">-=</span> <span class="number">1</span>;
+                    <span class="ident">data</span>.<span class="ident">deadlock_check</span>(<span class="ident">deadlock_handler</span>);
+
                     <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">tickle</span>.<span class="ident">wait</span>(<span class="ident">data</span>).<span class="ident">unwrap</span>();
                     <span class="macro">log</span><span class="macro">!</span>(<span class="ident">GotAwoken</span> { <span class="ident">worker</span>: <span class="ident">worker_index</span> });
                     <span class="kw">return</span>;
